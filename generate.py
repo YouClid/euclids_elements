@@ -1,32 +1,35 @@
-import os
-from subprocess import call
+from subprocess import call, Popen, PIPE
 
 
-def process_file(directory, f):
+def process_file(f):
     # Error handling
-    if len(f) < 3:
-        return
     if f[-3:] == '.yc':
-        print("Processing: " + directory + "/" + f)
+        print("Processing: " + f)
         call(["youclid",
               # Input file
-              directory + "/" + f,
+              f,
               # Output flag
               "--output",
               # Output director, created from the current file path (without
               # the markup directory, and without the yc extension
-              "./html/" + "/".join(directory.split("/")[1:]) + "/" + f[:-3],
+              "./html/" + "/".join(f.split("/")[1:])[:-3],
               # --final flag
               "--final"])
 
 
-def process_folder(path):
-    for current_dir, directories, files in os.walk(path):
-        for f in files:
-            process_file(current_dir, f)
-        for d in directories:
-            process_folder(d)
+def get_changed():
+    """Get all of the files that have changed
+    Equivilent to the following command:
+    git status *.yc | grep ".yc" | awk '{print $1}'
+    """
+    git = Popen(("git", "status", "*.yc"), stdout=PIPE)
+    grep = Popen(("grep", ".yc"), stdin=git.stdout, stdout=PIPE)
+    awk = Popen(("awk", "{print $1}"), stdin=grep.stdout, stdout=PIPE)
+    files = awk.communicate()[0].decode("UTF-8").split("\n")
+    return files
 
 
 if __name__ == "__main__":
-    process_folder("markup")
+    for f in get_changed():
+        if f:
+            process_file(f)
