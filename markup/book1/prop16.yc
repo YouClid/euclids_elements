@@ -15,7 +15,7 @@ Since [line AE] equals [line EC], and [line BE] equals [line EF], therefore the 
 [step][clear]
 But the [angle ECD] is greater than the [angle ECF], therefore the [angle ACD] is greater than the [angle BAE].
 
-Similarly, if [line BC] is bisected, then the [angle BCG big], that is, the [angle ACD], can also be proved to be greater than the [angle ABC].
+Similarly, if [line BC] is bisected, then the [angle BCG], that is, the [angle ACD], can also be proved to be greater than the [angle ABC].
 
 Therefore in any triangle, if one of the sides is produced, then the exterior angle is greater than either of the interior and opposite angles.
 
