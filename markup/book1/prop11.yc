@@ -1,0 +1,24 @@
+<center><b>Proposition 11</b></center>
+<center>To draw a straight line at right angles to a given straight line from a given point on it.</center>
+
+
+Let [line AB] be the given straight line, and [point C text="C" intersect="AB"] the given point on it.
+
+It is required to draw a straight line at right angles to the straight [line AB] from the [point C].
+
+Take an arbitrary [point D] on [line AC text="AC"]. Make [line CE] equal to [line CD]. Construct the equilateral [polygon FDE text="triangle FDE"] on [line DE text="DE"], and join [line CF].
+
+I say that the straight line CF has been drawn at right angles to the given straight line AB from C the given point on it.
+
+Since CD equals CE, and CF is common, therefore the two sides CD and CF equal the two sides CE and CF respectively, and the base DF equals the base EF. Therefore the angle DCF equals the angle ECF, and they are adjacent angles.
+
+But, when a straight line standing on a straight line makes the adjacent angles equal to one another, each of the equal angles is right, therefore each of the angles DCF and FCE is right.
+
+Therefore the straight line CF has been drawn at right angles to the given straight line AB from the given point C on it.
+
+[loc A x=-.5 y=0]
+[loc B x=.5 y=0]
+[loc C x=0 y=0]
+[loc D x=-.25 y=0]
+[loc E x=.25 y=0]
+[loc F x=0 y=.433]
