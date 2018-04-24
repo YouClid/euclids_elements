@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Proposition 16</b></center>\n<center>In any triangle, if one of the sides is produced, then the exterior angle is greater than either of the interior and opposite angles.</center>\n\nLet  <span name=text_polygon_polygon_ABC class='GeoElement'>ABC</span> be a triangle, and let one side of it  <span name=text_line_line_BC class='GeoElement'>BC</span> be produced to  <span name=text_point_point_D class='GeoElement'>D</span>.\n</div><div id='step_1'>\nI say that the exterior  <span name=text_angle_angle_ACD class='GeoElement'>angle ACD</span> is greater than either of the interior and opposite angles  <span name=text_angle_angle_CBA class='GeoElement'>CBA</span> and  <span name=text_angle_angle_BAC class='GeoElement'>BAC</span>.\n</div><div id='step_2'>\nBisect  <span name=text_line_line_AC class='GeoElement'>line AC</span> at  <span name=text_point_point_E class='GeoElement'>point E</span>. Join  <span name=text_line_line_BE class='GeoElement'>line BE</span>, and \nproduce it in a straight line to  <span name=text_point_point_F class='GeoElement'>F</span>.\n\nMake  <span name=text_line_line_EF class='GeoElement'>line EF</span> equal to  <span name=text_line_line_BE class='GeoElement'>line BE</span>, join  <span name=text_line_line_FC class='GeoElement'>line FC</span>, \nand draw  <span name=text_line_line_AC class='GeoElement'>line AC</span> through to  <span name=text_point_point_G class='GeoElement'>G</span>.\n</div><div id='step_3'>\nSince  <span name=text_line_line_AE class='GeoElement'>line AE</span> equals  <span name=text_line_line_EC class='GeoElement'>line EC</span>, and  <span name=text_line_line_BE class='GeoElement'>line BE</span> equals  <span name=text_line_line_EF class='GeoElement'>line EF</span>, therefore the two sides  <span name=text_line_line_AE class='GeoElement'>line AE</span> and  <span name=text_line_line_EB class='GeoElement'>line EB</span> equal the two sides  <span name=text_line_line_CE class='GeoElement'>line CE</span> and  <span name=text_line_line_EF class='GeoElement'>line EF</span> respectively, and the  <span name=text_angle_angle_AEB class='GeoElement'>angle AEB</span> equals the  <span name=text_angle_angle_FEC class='GeoElement'>angle FEC</span>, for they are vertical angles. Therefore the base  <span name=text_line_line_AB class='GeoElement'>AB</span> equals the base  <span name=text_line_line_FC class='GeoElement'>FC</span>, the  <span name=text_polygon_polygon_ABE class='GeoElement'>triangle ABE</span> equals the  <span name=text_polygon_polygon_CFE class='GeoElement'>triangle CFE</span>, and the remaining angles equal the remaining angles respectively, namely those opposite the equal sides. Therefore the  <span name=text_angle_angle_BAE class='GeoElement'>angle BAE</span> equals the  <span name=text_angle_angle_ECF class='GeoElement'>angle ECF</span>.\n</div><div id='step_4'>\nBut the  <span name=text_angle_angle_ECD class='GeoElement'>angle ECD</span> is greater than the  <span name=text_angle_angle_ECF class='GeoElement'>angle ECF</span>, therefore the  <span name=text_angle_angle_ACD class='GeoElement'>angle ACD</span> is greater than the  <span name=text_angle_angle_BAE class='GeoElement'>angle BAE</span>.\n\nSimilarly, if  <span name=text_line_line_BC class='GeoElement'>line BC</span> is bisected, then the  <span name=text_angle_angle_BCG class='GeoElement'>angle BCG</span>, that is, the  <span name=text_angle_angle_ACD class='GeoElement'>angle ACD</span>, can also be proved to be greater than the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span>.\n\nTherefore in any triangle, if one of the sides is produced, then the exterior angle is greater than either of the interior and opposite angles.\n </div>",
+    "geometry": {
+        "polygon_ABC": {
+            "type": "Polygon",
+            "id": "polygon_ABC",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ]
+            },
+            "label": "ABC"
+        },
+        "polygon_ABE": {
+            "type": "Polygon",
+            "id": "polygon_ABE",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_E"
+                ]
+            },
+            "label": "ABE"
+        },
+        "polygon_CFE": {
+            "type": "Polygon",
+            "id": "polygon_CFE",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_F",
+                    "point_E"
+                ]
+            },
+            "label": "CFE"
+        },
+        "line_BC": {
+            "type": "Line",
+            "id": "line_BC",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_C"
+            },
+            "label": "BC"
+        },
+        "line_AC": {
+            "type": "Line",
+            "id": "line_AC",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_C"
+            },
+            "label": "AC"
+        },
+        "line_BE": {
+            "type": "Line",
+            "id": "line_BE",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_E"
+            },
+            "label": "BE"
+        },
+        "line_EF": {
+            "type": "Line",
+            "id": "line_EF",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_F"
+            },
+            "label": "EF"
+        },
+        "line_FC": {
+            "type": "Line",
+            "id": "line_FC",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "p1": "point_F",
+                "p2": "point_C"
+            },
+            "label": "FC"
+        },
+        "line_AE": {
+            "type": "Line",
+            "id": "line_AE",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_E"
+            },
+            "label": "AE"
+        },
+        "line_EC": {
+            "type": "Line",
+            "id": "line_EC",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_C"
+            },
+            "label": "EC"
+        },
+        "line_EB": {
+            "type": "Line",
+            "id": "line_EB",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_B"
+            },
+            "label": "EB"
+        },
+        "line_CE": {
+            "type": "Line",
+            "id": "line_CE",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_E"
+            },
+            "label": "CE"
+        },
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "x": -0.75,
+                "y": 0.0
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "x": -0.25,
+                "y": 0.0
+            },
+            "label": "C"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "x": 0.5,
+                "y": 0.0
+            },
+            "label": "D"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "x": -0.25,
+                "y": 0.66
+            },
+            "label": "A"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "x": -0.25,
+                "y": 0.33
+            },
+            "label": "E"
+        },
+        "point_F": {
+            "type": "Point",
+            "id": "point_F",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "x": 0.25,
+                "y": 0.66
+            },
+            "label": "F"
+        },
+        "point_G": {
+            "type": "Point",
+            "id": "point_G",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.25,
+                "y": -0.33
+            },
+            "label": "G"
+        },
+        "angle_ACD": {
+            "type": "Angle",
+            "id": "angle_ACD",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_C",
+                    "point_D"
+                ],
+                "degree": 90.0
+            },
+            "label": "ACD"
+        },
+        "angle_CBA": {
+            "type": "Angle",
+            "id": "angle_CBA",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ],
+                "degree": 52.85331330197822
+            },
+            "label": "CBA"
+        },
+        "angle_BAC": {
+            "type": "Angle",
+            "id": "angle_BAC",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_A",
+                    "point_B"
+                ],
+                "degree": 37.14668669802179
+            },
+            "label": "BAC"
+        },
+        "angle_AEB": {
+            "type": "Angle",
+            "id": "angle_AEB",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_E",
+                    "point_B"
+                ],
+                "degree": 236.5751888173962
+            },
+            "label": "AEB"
+        },
+        "angle_FEC": {
+            "type": "Angle",
+            "id": "angle_FEC",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_F",
+                    "point_E",
+                    "point_C"
+                ],
+                "degree": 123.4248111826038
+            },
+            "label": "FEC"
+        },
+        "angle_BAE": {
+            "type": "Angle",
+            "id": "angle_BAE",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_A",
+                    "point_B"
+                ],
+                "degree": 37.14668669802179
+            },
+            "label": "BAE"
+        },
+        "angle_ECF": {
+            "type": "Angle",
+            "id": "angle_ECF",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_C",
+                    "point_F"
+                ],
+                "degree": 37.14668669802178
+            },
+            "label": "ECF"
+        },
+        "angle_ECD": {
+            "type": "Angle",
+            "id": "angle_ECD",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_C",
+                    "point_D"
+                ],
+                "degree": 90.0
+            },
+            "label": "ECD"
+        },
+        "angle_BCG": {
+            "type": "Angle",
+            "id": "angle_BCG",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_G",
+                    "point_C",
+                    "point_B"
+                ],
+                "degree": 90.0
+            },
+            "label": "BCG"
+        },
+        "angle_ABC": {
+            "type": "Angle",
+            "id": "angle_ABC",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ],
+                "degree": 52.85331330197822
+            },
+            "label": "ABC"
+        }
+    },
+    "animations": [
+        [
+            "line_BC",
+            "point_B",
+            "polygon_ABC",
+            "point_C",
+            "point_A",
+            "point_D"
+        ],
+        [
+            "line_BC",
+            "point_B",
+            "angle_ACD",
+            "polygon_ABC",
+            "angle_BAC",
+            "point_C",
+            "angle_CBA",
+            "point_A",
+            "point_D"
+        ],
+        [
+            "line_BC",
+            "line_AC",
+            "point_B",
+            "point_G",
+            "angle_ACD",
+            "line_FC",
+            "point_F",
+            "polygon_ABC",
+            "angle_BAC",
+            "point_C",
+            "angle_CBA",
+            "line_BE",
+            "point_A",
+            "line_EF",
+            "point_E",
+            "point_D"
+        ],
+        [
+            "line_EC",
+            "angle_ACD",
+            "line_FC",
+            "line_AE",
+            "point_E",
+            "point_D",
+            "angle_BAE",
+            "line_BC",
+            "line_AC",
+            "point_B",
+            "line_AB",
+            "polygon_ABC",
+            "line_EF",
+            "angle_ECF",
+            "polygon_ABE",
+            "angle_FEC",
+            "polygon_CFE",
+            "point_F",
+            "line_CE",
+            "point_C",
+            "line_BE",
+            "point_G",
+            "angle_AEB",
+            "line_EB",
+            "angle_BAC",
+            "angle_CBA",
+            "point_A"
+        ],
+        [
+            "line_BC",
+            "point_B",
+            "angle_ABC",
+            "point_G",
+            "angle_ACD",
+            "point_F",
+            "point_A",
+            "angle_BCG",
+            "angle_ECF",
+            "point_C",
+            "angle_ECD",
+            "point_E",
+            "point_D",
+            "angle_BAE"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Proposition 16</b></center><br>
+        <center>In any triangle, if one of the sides is produced, then the exterior angle is greater than either of the interior and opposite angles.</center><br>
+        <br>
+        Let  <span name=text_polygon_polygon_ABC class='GeoElement'>ABC</span> be a triangle, and let one side of it  <span name=text_line_line_BC class='GeoElement'>BC</span> be produced to  <span name=text_point_point_D class='GeoElement'>D</span>.<br>
+        </div><div id='step_1'><br>
+        I say that the exterior  <span name=text_angle_angle_ACD class='GeoElement'>angle ACD</span> is greater than either of the interior and opposite angles  <span name=text_angle_angle_CBA class='GeoElement'>CBA</span> and  <span name=text_angle_angle_BAC class='GeoElement'>BAC</span>.<br>
+        </div><div id='step_2'><br>
+        Bisect  <span name=text_line_line_AC class='GeoElement'>line AC</span> at  <span name=text_point_point_E class='GeoElement'>point E</span>. Join  <span name=text_line_line_BE class='GeoElement'>line BE</span>, and <br>
+        produce it in a straight line to  <span name=text_point_point_F class='GeoElement'>F</span>.<br>
+        <br>
+        Make  <span name=text_line_line_EF class='GeoElement'>line EF</span> equal to  <span name=text_line_line_BE class='GeoElement'>line BE</span>, join  <span name=text_line_line_FC class='GeoElement'>line FC</span>, <br>
+        and draw  <span name=text_line_line_AC class='GeoElement'>line AC</span> through to  <span name=text_point_point_G class='GeoElement'>G</span>.<br>
+        </div><div id='step_3'><br>
+        Since  <span name=text_line_line_AE class='GeoElement'>line AE</span> equals  <span name=text_line_line_EC class='GeoElement'>line EC</span>, and  <span name=text_line_line_BE class='GeoElement'>line BE</span> equals  <span name=text_line_line_EF class='GeoElement'>line EF</span>, therefore the two sides  <span name=text_line_line_AE class='GeoElement'>line AE</span> and  <span name=text_line_line_EB class='GeoElement'>line EB</span> equal the two sides  <span name=text_line_line_CE class='GeoElement'>line CE</span> and  <span name=text_line_line_EF class='GeoElement'>line EF</span> respectively, and the  <span name=text_angle_angle_AEB class='GeoElement'>angle AEB</span> equals the  <span name=text_angle_angle_FEC class='GeoElement'>angle FEC</span>, for they are vertical angles. Therefore the base  <span name=text_line_line_AB class='GeoElement'>AB</span> equals the base  <span name=text_line_line_FC class='GeoElement'>FC</span>, the  <span name=text_polygon_polygon_ABE class='GeoElement'>triangle ABE</span> equals the  <span name=text_polygon_polygon_CFE class='GeoElement'>triangle CFE</span>, and the remaining angles equal the remaining angles respectively, namely those opposite the equal sides. Therefore the  <span name=text_angle_angle_BAE class='GeoElement'>angle BAE</span> equals the  <span name=text_angle_angle_ECF class='GeoElement'>angle ECF</span>.<br>
+        </div><div id='step_4'><br>
+        But the  <span name=text_angle_angle_ECD class='GeoElement'>angle ECD</span> is greater than the  <span name=text_angle_angle_ECF class='GeoElement'>angle ECF</span>, therefore the  <span name=text_angle_angle_ACD class='GeoElement'>angle ACD</span> is greater than the  <span name=text_angle_angle_BAE class='GeoElement'>angle BAE</span>.<br>
+        <br>
+        Similarly, if  <span name=text_line_line_BC class='GeoElement'>line BC</span> is bisected, then the  <span name=text_angle_angle_BCG class='GeoElement'>angle BCG</span>, that is, the  <span name=text_angle_angle_ACD class='GeoElement'>angle ACD</span>, can also be proved to be greater than the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span>.<br>
+        <br>
+        Therefore in any triangle, if one of the sides is produced, then the exterior angle is greater than either of the interior and opposite angles.<br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>
