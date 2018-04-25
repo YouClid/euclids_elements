@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Proposition 26</b></center>\n<center>If two triangles have two angles equal to two angles respectively, and one side equal to one side, namely, either the side adjoining the equal angles, or that opposite one of the equal angles, then the remaining sides equal the remaining sides and the remaining angle equals the remaining angle.</center>\n\nLet  <span name=text_polygon_polygon_ABC class='GeoElement'>ABC</span> and  <span name=text_polygon_polygon_DEF class='GeoElement'>DEF</span> be two triangles having the two angles  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> and  <span name=text_angle_angle_BCA class='GeoElement'>angle BCA</span> equal to the two angles  <span name=text_angle_angle_DEF class='GeoElement'>angle DEF</span> and  <span name=text_angle_angle_EFD class='GeoElement'>angle EFD</span> respectively, namely the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> to the  <span name=text_angle_angle_DEF class='GeoElement'>angle DEF</span>, and the  <span name=text_angle_angle_BCA class='GeoElement'>angle BCA</span> to the  <span name=text_angle_angle_EFD class='GeoElement'>angle EFD</span>, and let them also have one side equal to one side, first that adjoining the equal angles, namely  <span name=text_line_line_BC class='GeoElement'>line BC</span> equal to  <span name=text_line_line_EF class='GeoElement'>line EF</span>.\n\nI say that the remaining sides equal the remaining sides respectively, namely AB equals  <span name=text_line_line_DE class='GeoElement'>line DE</span> and  <span name=text_line_line_AC class='GeoElement'>line AC</span> equals  <span name=text_line_line_DF class='GeoElement'>line DF</span>, and the remaining angle equals the remaining angle, namely the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> equals the  <span name=text_angle_angle_EDF class='GeoElement'>angle EDF</span>.\n\nIf  <span name=text_line_line_AB class='GeoElement'>line AB</span> does not equal  <span name=text_line_line_DE class='GeoElement'>line DE</span>, then one of them is greater.\n\nLet  <span name=text_line_line_AB class='GeoElement'>line AB</span> be greater. Make  <span name=text_line_line_BG class='GeoElement'>line BG</span> equal to  <span name=text_line_line_DE class='GeoElement'>line DE</span>, and join  <span name=text_line_line_GC class='GeoElement'>line GC</span>.\n\nSince  <span name=text_line_line_BG class='GeoElement'>line BG</span> equals  <span name=text_line_line_DE class='GeoElement'>line DE</span>, and  <span name=text_line_line_BC class='GeoElement'>line BC</span> equals  <span name=text_line_line_EF class='GeoElement'>line EF</span>, the two sides  <span name=text_line_line_GB class='GeoElement'>line GB</span> and  <span name=text_line_line_BC class='GeoElement'>line BC</span> equal the two sides  <span name=text_line_line_DE class='GeoElement'>line DE</span> and  <span name=text_line_line_EF class='GeoElement'>line EF</span> respectively, and the  <span name=text_angle_angle_GBC class='GeoElement'>angle GBC</span> equals the  <span name=text_angle_angle_DEF class='GeoElement'>angle DEF</span>, therefore the base  <span name=text_line_line_GC class='GeoElement'>GC</span> equals the base  <span name=text_line_line_DF class='GeoElement'>DF</span>, the  <span name=text_polygon_polygon_GBC class='GeoElement'>triangle GBC</span> equals the  <span name=text_polygon_polygon_DEF class='GeoElement'>triangle DEF</span>, and the remaining angles equal the remaining angles, namely those opposite the equal sides. Therefore the  <span name=text_angle_angle_GCB class='GeoElement'>angle GCB</span> equals the  <span name=text_angle_angle_DFE class='GeoElement'>angle DFE</span>. But the  <span name=text_angle_angle_DFE class='GeoElement'>angle DFE</span> equals the  <span name=text_angle_angle_ACB class='GeoElement'>angle ACB</span> by hypothesis. Therefore the  <span name=text_angle_angle_BCG class='GeoElement'>angle BCG</span> equals the  <span name=text_angle_angle_BCA class='GeoElement'>angle BCA</span>, the less equals the greater, which is impossible.\n\nTherefore  <span name=text_line_line_AB class='GeoElement'>line AB</span> is not unequal to  <span name=text_line_line_DE class='GeoElement'>line DE</span>, and therefore equals it.\n\nBut  <span name=text_line_line_BC class='GeoElement'>line BC</span> also equals  <span name=text_line_line_EF class='GeoElement'>line EF</span>. Therefore the two sides  <span name=text_line_line_AB class='GeoElement'>line AB</span> and  <span name=text_line_line_BC class='GeoElement'>line BC</span> equal the two sides  <span name=text_line_line_DE class='GeoElement'>line DE</span> and  <span name=text_line_line_EF class='GeoElement'>line EF</span> respectively, and the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> equals the  <span name=text_angle_angle_DEF class='GeoElement'>angle DEF</span>. Therefore the base  <span name=text_line_line_AC class='GeoElement'>AC</span> equals the base  <span name=text_line_line_DF class='GeoElement'>DF</span>, and the remaining  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> equals the remaining  <span name=text_angle_angle_EDF class='GeoElement'>angle EDF</span>.\n</div><div id='step_1'>\nNext, let sides opposite equal angles be equal, as  <span name=text_line_line_AB class='GeoElement'>line AB</span> equals  <span name=text_line_line_DE class='GeoElement'>line DE</span>.\n\nI say again that the remaining sides equal the remaining sides, namely  <span name=text_line_line_AC class='GeoElement'>line AC</span> equals  <span name=text_line_line_DF class='GeoElement'>line DF</span> and  <span name=text_line_line_BC class='GeoElement'>line BC</span> equals  <span name=text_line_line_EF class='GeoElement'>line EF</span>, and further the remaining  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> equals the remaining  <span name=text_angle_angle_EDF class='GeoElement'>angle EDF</span>.\n\nIf  <span name=text_line_line_BC class='GeoElement'>line BC</span> is unequal to  <span name=text_line_line_EF class='GeoElement'>line EF</span>, then one of them is greater.\n\nLet  <span name=text_line_line_BC class='GeoElement'>line BC</span> be greater, if possible. Make  <span name=text_line_line_BH class='GeoElement'>line BH</span> equal to  <span name=text_line_line_EF class='GeoElement'>line EF</span>, and join  <span name=text_line_line_AH class='GeoElement'>line AH</span>.\n\nSince  <span name=text_line_line_BH class='GeoElement'>line BH</span> equals  <span name=text_line_line_EF class='GeoElement'>line EF</span>, and  <span name=text_line_line_AB class='GeoElement'>line AB</span> equals  <span name=text_line_line_DE class='GeoElement'>line DE</span>, the two sides  <span name=text_line_line_AB class='GeoElement'>line AB</span> and  <span name=text_line_line_BH class='GeoElement'>line BH</span> equal the two sides  <span name=text_line_line_DE class='GeoElement'>line DE</span> and  <span name=text_line_line_EF class='GeoElement'>line EF</span> respectively, and they contain equal angles, therefore the base  <span name=text_line_line_AH class='GeoElement'>AH</span> equals the base  <span name=text_line_line_DF class='GeoElement'>DF</span>, the  <span name=text_polygon_polygon_ABH class='GeoElement'>triangle ABH</span> equals the  <span name=text_polygon_polygon_DEF class='GeoElement'>triangle DEF</span>, and the remaining angles equal the remaining angles, namely those opposite the equal sides. Therefore the  <span name=text_angle_angle_BHA class='GeoElement'>angle BHA</span> equals the  <span name=text_angle_angle_EFD class='GeoElement'>angle EFD</span>.\n\nBut the  <span name=text_angle_angle_EFD class='GeoElement'>angle EFD</span> equals the  <span name=text_angle_angle_BCA class='GeoElement'>angle BCA</span>, therefore, in the  <span name=text_polygon_polygon_AHC class='GeoElement'>triangle AHC</span>, the exterior  <span name=text_angle_angle_BHA class='GeoElement'>angle BHA</span> equals the interior and opposite  <span name=text_angle_angle_BCA class='GeoElement'>angle BCA</span>, which is impossible.\n\nTherefore  <span name=text_line_line_BC class='GeoElement'>line BC</span> is not unequal to  <span name=text_line_line_EF class='GeoElement'>line EF</span>, and therefore equals it.\n\nBut  <span name=text_line_line_AB class='GeoElement'>line AB</span> also equals  <span name=text_line_line_DE class='GeoElement'>line DE</span>. Therefore the two sides  <span name=text_line_line_AB class='GeoElement'>line AB</span> and  <span name=text_line_line_BC class='GeoElement'>line BC</span> equal the two sides  <span name=text_line_line_DE class='GeoElement'>line DE</span> and  <span name=text_line_line_EF class='GeoElement'>line EF</span> respectively, and they contain equal angles. Therefore the base  <span name=text_line_line_AC class='GeoElement'>AC</span> equals the base  <span name=text_line_line_DF class='GeoElement'>DF</span>, the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> equals the  <span name=text_polygon_polygon_DEF class='GeoElement'>triangle DEF</span>, and the remaining  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> equals the remaining  <span name=text_angle_angle_EDF class='GeoElement'>angle EDF</span>.\n\nTherefore if two triangles have two angles equal to two angles respectively, and one side equal to one side, namely, either the side adjoining the equal angles, or that opposite one of the equal angles, then the remaining sides equal the remaining sides and the remaining angle equals the remaining angle. </div>",
+    "geometry": {
+        "polygon_ABC": {
+            "type": "Polygon",
+            "id": "polygon_ABC",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ]
+            },
+            "label": "ABC"
+        },
+        "polygon_DEF": {
+            "type": "Polygon",
+            "id": "polygon_DEF",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_E",
+                    "point_F"
+                ]
+            },
+            "label": "DEF"
+        },
+        "polygon_GBC": {
+            "type": "Polygon",
+            "id": "polygon_GBC",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_G",
+                    "point_B",
+                    "point_C"
+                ]
+            },
+            "label": "GBC"
+        },
+        "polygon_ABH": {
+            "type": "Polygon",
+            "id": "polygon_ABH",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_H"
+                ]
+            },
+            "label": "ABH"
+        },
+        "polygon_AHC": {
+            "type": "Polygon",
+            "id": "polygon_AHC",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_H",
+                    "point_C"
+                ]
+            },
+            "label": "AHC"
+        },
+        "line_BC": {
+            "type": "Line",
+            "id": "line_BC",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_C"
+            },
+            "label": "BC"
+        },
+        "line_EF": {
+            "type": "Line",
+            "id": "line_EF",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_F"
+            },
+            "label": "EF"
+        },
+        "line_DE": {
+            "type": "Line",
+            "id": "line_DE",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_E"
+            },
+            "label": "DE"
+        },
+        "line_AC": {
+            "type": "Line",
+            "id": "line_AC",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_C"
+            },
+            "label": "AC"
+        },
+        "line_DF": {
+            "type": "Line",
+            "id": "line_DF",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_F"
+            },
+            "label": "DF"
+        },
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "line_BG": {
+            "type": "Line",
+            "id": "line_BG",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_G"
+            },
+            "label": "BG"
+        },
+        "line_GC": {
+            "type": "Line",
+            "id": "line_GC",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "p1": "point_G",
+                "p2": "point_C"
+            },
+            "label": "GC"
+        },
+        "line_GB": {
+            "type": "Line",
+            "id": "line_GB",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "p1": "point_G",
+                "p2": "point_B"
+            },
+            "label": "GB"
+        },
+        "line_BH": {
+            "type": "Line",
+            "id": "line_BH",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_H"
+            },
+            "label": "BH"
+        },
+        "line_AH": {
+            "type": "Line",
+            "id": "line_AH",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_H"
+            },
+            "label": "AH"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "x": -0.4,
+                "y": 0.5
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "x": -0.65,
+                "y": 0.0
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "x": -0.15,
+                "y": 0.0
+            },
+            "label": "C"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "x": 0.4,
+                "y": 0.5
+            },
+            "label": "D"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "x": 0.15,
+                "y": 0.0
+            },
+            "label": "E"
+        },
+        "point_F": {
+            "type": "Point",
+            "id": "point_F",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "x": 0.65,
+                "y": 0.0
+            },
+            "label": "F"
+        },
+        "point_G": {
+            "type": "Point",
+            "id": "point_G",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "x": -0.5,
+                "y": 0.3
+            },
+            "label": "G"
+        },
+        "point_H": {
+            "type": "Point",
+            "id": "point_H",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "x": -0.3,
+                "y": 0.0
+            },
+            "label": "H"
+        },
+        "angle_ABC": {
+            "type": "Angle",
+            "id": "angle_ABC",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ],
+                "degree": 63.43494882292201
+            },
+            "label": "ABC"
+        },
+        "angle_BCA": {
+            "type": "Angle",
+            "id": "angle_BCA",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_C",
+                    "point_A"
+                ],
+                "degree": 63.43494882292201
+            },
+            "label": "BCA"
+        },
+        "angle_DEF": {
+            "type": "Angle",
+            "id": "angle_DEF",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_E",
+                    "point_F"
+                ],
+                "degree": 63.43494882292201
+            },
+            "label": "DEF"
+        },
+        "angle_EFD": {
+            "type": "Angle",
+            "id": "angle_EFD",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_F",
+                    "point_D"
+                ],
+                "degree": 63.43494882292201
+            },
+            "label": "EFD"
+        },
+        "angle_BAC": {
+            "type": "Angle",
+            "id": "angle_BAC",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_A",
+                    "point_B"
+                ],
+                "degree": 53.13010235415599
+            },
+            "label": "BAC"
+        },
+        "angle_EDF": {
+            "type": "Angle",
+            "id": "angle_EDF",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_F",
+                    "point_D",
+                    "point_E"
+                ],
+                "degree": 53.13010235415599
+            },
+            "label": "EDF"
+        },
+        "angle_GBC": {
+            "type": "Angle",
+            "id": "angle_GBC",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_G",
+                    "point_B",
+                    "point_C"
+                ],
+                "degree": 63.43494882292201
+            },
+            "label": "GBC"
+        },
+        "angle_GCB": {
+            "type": "Angle",
+            "id": "angle_GCB",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_C",
+                    "point_G"
+                ],
+                "degree": 40.60129464500445
+            },
+            "label": "GCB"
+        },
+        "angle_DFE": {
+            "type": "Angle",
+            "id": "angle_DFE",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_F",
+                    "point_D"
+                ],
+                "degree": 63.43494882292201
+            },
+            "label": "DFE"
+        },
+        "angle_ACB": {
+            "type": "Angle",
+            "id": "angle_ACB",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_C",
+                    "point_A"
+                ],
+                "degree": 63.43494882292201
+            },
+            "label": "ACB"
+        },
+        "angle_BCG": {
+            "type": "Angle",
+            "id": "angle_BCG",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_C",
+                    "point_G"
+                ],
+                "degree": 40.60129464500445
+            },
+            "label": "BCG"
+        },
+        "angle_BHA": {
+            "type": "Angle",
+            "id": "angle_BHA",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_H",
+                    "point_A"
+                ],
+                "degree": 78.69006752597979
+            },
+            "label": "BHA"
+        }
+    },
+    "animations": [
+        [
+            "polygon_DEF",
+            "angle_ABC",
+            "line_DF",
+            "angle_DFE",
+            "polygon_ABC",
+            "point_A",
+            "angle_EDF",
+            "angle_BAC",
+            "polygon_GBC",
+            "angle_ACB",
+            "angle_DEF",
+            "point_D",
+            "line_BG",
+            "point_C",
+            "point_F",
+            "angle_BCA",
+            "angle_GBC",
+            "angle_GCB",
+            "line_GB",
+            "line_GC",
+            "point_G",
+            "line_DE",
+            "line_AC",
+            "angle_BCG",
+            "point_B",
+            "line_AB",
+            "line_BC",
+            "point_E",
+            "line_EF",
+            "angle_EFD"
+        ],
+        [
+            "polygon_DEF",
+            "line_DF",
+            "polygon_ABC",
+            "point_A",
+            "angle_EDF",
+            "angle_BAC",
+            "line_BH",
+            "point_D",
+            "point_C",
+            "point_F",
+            "angle_BCA",
+            "angle_BHA",
+            "polygon_ABH",
+            "line_AH",
+            "polygon_AHC",
+            "line_DE",
+            "line_AC",
+            "point_B",
+            "point_H",
+            "line_AB",
+            "line_BC",
+            "point_E",
+            "line_EF",
+            "angle_EFD"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Proposition 26</b></center><br>
+        <center>If two triangles have two angles equal to two angles respectively, and one side equal to one side, namely, either the side adjoining the equal angles, or that opposite one of the equal angles, then the remaining sides equal the remaining sides and the remaining angle equals the remaining angle.</center><br>
+        <br>
+        Let  <span name=text_polygon_polygon_ABC class='GeoElement'>ABC</span> and  <span name=text_polygon_polygon_DEF class='GeoElement'>DEF</span> be two triangles having the two angles  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> and  <span name=text_angle_angle_BCA class='GeoElement'>angle BCA</span> equal to the two angles  <span name=text_angle_angle_DEF class='GeoElement'>angle DEF</span> and  <span name=text_angle_angle_EFD class='GeoElement'>angle EFD</span> respectively, namely the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> to the  <span name=text_angle_angle_DEF class='GeoElement'>angle DEF</span>, and the  <span name=text_angle_angle_BCA class='GeoElement'>angle BCA</span> to the  <span name=text_angle_angle_EFD class='GeoElement'>angle EFD</span>, and let them also have one side equal to one side, first that adjoining the equal angles, namely  <span name=text_line_line_BC class='GeoElement'>line BC</span> equal to  <span name=text_line_line_EF class='GeoElement'>line EF</span>.<br>
+        <br>
+        I say that the remaining sides equal the remaining sides respectively, namely AB equals  <span name=text_line_line_DE class='GeoElement'>line DE</span> and  <span name=text_line_line_AC class='GeoElement'>line AC</span> equals  <span name=text_line_line_DF class='GeoElement'>line DF</span>, and the remaining angle equals the remaining angle, namely the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> equals the  <span name=text_angle_angle_EDF class='GeoElement'>angle EDF</span>.<br>
+        <br>
+        If  <span name=text_line_line_AB class='GeoElement'>line AB</span> does not equal  <span name=text_line_line_DE class='GeoElement'>line DE</span>, then one of them is greater.<br>
+        <br>
+        Let  <span name=text_line_line_AB class='GeoElement'>line AB</span> be greater. Make  <span name=text_line_line_BG class='GeoElement'>line BG</span> equal to  <span name=text_line_line_DE class='GeoElement'>line DE</span>, and join  <span name=text_line_line_GC class='GeoElement'>line GC</span>.<br>
+        <br>
+        Since  <span name=text_line_line_BG class='GeoElement'>line BG</span> equals  <span name=text_line_line_DE class='GeoElement'>line DE</span>, and  <span name=text_line_line_BC class='GeoElement'>line BC</span> equals  <span name=text_line_line_EF class='GeoElement'>line EF</span>, the two sides  <span name=text_line_line_GB class='GeoElement'>line GB</span> and  <span name=text_line_line_BC class='GeoElement'>line BC</span> equal the two sides  <span name=text_line_line_DE class='GeoElement'>line DE</span> and  <span name=text_line_line_EF class='GeoElement'>line EF</span> respectively, and the  <span name=text_angle_angle_GBC class='GeoElement'>angle GBC</span> equals the  <span name=text_angle_angle_DEF class='GeoElement'>angle DEF</span>, therefore the base  <span name=text_line_line_GC class='GeoElement'>GC</span> equals the base  <span name=text_line_line_DF class='GeoElement'>DF</span>, the  <span name=text_polygon_polygon_GBC class='GeoElement'>triangle GBC</span> equals the  <span name=text_polygon_polygon_DEF class='GeoElement'>triangle DEF</span>, and the remaining angles equal the remaining angles, namely those opposite the equal sides. Therefore the  <span name=text_angle_angle_GCB class='GeoElement'>angle GCB</span> equals the  <span name=text_angle_angle_DFE class='GeoElement'>angle DFE</span>. But the  <span name=text_angle_angle_DFE class='GeoElement'>angle DFE</span> equals the  <span name=text_angle_angle_ACB class='GeoElement'>angle ACB</span> by hypothesis. Therefore the  <span name=text_angle_angle_BCG class='GeoElement'>angle BCG</span> equals the  <span name=text_angle_angle_BCA class='GeoElement'>angle BCA</span>, the less equals the greater, which is impossible.<br>
+        <br>
+        Therefore  <span name=text_line_line_AB class='GeoElement'>line AB</span> is not unequal to  <span name=text_line_line_DE class='GeoElement'>line DE</span>, and therefore equals it.<br>
+        <br>
+        But  <span name=text_line_line_BC class='GeoElement'>line BC</span> also equals  <span name=text_line_line_EF class='GeoElement'>line EF</span>. Therefore the two sides  <span name=text_line_line_AB class='GeoElement'>line AB</span> and  <span name=text_line_line_BC class='GeoElement'>line BC</span> equal the two sides  <span name=text_line_line_DE class='GeoElement'>line DE</span> and  <span name=text_line_line_EF class='GeoElement'>line EF</span> respectively, and the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> equals the  <span name=text_angle_angle_DEF class='GeoElement'>angle DEF</span>. Therefore the base  <span name=text_line_line_AC class='GeoElement'>AC</span> equals the base  <span name=text_line_line_DF class='GeoElement'>DF</span>, and the remaining  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> equals the remaining  <span name=text_angle_angle_EDF class='GeoElement'>angle EDF</span>.<br>
+        </div><div id='step_1'><br>
+        Next, let sides opposite equal angles be equal, as  <span name=text_line_line_AB class='GeoElement'>line AB</span> equals  <span name=text_line_line_DE class='GeoElement'>line DE</span>.<br>
+        <br>
+        I say again that the remaining sides equal the remaining sides, namely  <span name=text_line_line_AC class='GeoElement'>line AC</span> equals  <span name=text_line_line_DF class='GeoElement'>line DF</span> and  <span name=text_line_line_BC class='GeoElement'>line BC</span> equals  <span name=text_line_line_EF class='GeoElement'>line EF</span>, and further the remaining  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> equals the remaining  <span name=text_angle_angle_EDF class='GeoElement'>angle EDF</span>.<br>
+        <br>
+        If  <span name=text_line_line_BC class='GeoElement'>line BC</span> is unequal to  <span name=text_line_line_EF class='GeoElement'>line EF</span>, then one of them is greater.<br>
+        <br>
+        Let  <span name=text_line_line_BC class='GeoElement'>line BC</span> be greater, if possible. Make  <span name=text_line_line_BH class='GeoElement'>line BH</span> equal to  <span name=text_line_line_EF class='GeoElement'>line EF</span>, and join  <span name=text_line_line_AH class='GeoElement'>line AH</span>.<br>
+        <br>
+        Since  <span name=text_line_line_BH class='GeoElement'>line BH</span> equals  <span name=text_line_line_EF class='GeoElement'>line EF</span>, and  <span name=text_line_line_AB class='GeoElement'>line AB</span> equals  <span name=text_line_line_DE class='GeoElement'>line DE</span>, the two sides  <span name=text_line_line_AB class='GeoElement'>line AB</span> and  <span name=text_line_line_BH class='GeoElement'>line BH</span> equal the two sides  <span name=text_line_line_DE class='GeoElement'>line DE</span> and  <span name=text_line_line_EF class='GeoElement'>line EF</span> respectively, and they contain equal angles, therefore the base  <span name=text_line_line_AH class='GeoElement'>AH</span> equals the base  <span name=text_line_line_DF class='GeoElement'>DF</span>, the  <span name=text_polygon_polygon_ABH class='GeoElement'>triangle ABH</span> equals the  <span name=text_polygon_polygon_DEF class='GeoElement'>triangle DEF</span>, and the remaining angles equal the remaining angles, namely those opposite the equal sides. Therefore the  <span name=text_angle_angle_BHA class='GeoElement'>angle BHA</span> equals the  <span name=text_angle_angle_EFD class='GeoElement'>angle EFD</span>.<br>
+        <br>
+        But the  <span name=text_angle_angle_EFD class='GeoElement'>angle EFD</span> equals the  <span name=text_angle_angle_BCA class='GeoElement'>angle BCA</span>, therefore, in the  <span name=text_polygon_polygon_AHC class='GeoElement'>triangle AHC</span>, the exterior  <span name=text_angle_angle_BHA class='GeoElement'>angle BHA</span> equals the interior and opposite  <span name=text_angle_angle_BCA class='GeoElement'>angle BCA</span>, which is impossible.<br>
+        <br>
+        Therefore  <span name=text_line_line_BC class='GeoElement'>line BC</span> is not unequal to  <span name=text_line_line_EF class='GeoElement'>line EF</span>, and therefore equals it.<br>
+        <br>
+        But  <span name=text_line_line_AB class='GeoElement'>line AB</span> also equals  <span name=text_line_line_DE class='GeoElement'>line DE</span>. Therefore the two sides  <span name=text_line_line_AB class='GeoElement'>line AB</span> and  <span name=text_line_line_BC class='GeoElement'>line BC</span> equal the two sides  <span name=text_line_line_DE class='GeoElement'>line DE</span> and  <span name=text_line_line_EF class='GeoElement'>line EF</span> respectively, and they contain equal angles. Therefore the base  <span name=text_line_line_AC class='GeoElement'>AC</span> equals the base  <span name=text_line_line_DF class='GeoElement'>DF</span>, the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> equals the  <span name=text_polygon_polygon_DEF class='GeoElement'>triangle DEF</span>, and the remaining  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> equals the remaining  <span name=text_angle_angle_EDF class='GeoElement'>angle EDF</span>.<br>
+        <br>
+        Therefore if two triangles have two angles equal to two angles respectively, and one side equal to one side, namely, either the side adjoining the equal angles, or that opposite one of the equal angles, then the remaining sides equal the remaining sides and the remaining angle equals the remaining angle. </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>
