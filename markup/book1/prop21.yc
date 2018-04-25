@@ -1,0 +1,28 @@
+<center><b>Proposition 21</b></center>
+<center>If from the ends of one of the sides of a triangle two straight lines are constructed meeting within the triangle, then the sum of the straight lines so constructed is less than the sum of the remaining two sides of the triangle, but the constructed straight lines contain a greater angle than the angle contained by the remaining two sides.</center>
+
+From the ends [point B] and [point C] of one of the sides [line BC text="BC"] of the [polygon ABC text="triangle ABC"], let the two straight lines [line BD text="BD"] and [line DC text="DC"] be constructed meeting within the triangle.
+
+I say that the sum of [line BD] and [line DC] is less than the sum of the remaining two sides of the triangle [line BA] and [line AC], but [line BD] and [line DC] contain an [angle BDC] greater than the [angle BAC].
+[step]
+Draw [line BD] through to [point E].
+[step]
+Since in any triangle the sum of two sides is greater than the remaining one, therefore, in the [polygon ABE text="triangle ABE"], the sum of the two sides [line AB text="AB"] and [line AE text="AE"] is greater than [line BE].
+[step]
+Add [line EC] to each. Then the sum of [line BA] and [line AC] is greater than the sum of [line BE] and [line EC].
+[step]
+Again, since, in the [polygon CED text="triangle CED"], the sum of the two sides [line CE] and [line ED] is greater than [line CD], add [line DB] to each, therefore the sum of [line CE] and [line EB] is greater than the sum of [line CD] and [line DB].
+[step]
+But the sum of [line BA] and [line AC] was proved greater than the sum of [line BE] and [line EC], therefore the sum of [line BA] and [line AC] is much greater than the sum of [line BD] and [line DC].
+[step]
+Again, since in any triangle the exterior angle is greater than the interior and opposite angle, therefore, in the [polygon CDE text="triangle CDE"], the exterior [angle BDC] is greater than the [angle CED].
+[step]
+For the same reason, moreover, in the [polygon ABE text="triangle ABE"] the exterior [angle CEB] is greater than the [angle BAC]. But the [angle BDC] was proved greater than the [angle CEB], therefore the [angle BDC] is much greater than the [angle BAC].
+
+Therefore if from the ends of one of the sides of a triangle two straight lines are constructed meeting within the triangle, then the sum of the straight lines so constructed is less than the sum of the remaining two sides of the triangle, but the constructed straight lines contain a greater angle than the angle contained by the remaining two sides.
+
+[loc A x=.25 y=.75]
+[loc B x=-.25 y=0]
+[loc C x=.25 y=0]
+[loc D x=.1 y=.25]
+[loc E x=.25 y=.357]

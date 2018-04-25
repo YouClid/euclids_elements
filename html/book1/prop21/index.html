@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Proposition 21</b></center>\n<center>If from the ends of one of the sides of a triangle two straight lines are constructed meeting within the triangle, then the sum of the straight lines so constructed is less than the sum of the remaining two sides of the triangle, but the constructed straight lines contain a greater angle than the angle contained by the remaining two sides.</center>\n\nFrom the ends  <span name=text_point_point_B class='GeoElement'>point B</span> and  <span name=text_point_point_C class='GeoElement'>point C</span> of one of the sides  <span name=text_line_line_BC class='GeoElement'>BC</span> of the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span>, let the two straight lines  <span name=text_line_line_BD class='GeoElement'>BD</span> and  <span name=text_line_line_DC class='GeoElement'>DC</span> be constructed meeting within the triangle.\n\nI say that the sum of  <span name=text_line_line_BD class='GeoElement'>line BD</span> and  <span name=text_line_line_DC class='GeoElement'>line DC</span> is less than the sum of the remaining two sides of the triangle  <span name=text_line_line_BA class='GeoElement'>line BA</span> and  <span name=text_line_line_AC class='GeoElement'>line AC</span>, but  <span name=text_line_line_BD class='GeoElement'>line BD</span> and  <span name=text_line_line_DC class='GeoElement'>line DC</span> contain an  <span name=text_angle_angle_BDC class='GeoElement'>angle BDC</span> greater than the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span>.\n</div><div id='step_1'>\nDraw  <span name=text_line_line_BD class='GeoElement'>line BD</span> through to  <span name=text_point_point_E class='GeoElement'>point E</span>.\n</div><div id='step_2'>\nSince in any triangle the sum of two sides is greater than the remaining one, therefore, in the  <span name=text_polygon_polygon_ABE class='GeoElement'>triangle ABE</span>, the sum of the two sides  <span name=text_line_line_AB class='GeoElement'>AB</span> and  <span name=text_line_line_AE class='GeoElement'>AE</span> is greater than  <span name=text_line_line_BE class='GeoElement'>line BE</span>.\n</div><div id='step_3'>\nAdd  <span name=text_line_line_EC class='GeoElement'>line EC</span> to each. Then the sum of  <span name=text_line_line_BA class='GeoElement'>line BA</span> and  <span name=text_line_line_AC class='GeoElement'>line AC</span> is greater than the sum of  <span name=text_line_line_BE class='GeoElement'>line BE</span> and  <span name=text_line_line_EC class='GeoElement'>line EC</span>.\n</div><div id='step_4'>\nAgain, since, in the  <span name=text_polygon_polygon_CED class='GeoElement'>triangle CED</span>, the sum of the two sides  <span name=text_line_line_CE class='GeoElement'>line CE</span> and  <span name=text_line_line_ED class='GeoElement'>line ED</span> is greater than  <span name=text_line_line_CD class='GeoElement'>line CD</span>, add  <span name=text_line_line_DB class='GeoElement'>line DB</span> to each, therefore the sum of  <span name=text_line_line_CE class='GeoElement'>line CE</span> and  <span name=text_line_line_EB class='GeoElement'>line EB</span> is greater than the sum of  <span name=text_line_line_CD class='GeoElement'>line CD</span> and  <span name=text_line_line_DB class='GeoElement'>line DB</span>.\n</div><div id='step_5'>\nBut the sum of  <span name=text_line_line_BA class='GeoElement'>line BA</span> and  <span name=text_line_line_AC class='GeoElement'>line AC</span> was proved greater than the sum of  <span name=text_line_line_BE class='GeoElement'>line BE</span> and  <span name=text_line_line_EC class='GeoElement'>line EC</span>, therefore the sum of  <span name=text_line_line_BA class='GeoElement'>line BA</span> and  <span name=text_line_line_AC class='GeoElement'>line AC</span> is much greater than the sum of  <span name=text_line_line_BD class='GeoElement'>line BD</span> and  <span name=text_line_line_DC class='GeoElement'>line DC</span>.\n</div><div id='step_6'>\nAgain, since in any triangle the exterior angle is greater than the interior and opposite angle, therefore, in the  <span name=text_polygon_polygon_CDE class='GeoElement'>triangle CDE</span>, the exterior  <span name=text_angle_angle_BDC class='GeoElement'>angle BDC</span> is greater than the  <span name=text_angle_angle_CED class='GeoElement'>angle CED</span>.\n</div><div id='step_7'>\nFor the same reason, moreover, in the  <span name=text_polygon_polygon_ABE class='GeoElement'>triangle ABE</span> the exterior  <span name=text_angle_angle_CEB class='GeoElement'>angle CEB</span> is greater than the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span>. But the  <span name=text_angle_angle_BDC class='GeoElement'>angle BDC</span> was proved greater than the  <span name=text_angle_angle_CEB class='GeoElement'>angle CEB</span>, therefore the  <span name=text_angle_angle_BDC class='GeoElement'>angle BDC</span> is much greater than the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span>.\n\nTherefore if from the ends of one of the sides of a triangle two straight lines are constructed meeting within the triangle, then the sum of the straight lines so constructed is less than the sum of the remaining two sides of the triangle, but the constructed straight lines contain a greater angle than the angle contained by the remaining two sides. </div>",
+    "geometry": {
+        "polygon_ABC": {
+            "type": "Polygon",
+            "id": "polygon_ABC",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ]
+            },
+            "label": "ABC"
+        },
+        "polygon_ABE": {
+            "type": "Polygon",
+            "id": "polygon_ABE",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_E"
+                ]
+            },
+            "label": "ABE"
+        },
+        "polygon_CED": {
+            "type": "Polygon",
+            "id": "polygon_CED",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_E",
+                    "point_D"
+                ]
+            },
+            "label": "CED"
+        },
+        "polygon_CDE": {
+            "type": "Polygon",
+            "id": "polygon_CDE",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_D",
+                    "point_E"
+                ]
+            },
+            "label": "CDE"
+        },
+        "line_BC": {
+            "type": "Line",
+            "id": "line_BC",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_C"
+            },
+            "label": "BC"
+        },
+        "line_BD": {
+            "type": "Line",
+            "id": "line_BD",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_D"
+            },
+            "label": "BD"
+        },
+        "line_DC": {
+            "type": "Line",
+            "id": "line_DC",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_C"
+            },
+            "label": "DC"
+        },
+        "line_BA": {
+            "type": "Line",
+            "id": "line_BA",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_A"
+            },
+            "label": "BA"
+        },
+        "line_AC": {
+            "type": "Line",
+            "id": "line_AC",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_C"
+            },
+            "label": "AC"
+        },
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "line_AE": {
+            "type": "Line",
+            "id": "line_AE",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_E"
+            },
+            "label": "AE"
+        },
+        "line_BE": {
+            "type": "Line",
+            "id": "line_BE",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_E"
+            },
+            "label": "BE"
+        },
+        "line_EC": {
+            "type": "Line",
+            "id": "line_EC",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_C"
+            },
+            "label": "EC"
+        },
+        "line_CE": {
+            "type": "Line",
+            "id": "line_CE",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_E"
+            },
+            "label": "CE"
+        },
+        "line_ED": {
+            "type": "Line",
+            "id": "line_ED",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_D"
+            },
+            "label": "ED"
+        },
+        "line_CD": {
+            "type": "Line",
+            "id": "line_CD",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_D"
+            },
+            "label": "CD"
+        },
+        "line_DB": {
+            "type": "Line",
+            "id": "line_DB",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_B"
+            },
+            "label": "DB"
+        },
+        "line_EB": {
+            "type": "Line",
+            "id": "line_EB",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_B"
+            },
+            "label": "EB"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "x": -0.25,
+                "y": 0.0
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "x": 0.25,
+                "y": 0.0
+            },
+            "label": "C"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "x": 0.1,
+                "y": 0.25
+            },
+            "label": "D"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "x": 0.25,
+                "y": 0.75
+            },
+            "label": "A"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "x": 0.25,
+                "y": 0.357
+            },
+            "label": "E"
+        },
+        "angle_BDC": {
+            "type": "Angle",
+            "id": "angle_BDC",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_D",
+                    "point_B"
+                ],
+                "degree": 85.42607874009914
+            },
+            "label": "BDC"
+        },
+        "angle_BAC": {
+            "type": "Angle",
+            "id": "angle_BAC",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_A",
+                    "point_B"
+                ],
+                "degree": 33.69006752597978
+            },
+            "label": "BAC"
+        },
+        "angle_CED": {
+            "type": "Angle",
+            "id": "angle_CED",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_E",
+                    "point_D"
+                ],
+                "degree": 54.498470960019844
+            },
+            "label": "CED"
+        },
+        "angle_CEB": {
+            "type": "Angle",
+            "id": "angle_CEB",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_E",
+                    "point_B"
+                ],
+                "degree": 54.47316341499428
+            },
+            "label": "CEB"
+        }
+    },
+    "animations": [
+        [
+            "line_BA",
+            "point_B",
+            "point_D",
+            "point_C",
+            "point_A",
+            "line_AC",
+            "line_BD",
+            "polygon_ABC",
+            "angle_BDC",
+            "angle_BAC",
+            "line_DC",
+            "line_BC"
+        ],
+        [
+            "line_BA",
+            "point_B",
+            "point_D",
+            "point_C",
+            "point_A",
+            "point_E",
+            "line_AC",
+            "line_BD",
+            "polygon_ABC",
+            "angle_BDC",
+            "angle_BAC",
+            "line_DC",
+            "line_BC"
+        ],
+        [
+            "line_AB",
+            "line_BA",
+            "point_B",
+            "point_D",
+            "point_C",
+            "point_A",
+            "point_E",
+            "line_AE",
+            "line_AC",
+            "line_BE",
+            "line_BD",
+            "polygon_ABC",
+            "angle_BDC",
+            "angle_BAC",
+            "polygon_ABE",
+            "line_DC",
+            "line_BC"
+        ],
+        [
+            "line_AB",
+            "line_BA",
+            "point_B",
+            "line_EC",
+            "point_D",
+            "point_C",
+            "point_A",
+            "point_E",
+            "line_AE",
+            "line_AC",
+            "line_BE",
+            "line_BD",
+            "polygon_ABC",
+            "angle_BDC",
+            "angle_BAC",
+            "polygon_ABE",
+            "line_DC",
+            "line_BC"
+        ],
+        [
+            "line_CD",
+            "polygon_ABE",
+            "polygon_CED",
+            "point_B",
+            "point_A",
+            "line_AC",
+            "line_BD",
+            "line_ED",
+            "line_CE",
+            "line_AB",
+            "point_D",
+            "point_E",
+            "line_DB",
+            "polygon_ABC",
+            "line_EB",
+            "angle_BAC",
+            "line_DC",
+            "line_BA",
+            "line_EC",
+            "point_C",
+            "line_AE",
+            "line_BE",
+            "angle_BDC",
+            "line_BC"
+        ],
+        [
+            "line_CD",
+            "polygon_ABE",
+            "polygon_CED",
+            "point_B",
+            "point_A",
+            "line_AC",
+            "line_BD",
+            "line_ED",
+            "line_CE",
+            "line_AB",
+            "point_D",
+            "point_E",
+            "line_DB",
+            "polygon_ABC",
+            "line_EB",
+            "angle_BAC",
+            "line_DC",
+            "line_BA",
+            "line_EC",
+            "point_C",
+            "line_AE",
+            "line_BE",
+            "angle_BDC",
+            "line_BC"
+        ],
+        [
+            "line_CD",
+            "polygon_ABE",
+            "polygon_CED",
+            "point_B",
+            "point_A",
+            "line_AC",
+            "polygon_CDE",
+            "line_BD",
+            "line_ED",
+            "line_CE",
+            "line_AB",
+            "point_D",
+            "point_E",
+            "line_DB",
+            "polygon_ABC",
+            "line_EB",
+            "angle_BAC",
+            "line_DC",
+            "line_BA",
+            "line_EC",
+            "point_C",
+            "angle_CED",
+            "line_AE",
+            "line_BE",
+            "angle_BDC",
+            "line_BC"
+        ],
+        [
+            "line_CD",
+            "polygon_ABE",
+            "polygon_CED",
+            "point_B",
+            "point_A",
+            "line_AC",
+            "polygon_CDE",
+            "angle_CEB",
+            "line_BD",
+            "line_ED",
+            "line_CE",
+            "line_AB",
+            "point_D",
+            "point_E",
+            "line_DB",
+            "polygon_ABC",
+            "line_EB",
+            "angle_BAC",
+            "line_DC",
+            "line_BA",
+            "line_EC",
+            "point_C",
+            "angle_CED",
+            "line_AE",
+            "line_BE",
+            "angle_BDC",
+            "line_BC"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Proposition 21</b></center><br>
+        <center>If from the ends of one of the sides of a triangle two straight lines are constructed meeting within the triangle, then the sum of the straight lines so constructed is less than the sum of the remaining two sides of the triangle, but the constructed straight lines contain a greater angle than the angle contained by the remaining two sides.</center><br>
+        <br>
+        From the ends  <span name=text_point_point_B class='GeoElement'>point B</span> and  <span name=text_point_point_C class='GeoElement'>point C</span> of one of the sides  <span name=text_line_line_BC class='GeoElement'>BC</span> of the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span>, let the two straight lines  <span name=text_line_line_BD class='GeoElement'>BD</span> and  <span name=text_line_line_DC class='GeoElement'>DC</span> be constructed meeting within the triangle.<br>
+        <br>
+        I say that the sum of  <span name=text_line_line_BD class='GeoElement'>line BD</span> and  <span name=text_line_line_DC class='GeoElement'>line DC</span> is less than the sum of the remaining two sides of the triangle  <span name=text_line_line_BA class='GeoElement'>line BA</span> and  <span name=text_line_line_AC class='GeoElement'>line AC</span>, but  <span name=text_line_line_BD class='GeoElement'>line BD</span> and  <span name=text_line_line_DC class='GeoElement'>line DC</span> contain an  <span name=text_angle_angle_BDC class='GeoElement'>angle BDC</span> greater than the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span>.<br>
+        </div><div id='step_1'><br>
+        Draw  <span name=text_line_line_BD class='GeoElement'>line BD</span> through to  <span name=text_point_point_E class='GeoElement'>point E</span>.<br>
+        </div><div id='step_2'><br>
+        Since in any triangle the sum of two sides is greater than the remaining one, therefore, in the  <span name=text_polygon_polygon_ABE class='GeoElement'>triangle ABE</span>, the sum of the two sides  <span name=text_line_line_AB class='GeoElement'>AB</span> and  <span name=text_line_line_AE class='GeoElement'>AE</span> is greater than  <span name=text_line_line_BE class='GeoElement'>line BE</span>.<br>
+        </div><div id='step_3'><br>
+        Add  <span name=text_line_line_EC class='GeoElement'>line EC</span> to each. Then the sum of  <span name=text_line_line_BA class='GeoElement'>line BA</span> and  <span name=text_line_line_AC class='GeoElement'>line AC</span> is greater than the sum of  <span name=text_line_line_BE class='GeoElement'>line BE</span> and  <span name=text_line_line_EC class='GeoElement'>line EC</span>.<br>
+        </div><div id='step_4'><br>
+        Again, since, in the  <span name=text_polygon_polygon_CED class='GeoElement'>triangle CED</span>, the sum of the two sides  <span name=text_line_line_CE class='GeoElement'>line CE</span> and  <span name=text_line_line_ED class='GeoElement'>line ED</span> is greater than  <span name=text_line_line_CD class='GeoElement'>line CD</span>, add  <span name=text_line_line_DB class='GeoElement'>line DB</span> to each, therefore the sum of  <span name=text_line_line_CE class='GeoElement'>line CE</span> and  <span name=text_line_line_EB class='GeoElement'>line EB</span> is greater than the sum of  <span name=text_line_line_CD class='GeoElement'>line CD</span> and  <span name=text_line_line_DB class='GeoElement'>line DB</span>.<br>
+        </div><div id='step_5'><br>
+        But the sum of  <span name=text_line_line_BA class='GeoElement'>line BA</span> and  <span name=text_line_line_AC class='GeoElement'>line AC</span> was proved greater than the sum of  <span name=text_line_line_BE class='GeoElement'>line BE</span> and  <span name=text_line_line_EC class='GeoElement'>line EC</span>, therefore the sum of  <span name=text_line_line_BA class='GeoElement'>line BA</span> and  <span name=text_line_line_AC class='GeoElement'>line AC</span> is much greater than the sum of  <span name=text_line_line_BD class='GeoElement'>line BD</span> and  <span name=text_line_line_DC class='GeoElement'>line DC</span>.<br>
+        </div><div id='step_6'><br>
+        Again, since in any triangle the exterior angle is greater than the interior and opposite angle, therefore, in the  <span name=text_polygon_polygon_CDE class='GeoElement'>triangle CDE</span>, the exterior  <span name=text_angle_angle_BDC class='GeoElement'>angle BDC</span> is greater than the  <span name=text_angle_angle_CED class='GeoElement'>angle CED</span>.<br>
+        </div><div id='step_7'><br>
+        For the same reason, moreover, in the  <span name=text_polygon_polygon_ABE class='GeoElement'>triangle ABE</span> the exterior  <span name=text_angle_angle_CEB class='GeoElement'>angle CEB</span> is greater than the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span>. But the  <span name=text_angle_angle_BDC class='GeoElement'>angle BDC</span> was proved greater than the  <span name=text_angle_angle_CEB class='GeoElement'>angle CEB</span>, therefore the  <span name=text_angle_angle_BDC class='GeoElement'>angle BDC</span> is much greater than the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span>.<br>
+        <br>
+        Therefore if from the ends of one of the sides of a triangle two straight lines are constructed meeting within the triangle, then the sum of the straight lines so constructed is less than the sum of the remaining two sides of the triangle, but the constructed straight lines contain a greater angle than the angle contained by the remaining two sides. </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>
