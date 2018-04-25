@@ -1,0 +1,29 @@
+<center><b>Proposition 16</b></center>
+<center>In any triangle, if one of the sides is produced, then the exterior angle is greater than either of the interior and opposite angles.</center>
+
+Let [polygon ABC text="ABC"] be a triangle, and let one side of it [line BC text="BC"] be produced to [point D text="D"].
+[step]
+I say that the exterior [angle ACD] is greater than either of the interior and opposite angles [angle CBA text="CBA"] and [angle BAC text="BAC"].
+[step]
+Bisect [line AC] at [point E]. Join [line BE], and 
+produce it in a straight line to [point F text="F"].
+
+Make [line EF] equal to [line BE], join [line FC], 
+and draw [line AC] through to [point G text="G"].
+[step]
+Since [line AE] equals [line EC], and [line BE] equals [line EF], therefore the two sides [line AE] and [line EB] equal the two sides [line CE] and [line EF] respectively, and the [angle AEB] equals the [angle FEC], for they are vertical angles. Therefore the base [line AB text="AB"] equals the base [line FC text="FC"], the [polygon ABE text="triangle ABE"] equals the [polygon CFE text="triangle CFE"], and the remaining angles equal the remaining angles respectively, namely those opposite the equal sides. Therefore the [angle BAE] equals the [angle ECF].
+[step][clear]
+But the [angle ECD] is greater than the [angle ECF], therefore the [angle ACD] is greater than the [angle BAE].
+
+Similarly, if [line BC] is bisected, then the [angle BCG], that is, the [angle ACD], can also be proved to be greater than the [angle ABC].
+
+Therefore in any triangle, if one of the sides is produced, then the exterior angle is greater than either of the interior and opposite angles.
+
+
+[loc A x=-.25 y=.66]
+[loc B x=-.75 y=0]
+[loc C x=-.25 y=0]
+[loc D x=.5 y=0]
+[loc E x=-.25 y=.33]
+[loc F x=.25 y=.66]
+[loc G x=-.25 y=-.33]
