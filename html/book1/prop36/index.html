@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Proposition 36</b></center>\n<center>Parallelograms which are on equal bases and in the same parallels equal one another.</center>\n\nLet  <span name=text_polygon_polygon_ABCD class='GeoElement'>polygon ABCD</span> and  <span name=text_polygon_polygon_EFGH class='GeoElement'>polygon EFGH</span> be parallelograms which are on the equal bases  <span name=text_line_line_BC class='GeoElement'>line BC</span> and  <span name=text_line_line_FG class='GeoElement'>line FG</span> and in the same parallels  <span name=text_line_line_AH class='GeoElement'>line AH</span> and  <span name=text_line_line_BG class='GeoElement'>line BG</span>.\n\nI say that the parallelogram  <span name=text_polygon_polygon_ABCD class='GeoElement'>ABCD</span> equals  <span name=text_polygon_polygon_EFGH class='GeoElement'>EFGH</span>.\n</div><div id='step_1'>\nJoin  <span name=text_line_line_BE class='GeoElement'>line BE</span> and  <span name=text_line_line_CH class='GeoElement'>line CH</span>.\n\nSince  <span name=text_line_line_BC class='GeoElement'>line BC</span> equals  <span name=text_line_line_FG class='GeoElement'>line FG</span> and  <span name=text_line_line_FG class='GeoElement'>line FG</span> equals  <span name=text_line_line_EH class='GeoElement'>line EH</span>, therefore  <span name=text_line_line_BC class='GeoElement'>line BC</span> equals  <span name=text_line_line_EH class='GeoElement'>line EH</span>.\n</div><div id='step_2'>\nBut they are also parallel, and  <span name=text_line_line_EB class='GeoElement'>line EB</span> and  <span name=text_line_line_CH class='GeoElement'>line CH</span> join them. But straight lines joining equal and parallel straight lines in the same directions are equal and parallel, therefore  <span name=text_polygon_polygon_EBCH class='GeoElement'>polygon EBCH</span> is a parallelogram.\n</div><div id='step_3'>\nAnd it equals  <span name=text_polygon_polygon_ABCD class='GeoElement'>polygon ABCD</span>, for it has the same base  <span name=text_line_line_BC class='GeoElement'>BC</span> with it and is in the same parallels  <span name=text_line_line_BC class='GeoElement'>line BC</span> and  <span name=text_line_line_AH class='GeoElement'>line AH</span> with it.\n\nFor the same reason also  <span name=text_polygon_polygon_EFGH class='GeoElement'>polygon EFGH</span> equals the same  <span name=text_polygon_polygon_EBCH class='GeoElement'>polygon EBCH</span>, so that the parallelogram  <span name=text_polygon_polygon_ABCD class='GeoElement'>ABCD</span> also equals  <span name=text_polygon_polygon_EFGH class='GeoElement'>EFGH</span>.\n\nTherefore parallelograms which are on equal bases and in the same parallels equal one another. </div>",
+    "geometry": {
+        "polygon_ABCD": {
+            "type": "Polygon",
+            "id": "polygon_ABCD",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C",
+                    "point_D"
+                ]
+            },
+            "label": "ABCD"
+        },
+        "polygon_EFGH": {
+            "type": "Polygon",
+            "id": "polygon_EFGH",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_F",
+                    "point_G",
+                    "point_H"
+                ]
+            },
+            "label": "EFGH"
+        },
+        "polygon_EBCH": {
+            "type": "Polygon",
+            "id": "polygon_EBCH",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_B",
+                    "point_C",
+                    "point_H"
+                ]
+            },
+            "label": "EBCH"
+        },
+        "line_BC": {
+            "type": "Line",
+            "id": "line_BC",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_C"
+            },
+            "label": "BC"
+        },
+        "line_FG": {
+            "type": "Line",
+            "id": "line_FG",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "p1": "point_F",
+                "p2": "point_G"
+            },
+            "label": "FG"
+        },
+        "line_AH": {
+            "type": "Line",
+            "id": "line_AH",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_H"
+            },
+            "label": "AH"
+        },
+        "line_BG": {
+            "type": "Line",
+            "id": "line_BG",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_G"
+            },
+            "label": "BG"
+        },
+        "line_BE": {
+            "type": "Line",
+            "id": "line_BE",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_E"
+            },
+            "label": "BE"
+        },
+        "line_CH": {
+            "type": "Line",
+            "id": "line_CH",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_H"
+            },
+            "label": "CH"
+        },
+        "line_EH": {
+            "type": "Line",
+            "id": "line_EH",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_H"
+            },
+            "label": "EH"
+        },
+        "line_EB": {
+            "type": "Line",
+            "id": "line_EB",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_B"
+            },
+            "label": "EB"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "x": -0.4,
+                "y": 0.0
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "x": -0.2,
+                "y": 0.0
+            },
+            "label": "C"
+        },
+        "point_F": {
+            "type": "Point",
+            "id": "point_F",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "x": 0.2,
+                "y": 0.0
+            },
+            "label": "F"
+        },
+        "point_G": {
+            "type": "Point",
+            "id": "point_G",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "x": 0.4,
+                "y": 0.0
+            },
+            "label": "G"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.5,
+                "y": 0.5
+            },
+            "label": "A"
+        },
+        "point_H": {
+            "type": "Point",
+            "id": "point_H",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "x": 0.4,
+                "y": 0.5
+            },
+            "label": "H"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "x": 0.2,
+                "y": 0.5
+            },
+            "label": "E"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "x": -0.3,
+                "y": 0.5
+            },
+            "label": "D"
+        }
+    },
+    "animations": [
+        [
+            "line_BC",
+            "line_BG",
+            "point_D",
+            "point_B",
+            "line_FG",
+            "line_AH",
+            "point_E",
+            "point_F",
+            "point_G",
+            "polygon_ABCD",
+            "point_C",
+            "polygon_EFGH",
+            "point_H",
+            "point_A"
+        ],
+        [
+            "line_BC",
+            "line_CH",
+            "line_BG",
+            "point_D",
+            "point_B",
+            "line_FG",
+            "line_AH",
+            "point_E",
+            "point_F",
+            "point_G",
+            "polygon_ABCD",
+            "point_C",
+            "polygon_EFGH",
+            "point_H",
+            "line_BE",
+            "point_A",
+            "line_EH"
+        ],
+        [
+            "line_BC",
+            "line_CH",
+            "line_BG",
+            "point_D",
+            "line_EB",
+            "point_B",
+            "polygon_EBCH",
+            "line_FG",
+            "line_AH",
+            "point_E",
+            "point_F",
+            "point_G",
+            "polygon_ABCD",
+            "point_C",
+            "polygon_EFGH",
+            "point_H",
+            "line_BE",
+            "point_A",
+            "line_EH"
+        ],
+        [
+            "line_BC",
+            "line_CH",
+            "line_BG",
+            "point_D",
+            "line_EB",
+            "point_B",
+            "polygon_EBCH",
+            "line_FG",
+            "line_AH",
+            "point_E",
+            "point_F",
+            "point_G",
+            "polygon_ABCD",
+            "point_C",
+            "polygon_EFGH",
+            "point_H",
+            "line_BE",
+            "point_A",
+            "line_EH"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Proposition 36</b></center><br>
+        <center>Parallelograms which are on equal bases and in the same parallels equal one another.</center><br>
+        <br>
+        Let  <span name=text_polygon_polygon_ABCD class='GeoElement'>polygon ABCD</span> and  <span name=text_polygon_polygon_EFGH class='GeoElement'>polygon EFGH</span> be parallelograms which are on the equal bases  <span name=text_line_line_BC class='GeoElement'>line BC</span> and  <span name=text_line_line_FG class='GeoElement'>line FG</span> and in the same parallels  <span name=text_line_line_AH class='GeoElement'>line AH</span> and  <span name=text_line_line_BG class='GeoElement'>line BG</span>.<br>
+        <br>
+        I say that the parallelogram  <span name=text_polygon_polygon_ABCD class='GeoElement'>ABCD</span> equals  <span name=text_polygon_polygon_EFGH class='GeoElement'>EFGH</span>.<br>
+        </div><div id='step_1'><br>
+        Join  <span name=text_line_line_BE class='GeoElement'>line BE</span> and  <span name=text_line_line_CH class='GeoElement'>line CH</span>.<br>
+        <br>
+        Since  <span name=text_line_line_BC class='GeoElement'>line BC</span> equals  <span name=text_line_line_FG class='GeoElement'>line FG</span> and  <span name=text_line_line_FG class='GeoElement'>line FG</span> equals  <span name=text_line_line_EH class='GeoElement'>line EH</span>, therefore  <span name=text_line_line_BC class='GeoElement'>line BC</span> equals  <span name=text_line_line_EH class='GeoElement'>line EH</span>.<br>
+        </div><div id='step_2'><br>
+        But they are also parallel, and  <span name=text_line_line_EB class='GeoElement'>line EB</span> and  <span name=text_line_line_CH class='GeoElement'>line CH</span> join them. But straight lines joining equal and parallel straight lines in the same directions are equal and parallel, therefore  <span name=text_polygon_polygon_EBCH class='GeoElement'>polygon EBCH</span> is a parallelogram.<br>
+        </div><div id='step_3'><br>
+        And it equals  <span name=text_polygon_polygon_ABCD class='GeoElement'>polygon ABCD</span>, for it has the same base  <span name=text_line_line_BC class='GeoElement'>BC</span> with it and is in the same parallels  <span name=text_line_line_BC class='GeoElement'>line BC</span> and  <span name=text_line_line_AH class='GeoElement'>line AH</span> with it.<br>
+        <br>
+        For the same reason also  <span name=text_polygon_polygon_EFGH class='GeoElement'>polygon EFGH</span> equals the same  <span name=text_polygon_polygon_EBCH class='GeoElement'>polygon EBCH</span>, so that the parallelogram  <span name=text_polygon_polygon_ABCD class='GeoElement'>ABCD</span> also equals  <span name=text_polygon_polygon_EFGH class='GeoElement'>EFGH</span>.<br>
+        <br>
+        Therefore parallelograms which are on equal bases and in the same parallels equal one another. </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>

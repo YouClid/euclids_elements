@@ -1,0 +1,27 @@
+<center><b>Proposition 36</b></center>
+<center>Parallelograms which are on equal bases and in the same parallels equal one another.</center>
+
+Let [polygon ABCD] and [polygon EFGH] be parallelograms which are on the equal bases [line BC] and [line FG] and in the same parallels [line AH] and [line BG].
+
+I say that the parallelogram [polygon ABCD text="ABCD"] equals [polygon EFGH text="EFGH"].
+[step]
+Join [line BE] and [line CH].
+
+Since [line BC] equals [line FG] and [line FG] equals [line EH], therefore [line BC] equals [line EH].
+[step]
+But they are also parallel, and [line EB] and [line CH] join them. But straight lines joining equal and parallel straight lines in the same directions are equal and parallel, therefore [polygon EBCH] is a parallelogram.
+[step]
+And it equals [polygon ABCD], for it has the same base [line BC text="BC"] with it and is in the same parallels [line BC] and [line AH] with it.
+
+For the same reason also [polygon EFGH] equals the same [polygon EBCH], so that the parallelogram [polygon ABCD text="ABCD"] also equals [polygon EFGH text="EFGH"].
+
+Therefore parallelograms which are on equal bases and in the same parallels equal one another.
+
+[loc A x=-.5 y=.5]
+[loc B x=-.4 y=0]
+[loc C x=-.2 y=0]
+[loc D x=-.3 y=.5]
+[loc E x=.2 y=.5]
+[loc F x=.2 y=0]
+[loc G x=.4 y=0]
+[loc H x=.4 y=.5]
