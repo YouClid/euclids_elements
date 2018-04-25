@@ -1,0 +1,12 @@
+<center><b>Book 1 - Proposition 7</b></center>
+<center>Given two straight lines constructed from the ends of a straight line and meeting in a point, there cannot be constructed from the ends of the same straight line, and on the same side of it, two other straight lines meeting in another point and equal to the former two respectively, namely each equal to that from the same end.</center>
+
+If possible, given two straight lines [line AC] and [line BC text="line CB"] constructed on the straight [line AB] and meeting at the [point C], let two other straight lines [line AD] and [line BD] be constructed on the same straight [line AB], on the same side of it, meeting in another [point D] and equal to the former two respectively, namely each equal to that from the same end, so that [line AC] equals [line AD] which has the same end [point A text="A"], and [line BC] equals [line BD] which has the same end [point B].[step]
+Join [line CD].[step]
+Since [line AC] equals [line AD], therefore the [angle ACD] equals the [angle ADC]. Therefore the [angle ADC] is greater than the [angle DCB]. Therefore the [angle CDB] is much greater than the [angle DCB].[step]
+Again, since [line BC] equals [line BD], therefore the [angle CDB] also equals the [angle DCB]. But it was also proved much greater than it, which is impossible.[step]
+
+[loc A x=-0.5 y=-0.5]
+[loc B x=0.75 y=-0.6]
+[loc C x=0 y=0.4]
+[loc D x=0.4 y=0.35]

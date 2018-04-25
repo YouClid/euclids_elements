@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Book 1 - Proposition 7</b></center>\n<center>Given two straight lines constructed from the ends of a straight line and meeting in a point, there cannot be constructed from the ends of the same straight line, and on the same side of it, two other straight lines meeting in another point and equal to the former two respectively, namely each equal to that from the same end.</center>\n\nIf possible, given two straight lines  <span name=text_line_line_AC class='GeoElement'>line AC</span> and  <span name=text_line_line_BC class='GeoElement'>line CB</span> constructed on the straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> and meeting at the  <span name=text_point_point_C class='GeoElement'>point C</span>, let two other straight lines  <span name=text_line_line_AD class='GeoElement'>line AD</span> and  <span name=text_line_line_BD class='GeoElement'>line BD</span> be constructed on the same straight  <span name=text_line_line_AB class='GeoElement'>line AB</span>, on the same side of it, meeting in another  <span name=text_point_point_D class='GeoElement'>point D</span> and equal to the former two respectively, namely each equal to that from the same end, so that  <span name=text_line_line_AC class='GeoElement'>line AC</span> equals  <span name=text_line_line_AD class='GeoElement'>line AD</span> which has the same end  <span name=text_point_point_A class='GeoElement'>A</span>, and  <span name=text_line_line_BC class='GeoElement'>line BC</span> equals  <span name=text_line_line_BD class='GeoElement'>line BD</span> which has the same end  <span name=text_point_point_B class='GeoElement'>point B</span>.</div><div id='step_1'>\nJoin  <span name=text_line_line_CD class='GeoElement'>line CD</span>.</div><div id='step_2'>\nSince  <span name=text_line_line_AC class='GeoElement'>line AC</span> equals  <span name=text_line_line_AD class='GeoElement'>line AD</span>, therefore the  <span name=text_angle_angle_ACD class='GeoElement'>angle ACD</span> equals the  <span name=text_angle_angle_ADC class='GeoElement'>angle ADC</span>. Therefore the  <span name=text_angle_angle_ADC class='GeoElement'>angle ADC</span> is greater than the  <span name=text_angle_angle_DCB class='GeoElement'>angle DCB</span>. Therefore the  <span name=text_angle_angle_CDB class='GeoElement'>angle CDB</span> is much greater than the  <span name=text_angle_angle_DCB class='GeoElement'>angle DCB</span>.</div><div id='step_3'>\nAgain, since  <span name=text_line_line_BC class='GeoElement'>line BC</span> equals  <span name=text_line_line_BD class='GeoElement'>line BD</span>, therefore the  <span name=text_angle_angle_CDB class='GeoElement'>angle CDB</span> also equals the  <span name=text_angle_angle_DCB class='GeoElement'>angle DCB</span>. But it was also proved much greater than it, which is impossible.</div><div id='step_4'>\n </div>",
+    "geometry": {
+        "line_AC": {
+            "type": "Line",
+            "id": "line_AC",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_C"
+            },
+            "label": "AC"
+        },
+        "line_BC": {
+            "type": "Line",
+            "id": "line_BC",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_C"
+            },
+            "label": "BC"
+        },
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "line_AD": {
+            "type": "Line",
+            "id": "line_AD",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_D"
+            },
+            "label": "AD"
+        },
+        "line_BD": {
+            "type": "Line",
+            "id": "line_BD",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_D"
+            },
+            "label": "BD"
+        },
+        "line_CD": {
+            "type": "Line",
+            "id": "line_CD",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_D"
+            },
+            "label": "CD"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": -0.5,
+                "y": -0.5
+            },
+            "label": "A"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": 0.4
+            },
+            "label": "C"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "x": 0.75,
+                "y": -0.6
+            },
+            "label": "B"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "x": 0.4,
+                "y": 0.35
+            },
+            "label": "D"
+        },
+        "angle_ACD": {
+            "type": "Angle",
+            "id": "angle_ACD",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_C",
+                    "point_A"
+                ],
+                "degree": 111.92958775017534
+            },
+            "label": "ACD"
+        },
+        "angle_ADC": {
+            "type": "Angle",
+            "id": "angle_ADC",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_D",
+                    "point_C"
+                ],
+                "degree": 50.48843930728509
+            },
+            "label": "ADC"
+        },
+        "angle_DCB": {
+            "type": "Angle",
+            "id": "angle_DCB",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_C",
+                    "point_B"
+                ],
+                "degree": 46.00508600525417
+            },
+            "label": "DCB"
+        },
+        "angle_CDB": {
+            "type": "Angle",
+            "id": "angle_CDB",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_D",
+                    "point_C"
+                ],
+                "degree": 117.34987578006988
+            },
+            "label": "CDB"
+        }
+    },
+    "animations": [
+        [
+            "line_AC",
+            "point_A",
+            "point_C",
+            "line_AD",
+            "point_B",
+            "line_BC",
+            "line_BD",
+            "line_AB",
+            "point_D"
+        ],
+        [
+            "line_AC",
+            "point_A",
+            "point_C",
+            "line_AD",
+            "line_CD",
+            "point_B",
+            "line_BC",
+            "line_BD",
+            "line_AB",
+            "point_D"
+        ],
+        [
+            "angle_CDB",
+            "line_AC",
+            "point_A",
+            "point_C",
+            "line_AD",
+            "line_CD",
+            "angle_DCB",
+            "angle_ADC",
+            "point_B",
+            "angle_ACD",
+            "line_BC",
+            "line_BD",
+            "line_AB",
+            "point_D"
+        ],
+        [
+            "angle_CDB",
+            "line_AC",
+            "point_A",
+            "point_C",
+            "line_AD",
+            "line_CD",
+            "angle_DCB",
+            "angle_ADC",
+            "point_B",
+            "angle_ACD",
+            "line_BC",
+            "line_BD",
+            "line_AB",
+            "point_D"
+        ],
+        [
+            "angle_CDB",
+            "line_AC",
+            "point_A",
+            "point_C",
+            "line_AD",
+            "line_CD",
+            "angle_DCB",
+            "angle_ADC",
+            "point_B",
+            "angle_ACD",
+            "line_BC",
+            "line_BD",
+            "line_AB",
+            "point_D"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Book 1 - Proposition 7</b></center><br>
+        <center>Given two straight lines constructed from the ends of a straight line and meeting in a point, there cannot be constructed from the ends of the same straight line, and on the same side of it, two other straight lines meeting in another point and equal to the former two respectively, namely each equal to that from the same end.</center><br>
+        <br>
+        If possible, given two straight lines  <span name=text_line_line_AC class='GeoElement'>line AC</span> and  <span name=text_line_line_BC class='GeoElement'>line CB</span> constructed on the straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> and meeting at the  <span name=text_point_point_C class='GeoElement'>point C</span>, let two other straight lines  <span name=text_line_line_AD class='GeoElement'>line AD</span> and  <span name=text_line_line_BD class='GeoElement'>line BD</span> be constructed on the same straight  <span name=text_line_line_AB class='GeoElement'>line AB</span>, on the same side of it, meeting in another  <span name=text_point_point_D class='GeoElement'>point D</span> and equal to the former two respectively, namely each equal to that from the same end, so that  <span name=text_line_line_AC class='GeoElement'>line AC</span> equals  <span name=text_line_line_AD class='GeoElement'>line AD</span> which has the same end  <span name=text_point_point_A class='GeoElement'>A</span>, and  <span name=text_line_line_BC class='GeoElement'>line BC</span> equals  <span name=text_line_line_BD class='GeoElement'>line BD</span> which has the same end  <span name=text_point_point_B class='GeoElement'>point B</span>.</div><div id='step_1'><br>
+        Join  <span name=text_line_line_CD class='GeoElement'>line CD</span>.</div><div id='step_2'><br>
+        Since  <span name=text_line_line_AC class='GeoElement'>line AC</span> equals  <span name=text_line_line_AD class='GeoElement'>line AD</span>, therefore the  <span name=text_angle_angle_ACD class='GeoElement'>angle ACD</span> equals the  <span name=text_angle_angle_ADC class='GeoElement'>angle ADC</span>. Therefore the  <span name=text_angle_angle_ADC class='GeoElement'>angle ADC</span> is greater than the  <span name=text_angle_angle_DCB class='GeoElement'>angle DCB</span>. Therefore the  <span name=text_angle_angle_CDB class='GeoElement'>angle CDB</span> is much greater than the  <span name=text_angle_angle_DCB class='GeoElement'>angle DCB</span>.</div><div id='step_3'><br>
+        Again, since  <span name=text_line_line_BC class='GeoElement'>line BC</span> equals  <span name=text_line_line_BD class='GeoElement'>line BD</span>, therefore the  <span name=text_angle_angle_CDB class='GeoElement'>angle CDB</span> also equals the  <span name=text_angle_angle_DCB class='GeoElement'>angle DCB</span>. But it was also proved much greater than it, which is impossible.</div><div id='step_4'><br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>
