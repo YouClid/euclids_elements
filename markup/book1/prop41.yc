@@ -1,0 +1,20 @@
+<center><b>Proposition 41</b></center>
+<center>If a parallelogram has the same base with a triangle and is in the same parallels, then the parallelogram is double the triangle.</center>
+
+Let the parallelogram [polygon ABCD text="ABCD"] have the same base [line BC] with the [polygon EBC text="triangle EBC"], and let it be in the same parallels [line BC] and [line AE].
+[step]
+I say that the parallelogram [polygon ABCD text="ABCD"] is double the [polygon EBC text="triangle EBC"].
+[step]
+Join [line AC].
+
+Then the [polygon ABC text="triangle ABC"] equals the [polygon EBC text="triangle EBC"], for it is on the same base [line BC] with it and in the same parallels [line BC] and [line AE].
+[step][clear]
+But the parallelogram [polygon ABCD text="ABCD"] is double the [polygon ABC text="triangle ABC"], for the diameter [line AC text="AC"] bisects it, so that the parallelogram [polygon ABCD text="ABCD"] is also double the [polygon EBC text="triangle EBC"].
+
+Therefore if a parallelogram has the same base with a triangle and is in the same parallels, then the parallelogram is double the triangle.
+
+[loc A x=-.5 y=.5]
+[loc B x=-.2 y=0]
+[loc C x=.1 y=0]
+[loc D x=-.2 y=.5]
+[loc E x=.3 y=.5]
