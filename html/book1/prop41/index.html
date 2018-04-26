@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Proposition 41</b></center>\n<center>If a parallelogram has the same base with a triangle and is in the same parallels, then the parallelogram is double the triangle.</center>\n\nLet the parallelogram  <span name=text_polygon_polygon_ABCD class='GeoElement'>ABCD</span> have the same base  <span name=text_line_line_BC class='GeoElement'>line BC</span> with the  <span name=text_polygon_polygon_EBC class='GeoElement'>triangle EBC</span>, and let it be in the same parallels  <span name=text_line_line_BC class='GeoElement'>line BC</span> and  <span name=text_line_line_AE class='GeoElement'>line AE</span>.\n</div><div id='step_1'>\nI say that the parallelogram  <span name=text_polygon_polygon_ABCD class='GeoElement'>ABCD</span> is double the  <span name=text_polygon_polygon_EBC class='GeoElement'>triangle EBC</span>.\n</div><div id='step_2'>\nJoin  <span name=text_line_line_AC class='GeoElement'>line AC</span>.\n\nThen the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> equals the  <span name=text_polygon_polygon_EBC class='GeoElement'>triangle EBC</span>, for it is on the same base  <span name=text_line_line_BC class='GeoElement'>line BC</span> with it and in the same parallels  <span name=text_line_line_BC class='GeoElement'>line BC</span> and  <span name=text_line_line_AE class='GeoElement'>line AE</span>.\n</div><div id='step_3'>\nBut the parallelogram  <span name=text_polygon_polygon_ABCD class='GeoElement'>ABCD</span> is double the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span>, for the diameter  <span name=text_line_line_AC class='GeoElement'>AC</span> bisects it, so that the parallelogram  <span name=text_polygon_polygon_ABCD class='GeoElement'>ABCD</span> is also double the  <span name=text_polygon_polygon_EBC class='GeoElement'>triangle EBC</span>.\n\nTherefore if a parallelogram has the same base with a triangle and is in the same parallels, then the parallelogram is double the triangle. </div>",
+    "geometry": {
+        "polygon_ABCD": {
+            "type": "Polygon",
+            "id": "polygon_ABCD",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C",
+                    "point_D"
+                ]
+            },
+            "label": "ABCD"
+        },
+        "polygon_EBC": {
+            "type": "Polygon",
+            "id": "polygon_EBC",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_B",
+                    "point_C"
+                ]
+            },
+            "label": "EBC"
+        },
+        "polygon_ABC": {
+            "type": "Polygon",
+            "id": "polygon_ABC",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ]
+            },
+            "label": "ABC"
+        },
+        "line_BC": {
+            "type": "Line",
+            "id": "line_BC",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_C"
+            },
+            "label": "BC"
+        },
+        "line_AE": {
+            "type": "Line",
+            "id": "line_AE",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_E"
+            },
+            "label": "AE"
+        },
+        "line_AC": {
+            "type": "Line",
+            "id": "line_AC",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_C"
+            },
+            "label": "AC"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.2,
+                "y": 0.0
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "x": 0.1,
+                "y": 0.0
+            },
+            "label": "C"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "x": -0.5,
+                "y": 0.5
+            },
+            "label": "A"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "x": 0.3,
+                "y": 0.5
+            },
+            "label": "E"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.2,
+                "y": 0.5
+            },
+            "label": "D"
+        }
+    },
+    "animations": [
+        [
+            "point_E",
+            "point_C",
+            "line_BC",
+            "point_B",
+            "point_A",
+            "line_AE",
+            "polygon_ABCD",
+            "polygon_EBC",
+            "point_D"
+        ],
+        [
+            "point_E",
+            "point_C",
+            "line_BC",
+            "point_B",
+            "point_A",
+            "line_AE",
+            "polygon_ABCD",
+            "polygon_EBC",
+            "point_D"
+        ],
+        [
+            "polygon_ABC",
+            "line_AC",
+            "point_E",
+            "point_C",
+            "line_BC",
+            "point_B",
+            "point_A",
+            "line_AE",
+            "polygon_ABCD",
+            "polygon_EBC",
+            "point_D"
+        ],
+        [
+            "polygon_ABC",
+            "line_AC",
+            "point_E",
+            "point_C",
+            "point_B",
+            "point_A",
+            "polygon_ABCD",
+            "polygon_EBC",
+            "point_D"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Proposition 41</b></center><br>
+        <center>If a parallelogram has the same base with a triangle and is in the same parallels, then the parallelogram is double the triangle.</center><br>
+        <br>
+        Let the parallelogram  <span name=text_polygon_polygon_ABCD class='GeoElement'>ABCD</span> have the same base  <span name=text_line_line_BC class='GeoElement'>line BC</span> with the  <span name=text_polygon_polygon_EBC class='GeoElement'>triangle EBC</span>, and let it be in the same parallels  <span name=text_line_line_BC class='GeoElement'>line BC</span> and  <span name=text_line_line_AE class='GeoElement'>line AE</span>.<br>
+        </div><div id='step_1'><br>
+        I say that the parallelogram  <span name=text_polygon_polygon_ABCD class='GeoElement'>ABCD</span> is double the  <span name=text_polygon_polygon_EBC class='GeoElement'>triangle EBC</span>.<br>
+        </div><div id='step_2'><br>
+        Join  <span name=text_line_line_AC class='GeoElement'>line AC</span>.<br>
+        <br>
+        Then the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> equals the  <span name=text_polygon_polygon_EBC class='GeoElement'>triangle EBC</span>, for it is on the same base  <span name=text_line_line_BC class='GeoElement'>line BC</span> with it and in the same parallels  <span name=text_line_line_BC class='GeoElement'>line BC</span> and  <span name=text_line_line_AE class='GeoElement'>line AE</span>.<br>
+        </div><div id='step_3'><br>
+        But the parallelogram  <span name=text_polygon_polygon_ABCD class='GeoElement'>ABCD</span> is double the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span>, for the diameter  <span name=text_line_line_AC class='GeoElement'>AC</span> bisects it, so that the parallelogram  <span name=text_polygon_polygon_ABCD class='GeoElement'>ABCD</span> is also double the  <span name=text_polygon_polygon_EBC class='GeoElement'>triangle EBC</span>.<br>
+        <br>
+        Therefore if a parallelogram has the same base with a triangle and is in the same parallels, then the parallelogram is double the triangle. </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Proposition 31</b></center>\n<center>To draw a straight line through a given point parallel to a given straight line.</center>\n\nLet  <span name=text_point_point_A class='GeoElement'>point A</span> be the given point, and  <span name=text_line_line_BC class='GeoElement'>line BC</span> the given straight line.\n\nIt is required to draw a straight line through the  <span name=text_point_point_A class='GeoElement'>point A</span> parallel to the straight  <span name=text_line_line_BC class='GeoElement'>line BC</span>.\n</div><div id='step_1'>\nTake a  <span name=text_point_point_D class='GeoElement'>point D</span> at random on  <span name=text_line_line_BC class='GeoElement'>line BC</span>. Join  <span name=text_line_line_AD class='GeoElement'>line AD</span>. Construct the  <span name=text_angle_angle_DAE class='GeoElement'>angle DAE</span> equal to the  <span name=text_angle_angle_ADC class='GeoElement'>angle ADC</span> on the straight  <span name=text_line_line_DA class='GeoElement'>line DA</span> and at the  <span name=text_point_point_A class='GeoElement'>point A</span> on it. Produce the straight  <span name=text_line_line_AF class='GeoElement'>line AF</span> in a straight line with  <span name=text_line_line_EA class='GeoElement'>line EA</span>.\n</div><div id='step_2'>\nSince the straight  <span name=text_line_line_AD class='GeoElement'>line AD</span> falling on the two straight lines  <span name=text_line_line_BC class='GeoElement'>BC</span> and  <span name=text_line_line_EF class='GeoElement'>EF</span> makes the alternate angles  <span name=text_angle_angle_EAD class='GeoElement'>EAD</span> and  <span name=text_angle_angle_ADC class='GeoElement'>ADC</span> equal to one another, therefore  <span name=text_line_line_EF class='GeoElement'>EAF</span> is parallel to  <span name=text_line_line_BC class='GeoElement'>line BC</span>.\n\nTherefore the straight  <span name=text_line_line_EF class='GeoElement'>EAF</span> has been drawn through the given  <span name=text_point_point_A class='GeoElement'>point A</span> parallel to the given straight  <span name=text_line_line_BC class='GeoElement'>line BC</span>.\n </div>",
+    "geometry": {
+        "line_BC": {
+            "type": "Line",
+            "id": "line_BC",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_C"
+            },
+            "label": "BC"
+        },
+        "line_AD": {
+            "type": "Line",
+            "id": "line_AD",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_D"
+            },
+            "label": "AD"
+        },
+        "line_DA": {
+            "type": "Line",
+            "id": "line_DA",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_A"
+            },
+            "label": "DA"
+        },
+        "line_AF": {
+            "type": "Line",
+            "id": "line_AF",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_F"
+            },
+            "label": "AF"
+        },
+        "line_EA": {
+            "type": "Line",
+            "id": "line_EA",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_A"
+            },
+            "label": "EA"
+        },
+        "line_EF": {
+            "type": "Line",
+            "id": "line_EF",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_F"
+            },
+            "label": "EF"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "x": 0.1,
+                "y": 0.4
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.3,
+                "y": 0.0
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "x": 0.3,
+                "y": 0.0
+            },
+            "label": "C"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "label": "D"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "x": -0.3,
+                "y": 0.4
+            },
+            "label": "E"
+        },
+        "point_F": {
+            "type": "Point",
+            "id": "point_F",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "x": 0.3,
+                "y": 0.4
+            },
+            "label": "F"
+        },
+        "angle_DAE": {
+            "type": "Angle",
+            "id": "angle_DAE",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_A",
+                    "point_E"
+                ],
+                "degree": 75.96375653207355
+            },
+            "label": "DAE"
+        },
+        "angle_ADC": {
+            "type": "Angle",
+            "id": "angle_ADC",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_D",
+                    "point_C"
+                ],
+                "degree": 75.96375653207353
+            },
+            "label": "ADC"
+        },
+        "angle_EAD": {
+            "type": "Angle",
+            "id": "angle_EAD",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_A",
+                    "point_E"
+                ],
+                "degree": 75.96375653207355
+            },
+            "label": "EAD"
+        }
+    },
+    "animations": [
+        [
+            "point_A",
+            "point_C",
+            "point_B",
+            "line_BC"
+        ],
+        [
+            "point_E",
+            "line_DA",
+            "line_AD",
+            "angle_ADC",
+            "point_A",
+            "point_D",
+            "line_EA",
+            "point_C",
+            "point_B",
+            "angle_DAE",
+            "point_F",
+            "line_AF",
+            "line_BC"
+        ],
+        [
+            "line_EF",
+            "point_E",
+            "angle_EAD",
+            "line_AD",
+            "angle_ADC",
+            "point_A",
+            "point_D",
+            "point_C",
+            "point_B",
+            "point_F",
+            "line_BC"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Proposition 31</b></center><br>
+        <center>To draw a straight line through a given point parallel to a given straight line.</center><br>
+        <br>
+        Let  <span name=text_point_point_A class='GeoElement'>point A</span> be the given point, and  <span name=text_line_line_BC class='GeoElement'>line BC</span> the given straight line.<br>
+        <br>
+        It is required to draw a straight line through the  <span name=text_point_point_A class='GeoElement'>point A</span> parallel to the straight  <span name=text_line_line_BC class='GeoElement'>line BC</span>.<br>
+        </div><div id='step_1'><br>
+        Take a  <span name=text_point_point_D class='GeoElement'>point D</span> at random on  <span name=text_line_line_BC class='GeoElement'>line BC</span>. Join  <span name=text_line_line_AD class='GeoElement'>line AD</span>. Construct the  <span name=text_angle_angle_DAE class='GeoElement'>angle DAE</span> equal to the  <span name=text_angle_angle_ADC class='GeoElement'>angle ADC</span> on the straight  <span name=text_line_line_DA class='GeoElement'>line DA</span> and at the  <span name=text_point_point_A class='GeoElement'>point A</span> on it. Produce the straight  <span name=text_line_line_AF class='GeoElement'>line AF</span> in a straight line with  <span name=text_line_line_EA class='GeoElement'>line EA</span>.<br>
+        </div><div id='step_2'><br>
+        Since the straight  <span name=text_line_line_AD class='GeoElement'>line AD</span> falling on the two straight lines  <span name=text_line_line_BC class='GeoElement'>BC</span> and  <span name=text_line_line_EF class='GeoElement'>EF</span> makes the alternate angles  <span name=text_angle_angle_EAD class='GeoElement'>EAD</span> and  <span name=text_angle_angle_ADC class='GeoElement'>ADC</span> equal to one another, therefore  <span name=text_line_line_EF class='GeoElement'>EAF</span> is parallel to  <span name=text_line_line_BC class='GeoElement'>line BC</span>.<br>
+        <br>
+        Therefore the straight  <span name=text_line_line_EF class='GeoElement'>EAF</span> has been drawn through the given  <span name=text_point_point_A class='GeoElement'>point A</span> parallel to the given straight  <span name=text_line_line_BC class='GeoElement'>line BC</span>.<br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<center><b>Proposition 26</b></center>
+<center>If two triangles have two angles equal to two angles respectively, and one side equal to one side, namely, either the side adjoining the equal angles, or that opposite one of the equal angles, then the remaining sides equal the remaining sides and the remaining angle equals the remaining angle.</center>
+
+Let [polygon ABC text="ABC"] and [polygon DEF text="DEF"] be two triangles having the two angles [angle ABC] and [angle BCA] equal to the two angles [angle DEF] and [angle EFD] respectively, namely the [angle ABC] to the [angle DEF], and the [angle BCA] to the [angle EFD], and let them also have one side equal to one side, first that adjoining the equal angles, namely [line BC] equal to [line EF].
+
+I say that the remaining sides equal the remaining sides respectively, namely AB equals [line DE] and [line AC] equals [line DF], and the remaining angle equals the remaining angle, namely the [angle BAC] equals the [angle EDF].
+
+If [line AB] does not equal [line DE], then one of them is greater.
+
+Let [line AB] be greater. Make [line BG] equal to [line DE], and join [line GC].
+
+Since [line BG] equals [line DE], and [line BC] equals [line EF], the two sides [line GB] and [line BC] equal the two sides [line DE] and [line EF] respectively, and the [angle GBC] equals the [angle DEF], therefore the base [line GC text="GC"] equals the base [line DF text="DF"], the [polygon GBC text="triangle GBC"] equals the [polygon DEF text="triangle DEF"], and the remaining angles equal the remaining angles, namely those opposite the equal sides. Therefore the [angle GCB] equals the [angle DFE]. But the [angle DFE] equals the [angle ACB] by hypothesis. Therefore the [angle BCG] equals the [angle BCA], the less equals the greater, which is impossible.
+
+Therefore [line AB] is not unequal to [line DE], and therefore equals it.
+
+But [line BC] also equals [line EF]. Therefore the two sides [line AB] and [line BC] equal the two sides [line DE] and [line EF] respectively, and the [angle ABC] equals the [angle DEF]. Therefore the base [line AC text="AC"] equals the base [line DF text="DF"], and the remaining [angle BAC] equals the remaining [angle EDF].
+[step][clear]
+Next, let sides opposite equal angles be equal, as [line AB] equals [line DE].
+
+I say again that the remaining sides equal the remaining sides, namely [line AC] equals [line DF] and [line BC] equals [line EF], and further the remaining [angle BAC] equals the remaining [angle EDF].
+
+If [line BC] is unequal to [line EF], then one of them is greater.
+
+Let [line BC] be greater, if possible. Make [line BH] equal to [line EF], and join [line AH].
+
+Since [line BH] equals [line EF], and [line AB] equals [line DE], the two sides [line AB] and [line BH] equal the two sides [line DE] and [line EF] respectively, and they contain equal angles, therefore the base [line AH text="AH"] equals the base [line DF text="DF"], the [polygon ABH text="triangle ABH"] equals the [polygon DEF text="triangle DEF"], and the remaining angles equal the remaining angles, namely those opposite the equal sides. Therefore the [angle BHA] equals the [angle EFD].
+
+But the [angle EFD] equals the [angle BCA], therefore, in the [polygon AHC text="triangle AHC"], the exterior [angle BHA] equals the interior and opposite [angle BCA], which is impossible.
+
+Therefore [line BC] is not unequal to [line EF], and therefore equals it.
+
+But [line AB] also equals [line DE]. Therefore the two sides [line AB] and [line BC] equal the two sides [line DE] and [line EF] respectively, and they contain equal angles. Therefore the base [line AC text="AC"] equals the base [line DF text="DF"], the [polygon ABC text="triangle ABC"] equals the [polygon DEF text="triangle DEF"], and the remaining [angle BAC] equals the remaining [angle EDF].
+
+Therefore if two triangles have two angles equal to two angles respectively, and one side equal to one side, namely, either the side adjoining the equal angles, or that opposite one of the equal angles, then the remaining sides equal the remaining sides and the remaining angle equals the remaining angle.
+
+[loc A x=-.4 y=.5]
+[loc B x=-.65 y=0]
+[loc C x=-.15 y=0]
+[loc D x=.4 y=.5]
+[loc E x=.15 y=0]
+[loc F x=.65 y=0]
+[loc G x=-.5 y=.3]
+[loc H x=-.3 y=0]
