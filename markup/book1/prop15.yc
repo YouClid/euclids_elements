@@ -1,0 +1,24 @@
+<center><b>Book 1 - Proposition 15</b></center>
+<center>If two straight lines cut one another, then they make the vertical angles equal to one another</center>
+
+Let the straight lines [line AB text="AB"] and [line CD text-"CD"] cut one another at the [point E]. [step]
+
+I say that the [angle CEA] equals the [angle DEB], and the [angle BEC] equals the [angle AED].[step]
+
+Since the straight [line AE] stands on the straight [line CD] making the angles [angle CEA text-"CEA"] and [angle AED text="AED"], therefore the sum of the angles [angle CEA text="CEA"] and [angle AED text="AED"] equals two right angles. [step]
+
+Again, since the straight [line DE] stands on the straight [line AB] making the angles [angle AED text="AED"] and [angle DEB text="DEB"], therefore the sum of the angles [angle AED text="AED"] and [angle DEB text="DEB"] equals two right angles. [step]
+
+But the sum of the angles [angle CEA text="CEA"] and [angle AED text="AED"] was also proved equal to two right angles, therefore the sum of the angles [angle CEA text="CEA"] and [angle AED text="AED"] equals the sum of the angles [angle AED text="AED"] and [angle DEB text="DEB"]. Subtract the [angle AED] from each. Then the remaining [angle CEA] equals the remaining [angle DEB].
+
+Similarly it can be proved that the angles [angle BEC text="BEC"] and [angle AED text="AED"] are also equal.
+
+Therefore if two straight lines cut one another, then they make the vertical angles equal to one another.
+
+[loc C x=-.5 y=0]
+[loc D x=.5 y=0]
+[loc A x=-.5 y=.5]
+[loc B x=.5 y=-.5]
+[point E lieson=AB hidden]
+[point E lieson=CD hidden]
+
