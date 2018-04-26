@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Proposition 46</b></center>\n<center>To describe a square on a given straight line.</center>\n\nLet  <span name=text_line_line_AB class='GeoElement'>line AB</span> be the given straight line.\n\nIt is required to describe a square on the straight  <span name=text_line_line_AB class='GeoElement'>line AB</span>.\n</div><div id='step_1'>\nDraw  <span name=text_line_line_AC class='GeoElement'>line AC</span> at right angles to the straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> from the  <span name=text_point_point_A class='GeoElement'>point A</span> on it. Make  <span name=text_line_line_AD class='GeoElement'>line AD</span> equal to  <span name=text_line_line_AB class='GeoElement'>line AB</span>. Draw  <span name=text_line_line_DE class='GeoElement'>line DE</span> through the  <span name=text_point_point_D class='GeoElement'>point D</span> parallel to  <span name=text_line_line_AB class='GeoElement'>line AB</span>, and draw  <span name=text_line_line_BE class='GeoElement'>line BE</span> through the  <span name=text_point_point_B class='GeoElement'>point B</span> parallel to  <span name=text_line_line_AD class='GeoElement'>line AD</span>.\n\nThen  <span name=text_polygon_polygon_ADEB class='GeoElement'>ADEB</span> is a parallelogram. Therefore  <span name=text_line_line_AB class='GeoElement'>line AB</span> equals  <span name=text_line_line_DE class='GeoElement'>line DE</span>, and  <span name=text_line_line_AD class='GeoElement'>line AD</span> equals  <span name=text_line_line_BE class='GeoElement'>line BE</span>.\n\nBut  <span name=text_line_line_AB class='GeoElement'>line AB</span> equals  <span name=text_line_line_AD class='GeoElement'>line AD</span>, therefore the four straight lines  <span name=text_line_line_AB class='GeoElement'>BA</span>,  <span name=text_line_line_AD class='GeoElement'>AD</span>,  <span name=text_line_line_DE class='GeoElement'>DE</span>, and  <span name=text_line_line_BE class='GeoElement'>EB</span> equal one another. Therefore the  <span name=text_polygon_polygon_ADEB class='GeoElement'>parallelogram ADEB</span> is equilateral.\n\nI say next that it is also right-angled.\n</div><div id='step_2'>\nSince the straight  <span name=text_line_line_AD class='GeoElement'>line AD</span> falls upon the parallels  <span name=text_line_line_AB class='GeoElement'>line AB</span> and  <span name=text_line_line_DE class='GeoElement'>line DE</span>, therefore the sum of the angles  <span name=text_angle_angle_BAD class='GeoElement'>BAD</span> and  <span name=text_angle_angle_ADE class='GeoElement'>ADE</span> equals two right angles.\n\nBut the  <span name=text_angle_angle_BAD class='GeoElement'>angle BAD</span> is right, therefore the  <span name=text_angle_angle_ADE class='GeoElement'>angle ADE</span> is also right.\n\nAnd in parallelogrammic areas the opposite sides and angles equal one another, therefore each of the opposite angles  <span name=text_angle_angle_ABE class='GeoElement'>ABE</span> and  <span name=text_angle_angle_BED class='GeoElement'>BED</span> is also right. Therefore  <span name=text_polygon_polygon_ADEB class='GeoElement'>ADEB</span> is right-angled.\n\nAnd it was also proved equilateral.\n\nTherefore it is a square, and it is described on the straight  <span name=text_line_line_AB class='GeoElement'>line AB</span>. </div>",
+    "geometry": {
+        "polygon_ADEB": {
+            "type": "Polygon",
+            "id": "polygon_ADEB",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_D",
+                    "point_E",
+                    "point_B"
+                ]
+            },
+            "label": "ADEB"
+        },
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "line_AC": {
+            "type": "Line",
+            "id": "line_AC",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_C"
+            },
+            "label": "AC"
+        },
+        "line_AD": {
+            "type": "Line",
+            "id": "line_AD",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_D"
+            },
+            "label": "AD"
+        },
+        "line_DE": {
+            "type": "Line",
+            "id": "line_DE",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_E"
+            },
+            "label": "DE"
+        },
+        "line_BE": {
+            "type": "Line",
+            "id": "line_BE",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_E"
+            },
+            "label": "BE"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": -0.2,
+                "y": -0.2
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": 0.2,
+                "y": -0.2
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "x": -0.2,
+                "y": 0.4
+            },
+            "label": "C"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "x": -0.2,
+                "y": 0.2
+            },
+            "label": "D"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "x": 0.2,
+                "y": 0.2
+            },
+            "label": "E"
+        },
+        "angle_BAD": {
+            "type": "Angle",
+            "id": "angle_BAD",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_A",
+                    "point_B"
+                ],
+                "degree": 90.0
+            },
+            "label": "BAD"
+        },
+        "angle_ADE": {
+            "type": "Angle",
+            "id": "angle_ADE",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_D",
+                    "point_A"
+                ],
+                "degree": 90.0
+            },
+            "label": "ADE"
+        },
+        "angle_ABE": {
+            "type": "Angle",
+            "id": "angle_ABE",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_E"
+                ],
+                "degree": 90.0
+            },
+            "label": "ABE"
+        },
+        "angle_BED": {
+            "type": "Angle",
+            "id": "angle_BED",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_E",
+                    "point_D"
+                ],
+                "degree": 90.0
+            },
+            "label": "BED"
+        }
+    },
+    "animations": [
+        [
+            "point_B",
+            "line_AB",
+            "point_A"
+        ],
+        [
+            "line_AC",
+            "point_B",
+            "line_AB",
+            "line_DE",
+            "point_D",
+            "point_A",
+            "point_E",
+            "point_C",
+            "polygon_ADEB",
+            "line_AD",
+            "line_BE"
+        ],
+        [
+            "line_AC",
+            "angle_BED",
+            "point_B",
+            "line_AB",
+            "angle_ADE",
+            "line_DE",
+            "angle_BAD",
+            "point_D",
+            "angle_ABE",
+            "point_A",
+            "point_E",
+            "point_C",
+            "polygon_ADEB",
+            "line_AD",
+            "line_BE"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Proposition 46</b></center><br>
+        <center>To describe a square on a given straight line.</center><br>
+        <br>
+        Let  <span name=text_line_line_AB class='GeoElement'>line AB</span> be the given straight line.<br>
+        <br>
+        It is required to describe a square on the straight  <span name=text_line_line_AB class='GeoElement'>line AB</span>.<br>
+        </div><div id='step_1'><br>
+        Draw  <span name=text_line_line_AC class='GeoElement'>line AC</span> at right angles to the straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> from the  <span name=text_point_point_A class='GeoElement'>point A</span> on it. Make  <span name=text_line_line_AD class='GeoElement'>line AD</span> equal to  <span name=text_line_line_AB class='GeoElement'>line AB</span>. Draw  <span name=text_line_line_DE class='GeoElement'>line DE</span> through the  <span name=text_point_point_D class='GeoElement'>point D</span> parallel to  <span name=text_line_line_AB class='GeoElement'>line AB</span>, and draw  <span name=text_line_line_BE class='GeoElement'>line BE</span> through the  <span name=text_point_point_B class='GeoElement'>point B</span> parallel to  <span name=text_line_line_AD class='GeoElement'>line AD</span>.<br>
+        <br>
+        Then  <span name=text_polygon_polygon_ADEB class='GeoElement'>ADEB</span> is a parallelogram. Therefore  <span name=text_line_line_AB class='GeoElement'>line AB</span> equals  <span name=text_line_line_DE class='GeoElement'>line DE</span>, and  <span name=text_line_line_AD class='GeoElement'>line AD</span> equals  <span name=text_line_line_BE class='GeoElement'>line BE</span>.<br>
+        <br>
+        But  <span name=text_line_line_AB class='GeoElement'>line AB</span> equals  <span name=text_line_line_AD class='GeoElement'>line AD</span>, therefore the four straight lines  <span name=text_line_line_AB class='GeoElement'>BA</span>,  <span name=text_line_line_AD class='GeoElement'>AD</span>,  <span name=text_line_line_DE class='GeoElement'>DE</span>, and  <span name=text_line_line_BE class='GeoElement'>EB</span> equal one another. Therefore the  <span name=text_polygon_polygon_ADEB class='GeoElement'>parallelogram ADEB</span> is equilateral.<br>
+        <br>
+        I say next that it is also right-angled.<br>
+        </div><div id='step_2'><br>
+        Since the straight  <span name=text_line_line_AD class='GeoElement'>line AD</span> falls upon the parallels  <span name=text_line_line_AB class='GeoElement'>line AB</span> and  <span name=text_line_line_DE class='GeoElement'>line DE</span>, therefore the sum of the angles  <span name=text_angle_angle_BAD class='GeoElement'>BAD</span> and  <span name=text_angle_angle_ADE class='GeoElement'>ADE</span> equals two right angles.<br>
+        <br>
+        But the  <span name=text_angle_angle_BAD class='GeoElement'>angle BAD</span> is right, therefore the  <span name=text_angle_angle_ADE class='GeoElement'>angle ADE</span> is also right.<br>
+        <br>
+        And in parallelogrammic areas the opposite sides and angles equal one another, therefore each of the opposite angles  <span name=text_angle_angle_ABE class='GeoElement'>ABE</span> and  <span name=text_angle_angle_BED class='GeoElement'>BED</span> is also right. Therefore  <span name=text_polygon_polygon_ADEB class='GeoElement'>ADEB</span> is right-angled.<br>
+        <br>
+        And it was also proved equilateral.<br>
+        <br>
+        Therefore it is a square, and it is described on the straight  <span name=text_line_line_AB class='GeoElement'>line AB</span>. </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>

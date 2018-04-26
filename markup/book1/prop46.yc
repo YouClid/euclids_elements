@@ -1,0 +1,30 @@
+<center><b>Proposition 46</b></center>
+<center>To describe a square on a given straight line.</center>
+
+Let [line AB] be the given straight line.
+
+It is required to describe a square on the straight [line AB].
+[step][clear]
+Draw [line AC] at right angles to the straight [line AB] from the [point A] on it. Make [line AD] equal to [line AB]. Draw [line DE] through the [point D] parallel to [line AB], and draw [line BE] through the [point B] parallel to [line AD].
+
+Then [polygon ADEB text="ADEB"] is a parallelogram. Therefore [line AB] equals [line DE], and [line AD] equals [line BE].
+
+But [line AB] equals [line AD], therefore the four straight lines [line AB text="BA"], [line AD text="AD"], [line DE text="DE"], and [line BE text="EB"] equal one another. Therefore the [polygon ADEB text="parallelogram ADEB"] is equilateral.
+
+I say next that it is also right-angled.
+[step]
+Since the straight [line AD] falls upon the parallels [line AB] and [line DE], therefore the sum of the angles [angle BAD text="BAD"] and [angle ADE text="ADE"] equals two right angles.
+
+But the [angle BAD] is right, therefore the [angle ADE] is also right.
+
+And in parallelogrammic areas the opposite sides and angles equal one another, therefore each of the opposite angles [angle ABE text="ABE"] and [angle BED text="BED"] is also right. Therefore [polygon ADEB text="ADEB"] is right-angled.
+
+And it was also proved equilateral.
+
+Therefore it is a square, and it is described on the straight [line AB].
+
+[loc A x=-.2 y=-.2]
+[loc B x=.2 y=-.2]
+[loc C x=-.2 y=.4]
+[loc D x=-.2 y=.2]
+[loc E x=.2 y=.2]
