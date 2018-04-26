@@ -9,12 +9,10 @@ Take a [point D lieson=BC] at random on [line BC]. Join [line AD]. Construct the
 [step][clear]
 Since the straight [line AD] falling on the two straight lines [line BC text="BC"] and [line EF text="EF"] makes the alternate angles [angle EAD text="EAD"] and [angle ADC text="ADC"] equal to one another, therefore [line EF text="EAF"] is parallel to [line BC].
 
-Therefore the straight [line EF text="EAF"] has been drawn through the given [point A] parallel to the given straight [line BC].
+Therefore the straight [line EF text="EAF"] has been drawn through the given [point A lieson=EF] parallel to the given straight [line BC].
 
 
-[loc A x=.1 y=.4]
 [loc B x=-.3 y=0]
 [loc C x=.3 y=0]
-
 [loc E x=-.3 y=.4]
 [loc F x=.3 y=.4]
