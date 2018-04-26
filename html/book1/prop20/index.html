@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Book 1 - Proposition 20</b></center>\n<center>In any triangle the sum of any two sides is greater than the remaining one.</center>\n\nLet  <span name=text_polygon_polygon_ABC class='GeoElement'>ABC</span> be a triangle.</div><div id='step_1'>\n\nI say that in the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> the sum of any two sides is greater than the remaining one, that is, the sum of  <span name=text_line_line_BA class='GeoElement'>BA</span> and  <span name=text_line_line_AC class='GeoElement'>AC</span> is greater than  <span name=text_line_line_BC class='GeoElement'>BC</span>, the sum of  <span name=text_line_line_AB class='GeoElement'>AB</span> and  <span name=text_line_line_BC class='GeoElement'>BC</span> is greater than  <span name=text_line_line_AC class='GeoElement'>AC</span>, and the sum of  <span name=text_line_line_BC class='GeoElement'>BC</span> and  <span name=text_line_line_CA class='GeoElement'>CA</span> is greater than  <span name=text_line_line_AB class='GeoElement'>AB</span>.</div><div id='step_2'>\n\nDraw  <span name=text_line_line_BA class='GeoElement'>BA</span> through to the  <span name=text_point_point_D class='GeoElement'>point D</span>, and make  <span name=text_line_line_DA class='GeoElement'>DA</span> equal to  <span name=text_line_line_CA class='GeoElement'>CA</span>.</div><div id='step_3'>\n\n\nJoin  <span name=text_line_line_DC class='GeoElement'>DC</span>.</div><div id='step_4'>\n\nSince  <span name=text_line_line_DA class='GeoElement'>DA</span> equals  <span name=text_line_line_AC class='GeoElement'>AC</span>, therefore the  <span name=text_angle_angle_ADC class='GeoElement'>angle ADC</span> also equals the  <span name=text_angle_angle_ACD class='GeoElement'>angle ACD</span>. Therefore the  <span name=text_angle_angle_BCD class='GeoElement'>angle BCD</span> is greater than the  <span name=text_angle_angle_ADC class='GeoElement'>angle ADC</span>.</div><div id='step_5'>\n\n\nSince  <span name=text_polygon_polygon_DCB class='GeoElement'>DCB</span>  is a triangle having the  <span name=text_angle_angle_BCD class='GeoElement'>angle BCD</span> greater than the  <span name=text_angle_angle_BDC class='GeoElement'>angle BDC</span>, and the side opposite the greater angle is greater, therefore  <span name=text_line_line_DB class='GeoElement'>DB</span> is greater than  <span name=text_line_line_BC class='GeoElement'>BC</span>.</div><div id='step_6'>\n\n\nBut  <span name=text_line_line_DA class='GeoElement'>DA</span> equals  <span name=text_line_line_AC class='GeoElement'>AC</span>, therefore the sum of  <span name=text_line_line_BA class='GeoElement'>BA</span> and  <span name=text_line_line_AC class='GeoElement'>AC</span> is greater than  <span name=text_line_line_BC class='GeoElement'>BC</span>.</div><div id='step_7'>\n\n\nSimilarly we can prove that the sum of  <span name=text_line_line_AB class='GeoElement'>AB</span> and  <span name=text_line_line_BC class='GeoElement'>BC</span> is also greater than  <span name=text_line_line_CA class='GeoElement'>CA</span>, and the sum of  <span name=text_line_line_BC class='GeoElement'>BC</span> and  <span name=text_line_line_CA class='GeoElement'>CA</span> is greater than  <span name=text_line_line_AB class='GeoElement'>AB</span>.\n\nTherefore in any triangle the sum of any two sides is greater than the remaining one.\n\n\n </div>",
+    "geometry": {
+        "polygon_ABC": {
+            "type": "Polygon",
+            "id": "polygon_ABC",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ]
+            },
+            "label": "ABC"
+        },
+        "polygon_DCB": {
+            "type": "Polygon",
+            "id": "polygon_DCB",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_C",
+                    "point_B"
+                ]
+            },
+            "label": "DCB"
+        },
+        "line_BA": {
+            "type": "Line",
+            "id": "line_BA",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_A"
+            },
+            "label": "BA"
+        },
+        "line_AC": {
+            "type": "Line",
+            "id": "line_AC",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_C"
+            },
+            "label": "AC"
+        },
+        "line_BC": {
+            "type": "Line",
+            "id": "line_BC",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_C"
+            },
+            "label": "BC"
+        },
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "line_CA": {
+            "type": "Line",
+            "id": "line_CA",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_A"
+            },
+            "label": "CA"
+        },
+        "line_DA": {
+            "type": "Line",
+            "id": "line_DA",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_A"
+            },
+            "label": "DA"
+        },
+        "line_DC": {
+            "type": "Line",
+            "id": "line_DC",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_C"
+            },
+            "label": "DC"
+        },
+        "line_BD": {
+            "type": "Line",
+            "id": "line_BD",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_D"
+            },
+            "label": "BD"
+        },
+        "line_DB": {
+            "type": "Line",
+            "id": "line_DB",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_B"
+            },
+            "label": "DB"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": -0.35,
+                "y": 0.35
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.5,
+                "y": 0.0
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "label": "C"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "x": -0.2,
+                "y": 0.7
+            },
+            "label": "D"
+        },
+        "angle_ADC": {
+            "type": "Angle",
+            "id": "angle_ADC",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_D",
+                    "point_A"
+                ],
+                "degree": 39.14398641457103
+            },
+            "label": "ADC"
+        },
+        "angle_ACD": {
+            "type": "Angle",
+            "id": "angle_ACD",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_C",
+                    "point_D"
+                ],
+                "degree": 29.05460409907714
+            },
+            "label": "ACD"
+        },
+        "angle_BCD": {
+            "type": "Angle",
+            "id": "angle_BCD",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_C",
+                    "point_D"
+                ],
+                "degree": 74.05460409907714
+            },
+            "label": "BCD"
+        },
+        "angle_BDC": {
+            "type": "Angle",
+            "id": "angle_BDC",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_D",
+                    "point_B"
+                ],
+                "degree": 39.143986414571046
+            },
+            "label": "BDC"
+        }
+    },
+    "animations": [
+        [
+            "point_A",
+            "polygon_ABC",
+            "point_C",
+            "point_B"
+        ],
+        [
+            "line_CA",
+            "line_BA",
+            "line_BC",
+            "point_A",
+            "line_AC",
+            "line_AB",
+            "polygon_ABC",
+            "point_B",
+            "point_C"
+        ],
+        [
+            "line_CA",
+            "line_DA",
+            "line_BA",
+            "line_BC",
+            "point_A",
+            "line_AC",
+            "line_AB",
+            "polygon_ABC",
+            "point_B",
+            "point_D",
+            "point_C"
+        ],
+        [
+            "line_CA",
+            "line_DA",
+            "line_BA",
+            "line_BC",
+            "point_A",
+            "line_DC",
+            "line_AC",
+            "line_AB",
+            "polygon_ABC",
+            "point_B",
+            "point_D",
+            "point_C"
+        ],
+        [
+            "line_CA",
+            "line_DA",
+            "line_BA",
+            "line_BC",
+            "point_A",
+            "line_DC",
+            "line_AC",
+            "line_AB",
+            "polygon_ABC",
+            "point_B",
+            "point_D",
+            "angle_BCD",
+            "angle_ACD",
+            "angle_ADC",
+            "point_C"
+        ],
+        [
+            "line_CA",
+            "angle_BDC",
+            "line_DA",
+            "line_BD",
+            "line_BA",
+            "line_BC",
+            "point_A",
+            "line_DC",
+            "polygon_DCB",
+            "line_AC",
+            "line_AB",
+            "polygon_ABC",
+            "point_B",
+            "point_D",
+            "line_DB",
+            "angle_BCD",
+            "angle_ACD",
+            "angle_ADC",
+            "point_C"
+        ],
+        [
+            "line_CA",
+            "angle_BDC",
+            "line_DA",
+            "line_BD",
+            "line_BA",
+            "line_BC",
+            "point_A",
+            "line_DC",
+            "polygon_DCB",
+            "line_AC",
+            "line_AB",
+            "polygon_ABC",
+            "point_B",
+            "point_D",
+            "line_DB",
+            "angle_BCD",
+            "angle_ACD",
+            "angle_ADC",
+            "point_C"
+        ],
+        [
+            "line_CA",
+            "angle_BDC",
+            "line_DA",
+            "line_BD",
+            "line_BA",
+            "line_BC",
+            "point_A",
+            "line_DC",
+            "polygon_DCB",
+            "line_AC",
+            "line_AB",
+            "polygon_ABC",
+            "point_B",
+            "point_D",
+            "line_DB",
+            "angle_BCD",
+            "angle_ACD",
+            "angle_ADC",
+            "point_C"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Book 1 - Proposition 20</b></center><br>
+        <center>In any triangle the sum of any two sides is greater than the remaining one.</center><br>
+        <br>
+        Let  <span name=text_polygon_polygon_ABC class='GeoElement'>ABC</span> be a triangle.</div><div id='step_1'><br>
+        <br>
+        I say that in the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> the sum of any two sides is greater than the remaining one, that is, the sum of  <span name=text_line_line_BA class='GeoElement'>BA</span> and  <span name=text_line_line_AC class='GeoElement'>AC</span> is greater than  <span name=text_line_line_BC class='GeoElement'>BC</span>, the sum of  <span name=text_line_line_AB class='GeoElement'>AB</span> and  <span name=text_line_line_BC class='GeoElement'>BC</span> is greater than  <span name=text_line_line_AC class='GeoElement'>AC</span>, and the sum of  <span name=text_line_line_BC class='GeoElement'>BC</span> and  <span name=text_line_line_CA class='GeoElement'>CA</span> is greater than  <span name=text_line_line_AB class='GeoElement'>AB</span>.</div><div id='step_2'><br>
+        <br>
+        Draw  <span name=text_line_line_BA class='GeoElement'>BA</span> through to the  <span name=text_point_point_D class='GeoElement'>point D</span>, and make  <span name=text_line_line_DA class='GeoElement'>DA</span> equal to  <span name=text_line_line_CA class='GeoElement'>CA</span>.</div><div id='step_3'><br>
+        <br>
+        <br>
+        Join  <span name=text_line_line_DC class='GeoElement'>DC</span>.</div><div id='step_4'><br>
+        <br>
+        Since  <span name=text_line_line_DA class='GeoElement'>DA</span> equals  <span name=text_line_line_AC class='GeoElement'>AC</span>, therefore the  <span name=text_angle_angle_ADC class='GeoElement'>angle ADC</span> also equals the  <span name=text_angle_angle_ACD class='GeoElement'>angle ACD</span>. Therefore the  <span name=text_angle_angle_BCD class='GeoElement'>angle BCD</span> is greater than the  <span name=text_angle_angle_ADC class='GeoElement'>angle ADC</span>.</div><div id='step_5'><br>
+        <br>
+        <br>
+        Since  <span name=text_polygon_polygon_DCB class='GeoElement'>DCB</span>  is a triangle having the  <span name=text_angle_angle_BCD class='GeoElement'>angle BCD</span> greater than the  <span name=text_angle_angle_BDC class='GeoElement'>angle BDC</span>, and the side opposite the greater angle is greater, therefore  <span name=text_line_line_DB class='GeoElement'>DB</span> is greater than  <span name=text_line_line_BC class='GeoElement'>BC</span>.</div><div id='step_6'><br>
+        <br>
+        <br>
+        But  <span name=text_line_line_DA class='GeoElement'>DA</span> equals  <span name=text_line_line_AC class='GeoElement'>AC</span>, therefore the sum of  <span name=text_line_line_BA class='GeoElement'>BA</span> and  <span name=text_line_line_AC class='GeoElement'>AC</span> is greater than  <span name=text_line_line_BC class='GeoElement'>BC</span>.</div><div id='step_7'><br>
+        <br>
+        <br>
+        Similarly we can prove that the sum of  <span name=text_line_line_AB class='GeoElement'>AB</span> and  <span name=text_line_line_BC class='GeoElement'>BC</span> is also greater than  <span name=text_line_line_CA class='GeoElement'>CA</span>, and the sum of  <span name=text_line_line_BC class='GeoElement'>BC</span> and  <span name=text_line_line_CA class='GeoElement'>CA</span> is greater than  <span name=text_line_line_AB class='GeoElement'>AB</span>.<br>
+        <br>
+        Therefore in any triangle the sum of any two sides is greater than the remaining one.<br>
+        <br>
+        <br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>

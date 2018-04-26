@@ -1,0 +1,26 @@
+<center><b>Book 1 - Proposition 25</b></center>
+<center>If two triangles have two sides equal to two sides respectively, but have the base greater than the base, then they also have the one of the angles contained by the equal straight lines greater than the other.</center>
+
+Let [triangle ABC text="ABC"] and [triangle DEF text="DEF"] be two triangles having two sides [line AB text="AB"] and [line AC text="AC"] equal to two sides [line DE text="DE"] and [line DF text="DF"] respectively, namely [line AB text="AB"] to [line DE text="DE"], and [line AC text="AC"] to [line DF text="DF"], and let the base [line BC text="BC"] be greater than the base [line EF text="EF"].
+
+I say that the [angle BAC] is also greater than the [angle EDF].
+
+If not, it either equals it or is less.
+
+Now the [angle BAC] does not equal the [angle EDF], for then the base [line BC text="BC"] would equal the base [line EF text="EF"], but it is not. Therefore the [angle BAC] does not equal the [angle EDF].
+
+Neither is the [angle BAC] less than the [angle EDF], for then the base [line BC text="BC"] would be less than the base [line EF text="EF"], but it is not. Therefore the [angle BAC] is not less than the [angle EDF].
+
+But it was proved that it is not equal either. Therefore the [angle BAC] is greater than the [angle EDF].
+
+Therefore if two triangles have two sides equal to two sides respectively, but have the base greater than the base, then they also have the one of the angles contained by the equal straight lines greater than the other.
+
+[loc A x=-.5 y=.5]
+[loc B x=-.7 y=0]
+[loc C x=-.2 y=0]
+[loc E x=.2 y=0]
+[loc F x=.5 y=0]
+[loc D x=.3 y=.5]
+
+
+

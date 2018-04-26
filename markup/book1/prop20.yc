@@ -1,0 +1,31 @@
+<center><b>Book 1 - Proposition 20</b></center>
+<center>In any triangle the sum of any two sides is greater than the remaining one.</center>
+
+Let [triangle ABC text="ABC"] be a triangle.[step]
+
+I say that in the [triangle ABC] the sum of any two sides is greater than the remaining one, that is, the sum of [line BA text="BA"] and [line AC text="AC"] is greater than [line BC text="BC"], the sum of [line AB text="AB"] and [line BC text="BC"] is greater than [line AC text="AC"], and the sum of [line BC text="BC"] and [line CA text="CA"] is greater than [line AB text="AB"].[step]
+
+Draw [line BA text="BA"] through to the [point D], and make [line DA text="DA"] equal to [line CA text="CA"].[step]
+
+
+Join [line DC text="DC"].[step]
+
+Since [line DA text="DA"] equals [line AC text="AC"], therefore the [angle ADC] also equals the [angle ACD]. Therefore the [angle BCD] is greater than the [angle ADC].[step]
+
+
+Since [triangle DCB text="DCB"] [line BD hidden] is a triangle having the [angle BCD] greater than the [angle BDC], and the side opposite the greater angle is greater, therefore [line DB text="DB"] is greater than [line BC text="BC"].[step]
+
+
+But [line DA text="DA"] equals [line AC text="AC"], therefore the sum of [line BA text="BA"] and [line AC text="AC"] is greater than [line BC text="BC"].[step]
+
+
+Similarly we can prove that the sum of [line AB text="AB"] and [line BC text="BC"] is also greater than [line CA text="CA"], and the sum of [line BC text="BC"] and [line CA text="CA"] is greater than [line AB text="AB"].
+
+Therefore in any triangle the sum of any two sides is greater than the remaining one.
+
+[loc D x=-.2 y=.7]
+[loc B x=-.5 y=0]
+[loc C x=0 y=0]
+[loc A x=-.35 y=.35]
+
+

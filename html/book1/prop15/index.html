@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Book 1 - Proposition 15</b></center>\n<center>If two straight lines cut one another, then they make the vertical angles equal to one another</center>\n\nLet the straight lines  <span name=text_line_line_AB class='GeoElement'>AB</span> and  <span name=text_line_line_CD class='GeoElement'>line CD</span> cut one another at the  <span name=text_point_point_E class='GeoElement'>point E</span>. </div><div id='step_1'>\n\nI say that the  <span name=text_angle_angle_CEA class='GeoElement'>angle CEA</span> equals the  <span name=text_angle_angle_DEB class='GeoElement'>angle DEB</span>, and the  <span name=text_angle_angle_BEC class='GeoElement'>angle BEC</span> equals the  <span name=text_angle_angle_AED class='GeoElement'>angle AED</span>.</div><div id='step_2'>\n\nSince the straight  <span name=text_line_line_AE class='GeoElement'>line AE</span> stands on the straight  <span name=text_line_line_CD class='GeoElement'>line CD</span> making the angles  <span name=text_angle_angle_CEA class='GeoElement'>angle CEA</span> and  <span name=text_angle_angle_AED class='GeoElement'>AED</span>, therefore the sum of the angles  <span name=text_angle_angle_CEA class='GeoElement'>CEA</span> and  <span name=text_angle_angle_AED class='GeoElement'>AED</span> equals two right angles. </div><div id='step_3'>\n\nAgain, since the straight  <span name=text_line_line_DE class='GeoElement'>line DE</span> stands on the straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> making the angles  <span name=text_angle_angle_AED class='GeoElement'>AED</span> and  <span name=text_angle_angle_DEB class='GeoElement'>DEB</span>, therefore the sum of the angles  <span name=text_angle_angle_AED class='GeoElement'>AED</span> and  <span name=text_angle_angle_DEB class='GeoElement'>DEB</span> equals two right angles. </div><div id='step_4'>\n\nBut the sum of the angles  <span name=text_angle_angle_CEA class='GeoElement'>CEA</span> and  <span name=text_angle_angle_AED class='GeoElement'>AED</span> was also proved equal to two right angles, therefore the sum of the angles  <span name=text_angle_angle_CEA class='GeoElement'>CEA</span> and  <span name=text_angle_angle_AED class='GeoElement'>AED</span> equals the sum of the angles  <span name=text_angle_angle_AED class='GeoElement'>AED</span> and  <span name=text_angle_angle_DEB class='GeoElement'>DEB</span>. Subtract the  <span name=text_angle_angle_AED class='GeoElement'>angle AED</span> from each. Then the remaining  <span name=text_angle_angle_CEA class='GeoElement'>angle CEA</span> equals the remaining  <span name=text_angle_angle_DEB class='GeoElement'>angle DEB</span>.\n\nSimilarly it can be proved that the angles  <span name=text_angle_angle_BEC class='GeoElement'>BEC</span> and  <span name=text_angle_angle_AED class='GeoElement'>AED</span> are also equal.\n\nTherefore if two straight lines cut one another, then they make the vertical angles equal to one another.\n\n\n\n </div>",
+    "geometry": {
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "line_CD": {
+            "type": "Line",
+            "id": "line_CD",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_D"
+            },
+            "label": "CD"
+        },
+        "line_AE": {
+            "type": "Line",
+            "id": "line_AE",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_E"
+            },
+            "label": "AE"
+        },
+        "line_DE": {
+            "type": "Line",
+            "id": "line_DE",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_E"
+            },
+            "label": "DE"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": -0.5,
+                "y": 0.5
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": 0.5,
+                "y": -0.5
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "x": -0.5,
+                "y": 0.0
+            },
+            "label": "C"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "x": 0.5,
+                "y": 0.0
+            },
+            "label": "D"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "label": "E"
+        },
+        "angle_CEA": {
+            "type": "Angle",
+            "id": "angle_CEA",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_E",
+                    "point_A"
+                ],
+                "degree": 45.0
+            },
+            "label": "CEA"
+        },
+        "angle_DEB": {
+            "type": "Angle",
+            "id": "angle_DEB",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_E",
+                    "point_B"
+                ],
+                "degree": 45.0
+            },
+            "label": "DEB"
+        },
+        "angle_BEC": {
+            "type": "Angle",
+            "id": "angle_BEC",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_E",
+                    "point_C"
+                ],
+                "degree": 135.0
+            },
+            "label": "BEC"
+        },
+        "angle_AED": {
+            "type": "Angle",
+            "id": "angle_AED",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_E",
+                    "point_D"
+                ],
+                "degree": 135.0
+            },
+            "label": "AED"
+        }
+    },
+    "animations": [
+        [
+            "line_CD",
+            "point_A",
+            "line_AB",
+            "point_D",
+            "point_B",
+            "point_C",
+            "point_E"
+        ],
+        [
+            "line_CD",
+            "point_A",
+            "line_AB",
+            "angle_CEA",
+            "angle_DEB",
+            "angle_BEC",
+            "point_D",
+            "point_B",
+            "angle_AED",
+            "point_C",
+            "point_E"
+        ],
+        [
+            "line_CD",
+            "point_A",
+            "line_AB",
+            "angle_CEA",
+            "angle_DEB",
+            "angle_BEC",
+            "point_D",
+            "point_B",
+            "angle_AED",
+            "point_C",
+            "line_AE",
+            "point_E"
+        ],
+        [
+            "line_CD",
+            "point_A",
+            "line_AB",
+            "angle_CEA",
+            "angle_DEB",
+            "angle_BEC",
+            "point_D",
+            "point_B",
+            "angle_AED",
+            "point_C",
+            "line_DE",
+            "line_AE",
+            "point_E"
+        ],
+        [
+            "line_CD",
+            "point_A",
+            "line_AB",
+            "angle_CEA",
+            "angle_DEB",
+            "angle_BEC",
+            "point_D",
+            "point_B",
+            "angle_AED",
+            "point_C",
+            "line_DE",
+            "line_AE",
+            "point_E"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Book 1 - Proposition 15</b></center><br>
+        <center>If two straight lines cut one another, then they make the vertical angles equal to one another</center><br>
+        <br>
+        Let the straight lines  <span name=text_line_line_AB class='GeoElement'>AB</span> and  <span name=text_line_line_CD class='GeoElement'>line CD</span> cut one another at the  <span name=text_point_point_E class='GeoElement'>point E</span>. </div><div id='step_1'><br>
+        <br>
+        I say that the  <span name=text_angle_angle_CEA class='GeoElement'>angle CEA</span> equals the  <span name=text_angle_angle_DEB class='GeoElement'>angle DEB</span>, and the  <span name=text_angle_angle_BEC class='GeoElement'>angle BEC</span> equals the  <span name=text_angle_angle_AED class='GeoElement'>angle AED</span>.</div><div id='step_2'><br>
+        <br>
+        Since the straight  <span name=text_line_line_AE class='GeoElement'>line AE</span> stands on the straight  <span name=text_line_line_CD class='GeoElement'>line CD</span> making the angles  <span name=text_angle_angle_CEA class='GeoElement'>angle CEA</span> and  <span name=text_angle_angle_AED class='GeoElement'>AED</span>, therefore the sum of the angles  <span name=text_angle_angle_CEA class='GeoElement'>CEA</span> and  <span name=text_angle_angle_AED class='GeoElement'>AED</span> equals two right angles. </div><div id='step_3'><br>
+        <br>
+        Again, since the straight  <span name=text_line_line_DE class='GeoElement'>line DE</span> stands on the straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> making the angles  <span name=text_angle_angle_AED class='GeoElement'>AED</span> and  <span name=text_angle_angle_DEB class='GeoElement'>DEB</span>, therefore the sum of the angles  <span name=text_angle_angle_AED class='GeoElement'>AED</span> and  <span name=text_angle_angle_DEB class='GeoElement'>DEB</span> equals two right angles. </div><div id='step_4'><br>
+        <br>
+        But the sum of the angles  <span name=text_angle_angle_CEA class='GeoElement'>CEA</span> and  <span name=text_angle_angle_AED class='GeoElement'>AED</span> was also proved equal to two right angles, therefore the sum of the angles  <span name=text_angle_angle_CEA class='GeoElement'>CEA</span> and  <span name=text_angle_angle_AED class='GeoElement'>AED</span> equals the sum of the angles  <span name=text_angle_angle_AED class='GeoElement'>AED</span> and  <span name=text_angle_angle_DEB class='GeoElement'>DEB</span>. Subtract the  <span name=text_angle_angle_AED class='GeoElement'>angle AED</span> from each. Then the remaining  <span name=text_angle_angle_CEA class='GeoElement'>angle CEA</span> equals the remaining  <span name=text_angle_angle_DEB class='GeoElement'>angle DEB</span>.<br>
+        <br>
+        Similarly it can be proved that the angles  <span name=text_angle_angle_BEC class='GeoElement'>BEC</span> and  <span name=text_angle_angle_AED class='GeoElement'>AED</span> are also equal.<br>
+        <br>
+        Therefore if two straight lines cut one another, then they make the vertical angles equal to one another.<br>
+        <br>
+        <br>
+        <br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>
