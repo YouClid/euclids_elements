@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Book 1 - Proposition 2</b></center>\n<center>To place a straight line equal to a given straight line with one end at a given point.</center>\n\nLet  <span name=text_point_point_A class='GeoElement'>point A</span> be the given point, and  <span name=text_line_line_BC class='GeoElement'>line BC</span> the given straigt line.\n</div><div id='step_1'>\nIt is required to place a straight  <span name=text_line_line_AL class='GeoElement'>line AL</span> equal to the given straight  <span name=text_line_line_BC class='GeoElement'>line BC</span> with one end at the  <span name=text_point_point_A class='GeoElement'>point A</span>.\n</div><div id='step_2'>\n\nJoin the straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> from the  <span name=text_point_point_A class='GeoElement'>point A</span> to the  <span name=text_point_point_B class='GeoElement'>point B</span>, and construct the equilateral  <span name=text_polygon_polygon_ABD class='GeoElement'>DAB</span>.\n</div><div id='step_3'>\nProduce the straight  <span name=text_line_line_AE class='GeoElement'>line AE</span> and straight  <span name=text_line_line_BF class='GeoElement'>line BF</span> in a straight line with  <span name=text_line_line_AD class='GeoElement'>DA</span> and  <span name=text_line_line_BD class='GeoElement'>DB</span>.\n</div><div id='step_4'>\nDescribe the  <span name=text_circle_circle_CGH class='GeoElement'>circle CGH</span> with  <span name=text_point_point_B class='GeoElement'>center B</span>, and again, descibe the  <span name=text_circle_circle_GKL class='GeoElement'>circle GKL</span> with  <span name=text_point_point_D class='GeoElement'>center D</span>.\n</div><div id='step_5'>\nSince the  <span name=text_point_point_B class='GeoElement'>point B</span> is the center of the  <span name=text_circle_circle_CGH class='GeoElement'>circle CGH</span>, therefore,  <span name=text_line_line_BC class='GeoElement'>line BC</span> equals  <span name=text_line_line_BG class='GeoElement'>line BG</span>.\nAgain, since the  <span name=text_point_point_D class='GeoElement'>point D</span> is the center of the  <span name=text_circle_circle_GKL class='GeoElement'>circle GKL</span>, therefore,  <span name=text_line_line_DL class='GeoElement'>line DL</span> equals  <span name=text_line_line_DG class='GeoElement'>line DG</span>.\nAnd in these,  <span name=text_line_line_AD class='GeoElement'>DA</span> equals  <span name=text_line_line_BD class='GeoElement'>DB</span>, therefore, the remainder  <span name=text_line_line_AL class='GeoElement'>line AL</span> equals the remainder  <span name=text_line_line_BG class='GeoElement'>line BG</span>.\nBut  <span name=text_line_line_BC class='GeoElement'>line BC</span> was also proved equal to  <span name=text_line_line_BG class='GeoElement'>line BG</span>, therefore each of the straight lines  <span name=text_line_line_AL class='GeoElement'>line AL</span> and  <span name=text_line_line_BC class='GeoElement'>line BC</span> equals  <span name=text_line_line_BG class='GeoElement'>line BG</span>.\nAnd things which equal the same thing also equal one another, therefore,  <span name=text_line_line_AL class='GeoElement'>line AL</span> also equals  <span name=text_line_line_BC class='GeoElement'>line BC</span>.\n</div><div id='step_6'>\n\nTherefore, the straight  <span name=text_line_line_AL class='GeoElement'>line AL</span> equal to the given straight  <span name=text_line_line_BC class='GeoElement'>line BC</span> has been placed with one end at the given  <span name=text_point_point_A class='GeoElement'>point A</span>.\n\n </div>",
+    "geometry": {
+        "polygon_ABD": {
+            "type": "Polygon",
+            "id": "polygon_ABD",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_D"
+                ]
+            },
+            "label": "ABD"
+        },
+        "line_BC": {
+            "type": "Line",
+            "id": "line_BC",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_C"
+            },
+            "label": "BC"
+        },
+        "line_AL": {
+            "type": "Line",
+            "id": "line_AL",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_L"
+            },
+            "label": "AL"
+        },
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "line_AE": {
+            "type": "Line",
+            "id": "line_AE",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_E"
+            },
+            "label": "AE"
+        },
+        "line_BF": {
+            "type": "Line",
+            "id": "line_BF",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_F"
+            },
+            "label": "BF"
+        },
+        "line_AD": {
+            "type": "Line",
+            "id": "line_AD",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_D"
+            },
+            "label": "AD"
+        },
+        "line_BD": {
+            "type": "Line",
+            "id": "line_BD",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_D"
+            },
+            "label": "BD"
+        },
+        "line_BG": {
+            "type": "Line",
+            "id": "line_BG",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_G"
+            },
+            "label": "BG"
+        },
+        "line_DL": {
+            "type": "Line",
+            "id": "line_DL",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_L"
+            },
+            "label": "DL"
+        },
+        "line_DG": {
+            "type": "Line",
+            "id": "line_DG",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_G"
+            },
+            "label": "DG"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": -0.25
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": 0.25,
+                "y": 0.0
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "x": 0.25,
+                "y": 0.25
+            },
+            "label": "C"
+        },
+        "point_L": {
+            "type": "Point",
+            "id": "point_L",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": -0.5
+            },
+            "label": "L"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "label": "D"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": -0.75
+            },
+            "label": "E"
+        },
+        "point_F": {
+            "type": "Point",
+            "id": "point_F",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "x": 0.75,
+                "y": 0.0
+            },
+            "label": "F"
+        },
+        "point_G": {
+            "type": "Point",
+            "id": "point_G",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "x": 0.5,
+                "y": 0.0
+            },
+            "label": "G"
+        },
+        "point_H": {
+            "type": "Point",
+            "id": "point_H",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "x": 0.0673403997704272,
+                "y": 0.170691155142768
+            },
+            "label": "H"
+        },
+        "point_K": {
+            "type": "Point",
+            "id": "point_K",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "x": -0.44308330079154,
+                "y": -0.231683379981547
+            },
+            "label": "K"
+        },
+        "circle_CGH": {
+            "type": "Circle",
+            "id": "circle_CGH",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_G",
+                "p3": "point_H",
+                "radius": 0.25,
+                "center": "point_B"
+            },
+            "label": "CGH"
+        },
+        "circle_GKL": {
+            "type": "Circle",
+            "id": "circle_GKL",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_G",
+                "p2": "point_K",
+                "p3": "point_L",
+                "radius": 0.5,
+                "center": "point_D"
+            },
+            "label": "GKL"
+        }
+    },
+    "animations": [
+        [
+            "point_C",
+            "point_A",
+            "point_B",
+            "line_BC"
+        ],
+        [
+            "line_AL",
+            "point_L",
+            "line_BC",
+            "point_A",
+            "point_B",
+            "point_C"
+        ],
+        [
+            "polygon_ABD",
+            "point_D",
+            "point_A",
+            "line_AB",
+            "point_B"
+        ],
+        [
+            "line_AE",
+            "polygon_ABD",
+            "line_BD",
+            "point_E",
+            "point_F",
+            "point_D",
+            "point_A",
+            "line_AB",
+            "point_B",
+            "line_BF",
+            "line_AD"
+        ],
+        [
+            "line_AE",
+            "polygon_ABD",
+            "line_BD",
+            "point_E",
+            "point_F",
+            "point_L",
+            "point_D",
+            "circle_GKL",
+            "point_K",
+            "point_H",
+            "point_A",
+            "line_AB",
+            "point_B",
+            "point_C",
+            "circle_CGH",
+            "line_BF",
+            "line_AD",
+            "point_G"
+        ],
+        [
+            "point_L",
+            "point_E",
+            "line_BG",
+            "point_C",
+            "line_BF",
+            "line_BD",
+            "line_AE",
+            "line_AL",
+            "polygon_ABD",
+            "circle_GKL",
+            "point_B",
+            "line_AD",
+            "line_DL",
+            "point_F",
+            "line_DG",
+            "point_D",
+            "point_A",
+            "circle_CGH",
+            "point_G",
+            "line_BC",
+            "point_K",
+            "point_H",
+            "line_AB"
+        ],
+        [
+            "line_AL",
+            "point_L",
+            "line_BC",
+            "point_A",
+            "point_B",
+            "point_C"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Book 1 - Proposition 2</b></center><br>
+        <center>To place a straight line equal to a given straight line with one end at a given point.</center><br>
+        <br>
+        Let  <span name=text_point_point_A class='GeoElement'>point A</span> be the given point, and  <span name=text_line_line_BC class='GeoElement'>line BC</span> the given straigt line.<br>
+        </div><div id='step_1'><br>
+        It is required to place a straight  <span name=text_line_line_AL class='GeoElement'>line AL</span> equal to the given straight  <span name=text_line_line_BC class='GeoElement'>line BC</span> with one end at the  <span name=text_point_point_A class='GeoElement'>point A</span>.<br>
+        </div><div id='step_2'><br>
+        <br>
+        Join the straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> from the  <span name=text_point_point_A class='GeoElement'>point A</span> to the  <span name=text_point_point_B class='GeoElement'>point B</span>, and construct the equilateral  <span name=text_polygon_polygon_ABD class='GeoElement'>DAB</span>.<br>
+        </div><div id='step_3'><br>
+        Produce the straight  <span name=text_line_line_AE class='GeoElement'>line AE</span> and straight  <span name=text_line_line_BF class='GeoElement'>line BF</span> in a straight line with  <span name=text_line_line_AD class='GeoElement'>DA</span> and  <span name=text_line_line_BD class='GeoElement'>DB</span>.<br>
+        </div><div id='step_4'><br>
+        Describe the  <span name=text_circle_circle_CGH class='GeoElement'>circle CGH</span> with  <span name=text_point_point_B class='GeoElement'>center B</span>, and again, descibe the  <span name=text_circle_circle_GKL class='GeoElement'>circle GKL</span> with  <span name=text_point_point_D class='GeoElement'>center D</span>.<br>
+        </div><div id='step_5'><br>
+        Since the  <span name=text_point_point_B class='GeoElement'>point B</span> is the center of the  <span name=text_circle_circle_CGH class='GeoElement'>circle CGH</span>, therefore,  <span name=text_line_line_BC class='GeoElement'>line BC</span> equals  <span name=text_line_line_BG class='GeoElement'>line BG</span>.<br>
+        Again, since the  <span name=text_point_point_D class='GeoElement'>point D</span> is the center of the  <span name=text_circle_circle_GKL class='GeoElement'>circle GKL</span>, therefore,  <span name=text_line_line_DL class='GeoElement'>line DL</span> equals  <span name=text_line_line_DG class='GeoElement'>line DG</span>.<br>
+        And in these,  <span name=text_line_line_AD class='GeoElement'>DA</span> equals  <span name=text_line_line_BD class='GeoElement'>DB</span>, therefore, the remainder  <span name=text_line_line_AL class='GeoElement'>line AL</span> equals the remainder  <span name=text_line_line_BG class='GeoElement'>line BG</span>.<br>
+        But  <span name=text_line_line_BC class='GeoElement'>line BC</span> was also proved equal to  <span name=text_line_line_BG class='GeoElement'>line BG</span>, therefore each of the straight lines  <span name=text_line_line_AL class='GeoElement'>line AL</span> and  <span name=text_line_line_BC class='GeoElement'>line BC</span> equals  <span name=text_line_line_BG class='GeoElement'>line BG</span>.<br>
+        And things which equal the same thing also equal one another, therefore,  <span name=text_line_line_AL class='GeoElement'>line AL</span> also equals  <span name=text_line_line_BC class='GeoElement'>line BC</span>.<br>
+        </div><div id='step_6'><br>
+        <br>
+        Therefore, the straight  <span name=text_line_line_AL class='GeoElement'>line AL</span> equal to the given straight  <span name=text_line_line_BC class='GeoElement'>line BC</span> has been placed with one end at the given  <span name=text_point_point_A class='GeoElement'>point A</span>.<br>
+        <br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>
