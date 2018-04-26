@@ -1,0 +1,27 @@
+<center><b>Book 1 - Proposition 30</b></center>
+<center>Straight lines parallel to the same straight line are also parallel to one another.</center>
+
+Let each of the straight lines [line AB text="AB"] and [line CD text="CD"] be parallel to [line EF text="EF"].
+
+I say that [line AB text="AB"] is also parallel to [line CD text="CD"]. [step]
+
+Let the straight [line GK] fall upon them. Since the straight [line GK] falls on the parallel straight lines [line AB text="AB"] and [line EF text="EF"], therefore the [angle AGK] equals the [angle GHF].[step]
+
+Again, since the straight [line GK] falls on the parallel straight lines [line EF text="EF"] and [line CD text="CD"], therefore the [angle GHF] equals the [angle GKD].[step]
+
+But the [angle AGK] was also proved equal to the [angle GHF]. Therefore the [angle AGK] also equals the [angle GKD], and they are alternate.
+
+Therefore [line AB text="AB"] is parallel to [line CD text="CD"].
+
+Therefore straight lines parallel to the same straight line are also parallel to one another.
+
+[loc A x=-.5 y=.5]
+[loc B x=.5 y=.5]
+[loc E x=-.5 y=0]
+[loc F x=.5 y=0]
+[loc C x=-.5 y=-.5]
+[loc D x=.5 y=-.5]
+[point G lieson=AB hidden]
+[point H lieson=GK hidden]
+[point H lieson=EF hidden]
+[point K lieson=CD hidden]
