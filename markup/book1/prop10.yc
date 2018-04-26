@@ -1,9 +1,9 @@
 <center><b>Book 1 - Proposition 10</b></center>
 <center>To bisect a given finite straight line.</center>
 
-Let [line AB text="AB"] be the given finite straight line. [step]
+Let [line AB text="AB"] be the given finite straight line.
 
-It is required to bisect the finite straight [line AB].
+It is required to bisect the finite straight [line AB]. [step]
 
 Construct the equilateral [polygon ABC] on it, and bisect the [angle ACB] by the straight [line CD].
 
