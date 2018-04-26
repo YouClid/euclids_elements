@@ -1,0 +1,22 @@
+<center><b>Proposition 14</b></center>
+<center>If with any straight line, and at a point on it, two straight lines not lying on the same side make the sum of the adjacent angles equal to two right angles, then the two straight lines are in a straight line with one another.</center>
+
+With any straight [line AB], and at the [point B] on it, let the two straight lines [line CB text="BC"] and [line BD text="BD"] not lying on the same side make the sum of the adjacent angles [angle ABC text="ABC"] and [angle ABD text="ABD"] equal to two right angles.
+[step][clear]
+I say that [line BD] is in a straight line with [line CB].
+
+If [line BD] is not in a straight line with [line CB], then produce [line BE] in a straight line with [line CB].
+
+Since the straight [line AB] stands on the straight [line CE text="CBE"], therefore the sum of the angles [angle ABC text="ABC"] and [angle ABE text="ABE"] equals two right angles. But the sum of the angles [angle ABC text="ABC"] and [angle ABD text="ABD"] also equals two right angles, therefore the sum of the angles [angle CBA text="CBA"] and [angle ABE text="ABE"] equals the sum of the angles [angle CBA text="CBA"] and [angle ABD text="ABD"].
+
+Subtract the [angle CBA] from each. Then the remaining [angle ABE] equals the remaining [angle ABD], the less equals the greater, which is impossible. Therefore [line BE] is not in a straight line with [line CB].
+[step][clear]
+Similarly we can prove that neither is any other straight line except [line BD]. Therefore [line CB] is in a straight line with [line BD].
+
+Therefore if with any straight line, and at a point on it, two straight lines not lying on the same side make the sum of the adjacent angles equal to two right angles, then the two straight lines are in a straight line with one another.
+
+[loc A x=-.1 y=.6]
+[loc B x=0 y=0]
+[loc C x=-.4 y=0]
+[loc D x=.4 y=0]
+[loc E x=.3 y=.1]
