@@ -26,6 +26,12 @@ def get_changed():
     grep = Popen(("grep", ".yc"), stdin=git.stdout, stdout=PIPE)
     awk = Popen(("awk", "{print $1}"), stdin=grep.stdout, stdout=PIPE)
     files = awk.communicate()[0].decode("UTF-8").split("\n")
+
+    git = Popen(("git", "status", "*.yc"), stdout=PIPE)
+    grep = Popen(("grep", ".yc"), stdin=git.stdout, stdout=PIPE)
+    awk = Popen(("awk", "{print $2}"), stdin=grep.stdout, stdout=PIPE)
+    files += awk.communicate()[0].decode("UTF-8").split("\n")
+
     return files
 
 
