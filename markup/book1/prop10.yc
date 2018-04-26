@@ -1,0 +1,22 @@
+<center><b>Book 1 - Proposition 10</b></center>
+<center>To bisect a given finite straight line.</center>
+
+Let [line AB text="AB"] be the given finite straight line. [step]
+
+It is required to bisect the finite straight [line AB].
+
+Construct the equilateral [polygon ABC] on it, and bisect the [angle ACB] by the straight [line CD].
+
+I say that the straight [line AB] is bisected at the [point D].
+
+Since [line CA text="CA"] equals [line CB text="CB"], and [line CD text="CD"] is common, therefore the two sides [line CA text="CA"] and [line CD text="CD"] equal the two sides [line CB text="CB"] and [line CD text="CD"] respectively, and the [angle ACD] equals the [angle BCD], therefore the base [line AD text="AD"] equals the base [line BD text="BD"].
+
+Therefore the given straight [line AB] is bisected at [point D text="D"]
+
+[loc A x=-0.5 y=0]
+[loc D x=0 y=0]
+[loc B x=0.5 y=0]
+[loc C x=0 y=.866]
+
+
+
