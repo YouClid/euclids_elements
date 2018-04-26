@@ -28,4 +28,4 @@ Therefore, the straight [line AL] equal to the given straight [line BC] has been
 [loc E x=0 y=-0.75]
 [loc F x=0.75 y=0]
 [loc G x=0.5 y=0]
-[point L lieson="line AE" hidden]
+[point L lieson=AE hidden]
