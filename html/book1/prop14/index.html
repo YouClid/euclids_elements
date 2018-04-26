@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Proposition 14</b></center>\n<center>If with any straight line, and at a point on it, two straight lines not lying on the same side make the sum of the adjacent angles equal to two right angles, then the two straight lines are in a straight line with one another.</center>\n\nWith any straight  <span name=text_line_line_AB class='GeoElement'>line AB</span>, and at the  <span name=text_point_point_B class='GeoElement'>point B</span> on it, let the two straight lines  <span name=text_line_line_CB class='GeoElement'>BC</span> and  <span name=text_line_line_BD class='GeoElement'>BD</span> not lying on the same side make the sum of the adjacent angles  <span name=text_angle_angle_ABC class='GeoElement'>ABC</span> and  <span name=text_angle_angle_ABD class='GeoElement'>ABD</span> equal to two right angles.\n</div><div id='step_1'>\nI say that  <span name=text_line_line_BD class='GeoElement'>line BD</span> is in a straight line with  <span name=text_line_line_CB class='GeoElement'>line CB</span>.\n\nIf  <span name=text_line_line_BD class='GeoElement'>line BD</span> is not in a straight line with  <span name=text_line_line_CB class='GeoElement'>line CB</span>, then produce  <span name=text_line_line_BE class='GeoElement'>line BE</span> in a straight line with  <span name=text_line_line_CB class='GeoElement'>line CB</span>.\n\nSince the straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> stands on the straight  <span name=text_line_line_CE class='GeoElement'>CBE</span>, therefore the sum of the angles  <span name=text_angle_angle_ABC class='GeoElement'>ABC</span> and  <span name=text_angle_angle_ABE class='GeoElement'>ABE</span> equals two right angles. But the sum of the angles  <span name=text_angle_angle_ABC class='GeoElement'>ABC</span> and  <span name=text_angle_angle_ABD class='GeoElement'>ABD</span> also equals two right angles, therefore the sum of the angles  <span name=text_angle_angle_CBA class='GeoElement'>CBA</span> and  <span name=text_angle_angle_ABE class='GeoElement'>ABE</span> equals the sum of the angles  <span name=text_angle_angle_CBA class='GeoElement'>CBA</span> and  <span name=text_angle_angle_ABD class='GeoElement'>ABD</span>.\n\nSubtract the  <span name=text_angle_angle_CBA class='GeoElement'>angle CBA</span> from each. Then the remaining  <span name=text_angle_angle_ABE class='GeoElement'>angle ABE</span> equals the remaining  <span name=text_angle_angle_ABD class='GeoElement'>angle ABD</span>, the less equals the greater, which is impossible. Therefore  <span name=text_line_line_BE class='GeoElement'>line BE</span> is not in a straight line with  <span name=text_line_line_CB class='GeoElement'>line CB</span>.\n</div><div id='step_2'>\nSimilarly we can prove that neither is any other straight line except  <span name=text_line_line_BD class='GeoElement'>line BD</span>. Therefore  <span name=text_line_line_CB class='GeoElement'>line CB</span> is in a straight line with  <span name=text_line_line_BD class='GeoElement'>line BD</span>.\n\nTherefore if with any straight line, and at a point on it, two straight lines not lying on the same side make the sum of the adjacent angles equal to two right angles, then the two straight lines are in a straight line with one another. </div>",
+    "geometry": {
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "line_CB": {
+            "type": "Line",
+            "id": "line_CB",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_B"
+            },
+            "label": "CB"
+        },
+        "line_BD": {
+            "type": "Line",
+            "id": "line_BD",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_D"
+            },
+            "label": "BD"
+        },
+        "line_BE": {
+            "type": "Line",
+            "id": "line_BE",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_E"
+            },
+            "label": "BE"
+        },
+        "line_CE": {
+            "type": "Line",
+            "id": "line_CE",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_E"
+            },
+            "label": "CE"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": -0.1,
+                "y": 0.6
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "x": -0.4,
+                "y": 0.0
+            },
+            "label": "C"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "x": 0.4,
+                "y": 0.0
+            },
+            "label": "D"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "x": 0.3,
+                "y": 0.1
+            },
+            "label": "E"
+        },
+        "angle_ABC": {
+            "type": "Angle",
+            "id": "angle_ABC",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_B",
+                    "point_A"
+                ],
+                "degree": 80.53767779197437
+            },
+            "label": "ABC"
+        },
+        "angle_ABD": {
+            "type": "Angle",
+            "id": "angle_ABD",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_D"
+                ],
+                "degree": 99.46232220802563
+            },
+            "label": "ABD"
+        },
+        "angle_ABE": {
+            "type": "Angle",
+            "id": "angle_ABE",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_E"
+                ],
+                "degree": 81.02737338510362
+            },
+            "label": "ABE"
+        },
+        "angle_CBA": {
+            "type": "Angle",
+            "id": "angle_CBA",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_B",
+                    "point_A"
+                ],
+                "degree": 80.53767779197437
+            },
+            "label": "CBA"
+        }
+    },
+    "animations": [
+        [
+            "point_D",
+            "point_C",
+            "point_B",
+            "line_BD",
+            "line_AB",
+            "line_CB",
+            "angle_ABD",
+            "point_A",
+            "angle_ABC"
+        ],
+        [
+            "point_D",
+            "line_BE",
+            "point_C",
+            "line_CE",
+            "line_BD",
+            "point_B",
+            "angle_CBA",
+            "point_E",
+            "line_AB",
+            "line_CB",
+            "angle_ABD",
+            "point_A",
+            "angle_ABE",
+            "angle_ABC"
+        ],
+        [
+            "point_D",
+            "point_C",
+            "line_BD",
+            "point_B",
+            "line_CB"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Proposition 14</b></center><br>
+        <center>If with any straight line, and at a point on it, two straight lines not lying on the same side make the sum of the adjacent angles equal to two right angles, then the two straight lines are in a straight line with one another.</center><br>
+        <br>
+        With any straight  <span name=text_line_line_AB class='GeoElement'>line AB</span>, and at the  <span name=text_point_point_B class='GeoElement'>point B</span> on it, let the two straight lines  <span name=text_line_line_CB class='GeoElement'>BC</span> and  <span name=text_line_line_BD class='GeoElement'>BD</span> not lying on the same side make the sum of the adjacent angles  <span name=text_angle_angle_ABC class='GeoElement'>ABC</span> and  <span name=text_angle_angle_ABD class='GeoElement'>ABD</span> equal to two right angles.<br>
+        </div><div id='step_1'><br>
+        I say that  <span name=text_line_line_BD class='GeoElement'>line BD</span> is in a straight line with  <span name=text_line_line_CB class='GeoElement'>line CB</span>.<br>
+        <br>
+        If  <span name=text_line_line_BD class='GeoElement'>line BD</span> is not in a straight line with  <span name=text_line_line_CB class='GeoElement'>line CB</span>, then produce  <span name=text_line_line_BE class='GeoElement'>line BE</span> in a straight line with  <span name=text_line_line_CB class='GeoElement'>line CB</span>.<br>
+        <br>
+        Since the straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> stands on the straight  <span name=text_line_line_CE class='GeoElement'>CBE</span>, therefore the sum of the angles  <span name=text_angle_angle_ABC class='GeoElement'>ABC</span> and  <span name=text_angle_angle_ABE class='GeoElement'>ABE</span> equals two right angles. But the sum of the angles  <span name=text_angle_angle_ABC class='GeoElement'>ABC</span> and  <span name=text_angle_angle_ABD class='GeoElement'>ABD</span> also equals two right angles, therefore the sum of the angles  <span name=text_angle_angle_CBA class='GeoElement'>CBA</span> and  <span name=text_angle_angle_ABE class='GeoElement'>ABE</span> equals the sum of the angles  <span name=text_angle_angle_CBA class='GeoElement'>CBA</span> and  <span name=text_angle_angle_ABD class='GeoElement'>ABD</span>.<br>
+        <br>
+        Subtract the  <span name=text_angle_angle_CBA class='GeoElement'>angle CBA</span> from each. Then the remaining  <span name=text_angle_angle_ABE class='GeoElement'>angle ABE</span> equals the remaining  <span name=text_angle_angle_ABD class='GeoElement'>angle ABD</span>, the less equals the greater, which is impossible. Therefore  <span name=text_line_line_BE class='GeoElement'>line BE</span> is not in a straight line with  <span name=text_line_line_CB class='GeoElement'>line CB</span>.<br>
+        </div><div id='step_2'><br>
+        Similarly we can prove that neither is any other straight line except  <span name=text_line_line_BD class='GeoElement'>line BD</span>. Therefore  <span name=text_line_line_CB class='GeoElement'>line CB</span> is in a straight line with  <span name=text_line_line_BD class='GeoElement'>line BD</span>.<br>
+        <br>
+        Therefore if with any straight line, and at a point on it, two straight lines not lying on the same side make the sum of the adjacent angles equal to two right angles, then the two straight lines are in a straight line with one another. </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>
