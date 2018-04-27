@@ -1,0 +1,17 @@
+<center><b>Proposition 37</b></center>
+<center>Triangles which are on the same base and in the same parallels equal one another.</center>
+
+Let [triangle ABC text="ABC"] and [triangle BCD text=DBC] be triangles on the same [line BC text="base BC"] and in the same parallels [line AD] and [line BC].
+I say that the [triangle ABC] equals the [triangle BCD].[step]
+Produce [line AD] in both directions to [point E] and [point F]. Draw [line BE] through [point B] parallel to [line AC], and draw CF through C parallel to [line BD].
+Then each of the figures [polygon EBCA] and [polygon DBCF] is a parallelogram, and they are equal, for they are on the same [line BC text="base BC"] and in the same parallels [line BC] and [line EF].[step]
+Moreover the [triangle ABC] is half of the [polygon EBCA text="parallelogram EBCA"], for the diameter [line AB] bisects it. And the [triangle BCD] is half of the [polygon DBCF text="parallelogram DBCF"], for the diameter [line CD] bisects it.[step][clear]
+Therefore the [triangle ABC] equals the [triangle BCD].
+Therefore triangles which are on the same base and in the same parallels equal one another.
+
+[loc A x=-0.2 y=0.3]
+[loc D x=0.2 y=0.3]
+[loc E x=-0.5 y=0.3]
+[loc F x=0.5 y=0.3]
+[loc B x=-0.1 y=-0.3]
+[loc C x=0.1 y=-0.3]
