@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Book 1 - Proposition 35</b></center>\n<center>Equal triangles which are on equal bases and on the same side are also in the same parallels.</center>\n\nLet  <span name=text_polygon_polygon_ABC class='GeoElement'>ABC</span> and  <span name=text_polygon_polygon_CDE class='GeoElement'>CDE</span> be equal triangles on equal bases  <span name=text_line_line_BC class='GeoElement'>BC</span> and  <span name=text_line_line_CE class='GeoElement'>CE</span> and on the same side.\n\nI say that they are also in the same parallels. </div><div id='step_1'>\n\nJoin  <span name=text_line_line_AD class='GeoElement'>AD</span>. I say that  <span name=text_line_line_AD class='GeoElement'>AD</span> is parallel to  <span name=text_line_line_BE class='GeoElement'>BE</span>.\n\nIf not, draw  <span name=text_line_line_AF class='GeoElement'>AF</span> through  <span name=text_point_point_A class='GeoElement'>A</span> parallel to  <span name=text_line_line_BE class='GeoElement'>BE</span>, and join  <span name=text_line_line_FE class='GeoElement'>FE</span>.</div><div id='step_2'>\n\nTherefore the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> equals the  <span name=text_polygon_polygon_FCE class='GeoElement'>triangle FCE</span>, for they are on equal bases  <span name=text_line_line_BC class='GeoElement'>BC</span> and  <span name=text_line_line_CE class='GeoElement'>CE</span> and in the same parallels  <span name=text_line_line_BE class='GeoElement'>BE</span> and  <span name=text_line_line_AF class='GeoElement'>AF</span>.</div><div id='step_3'>\n\nBut the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> equals the  <span name=text_polygon_polygon_DCE class='GeoElement'>triangle DCE</span>, therefore the  <span name=text_polygon_polygon_DCE class='GeoElement'>triangle DCE</span> also equals the  <span name=text_polygon_polygon_FCE class='GeoElement'>triangle FCE</span>, the greater equals the less, which is impossible. Therefore  <span name=text_line_line_AF class='GeoElement'>AF</span> is not parallel to  <span name=text_line_line_BE class='GeoElement'>BE</span>.\n\nSimilarly we can prove that neither is any other straight line except  <span name=text_line_line_AD class='GeoElement'>AD</span>, therefore  <span name=text_line_line_AD class='GeoElement'>AD</span> is parallel to  <span name=text_line_line_BE class='GeoElement'>BE</span>.\n\nTherefore equal triangles which are on equal bases and on the same side are also in the same parallels.\n </div>",
+    "geometry": {
+        "polygon_ABC": {
+            "type": "Polygon",
+            "id": "polygon_ABC",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ]
+            },
+            "label": "ABC"
+        },
+        "polygon_CDE": {
+            "type": "Polygon",
+            "id": "polygon_CDE",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_D",
+                    "point_E"
+                ]
+            },
+            "label": "CDE"
+        },
+        "polygon_FCE": {
+            "type": "Polygon",
+            "id": "polygon_FCE",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_F",
+                    "point_C",
+                    "point_E"
+                ]
+            },
+            "label": "FCE"
+        },
+        "polygon_DCE": {
+            "type": "Polygon",
+            "id": "polygon_DCE",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_C",
+                    "point_E"
+                ]
+            },
+            "label": "DCE"
+        },
+        "line_BC": {
+            "type": "Line",
+            "id": "line_BC",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_C"
+            },
+            "label": "BC"
+        },
+        "line_CE": {
+            "type": "Line",
+            "id": "line_CE",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_E"
+            },
+            "label": "CE"
+        },
+        "line_AD": {
+            "type": "Line",
+            "id": "line_AD",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_D"
+            },
+            "label": "AD"
+        },
+        "line_BE": {
+            "type": "Line",
+            "id": "line_BE",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_E"
+            },
+            "label": "BE"
+        },
+        "line_AF": {
+            "type": "Line",
+            "id": "line_AF",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_F"
+            },
+            "label": "AF"
+        },
+        "line_FE": {
+            "type": "Line",
+            "id": "line_FE",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_F",
+                "p2": "point_E"
+            },
+            "label": "FE"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": -0.3,
+                "y": 0.5
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.5,
+                "y": 0.0
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "label": "C"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "x": 0.2,
+                "y": 0.5
+            },
+            "label": "D"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "x": 0.5,
+                "y": 0.0
+            },
+            "label": "E"
+        },
+        "point_F": {
+            "type": "Point",
+            "id": "point_F",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "x": 0.16,
+                "y": 0.4
+            },
+            "label": "F"
+        }
+    },
+    "animations": [
+        [
+            "polygon_ABC",
+            "polygon_CDE",
+            "point_E",
+            "point_B",
+            "point_A",
+            "point_D",
+            "point_C",
+            "line_BC",
+            "line_CE"
+        ],
+        [
+            "polygon_ABC",
+            "polygon_CDE",
+            "point_E",
+            "point_B",
+            "line_AD",
+            "line_AF",
+            "point_A",
+            "line_FE",
+            "line_BE",
+            "point_D",
+            "point_C",
+            "line_BC",
+            "point_F",
+            "line_CE"
+        ],
+        [
+            "polygon_ABC",
+            "polygon_CDE",
+            "point_E",
+            "point_B",
+            "line_AD",
+            "line_AF",
+            "point_A",
+            "line_FE",
+            "line_BE",
+            "point_D",
+            "point_C",
+            "line_BC",
+            "polygon_FCE",
+            "point_F",
+            "line_CE"
+        ],
+        [
+            "polygon_ABC",
+            "polygon_CDE",
+            "point_E",
+            "point_B",
+            "line_AD",
+            "line_AF",
+            "point_A",
+            "line_FE",
+            "polygon_DCE",
+            "line_BE",
+            "point_D",
+            "point_C",
+            "line_BC",
+            "polygon_FCE",
+            "point_F",
+            "line_CE"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Book 1 - Proposition 35</b></center><br>
+        <center>Equal triangles which are on equal bases and on the same side are also in the same parallels.</center><br>
+        <br>
+        Let  <span name=text_polygon_polygon_ABC class='GeoElement'>ABC</span> and  <span name=text_polygon_polygon_CDE class='GeoElement'>CDE</span> be equal triangles on equal bases  <span name=text_line_line_BC class='GeoElement'>BC</span> and  <span name=text_line_line_CE class='GeoElement'>CE</span> and on the same side.<br>
+        <br>
+        I say that they are also in the same parallels. </div><div id='step_1'><br>
+        <br>
+        Join  <span name=text_line_line_AD class='GeoElement'>AD</span>. I say that  <span name=text_line_line_AD class='GeoElement'>AD</span> is parallel to  <span name=text_line_line_BE class='GeoElement'>BE</span>.<br>
+        <br>
+        If not, draw  <span name=text_line_line_AF class='GeoElement'>AF</span> through  <span name=text_point_point_A class='GeoElement'>A</span> parallel to  <span name=text_line_line_BE class='GeoElement'>BE</span>, and join  <span name=text_line_line_FE class='GeoElement'>FE</span>.</div><div id='step_2'><br>
+        <br>
+        Therefore the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> equals the  <span name=text_polygon_polygon_FCE class='GeoElement'>triangle FCE</span>, for they are on equal bases  <span name=text_line_line_BC class='GeoElement'>BC</span> and  <span name=text_line_line_CE class='GeoElement'>CE</span> and in the same parallels  <span name=text_line_line_BE class='GeoElement'>BE</span> and  <span name=text_line_line_AF class='GeoElement'>AF</span>.</div><div id='step_3'><br>
+        <br>
+        But the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> equals the  <span name=text_polygon_polygon_DCE class='GeoElement'>triangle DCE</span>, therefore the  <span name=text_polygon_polygon_DCE class='GeoElement'>triangle DCE</span> also equals the  <span name=text_polygon_polygon_FCE class='GeoElement'>triangle FCE</span>, the greater equals the less, which is impossible. Therefore  <span name=text_line_line_AF class='GeoElement'>AF</span> is not parallel to  <span name=text_line_line_BE class='GeoElement'>BE</span>.<br>
+        <br>
+        Similarly we can prove that neither is any other straight line except  <span name=text_line_line_AD class='GeoElement'>AD</span>, therefore  <span name=text_line_line_AD class='GeoElement'>AD</span> is parallel to  <span name=text_line_line_BE class='GeoElement'>BE</span>.<br>
+        <br>
+        Therefore equal triangles which are on equal bases and on the same side are also in the same parallels.<br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>
