@@ -1,0 +1,16 @@
+<center><b>Proposition 9</b></center>
+<center>To bisect a given rectilinear angle.</center>
+
+Let the [angle BAC] be the given rectilinear angle. It is required to bisect it.[step]
+Take an arbitrary [point D] on [line AB]. Cut off [line AE] from [line AC] equal to [line AD], and join [line DE]. Construct the equilateral [triangle DEF] on [line DE], and join [line AF].[step][clear]
+I say that the [angle BAC] is bisected by the straight [line AF].[step][clear]
+Since [line AD] equals [line AE], and [line AF] is common, therefore the two sides [line AD] and [line AF] equal the two sides [line AE] and [line AF] respectively.[step]
+And the [line DF text="base DF"] equals the [line EF text="base EF"], therefore the [angle DAF] equals the [angle EAF].[step][clear]
+Therefore the given rectilinear [angle BAC] is bisected by the straight [line AF].
+
+[loc A x=0 y=0.7]
+[loc B x=-0.6 y=-0.5]
+[loc C x=0.6 y=-0.5]
+[loc D x=-0.4 y=-0.1]
+[loc E x=0.4 y=-0.1]
+[loc F x=0 y=-0.8]
