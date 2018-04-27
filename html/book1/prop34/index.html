@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Proposition 34</b></center>\n<center>In parallelogrammic areas the opposite sides and angles equal one another, and the diameter bisects the areas.</center>\n\nLet  <span name=text_polygon_polygon_ACDB class='GeoElement'>polygon ACDB</span> be a parallelogrammic area, and  <span name=text_line_line_BC class='GeoElement'>line BC</span> its diameter.\n</div><div id='step_1'>\nI say that the opposite sides and angles of the  <span name=text_polygon_polygon_ACBD class='GeoElement'>parallelogram ACDB</span> equal one another, and the diameter  <span name=text_line_line_BC class='GeoElement'>BC</span> bisects it.\n\nSince  <span name=text_line_line_AB class='GeoElement'>line AB</span> is parallel to  <span name=text_line_line_CD class='GeoElement'>line CD</span>, and the straight  <span name=text_line_line_BC class='GeoElement'>line BC</span> falls upon them, therefore the alternate angles  <span name=text_angle_angle_ABC class='GeoElement'>ABC</span> and  <span name=text_angle_angle_BCD class='GeoElement'>BCD</span> equal one another.\n\nAgain, since  <span name=text_line_line_AC class='GeoElement'>line AC</span> is parallel to  <span name=text_line_line_BD class='GeoElement'>line BD</span>, and  <span name=text_line_line_BC class='GeoElement'>line BC</span> falls upon them, therefore the alternate angles  <span name=text_angle_angle_ACB class='GeoElement'>ACB</span> and  <span name=text_angle_angle_CBD class='GeoElement'>CBD</span> equal one another.\n</div><div id='step_2'>\nTherefore  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> and  <span name=text_polygon_polygon_DCB class='GeoElement'>triangle DCB</span> are two triangles having the two angles  <span name=text_angle_angle_ABC class='GeoElement'>ABC</span> and  <span name=text_angle_angle_BCA class='GeoElement'>BCA</span> equal to the two angles  <span name=text_angle_angle_DCB class='GeoElement'>DCB</span> and  <span name=text_angle_angle_CBD class='GeoElement'>CBD</span> respectively, and one side equal to one side, namely that adjoining the equal angles and common to both of them,  <span name=text_line_line_BC class='GeoElement'>line BC</span>. Therefore they also have the remaining sides equal to the remaining sides respectively, and the remaining angle to the remaining angle. Therefore the side  <span name=text_line_line_AB class='GeoElement'>line AB</span> equals  <span name=text_line_line_CD class='GeoElement'>line CD</span>, and  <span name=text_line_line_AC class='GeoElement'>line AC</span> equals  <span name=text_line_line_BD class='GeoElement'>line BD</span>, and further the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> equals the  <span name=text_angle_angle_CDB class='GeoElement'>angle CDB</span>.\n\nSince the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> equals the  <span name=text_angle_angle_BCD class='GeoElement'>angle BCD</span>, and the  <span name=text_angle_angle_CBD class='GeoElement'>angle CBD</span> equals the  <span name=text_angle_angle_ACB class='GeoElement'>angle ACB</span>, therefore the whole  <span name=text_angle_angle_ABD class='GeoElement'>angle ABD</span> equals the whole  <span name=text_angle_angle_ACD class='GeoElement'>angle ACD</span>.\n\nAnd the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> was also proved equal to the  <span name=text_angle_angle_CDB class='GeoElement'>angle CDB</span>.\n\nTherefore in parallelogrammic areas the opposite sides and angles equal one another.\n</div><div id='step_3'>\nI say, next, that the diameter also bisects the areas.\n\nSince  <span name=text_line_line_AB class='GeoElement'>line AB</span> equals  <span name=text_line_line_CD class='GeoElement'>line CD</span>, and  <span name=text_line_line_BC class='GeoElement'>line BC</span> is common, the two sides  <span name=text_line_line_AB class='GeoElement'>line AB</span> and  <span name=text_line_line_BC class='GeoElement'>line BC</span> equal the two sides  <span name=text_line_line_CD class='GeoElement'>line CD</span> and  <span name=text_line_line_BC class='GeoElement'>line BC</span> respectively, and the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> equals the  <span name=text_angle_angle_BCD class='GeoElement'>angle BCD</span>. Therefore the base  <span name=text_line_line_AC class='GeoElement'>AC</span> also equals  <span name=text_line_line_BD class='GeoElement'>line BD</span>, and the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> equals the  <span name=text_polygon_polygon_DCB class='GeoElement'>triangle DCB</span>.\n</div><div id='step_4'>\nTherefore the diameter  <span name=text_line_line_BC class='GeoElement'>BC</span> bisects the  <span name=text_polygon_polygon_ACDB class='GeoElement'>parallelogram ACDB</span>.\n\nTherefore in parallelogrammic areas the opposite sides and angles equal one another, and the diameter bisects the areas. </div>",
+    "geometry": {
+        "polygon_ACDB": {
+            "type": "Polygon",
+            "id": "polygon_ACDB",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_C",
+                    "point_D",
+                    "point_B"
+                ]
+            },
+            "label": "ACDB"
+        },
+        "polygon_ACBD": {
+            "type": "Polygon",
+            "id": "polygon_ACBD",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_C",
+                    "point_B",
+                    "point_D"
+                ]
+            },
+            "label": "ACBD"
+        },
+        "polygon_ABC": {
+            "type": "Polygon",
+            "id": "polygon_ABC",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ]
+            },
+            "label": "ABC"
+        },
+        "polygon_DCB": {
+            "type": "Polygon",
+            "id": "polygon_DCB",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_C",
+                    "point_B"
+                ]
+            },
+            "label": "DCB"
+        },
+        "line_BC": {
+            "type": "Line",
+            "id": "line_BC",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_C"
+            },
+            "label": "BC"
+        },
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "line_CD": {
+            "type": "Line",
+            "id": "line_CD",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_D"
+            },
+            "label": "CD"
+        },
+        "line_AC": {
+            "type": "Line",
+            "id": "line_AC",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_C"
+            },
+            "label": "AC"
+        },
+        "line_BD": {
+            "type": "Line",
+            "id": "line_BD",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_D"
+            },
+            "label": "BD"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": -0.4,
+                "y": 0.2
+            },
+            "label": "A"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.6,
+                "y": -0.2
+            },
+            "label": "C"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "x": 0.4,
+                "y": -0.2
+            },
+            "label": "D"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "x": 0.6,
+                "y": 0.2
+            },
+            "label": "B"
+        },
+        "angle_ABC": {
+            "type": "Angle",
+            "id": "angle_ABC",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_B",
+                    "point_A"
+                ],
+                "degree": 18.434948822922024
+            },
+            "label": "ABC"
+        },
+        "angle_BCD": {
+            "type": "Angle",
+            "id": "angle_BCD",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_C",
+                    "point_D"
+                ],
+                "degree": 18.434948822922014
+            },
+            "label": "BCD"
+        },
+        "angle_ACB": {
+            "type": "Angle",
+            "id": "angle_ACB",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_C",
+                    "point_B"
+                ],
+                "degree": 45.00000000000001
+            },
+            "label": "ACB"
+        },
+        "angle_CBD": {
+            "type": "Angle",
+            "id": "angle_CBD",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_B",
+                    "point_C"
+                ],
+                "degree": 45.0
+            },
+            "label": "CBD"
+        },
+        "angle_BCA": {
+            "type": "Angle",
+            "id": "angle_BCA",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_C",
+                    "point_B"
+                ],
+                "degree": 45.00000000000001
+            },
+            "label": "BCA"
+        },
+        "angle_DCB": {
+            "type": "Angle",
+            "id": "angle_DCB",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_C",
+                    "point_D"
+                ],
+                "degree": 18.434948822922014
+            },
+            "label": "DCB"
+        },
+        "angle_BAC": {
+            "type": "Angle",
+            "id": "angle_BAC",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_A",
+                    "point_C"
+                ],
+                "degree": 116.56505117707799
+            },
+            "label": "BAC"
+        },
+        "angle_CDB": {
+            "type": "Angle",
+            "id": "angle_CDB",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_D",
+                    "point_B"
+                ],
+                "degree": 116.56505117707799
+            },
+            "label": "CDB"
+        },
+        "angle_ABD": {
+            "type": "Angle",
+            "id": "angle_ABD",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_B",
+                    "point_A"
+                ],
+                "degree": 63.434948822922024
+            },
+            "label": "ABD"
+        },
+        "angle_ACD": {
+            "type": "Angle",
+            "id": "angle_ACD",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_C",
+                    "point_D"
+                ],
+                "degree": 63.43494882292202
+            },
+            "label": "ACD"
+        }
+    },
+    "animations": [
+        [
+            "point_A",
+            "point_C",
+            "line_BC",
+            "polygon_ACDB",
+            "point_D",
+            "point_B"
+        ],
+        [
+            "angle_BCD",
+            "point_A",
+            "angle_ABC",
+            "line_AB",
+            "angle_CBD",
+            "point_C",
+            "line_BC",
+            "line_BD",
+            "line_AC",
+            "polygon_ACBD",
+            "line_CD",
+            "polygon_ACDB",
+            "angle_ACB",
+            "point_D",
+            "point_B"
+        ],
+        [
+            "angle_BCD",
+            "angle_CBD",
+            "angle_DCB",
+            "line_CD",
+            "angle_ACB",
+            "angle_BCA",
+            "angle_BAC",
+            "polygon_DCB",
+            "point_C",
+            "angle_CDB",
+            "angle_ABC",
+            "line_AB",
+            "line_BC",
+            "line_BD",
+            "angle_ACD",
+            "line_AC",
+            "polygon_ABC",
+            "point_A",
+            "angle_ABD",
+            "point_D",
+            "point_B"
+        ],
+        [
+            "angle_BCD",
+            "point_A",
+            "point_B",
+            "polygon_ABC",
+            "angle_ABC",
+            "line_AB",
+            "polygon_DCB",
+            "line_BC",
+            "line_BD",
+            "line_AC",
+            "line_CD",
+            "point_D",
+            "point_C"
+        ],
+        [
+            "point_A",
+            "point_B",
+            "line_BC",
+            "polygon_ACDB",
+            "point_D",
+            "point_C"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Proposition 34</b></center><br>
+        <center>In parallelogrammic areas the opposite sides and angles equal one another, and the diameter bisects the areas.</center><br>
+        <br>
+        Let  <span name=text_polygon_polygon_ACDB class='GeoElement'>polygon ACDB</span> be a parallelogrammic area, and  <span name=text_line_line_BC class='GeoElement'>line BC</span> its diameter.<br>
+        </div><div id='step_1'><br>
+        I say that the opposite sides and angles of the  <span name=text_polygon_polygon_ACBD class='GeoElement'>parallelogram ACDB</span> equal one another, and the diameter  <span name=text_line_line_BC class='GeoElement'>BC</span> bisects it.<br>
+        <br>
+        Since  <span name=text_line_line_AB class='GeoElement'>line AB</span> is parallel to  <span name=text_line_line_CD class='GeoElement'>line CD</span>, and the straight  <span name=text_line_line_BC class='GeoElement'>line BC</span> falls upon them, therefore the alternate angles  <span name=text_angle_angle_ABC class='GeoElement'>ABC</span> and  <span name=text_angle_angle_BCD class='GeoElement'>BCD</span> equal one another.<br>
+        <br>
+        Again, since  <span name=text_line_line_AC class='GeoElement'>line AC</span> is parallel to  <span name=text_line_line_BD class='GeoElement'>line BD</span>, and  <span name=text_line_line_BC class='GeoElement'>line BC</span> falls upon them, therefore the alternate angles  <span name=text_angle_angle_ACB class='GeoElement'>ACB</span> and  <span name=text_angle_angle_CBD class='GeoElement'>CBD</span> equal one another.<br>
+        </div><div id='step_2'><br>
+        Therefore  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> and  <span name=text_polygon_polygon_DCB class='GeoElement'>triangle DCB</span> are two triangles having the two angles  <span name=text_angle_angle_ABC class='GeoElement'>ABC</span> and  <span name=text_angle_angle_BCA class='GeoElement'>BCA</span> equal to the two angles  <span name=text_angle_angle_DCB class='GeoElement'>DCB</span> and  <span name=text_angle_angle_CBD class='GeoElement'>CBD</span> respectively, and one side equal to one side, namely that adjoining the equal angles and common to both of them,  <span name=text_line_line_BC class='GeoElement'>line BC</span>. Therefore they also have the remaining sides equal to the remaining sides respectively, and the remaining angle to the remaining angle. Therefore the side  <span name=text_line_line_AB class='GeoElement'>line AB</span> equals  <span name=text_line_line_CD class='GeoElement'>line CD</span>, and  <span name=text_line_line_AC class='GeoElement'>line AC</span> equals  <span name=text_line_line_BD class='GeoElement'>line BD</span>, and further the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> equals the  <span name=text_angle_angle_CDB class='GeoElement'>angle CDB</span>.<br>
+        <br>
+        Since the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> equals the  <span name=text_angle_angle_BCD class='GeoElement'>angle BCD</span>, and the  <span name=text_angle_angle_CBD class='GeoElement'>angle CBD</span> equals the  <span name=text_angle_angle_ACB class='GeoElement'>angle ACB</span>, therefore the whole  <span name=text_angle_angle_ABD class='GeoElement'>angle ABD</span> equals the whole  <span name=text_angle_angle_ACD class='GeoElement'>angle ACD</span>.<br>
+        <br>
+        And the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> was also proved equal to the  <span name=text_angle_angle_CDB class='GeoElement'>angle CDB</span>.<br>
+        <br>
+        Therefore in parallelogrammic areas the opposite sides and angles equal one another.<br>
+        </div><div id='step_3'><br>
+        I say, next, that the diameter also bisects the areas.<br>
+        <br>
+        Since  <span name=text_line_line_AB class='GeoElement'>line AB</span> equals  <span name=text_line_line_CD class='GeoElement'>line CD</span>, and  <span name=text_line_line_BC class='GeoElement'>line BC</span> is common, the two sides  <span name=text_line_line_AB class='GeoElement'>line AB</span> and  <span name=text_line_line_BC class='GeoElement'>line BC</span> equal the two sides  <span name=text_line_line_CD class='GeoElement'>line CD</span> and  <span name=text_line_line_BC class='GeoElement'>line BC</span> respectively, and the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> equals the  <span name=text_angle_angle_BCD class='GeoElement'>angle BCD</span>. Therefore the base  <span name=text_line_line_AC class='GeoElement'>AC</span> also equals  <span name=text_line_line_BD class='GeoElement'>line BD</span>, and the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> equals the  <span name=text_polygon_polygon_DCB class='GeoElement'>triangle DCB</span>.<br>
+        </div><div id='step_4'><br>
+        Therefore the diameter  <span name=text_line_line_BC class='GeoElement'>BC</span> bisects the  <span name=text_polygon_polygon_ACDB class='GeoElement'>parallelogram ACDB</span>.<br>
+        <br>
+        Therefore in parallelogrammic areas the opposite sides and angles equal one another, and the diameter bisects the areas. </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>

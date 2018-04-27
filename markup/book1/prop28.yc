@@ -1,0 +1,23 @@
+<center><b>Book 1 - Proposition 28</b></center>
+<center>If a straight line falling on two straight lines makes the exterior angle equal to the interior and opposite angle on the same side, or the sum of the interior angles on the same side equal to two right angles, then the straight lines are parallel to one another.</center>
+
+Let the straight [line EF] falling on the two straight lines [line AB text=AB] and [line CD text=CD] make the exterior  [angle name=EGB p1=E p2=G p3=B] equal to the interior and opposite  [angle name=GHD p1=G p2=H p3=D], or the sum of the interior angles on the same side, namely [angle name=BGH p1=B p2=G p3=H] and [angle name=GHD p1=G p2=H p3=D], equal to two right angles.
+
+I say that [line AB text=AB] is parallel to [line CD text=CD].
+[step]
+Since the  [angle name=EGB p1=E p2=G p3=B] equals the  [angle name=GHD p1=G p2=H p3=D], and the  [angle name=EGB p1=E p2=G p3=B] equals the  [angle name=AGH p1=A p2=G p3=H], therefore the  [angle name=AGH p1=A p2=G p3=H] equals the  [angle name=GHD p1=G p2=H p3=D]. And they are alternate, therefore [line AB text=AB] is parallel to [line CD text=CD].
+
+Next, since the sum of the angles [angle name=BGH p1=B p2=G p3=H] and [angle name=GHD p1=G p2=H p3=D] equals two right angles, and the sum of the angles  [angle name=AGH p1=A p2=G p3=H] and [angle name=BGH p1=B p2=G p3=H] also equals two right angles, therefore the sum of the angles  [angle name=AGH p1=A p2=G p3=H] and [angle name=BGH p1=B p2=G p3=H] equals the sum of the angles [angle name=BGH p1=B p2=G p3=H] and [angle name=GHD p1=G p2=H p3=D].
+
+Subtract the [angle name=BGH p1=B p2=G p3=H] from each. Therefore the remaining  [angle name=AGH p1=A p2=G p3=H] equals the remaining  [angle name=GHD p1=G p2=H p3=D]. And they are alternate, therefore [line AB text=AB] is parallel to [line CD text=CD].
+
+Therefore if a straight line falling on two straight lines makes the exterior angle equal to the interior and opposite angle on the same side, or the sum of the interior angles on the same side equal to two right angles, then the straight lines are parallel to one another.
+
+[loc A x=-0.6 y=0.2]
+[loc B x=0.6 y=0.2]
+[loc C x=-0.6 y=-0.2]
+[loc D x=0.6 y=-0.2]
+[loc E x=-0.4 y=0.6]
+[loc F x=0.2 y=-0.6]
+[loc G x=-0.2 y=0.2]
+[loc H x=0 y=-0.2]

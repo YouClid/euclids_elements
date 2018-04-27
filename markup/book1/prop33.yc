@@ -1,0 +1,23 @@
+<center><b>Book 1 - Proposition 33</b></center>
+<center>Straight lines which join the ends of equal and parallel straight lines in the same directions are themselves equal and parallel.</center>
+
+Let [line AB text=AB] and [line CD text=CD] be equal and parallel, and let the straight lines [line AC text=AC] and [line BD text=BD] join them at their ends in the same directions.
+
+I say that [line AC text=AC] and [line BD text=BD] are also equal and parallel.
+[step]
+Join [line BC text=BC].
+
+Since [line AB text=AB] is parallel to [line CD text=CD], and [line BC text=BC] falls upon them, therefore the alternate angles [angle name=ABC p1=A p2=B p3=C] and [angle name=BCD p1=B p2=C p3=D] equal one another.
+[step]
+Since [line AB text=AB] equals [line CD text=CD], and [line BC text=BC] is common, the two sides [line AB text=AB] and [line BC text=BC] equal the two sides [line DC text=DC] and [line CB text=CB], and the [angle name=ABC p1=A p2=B p3=C] equals the [angle name=BCD p1=B p2=C p3=D], therefore the base [line AC text=AC] equals the base [line BD text=BD], the [polygon ABC text='triangle ABC'] equals the [polygon DCB text='triangle DCB'], and the remaining angles equals the remaining angles respectively, namely those opposite the equal sides. Therefore the [angle name=ACB p1=A p2=C p3=B] equals the [angle name=CBD p1=C p2=B p3=D].
+[step]
+Since the straight [line BC text=BC] falling on the two straight lines [line AC text=AC] and [line BD text=BD] makes the alternate angles equal to one another, therefore [line AC text=AC] is parallel to [line BD text=BD].
+
+And it was also proved equal to it.
+
+Therefore straight lines which join the ends of equal and parallel straight lines in the same directions are themselves equal and parallel.
+
+[loc A x=-0.6 y=0.3]
+[loc B x=0.4 y=0.3]
+[loc C x=-0.4 y=-0.3]
+[loc D x=0.6 y=-0.3]

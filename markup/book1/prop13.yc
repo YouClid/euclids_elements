@@ -1,0 +1,24 @@
+<center><b>Book 1 - Proposition 13</b></center>
+<center>If a straight line stands on a straight line, then it makes either two right angles or angles whose sum equals two right angles.</center>
+
+Let any straight [line AB] standing on the straight [line CD] make the angles [angle name=CBA p1=C p2=B p3=A] and [angle name=ABD p1=A p2=B p3=D].
+
+I say that either the angles [angle name=CBA p1=C p2=B p3=A] and [angle name=ABD p1=A p2=B p3=D] are two right angles or their sum equals two right angles.
+
+Now, if the [angle name=CBA p1=C p2=B p3=A] equals the [angle name=ABD p1=A p2=B p3=D], then they are two right angles.
+[step]
+But, if not, draw [line BE text=BE] from the [point B] at right angles to [line CD text=CD]. Therefore the angles [angle name=CBE p1=C p2=B p3=E] and [angle name=EBD p1=E p2=B p3=D] are two right angles.
+
+Since the angle [angle name=CBE p1=C p2=B p3=E] equals the sum of the two angles [angle name=CBA p1=C p2=B p3=A] and [angle name=ABE p1=A p2=B p3=E], add the [angle name=EBD p1=E p2=B p3=D] to each, therefore the sum of the angles [angle name=CBE p1=C p2=B p3=E] and [angle name=EBD p1=E p2=B p3=D] equals the sum of the three angles [angle name=CBA p1=C p2=B p3=A], [angle name=ABE p1=A p2=B p3=E], and [angle name=EBD p1=E p2=B p3=D].
+
+Again, since the [angle name=DBA p1=D p2=B p3=A] equals the sum of the two angles [angle name=DBE p1=D p2=B p3=E] and [angle name=EBA p1=E p2=B p3=A], add the [angle name=ABC p1=A p2=B p3=C] to each, therefore the sum of the angles [angle name=DBA p1=D p2=B p3=A] and [angle name=ABC p1=A p2=B p3=C] equals the sum of the three angles [angle name=DBE p1=D p2=B p3=E], [angle name=EBA p1=E p2=B p3=A], and [angle name=ABC p1=A p2=B p3=C].
+
+But the sum of the angles [angle name=CBE p1=C p2=B p3=E] and [angle name=EBD p1=E p2=B p3=D] was also proved equal to the sum of the same three angles, and things which equal the same thing also equal one another, therefore the sum of the angles [angle name=CBE p1=C p2=B p3=E] and [angle name=EBD p1=E p2=B p3=D] also equals the sum of the angles [angle name=DBA p1=D p2=B p3=A] and [angle name=ABC p1=A p2=B p3=C]. But the angles [angle name=CBE p1=C p2=B p3=E] and [angle name=EBD p1=E p2=B p3=D] are two right angles, therefore the sum of the angles [angle name=DBA p1=D p2=B p3=A] and [angle name=ABC p1=A p2=B p3=C] also equals two right angles.
+
+Therefore if a straight line stands on a straight line, then it makes either two right angles or angles whose sum equals two right angles.
+
+[loc A x=0.25 y=0.4]
+[loc B x=0 y=-0.25]
+[loc C x=0.6 y=-0.25]
+[loc D x=-0.5 y=-0.25]
+[loc E x=0 y=0.25]

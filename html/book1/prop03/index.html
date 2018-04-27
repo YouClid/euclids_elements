@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Book 1 - Proposition 3</b></center>\n<center>To cut off from the greater of two given unequal straight lines a straight line equal to the less.</center>\n\n\nLet  <span name=text_line_line_AB class='GeoElement'>line AB</span> and  <span name=text_line_line_CZ class='GeoElement'>line CZ</span> be the two given unequal straight lines, and let  <span name=text_line_line_AB class='GeoElement'>line AB</span> be the greater of them.\nIt is required to cut off from  <span name=text_line_line_AB class='GeoElement'>line AB</span> the greater a straight line equal to  <span name=text_line_line_CZ class='GeoElement'>line CZ</span> the less.\n</div><div id='step_1'>\nPlace  <span name=text_line_line_AD class='GeoElement'>line AD</span> at the  <span name=text_point_point_A class='GeoElement'>point A</span> equal to the straight  <span name=text_line_line_CZ class='GeoElement'>line CZ</span>,</div><div id='step_2'> and describe the  <span name=text_circle_circle_DEF class='GeoElement'>circle DEF</span> with  <span name=text_point_point_A class='GeoElement'>center A</span> and  <span name=text_line_line_AD class='GeoElement'>radius AD</span>.\n\nNow, since the  <span name=text_point_point_A class='GeoElement'>point A</span> is the center of the  <span name=text_circle_circle_DEF class='GeoElement'>circle DEF</span>, therefore  <span name=text_line_line_AE class='GeoElement'>AE</span> equals  <span name=text_line_line_AD class='GeoElement'>AD</span>.\n</div><div id='step_3'>\nBut  <span name=text_line_line_CZ class='GeoElement'>CZ</span> also equals  <span name=text_line_line_AD class='GeoElement'>AD</span>, therefore each of the straight lines  <span name=text_line_line_AE class='GeoElement'>AE</span> and  <span name=text_line_line_CZ class='GeoElement'>CZ</span> equals  <span name=text_line_line_AD class='GeoElement'>AD</span>, so that  <span name=text_line_line_AE class='GeoElement'>AE</span> also equals  <span name=text_line_line_CZ class='GeoElement'>CZ</span>.\n</div><div id='step_4'>\n\nTherefore, given the two straight lines  <span name=text_line_line_AB class='GeoElement'>AB</span> and  <span name=text_line_line_CZ class='GeoElement'>CZ</span>,  <span name=text_line_line_AE class='GeoElement'>AE</span> has been cut off from  <span name=text_line_line_AB class='GeoElement'>AB</span> the greater equal to  <span name=text_line_line_CZ class='GeoElement'>CZ</span> the less.\n </div>",
+    "geometry": {
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "line_CZ": {
+            "type": "Line",
+            "id": "line_CZ",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_Z"
+            },
+            "label": "CZ"
+        },
+        "line_AD": {
+            "type": "Line",
+            "id": "line_AD",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_D"
+            },
+            "label": "AD"
+        },
+        "line_AE": {
+            "type": "Line",
+            "id": "line_AE",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_E"
+            },
+            "label": "AE"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "x": -0.25,
+                "y": 0.0
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "x": 0.5,
+                "y": 0.0
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "x": 0.25,
+                "y": 0.5
+            },
+            "label": "C"
+        },
+        "point_Z": {
+            "type": "Point",
+            "id": "point_Z",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "label": "Z"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.25,
+                "y": 0.25
+            },
+            "label": "D"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "label": "E"
+        },
+        "point_F": {
+            "type": "Point",
+            "id": "point_F",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "x": -0.25,
+                "y": -0.25
+            },
+            "label": "F"
+        },
+        "circle_DEF": {
+            "type": "Circle",
+            "id": "circle_DEF",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_E",
+                "p3": "point_F",
+                "radius": null,
+                "center": "point_A"
+            },
+            "label": "DEF"
+        }
+    },
+    "animations": [
+        [
+            "point_Z",
+            "point_C",
+            "point_B",
+            "point_A",
+            "line_AB",
+            "line_CZ"
+        ],
+        [
+            "point_Z",
+            "point_C",
+            "point_B",
+            "point_A",
+            "point_D",
+            "line_AB",
+            "line_AD",
+            "line_CZ"
+        ],
+        [
+            "point_Z",
+            "circle_DEF",
+            "point_C",
+            "point_F",
+            "point_B",
+            "point_A",
+            "point_D",
+            "point_E",
+            "line_AB",
+            "line_AD",
+            "line_AE",
+            "line_CZ"
+        ],
+        [
+            "point_Z",
+            "circle_DEF",
+            "point_C",
+            "point_F",
+            "point_B",
+            "point_A",
+            "point_D",
+            "point_E",
+            "line_AB",
+            "line_AD",
+            "line_AE",
+            "line_CZ"
+        ],
+        [
+            "point_Z",
+            "point_C",
+            "point_B",
+            "point_A",
+            "point_E",
+            "line_AB",
+            "line_AE",
+            "line_CZ"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Book 1 - Proposition 3</b></center><br>
+        <center>To cut off from the greater of two given unequal straight lines a straight line equal to the less.</center><br>
+        <br>
+        <br>
+        Let  <span name=text_line_line_AB class='GeoElement'>line AB</span> and  <span name=text_line_line_CZ class='GeoElement'>line CZ</span> be the two given unequal straight lines, and let  <span name=text_line_line_AB class='GeoElement'>line AB</span> be the greater of them.<br>
+        It is required to cut off from  <span name=text_line_line_AB class='GeoElement'>line AB</span> the greater a straight line equal to  <span name=text_line_line_CZ class='GeoElement'>line CZ</span> the less.<br>
+        </div><div id='step_1'><br>
+        Place  <span name=text_line_line_AD class='GeoElement'>line AD</span> at the  <span name=text_point_point_A class='GeoElement'>point A</span> equal to the straight  <span name=text_line_line_CZ class='GeoElement'>line CZ</span>,</div><div id='step_2'> and describe the  <span name=text_circle_circle_DEF class='GeoElement'>circle DEF</span> with  <span name=text_point_point_A class='GeoElement'>center A</span> and  <span name=text_line_line_AD class='GeoElement'>radius AD</span>.<br>
+        <br>
+        Now, since the  <span name=text_point_point_A class='GeoElement'>point A</span> is the center of the  <span name=text_circle_circle_DEF class='GeoElement'>circle DEF</span>, therefore  <span name=text_line_line_AE class='GeoElement'>AE</span> equals  <span name=text_line_line_AD class='GeoElement'>AD</span>.<br>
+        </div><div id='step_3'><br>
+        But  <span name=text_line_line_CZ class='GeoElement'>CZ</span> also equals  <span name=text_line_line_AD class='GeoElement'>AD</span>, therefore each of the straight lines  <span name=text_line_line_AE class='GeoElement'>AE</span> and  <span name=text_line_line_CZ class='GeoElement'>CZ</span> equals  <span name=text_line_line_AD class='GeoElement'>AD</span>, so that  <span name=text_line_line_AE class='GeoElement'>AE</span> also equals  <span name=text_line_line_CZ class='GeoElement'>CZ</span>.<br>
+        </div><div id='step_4'><br>
+        <br>
+        Therefore, given the two straight lines  <span name=text_line_line_AB class='GeoElement'>AB</span> and  <span name=text_line_line_CZ class='GeoElement'>CZ</span>,  <span name=text_line_line_AE class='GeoElement'>AE</span> has been cut off from  <span name=text_line_line_AB class='GeoElement'>AB</span> the greater equal to  <span name=text_line_line_CZ class='GeoElement'>CZ</span> the less.<br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>

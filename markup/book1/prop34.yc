@@ -1,0 +1,31 @@
+<center><b>Proposition 34</b></center>
+<center>In parallelogrammic areas the opposite sides and angles equal one another, and the diameter bisects the areas.</center>
+
+Let [polygon ACDB] be a parallelogrammic area, and [line BC] its diameter.
+[step]
+I say that the opposite sides and angles of the [polygon ACBD text="parallelogram ACDB"] equal one another, and the diameter [line BC text="BC"] bisects it.
+
+Since [line AB] is parallel to [line CD], and the straight [line BC] falls upon them, therefore the alternate angles [angle ABC text="ABC"] and [angle BCD text="BCD"] equal one another.
+
+Again, since [line AC] is parallel to [line BD], and [line BC] falls upon them, therefore the alternate angles [angle ACB text="ACB"] and [angle CBD text="CBD"] equal one another.
+[step][clear]
+Therefore [triangle ABC] and [triangle DCB] are two triangles having the two angles [angle ABC text="ABC"] and [angle BCA text="BCA"] equal to the two angles [angle DCB text="DCB"] and [angle CBD text="CBD"] respectively, and one side equal to one side, namely that adjoining the equal angles and common to both of them, [line BC]. Therefore they also have the remaining sides equal to the remaining sides respectively, and the remaining angle to the remaining angle. Therefore the side [line AB] equals [line CD], and [line AC] equals [line BD], and further the [angle BAC] equals the [angle CDB].
+
+Since the [angle ABC] equals the [angle BCD], and the [angle CBD] equals the [angle ACB], therefore the whole [angle ABD] equals the whole [angle ACD].
+
+And the [angle BAC] was also proved equal to the [angle CDB].
+
+Therefore in parallelogrammic areas the opposite sides and angles equal one another.
+[step][clear]
+I say, next, that the diameter also bisects the areas.
+
+Since [line AB] equals [line CD], and [line BC] is common, the two sides [line AB] and [line BC] equal the two sides [line CD] and [line BC] respectively, and the [angle ABC] equals the [angle BCD]. Therefore the base [line AC text="AC"] also equals [line BD], and the [triangle ABC] equals the [triangle DCB].
+[step][clear]
+Therefore the diameter [line BC text="BC"] bisects the [polygon ACDB text="parallelogram ACDB"].
+
+Therefore in parallelogrammic areas the opposite sides and angles equal one another, and the diameter bisects the areas.
+
+[loc A x=-.4 y=.2]
+[loc C x=-.6 y=-.2]
+[loc D x=.4 y=-.2]
+[loc B x=.6 y=.2]

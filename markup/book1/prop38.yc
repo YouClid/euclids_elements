@@ -1,0 +1,25 @@
+<center><b>Book 1 - Proposition 38</b></center>
+<center>Triangles which are on equal bases and in the same parallels equal one another.</center>
+
+Let [polygon ABC text=ABC] and [polygon DEF text=DEF] be triangles on equal bases [line BC text=BC] and [line EF text=EF] and in the same parallels [line BF text=BF] and [line AD text=AD].
+
+I say that the [polygon ABC text='triangle ABC'] equals the [polygon DEF text='triangle DEF'].
+[step]
+Produce [line AD text=AD] in both directions to [point G text=G] and [point H text=H]. Draw [line BG text=BG] through [point B text=B] parallel to [line CA text=CA], and draw [line FH text=FH] through [point F text=F] parallel to [line DE text=DE].
+[step]
+Then each of the figures [polygon GBCA text=GBCA] and [polygon DEFH text=DEFH] is a parallelogram, and [polygon GBCA text=GBCA] equals [polygon DEFH text=DEFH], for they are on equal bases [line BC text=BC] and [line EF text=EF] and in the same parallels [line BF text=BF] and [line GH text=GH].
+[step]
+Moreover the [polygon ABC text='triangle ABC'] is half of the [polygon GBCA text='parallelogram GBCA'], for the diameter [line AB text=AB] bisects it. And the [polygon FED text='triangle FED'] is half of the [polygon DEFH text='parallelogram DEFH'], for the diameter [line DF text=DF] bisects it.
+[step]
+Therefore the [polygon ABC text='triangle ABC'] equals the [polygon DEF text='triangle DEF'].
+
+Therefore triangles which are on equal bases and in the same parallels equal one another.
+
+[loc A x=-0.2 y=0.4]
+[loc B x=-0.5 y=-0.4]
+[loc C x=-0.1 y=-0.4]
+[loc D x=0 y=0.4]
+[loc E x=0.2 y=-0.4]
+[loc F x=0.6 y=-0.4]
+[loc G x=-0.6 y=0.4]
+[loc H x=0.4 y=0.4]

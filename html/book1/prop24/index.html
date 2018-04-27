@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Proposition 24</b></center>\n<center>If two triangles have two sides equal to two sides respectively, but have one of the angles contained by the equal straight lines greater than the other, then they also have the base greater than the base.</center>\n\nLet  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> and  <span name=text_polygon_polygon_DEF class='GeoElement'>triangle DEF</span> be two triangles having the two sides  <span name=text_line_line_AB class='GeoElement'>line AB</span> and  <span name=text_line_line_AC class='GeoElement'>line AC</span> equal to the two sides  <span name=text_line_line_DE class='GeoElement'>line DE</span> and  <span name=text_line_line_DF class='GeoElement'>line DF</span> respectively, so that  <span name=text_line_line_AB class='GeoElement'>line AB</span> equals  <span name=text_line_line_DE class='GeoElement'>line DE</span>, and  <span name=text_line_line_AC class='GeoElement'>line AC</span> equals  <span name=text_line_line_DF class='GeoElement'>line DF</span>, and let the  <span name=text_angle_angle_BAC class='GeoElement'>angle at A</span> be greater than the  <span name=text_angle_angle_EDF class='GeoElement'>angle at D</span>.\n</div><div id='step_1'>\nI say that the  <span name=text_line_line_BC class='GeoElement'>base BC</span> is greater than the  <span name=text_line_line_EF class='GeoElement'>base EF</span>.\n\nSince the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> is greater than the  <span name=text_angle_angle_EDF class='GeoElement'>angle EDF</span>, construct the  <span name=text_angle_angle_EDG class='GeoElement'>angle EDG</span> equal to the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> at the  <span name=text_point_point_D class='GeoElement'>point D</span> on the straight  <span name=text_line_line_DE class='GeoElement'>line DE</span>. Make  <span name=text_line_line_DG class='GeoElement'>line DG</span> equal to either of the two straight lines  <span name=text_line_line_AC class='GeoElement'>AC</span> or  <span name=text_line_line_DF class='GeoElement'>DF</span>. Join  <span name=text_line_line_EG class='GeoElement'>line EG</span> and  <span name=text_line_line_FG class='GeoElement'>line FG</span>.\n</div><div id='step_2'>\nSince  <span name=text_line_line_AB class='GeoElement'>line AB</span> equals  <span name=text_line_line_DE class='GeoElement'>line DE</span>, and  <span name=text_line_line_AC class='GeoElement'>line AC</span> equals  <span name=text_line_line_DG class='GeoElement'>line DG</span>, the two sides  <span name=text_line_line_BA class='GeoElement'>line BA</span> and  <span name=text_line_line_AC class='GeoElement'>line AC</span> equal the two sides  <span name=text_line_line_ED class='GeoElement'>line ED</span> and  <span name=text_line_line_DG class='GeoElement'>line DG</span>, respectively, and the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> equals the  <span name=text_angle_angle_EDG class='GeoElement'>angle EDG</span>, therefore the base  <span name=text_line_line_BC class='GeoElement'>line BC</span> equals the base  <span name=text_line_line_EG class='GeoElement'>line EG</span>.\n\nAgain, since  <span name=text_line_line_DF class='GeoElement'>line DF</span> equals  <span name=text_line_line_DG class='GeoElement'>line DG</span>, therefore the  <span name=text_angle_angle_DGF class='GeoElement'>angle DGF</span> equals the  <span name=text_angle_angle_DFG class='GeoElement'>angle DFG</span>. Therefore the  <span name=text_angle_angle_DFG class='GeoElement'>angle DFG</span> is greater than the  <span name=text_angle_angle_EGF class='GeoElement'>angle EGF</span>.\n</div><div id='step_3'>\nTherefore the  <span name=text_angle_angle_EFG class='GeoElement'>angle EFG</span> is much greater than the  <span name=text_angle_angle_EGF class='GeoElement'>angle EGF</span>.\n\nSince  <span name=text_polygon_polygon_EFG class='GeoElement'>EFG</span> is a triangle having the  <span name=text_angle_angle_EFG class='GeoElement'>angle EFG</span> greater than the  <span name=text_angle_angle_EGF class='GeoElement'>angle EGF</span>, and side opposite the greater angle is greater, therefore the side  <span name=text_line_line_EG class='GeoElement'>EG</span> is also greater than  <span name=text_line_line_EF class='GeoElement'>line EF</span>.\n\nBut  <span name=text_line_line_EG class='GeoElement'>line EG</span> equals  <span name=text_line_line_BC class='GeoElement'>line BC</span>, therefore  <span name=text_line_line_BC class='GeoElement'>line BC</span> is also greater than  <span name=text_line_line_EF class='GeoElement'>line EF</span>.\n\nTherefore if two triangles have two sides equal to two sides respectively, but have one of the angles contained by the equal straight lines greater than the other, then they also have the base greater than the base.\n </div>",
+    "geometry": {
+        "polygon_ABC": {
+            "type": "Polygon",
+            "id": "polygon_ABC",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ]
+            },
+            "label": "ABC"
+        },
+        "polygon_DEF": {
+            "type": "Polygon",
+            "id": "polygon_DEF",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_E",
+                    "point_F"
+                ]
+            },
+            "label": "DEF"
+        },
+        "polygon_EFG": {
+            "type": "Polygon",
+            "id": "polygon_EFG",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_F",
+                    "point_G"
+                ]
+            },
+            "label": "EFG"
+        },
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "line_AC": {
+            "type": "Line",
+            "id": "line_AC",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_C"
+            },
+            "label": "AC"
+        },
+        "line_DE": {
+            "type": "Line",
+            "id": "line_DE",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_E"
+            },
+            "label": "DE"
+        },
+        "line_DF": {
+            "type": "Line",
+            "id": "line_DF",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_F"
+            },
+            "label": "DF"
+        },
+        "line_BC": {
+            "type": "Line",
+            "id": "line_BC",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_C"
+            },
+            "label": "BC"
+        },
+        "line_EF": {
+            "type": "Line",
+            "id": "line_EF",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_F"
+            },
+            "label": "EF"
+        },
+        "line_DG": {
+            "type": "Line",
+            "id": "line_DG",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_G"
+            },
+            "label": "DG"
+        },
+        "line_EG": {
+            "type": "Line",
+            "id": "line_EG",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_G"
+            },
+            "label": "EG"
+        },
+        "line_FG": {
+            "type": "Line",
+            "id": "line_FG",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "p1": "point_F",
+                "p2": "point_G"
+            },
+            "label": "FG"
+        },
+        "line_BA": {
+            "type": "Line",
+            "id": "line_BA",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_A"
+            },
+            "label": "BA"
+        },
+        "line_ED": {
+            "type": "Line",
+            "id": "line_ED",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_D"
+            },
+            "label": "ED"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": -0.3,
+                "y": 0.5
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.3,
+                "y": 0.0
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "x": -0.6,
+                "y": 0.3
+            },
+            "label": "C"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "x": 0.3,
+                "y": 0.5
+            },
+            "label": "D"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "x": 0.3,
+                "y": 0.0
+            },
+            "label": "E"
+        },
+        "point_F": {
+            "type": "Point",
+            "id": "point_F",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "x": 0.1143,
+                "y": 0.191
+            },
+            "label": "F"
+        },
+        "point_G": {
+            "type": "Point",
+            "id": "point_G",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": 0.3
+            },
+            "label": "G"
+        },
+        "angle_BAC": {
+            "type": "Angle",
+            "id": "angle_BAC",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_A",
+                    "point_C"
+                ],
+                "degree": 56.30993247402022
+            },
+            "label": "BAC"
+        },
+        "angle_EDF": {
+            "type": "Angle",
+            "id": "angle_EDF",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_D",
+                    "point_F"
+                ],
+                "degree": 31.004641197257172
+            },
+            "label": "EDF"
+        },
+        "angle_EDG": {
+            "type": "Angle",
+            "id": "angle_EDG",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_D",
+                    "point_G"
+                ],
+                "degree": 56.30993247402022
+            },
+            "label": "EDG"
+        },
+        "angle_DGF": {
+            "type": "Angle",
+            "id": "angle_DGF",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_G",
+                    "point_F"
+                ],
+                "degree": 77.33041402176256
+            },
+            "label": "DGF"
+        },
+        "angle_DFG": {
+            "type": "Angle",
+            "id": "angle_DFG",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_G",
+                    "point_F",
+                    "point_D"
+                ],
+                "degree": 77.36429470147438
+            },
+            "label": "DFG"
+        },
+        "angle_EGF": {
+            "type": "Angle",
+            "id": "angle_EGF",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_F",
+                    "point_G",
+                    "point_E"
+                ],
+                "degree": 1.359653504217214
+            },
+            "label": "EGF"
+        },
+        "angle_EFG": {
+            "type": "Angle",
+            "id": "angle_EFG",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_F",
+                    "point_G"
+                ],
+                "degree": 177.83427376797297
+            },
+            "label": "EFG"
+        }
+    },
+    "animations": [
+        [
+            "point_B",
+            "line_AB",
+            "angle_EDF",
+            "point_E",
+            "line_DF",
+            "line_AC",
+            "polygon_DEF",
+            "angle_BAC",
+            "point_F",
+            "point_D",
+            "point_A",
+            "line_DE",
+            "polygon_ABC",
+            "point_C"
+        ],
+        [
+            "line_AB",
+            "line_FG",
+            "point_D",
+            "point_C",
+            "point_B",
+            "angle_EDG",
+            "point_E",
+            "polygon_DEF",
+            "line_BC",
+            "point_F",
+            "point_A",
+            "angle_EDF",
+            "line_DG",
+            "line_AC",
+            "angle_BAC",
+            "line_EF",
+            "polygon_ABC",
+            "line_EG",
+            "point_G",
+            "line_DF",
+            "line_DE"
+        ],
+        [
+            "line_AB",
+            "line_FG",
+            "point_D",
+            "point_C",
+            "point_B",
+            "angle_EDG",
+            "point_E",
+            "angle_DGF",
+            "angle_EGF",
+            "polygon_DEF",
+            "line_BC",
+            "point_F",
+            "point_A",
+            "line_ED",
+            "angle_EDF",
+            "line_DG",
+            "angle_DFG",
+            "line_AC",
+            "angle_BAC",
+            "line_EF",
+            "polygon_ABC",
+            "line_EG",
+            "line_BA",
+            "point_G",
+            "line_DF",
+            "line_DE"
+        ],
+        [
+            "point_B",
+            "angle_EFG",
+            "point_E",
+            "angle_EGF",
+            "polygon_EFG",
+            "line_BC",
+            "point_G",
+            "point_F",
+            "line_EF",
+            "line_EG",
+            "point_C"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Proposition 24</b></center><br>
+        <center>If two triangles have two sides equal to two sides respectively, but have one of the angles contained by the equal straight lines greater than the other, then they also have the base greater than the base.</center><br>
+        <br>
+        Let  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> and  <span name=text_polygon_polygon_DEF class='GeoElement'>triangle DEF</span> be two triangles having the two sides  <span name=text_line_line_AB class='GeoElement'>line AB</span> and  <span name=text_line_line_AC class='GeoElement'>line AC</span> equal to the two sides  <span name=text_line_line_DE class='GeoElement'>line DE</span> and  <span name=text_line_line_DF class='GeoElement'>line DF</span> respectively, so that  <span name=text_line_line_AB class='GeoElement'>line AB</span> equals  <span name=text_line_line_DE class='GeoElement'>line DE</span>, and  <span name=text_line_line_AC class='GeoElement'>line AC</span> equals  <span name=text_line_line_DF class='GeoElement'>line DF</span>, and let the  <span name=text_angle_angle_BAC class='GeoElement'>angle at A</span> be greater than the  <span name=text_angle_angle_EDF class='GeoElement'>angle at D</span>.<br>
+        </div><div id='step_1'><br>
+        I say that the  <span name=text_line_line_BC class='GeoElement'>base BC</span> is greater than the  <span name=text_line_line_EF class='GeoElement'>base EF</span>.<br>
+        <br>
+        Since the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> is greater than the  <span name=text_angle_angle_EDF class='GeoElement'>angle EDF</span>, construct the  <span name=text_angle_angle_EDG class='GeoElement'>angle EDG</span> equal to the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> at the  <span name=text_point_point_D class='GeoElement'>point D</span> on the straight  <span name=text_line_line_DE class='GeoElement'>line DE</span>. Make  <span name=text_line_line_DG class='GeoElement'>line DG</span> equal to either of the two straight lines  <span name=text_line_line_AC class='GeoElement'>AC</span> or  <span name=text_line_line_DF class='GeoElement'>DF</span>. Join  <span name=text_line_line_EG class='GeoElement'>line EG</span> and  <span name=text_line_line_FG class='GeoElement'>line FG</span>.<br>
+        </div><div id='step_2'><br>
+        Since  <span name=text_line_line_AB class='GeoElement'>line AB</span> equals  <span name=text_line_line_DE class='GeoElement'>line DE</span>, and  <span name=text_line_line_AC class='GeoElement'>line AC</span> equals  <span name=text_line_line_DG class='GeoElement'>line DG</span>, the two sides  <span name=text_line_line_BA class='GeoElement'>line BA</span> and  <span name=text_line_line_AC class='GeoElement'>line AC</span> equal the two sides  <span name=text_line_line_ED class='GeoElement'>line ED</span> and  <span name=text_line_line_DG class='GeoElement'>line DG</span>, respectively, and the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> equals the  <span name=text_angle_angle_EDG class='GeoElement'>angle EDG</span>, therefore the base  <span name=text_line_line_BC class='GeoElement'>line BC</span> equals the base  <span name=text_line_line_EG class='GeoElement'>line EG</span>.<br>
+        <br>
+        Again, since  <span name=text_line_line_DF class='GeoElement'>line DF</span> equals  <span name=text_line_line_DG class='GeoElement'>line DG</span>, therefore the  <span name=text_angle_angle_DGF class='GeoElement'>angle DGF</span> equals the  <span name=text_angle_angle_DFG class='GeoElement'>angle DFG</span>. Therefore the  <span name=text_angle_angle_DFG class='GeoElement'>angle DFG</span> is greater than the  <span name=text_angle_angle_EGF class='GeoElement'>angle EGF</span>.<br>
+        </div><div id='step_3'><br>
+        Therefore the  <span name=text_angle_angle_EFG class='GeoElement'>angle EFG</span> is much greater than the  <span name=text_angle_angle_EGF class='GeoElement'>angle EGF</span>.<br>
+        <br>
+        Since  <span name=text_polygon_polygon_EFG class='GeoElement'>EFG</span> is a triangle having the  <span name=text_angle_angle_EFG class='GeoElement'>angle EFG</span> greater than the  <span name=text_angle_angle_EGF class='GeoElement'>angle EGF</span>, and side opposite the greater angle is greater, therefore the side  <span name=text_line_line_EG class='GeoElement'>EG</span> is also greater than  <span name=text_line_line_EF class='GeoElement'>line EF</span>.<br>
+        <br>
+        But  <span name=text_line_line_EG class='GeoElement'>line EG</span> equals  <span name=text_line_line_BC class='GeoElement'>line BC</span>, therefore  <span name=text_line_line_BC class='GeoElement'>line BC</span> is also greater than  <span name=text_line_line_EF class='GeoElement'>line EF</span>.<br>
+        <br>
+        Therefore if two triangles have two sides equal to two sides respectively, but have one of the angles contained by the equal straight lines greater than the other, then they also have the base greater than the base.<br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>

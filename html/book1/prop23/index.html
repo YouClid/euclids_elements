@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Book 1 - Proposition 23</b></center>\n<center>To construct a rectilinear angle equal to a given rectilinear angle on a given straight line and at a point on it.</center>\n\nLet the  <span name=text_angle_angle_DCE class='GeoElement'>angle DCE</span> be the given rectilinear angle,  <span name=text_line_line_AB class='GeoElement'>AB</span> the given straight line, and  <span name=text_point_point_A class='GeoElement'>A</span> the point on it.\n\nIt is required to construct a rectilinear angle equal to the given rectilinear  <span name=text_angle_angle_DCE class='GeoElement'>angle DCE</span> on the given straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> and at the  <span name=text_point_point_A class='GeoElement'>point A</span> on it.\n</div><div id='step_1'>\nTake the points  <span name=text_point_point_D class='GeoElement'>D</span> and  <span name=text_point_point_E class='GeoElement'>E</span> at random on the straight lines  <span name=text_line_line_CD class='GeoElement'>CD</span> and  <span name=text_line_line_CE class='GeoElement'>CE</span> respectively, and join  <span name=text_line_line_DE class='GeoElement'>DE</span>. Out of three straight lines which equal the three straight lines  <span name=text_line_line_CD class='GeoElement'>CD</span>,  <span name=text_line_line_DE class='GeoElement'>DE</span>, and  <span name=text_line_line_CE class='GeoElement'>CE</span> construct the  <span name=text_polygon_polygon_AFG class='GeoElement'>triangle AFG</span> in such a way that  <span name=text_line_line_CD class='GeoElement'>CD</span> equals  <span name=text_line_line_AF class='GeoElement'>AF</span>,  <span name=text_line_line_CE class='GeoElement'>CE</span> equals  <span name=text_line_line_AG class='GeoElement'>AG</span>, and  <span name=text_line_line_DE class='GeoElement'>DE</span> equals  <span name=text_line_line_FG class='GeoElement'>FG</span>.\n</div><div id='step_2'>\nSince the two sides  <span name=text_line_line_DC class='GeoElement'>DC</span> and  <span name=text_line_line_CE class='GeoElement'>CE</span> equal the two sides  <span name=text_line_line_FA class='GeoElement'>FA</span> and  <span name=text_line_line_AG class='GeoElement'>AG</span> respectively, and the base  <span name=text_line_line_DE class='GeoElement'>DE</span> equals the base  <span name=text_line_line_FG class='GeoElement'>FG</span>, therefore the  <span name=text_angle_angle_DCE class='GeoElement'>angle DCE</span> equals the  <span name=text_angle_angle_FAG class='GeoElement'>angle FAG</span>.\n</div><div id='step_3'>\nTherefore on the given straight  <span name=text_line_line_AB class='GeoElement'>line AB</span>, and at the  <span name=text_point_point_A class='GeoElement'>point A</span> on it, the rectilinear  <span name=text_angle_angle_FAG class='GeoElement'>angle FAG</span> has been constructed equal to the given rectilinear  <span name=text_angle_angle_DCE class='GeoElement'>angle DCE</span>.\n </div>",
+    "geometry": {
+        "polygon_AFG": {
+            "type": "Polygon",
+            "id": "polygon_AFG",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_F",
+                    "point_G"
+                ]
+            },
+            "label": "AFG"
+        },
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "line_CD": {
+            "type": "Line",
+            "id": "line_CD",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_D"
+            },
+            "label": "CD"
+        },
+        "line_CE": {
+            "type": "Line",
+            "id": "line_CE",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_E"
+            },
+            "label": "CE"
+        },
+        "line_DE": {
+            "type": "Line",
+            "id": "line_DE",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_E"
+            },
+            "label": "DE"
+        },
+        "line_AF": {
+            "type": "Line",
+            "id": "line_AF",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_F"
+            },
+            "label": "AF"
+        },
+        "line_AG": {
+            "type": "Line",
+            "id": "line_AG",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_G"
+            },
+            "label": "AG"
+        },
+        "line_FG": {
+            "type": "Line",
+            "id": "line_FG",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "p1": "point_F",
+                "p2": "point_G"
+            },
+            "label": "FG"
+        },
+        "line_DC": {
+            "type": "Line",
+            "id": "line_DC",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_C"
+            },
+            "label": "DC"
+        },
+        "line_FA": {
+            "type": "Line",
+            "id": "line_FA",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "p1": "point_F",
+                "p2": "point_A"
+            },
+            "label": "FA"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "x": 0.2,
+                "y": 0.44
+            },
+            "label": "D"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "x": -0.17,
+                "y": 0.3
+            },
+            "label": "C"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "x": 0.2,
+                "y": -0.2
+            },
+            "label": "E"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "x": -0.8,
+                "y": -0.2
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": -0.2
+            },
+            "label": "B"
+        },
+        "point_F": {
+            "type": "Point",
+            "id": "point_F",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "x": -0.7,
+                "y": 0.2
+            },
+            "label": "F"
+        },
+        "point_G": {
+            "type": "Point",
+            "id": "point_G",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "x": -0.2,
+                "y": -0.2
+            },
+            "label": "G"
+        },
+        "angle_DCE": {
+            "type": "Angle",
+            "id": "angle_DCE",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_C",
+                    "point_E"
+                ],
+                "degree": 74.22411774505423
+            },
+            "label": "DCE"
+        },
+        "angle_FAG": {
+            "type": "Angle",
+            "id": "angle_FAG",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_F",
+                    "point_A",
+                    "point_G"
+                ],
+                "degree": 75.96375653207352
+            },
+            "label": "FAG"
+        }
+    },
+    "animations": [
+        [
+            "point_D",
+            "angle_DCE",
+            "point_B",
+            "line_AB",
+            "point_E",
+            "point_A",
+            "point_C"
+        ],
+        [
+            "line_CE",
+            "line_FG",
+            "point_D",
+            "line_AG",
+            "angle_DCE",
+            "point_B",
+            "line_AB",
+            "point_G",
+            "line_CD",
+            "line_DE",
+            "point_F",
+            "line_AF",
+            "polygon_AFG",
+            "point_E",
+            "point_A",
+            "point_C"
+        ],
+        [
+            "line_FA",
+            "line_CE",
+            "line_DC",
+            "line_FG",
+            "point_D",
+            "line_AG",
+            "angle_DCE",
+            "point_B",
+            "angle_FAG",
+            "line_AB",
+            "point_G",
+            "line_CD",
+            "line_DE",
+            "point_F",
+            "line_AF",
+            "polygon_AFG",
+            "point_E",
+            "point_A",
+            "point_C"
+        ],
+        [
+            "line_FA",
+            "line_CE",
+            "line_DC",
+            "line_FG",
+            "point_D",
+            "line_AG",
+            "angle_DCE",
+            "point_B",
+            "angle_FAG",
+            "line_AB",
+            "point_G",
+            "line_CD",
+            "line_DE",
+            "point_F",
+            "line_AF",
+            "polygon_AFG",
+            "point_E",
+            "point_A",
+            "point_C"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Book 1 - Proposition 23</b></center><br>
+        <center>To construct a rectilinear angle equal to a given rectilinear angle on a given straight line and at a point on it.</center><br>
+        <br>
+        Let the  <span name=text_angle_angle_DCE class='GeoElement'>angle DCE</span> be the given rectilinear angle,  <span name=text_line_line_AB class='GeoElement'>AB</span> the given straight line, and  <span name=text_point_point_A class='GeoElement'>A</span> the point on it.<br>
+        <br>
+        It is required to construct a rectilinear angle equal to the given rectilinear  <span name=text_angle_angle_DCE class='GeoElement'>angle DCE</span> on the given straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> and at the  <span name=text_point_point_A class='GeoElement'>point A</span> on it.<br>
+        </div><div id='step_1'><br>
+        Take the points  <span name=text_point_point_D class='GeoElement'>D</span> and  <span name=text_point_point_E class='GeoElement'>E</span> at random on the straight lines  <span name=text_line_line_CD class='GeoElement'>CD</span> and  <span name=text_line_line_CE class='GeoElement'>CE</span> respectively, and join  <span name=text_line_line_DE class='GeoElement'>DE</span>. Out of three straight lines which equal the three straight lines  <span name=text_line_line_CD class='GeoElement'>CD</span>,  <span name=text_line_line_DE class='GeoElement'>DE</span>, and  <span name=text_line_line_CE class='GeoElement'>CE</span> construct the  <span name=text_polygon_polygon_AFG class='GeoElement'>triangle AFG</span> in such a way that  <span name=text_line_line_CD class='GeoElement'>CD</span> equals  <span name=text_line_line_AF class='GeoElement'>AF</span>,  <span name=text_line_line_CE class='GeoElement'>CE</span> equals  <span name=text_line_line_AG class='GeoElement'>AG</span>, and  <span name=text_line_line_DE class='GeoElement'>DE</span> equals  <span name=text_line_line_FG class='GeoElement'>FG</span>.<br>
+        </div><div id='step_2'><br>
+        Since the two sides  <span name=text_line_line_DC class='GeoElement'>DC</span> and  <span name=text_line_line_CE class='GeoElement'>CE</span> equal the two sides  <span name=text_line_line_FA class='GeoElement'>FA</span> and  <span name=text_line_line_AG class='GeoElement'>AG</span> respectively, and the base  <span name=text_line_line_DE class='GeoElement'>DE</span> equals the base  <span name=text_line_line_FG class='GeoElement'>FG</span>, therefore the  <span name=text_angle_angle_DCE class='GeoElement'>angle DCE</span> equals the  <span name=text_angle_angle_FAG class='GeoElement'>angle FAG</span>.<br>
+        </div><div id='step_3'><br>
+        Therefore on the given straight  <span name=text_line_line_AB class='GeoElement'>line AB</span>, and at the  <span name=text_point_point_A class='GeoElement'>point A</span> on it, the rectilinear  <span name=text_angle_angle_FAG class='GeoElement'>angle FAG</span> has been constructed equal to the given rectilinear  <span name=text_angle_angle_DCE class='GeoElement'>angle DCE</span>.<br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>
