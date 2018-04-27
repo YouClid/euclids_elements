@@ -1,0 +1,18 @@
+<center><b>Book 1 - Proposition 39</b></center>
+<center>Equal triangles which are on the same base and on the same side are also in the same parallels.</center>
+
+Let [triangle ABC] and [triangle DBC] be equal triangles which are on the same [line BC text="base BC"] and on the same side of it. Join [line AD].[step]
+I say that [line AD] is parallel to [line BC].[step]
+If not, draw [line AE] through the [point A] parallel to the straight [line BC], and join [line EC].[step]
+Therefore the [triangle ABC] equals the [triangle EBC], for it is on the same [line BC text="base BC"] with it and in the same parallels.[step]
+But [triangle ABC] equals [triangle DBC], therefore [triangle DBC] also equals [triangle EBC], the greater equals the less, which is impossible.[step]
+Therefore [line AE] is not parallel to [line BC].[step]
+Similarly we can prove that neither is any other straight line except [line AD], therefore [line AD] is parallel to [line BC].
+Therefore equal triangles which are on the same base and on the same side are also in the same parallels.
+
+[loc A x=-0.1 y=0.5]
+[loc D x=0.3 y=0.5]
+[loc B x=-0.4 y=-0.5]
+[loc C x=0.5 y=-0.5]
+[line BD hidden]
+[point E lieson=BD hidden]
