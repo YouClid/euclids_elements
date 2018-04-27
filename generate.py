@@ -23,6 +23,7 @@ def get_changed():
     git status *.yc | grep ".yc" | awk '{print $1}'
     """
     git = Popen(("git", "status", "*.yc"), stdout=PIPE)
+    # git = Popen(("find", ".", "-name", "*.yc"), stdout=PIPE)
     grep = Popen(("grep", ".yc"), stdin=git.stdout, stdout=PIPE)
     awk = Popen(("awk", "{print $1}"), stdin=grep.stdout, stdout=PIPE)
     files = awk.communicate()[0].decode("UTF-8").split("\n")
