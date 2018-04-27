@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Book 1 - Proposition 35</b></center>\n<center>Parallelograms which are on the same base and in the same parallels equal one another.</center>\n\nLet  <span name=text_polygon_polygon_ABCD class='GeoElement'>parallelogram ABCD</span> and  <span name=text_polygon_polygon_EBCF class='GeoElement'>parallelogram EBCF</span> be parallelograms on the same base  <span name=text_line_line_BC class='GeoElement'>BC</span> and in the same parallels  <span name=text_line_line_AF class='GeoElement'>AF</span> and  <span name=text_line_line_BC class='GeoElement'>BC</span>. \n\nI say that  <span name=text_polygon_polygon_ABCD class='GeoElement'>ABCD</span> equals the  <span name=text_polygon_polygon_EBCF class='GeoElement'>parallelogram EBCF</span>.</div><div id='step_1'>\n\nSince  <span name=text_polygon_polygon_ABCD class='GeoElement'>ABCD</span> is a parallelogram, therefore  <span name=text_line_line_AD class='GeoElement'>AD</span> equals  <span name=text_line_line_BC class='GeoElement'>BC</span>.</div><div id='step_2'>\n\nFor the same reason  <span name=text_line_line_EF class='GeoElement'>EF</span> equals  <span name=text_line_line_BC class='GeoElement'>BC</span>, so that  <span name=text_line_line_AD class='GeoElement'>AD</span> also equals  <span name=text_line_line_EF class='GeoElement'>EF</span>. And  <span name=text_line_line_DE class='GeoElement'>DE</span> is common, therefore the whole  <span name=text_line_line_AE class='GeoElement'>AE</span> equals the whole  <span name=text_line_line_DF class='GeoElement'>DF</span>. </div><div id='step_3'>\n\nBut  <span name=text_line_line_AB class='GeoElement'>AB</span> also equals  <span name=text_line_line_DC class='GeoElement'>DC</span>. Therefore the two sides  <span name=text_line_line_EA class='GeoElement'>EA</span> and  <span name=text_line_line_AB class='GeoElement'>AB</span> equal the two sides  <span name=text_line_line_FD class='GeoElement'>FD</span> and  <span name=text_line_line_DC class='GeoElement'>DC</span> respectively, and the  <span name=text_angle_angle_FDC class='GeoElement'>angle FDC</span> equals the  <span name=text_angle_angle_EAB class='GeoElement'>angle EAB</span>, the exterior equals the interior. Therefore the base  <span name=text_line_line_EB class='GeoElement'>EB</span> equals the base  <span name=text_line_line_FC class='GeoElement'>FC</span>, and the  <span name=text_polygon_polygon_EAB class='GeoElement'>triangle EAB</span> equals the  <span name=text_polygon_polygon_FDC class='GeoElement'>triangle FDC</span>.</div><div id='step_4'>\n\n\n\n\nSubtract  <span name=text_polygon_polygon_DGE class='GeoElement'>DGE</span> from each. Then the  <span name=text_polygon_polygon_ABGD class='GeoElement'>trapezium ABGD</span> which remains equals the  <span name=text_polygon_polygon_EGCF class='GeoElement'>trapezium EGCF</span> which remains.</div><div id='step_5'>\n\nAdd the  <span name=text_polygon_polygon_GBC class='GeoElement'>triangle GBC</span> to each. Then the whole  <span name=text_polygon_polygon_ABCD class='GeoElement'>parallelogram ABCD</span> equals the whole  <span name=text_polygon_polygon_EBCF class='GeoElement'>parallelogram EBCF</span>.\n\nTherefore parallelograms which are on the same base and in the same parallels equal one another.\n </div>",
+    "geometry": {
+        "polygon_ABCD": {
+            "type": "Polygon",
+            "id": "polygon_ABCD",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C",
+                    "point_D"
+                ]
+            },
+            "label": "ABCD"
+        },
+        "polygon_EBCF": {
+            "type": "Polygon",
+            "id": "polygon_EBCF",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_B",
+                    "point_C",
+                    "point_F"
+                ]
+            },
+            "label": "EBCF"
+        },
+        "polygon_EAB": {
+            "type": "Polygon",
+            "id": "polygon_EAB",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_A",
+                    "point_B"
+                ]
+            },
+            "label": "EAB"
+        },
+        "polygon_FDC": {
+            "type": "Polygon",
+            "id": "polygon_FDC",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_F",
+                    "point_D",
+                    "point_C"
+                ]
+            },
+            "label": "FDC"
+        },
+        "polygon_DGE": {
+            "type": "Polygon",
+            "id": "polygon_DGE",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_G",
+                    "point_E"
+                ]
+            },
+            "label": "DGE"
+        },
+        "polygon_ABGD": {
+            "type": "Polygon",
+            "id": "polygon_ABGD",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_G",
+                    "point_D"
+                ]
+            },
+            "label": "ABGD"
+        },
+        "polygon_EGCF": {
+            "type": "Polygon",
+            "id": "polygon_EGCF",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_G",
+                    "point_C",
+                    "point_F"
+                ]
+            },
+            "label": "EGCF"
+        },
+        "polygon_GBC": {
+            "type": "Polygon",
+            "id": "polygon_GBC",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_G",
+                    "point_B",
+                    "point_C"
+                ]
+            },
+            "label": "GBC"
+        },
+        "line_BC": {
+            "type": "Line",
+            "id": "line_BC",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_C"
+            },
+            "label": "BC"
+        },
+        "line_AF": {
+            "type": "Line",
+            "id": "line_AF",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_F"
+            },
+            "label": "AF"
+        },
+        "line_AD": {
+            "type": "Line",
+            "id": "line_AD",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_D"
+            },
+            "label": "AD"
+        },
+        "line_EF": {
+            "type": "Line",
+            "id": "line_EF",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_F"
+            },
+            "label": "EF"
+        },
+        "line_DE": {
+            "type": "Line",
+            "id": "line_DE",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_E"
+            },
+            "label": "DE"
+        },
+        "line_AE": {
+            "type": "Line",
+            "id": "line_AE",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_E"
+            },
+            "label": "AE"
+        },
+        "line_DF": {
+            "type": "Line",
+            "id": "line_DF",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_F"
+            },
+            "label": "DF"
+        },
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "line_DC": {
+            "type": "Line",
+            "id": "line_DC",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_C"
+            },
+            "label": "DC"
+        },
+        "line_EA": {
+            "type": "Line",
+            "id": "line_EA",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_A"
+            },
+            "label": "EA"
+        },
+        "line_FD": {
+            "type": "Line",
+            "id": "line_FD",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_F",
+                "p2": "point_D"
+            },
+            "label": "FD"
+        },
+        "line_EB": {
+            "type": "Line",
+            "id": "line_EB",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_B"
+            },
+            "label": "EB"
+        },
+        "line_FC": {
+            "type": "Line",
+            "id": "line_FC",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_F",
+                "p2": "point_C"
+            },
+            "label": "FC"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": -0.5,
+                "y": 0.0
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.3,
+                "y": -0.5
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": -0.5
+            },
+            "label": "C"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "x": -0.15,
+                "y": 0.0
+            },
+            "label": "D"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "label": "E"
+        },
+        "point_F": {
+            "type": "Point",
+            "id": "point_F",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "x": 0.15,
+                "y": 0.0
+            },
+            "label": "F"
+        },
+        "point_G": {
+            "type": "Point",
+            "id": "point_G",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.1,
+                "y": -0.16666666666666666
+            },
+            "label": "G"
+        },
+        "angle_FDC": {
+            "type": "Angle",
+            "id": "angle_FDC",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_F",
+                    "point_D",
+                    "point_C"
+                ],
+                "degree": 73.30075576600639
+            },
+            "label": "FDC"
+        },
+        "angle_EAB": {
+            "type": "Angle",
+            "id": "angle_EAB",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_A",
+                    "point_B"
+                ],
+                "degree": 68.19859051364818
+            },
+            "label": "EAB"
+        }
+    },
+    "animations": [
+        [
+            "point_C",
+            "line_AF",
+            "point_F",
+            "polygon_EBCF",
+            "line_BC",
+            "point_E",
+            "point_A",
+            "point_B",
+            "point_D",
+            "polygon_ABCD"
+        ],
+        [
+            "point_C",
+            "line_AF",
+            "point_F",
+            "line_AD",
+            "polygon_EBCF",
+            "line_BC",
+            "point_E",
+            "point_A",
+            "point_B",
+            "point_D",
+            "polygon_ABCD"
+        ],
+        [
+            "point_C",
+            "line_AF",
+            "point_F",
+            "line_AD",
+            "polygon_EBCF",
+            "line_DF",
+            "line_EF",
+            "line_BC",
+            "line_DE",
+            "line_AE",
+            "point_E",
+            "point_A",
+            "point_B",
+            "point_D",
+            "polygon_ABCD"
+        ],
+        [
+            "line_DC",
+            "line_AF",
+            "polygon_EBCF",
+            "line_EF",
+            "angle_FDC",
+            "polygon_FDC",
+            "point_A",
+            "point_B",
+            "point_C",
+            "line_BC",
+            "line_AE",
+            "line_EA",
+            "point_D",
+            "polygon_ABCD",
+            "polygon_EAB",
+            "point_E",
+            "line_FD",
+            "line_AD",
+            "point_F",
+            "line_DF",
+            "line_FC",
+            "angle_EAB",
+            "line_AB",
+            "line_DE",
+            "line_EB"
+        ],
+        [
+            "line_DC",
+            "line_AF",
+            "polygon_EBCF",
+            "polygon_ABGD",
+            "line_EF",
+            "angle_FDC",
+            "polygon_FDC",
+            "point_A",
+            "point_B",
+            "point_G",
+            "point_C",
+            "line_BC",
+            "line_AE",
+            "polygon_EGCF",
+            "line_EA",
+            "point_D",
+            "polygon_ABCD",
+            "polygon_EAB",
+            "polygon_DGE",
+            "point_E",
+            "line_FD",
+            "line_AD",
+            "point_F",
+            "line_DF",
+            "line_FC",
+            "angle_EAB",
+            "line_AB",
+            "line_DE",
+            "line_EB"
+        ],
+        [
+            "line_DC",
+            "line_AF",
+            "polygon_EBCF",
+            "polygon_ABGD",
+            "line_EF",
+            "angle_FDC",
+            "polygon_FDC",
+            "point_A",
+            "point_B",
+            "point_G",
+            "point_C",
+            "polygon_GBC",
+            "line_BC",
+            "line_AE",
+            "polygon_EGCF",
+            "line_EA",
+            "point_D",
+            "polygon_ABCD",
+            "polygon_EAB",
+            "polygon_DGE",
+            "point_E",
+            "line_FD",
+            "line_AD",
+            "point_F",
+            "line_DF",
+            "line_FC",
+            "angle_EAB",
+            "line_AB",
+            "line_DE",
+            "line_EB"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Book 1 - Proposition 35</b></center><br>
+        <center>Parallelograms which are on the same base and in the same parallels equal one another.</center><br>
+        <br>
+        Let  <span name=text_polygon_polygon_ABCD class='GeoElement'>parallelogram ABCD</span> and  <span name=text_polygon_polygon_EBCF class='GeoElement'>parallelogram EBCF</span> be parallelograms on the same base  <span name=text_line_line_BC class='GeoElement'>BC</span> and in the same parallels  <span name=text_line_line_AF class='GeoElement'>AF</span> and  <span name=text_line_line_BC class='GeoElement'>BC</span>. <br>
+        <br>
+        I say that  <span name=text_polygon_polygon_ABCD class='GeoElement'>ABCD</span> equals the  <span name=text_polygon_polygon_EBCF class='GeoElement'>parallelogram EBCF</span>.</div><div id='step_1'><br>
+        <br>
+        Since  <span name=text_polygon_polygon_ABCD class='GeoElement'>ABCD</span> is a parallelogram, therefore  <span name=text_line_line_AD class='GeoElement'>AD</span> equals  <span name=text_line_line_BC class='GeoElement'>BC</span>.</div><div id='step_2'><br>
+        <br>
+        For the same reason  <span name=text_line_line_EF class='GeoElement'>EF</span> equals  <span name=text_line_line_BC class='GeoElement'>BC</span>, so that  <span name=text_line_line_AD class='GeoElement'>AD</span> also equals  <span name=text_line_line_EF class='GeoElement'>EF</span>. And  <span name=text_line_line_DE class='GeoElement'>DE</span> is common, therefore the whole  <span name=text_line_line_AE class='GeoElement'>AE</span> equals the whole  <span name=text_line_line_DF class='GeoElement'>DF</span>. </div><div id='step_3'><br>
+        <br>
+        But  <span name=text_line_line_AB class='GeoElement'>AB</span> also equals  <span name=text_line_line_DC class='GeoElement'>DC</span>. Therefore the two sides  <span name=text_line_line_EA class='GeoElement'>EA</span> and  <span name=text_line_line_AB class='GeoElement'>AB</span> equal the two sides  <span name=text_line_line_FD class='GeoElement'>FD</span> and  <span name=text_line_line_DC class='GeoElement'>DC</span> respectively, and the  <span name=text_angle_angle_FDC class='GeoElement'>angle FDC</span> equals the  <span name=text_angle_angle_EAB class='GeoElement'>angle EAB</span>, the exterior equals the interior. Therefore the base  <span name=text_line_line_EB class='GeoElement'>EB</span> equals the base  <span name=text_line_line_FC class='GeoElement'>FC</span>, and the  <span name=text_polygon_polygon_EAB class='GeoElement'>triangle EAB</span> equals the  <span name=text_polygon_polygon_FDC class='GeoElement'>triangle FDC</span>.</div><div id='step_4'><br>
+        <br>
+        <br>
+        <br>
+        <br>
+        Subtract  <span name=text_polygon_polygon_DGE class='GeoElement'>DGE</span> from each. Then the  <span name=text_polygon_polygon_ABGD class='GeoElement'>trapezium ABGD</span> which remains equals the  <span name=text_polygon_polygon_EGCF class='GeoElement'>trapezium EGCF</span> which remains.</div><div id='step_5'><br>
+        <br>
+        Add the  <span name=text_polygon_polygon_GBC class='GeoElement'>triangle GBC</span> to each. Then the whole  <span name=text_polygon_polygon_ABCD class='GeoElement'>parallelogram ABCD</span> equals the whole  <span name=text_polygon_polygon_EBCF class='GeoElement'>parallelogram EBCF</span>.<br>
+        <br>
+        Therefore parallelograms which are on the same base and in the same parallels equal one another.<br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>
