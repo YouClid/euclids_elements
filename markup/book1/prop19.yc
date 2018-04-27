@@ -1,0 +1,14 @@
+<center><b>Book 1 - Proposition 19</b></center>
+<center>In any triangle the side opposite the greater angle is greater.</center>
+
+Let [triangle ABC text=ABC] be a triangle having the [angle ABC] greater than the [angle BCA].[step]
+I say that the [line AC text="side AC"] is greater than the [line AB text="side AB"].[step]
+If not, either [line AC] equals [line AB] or it is less than it.[step][clear]
+Now [line AC] does not equal [line AB], for then the [angle ABC] would equal the [angle ACB], but it does not. Therefore [line AC] does not equal [line AB].[step][clear]
+Neither is [line AC] less than [line AB], for then the [angle ABC] would be less than the [angle ACB], but it is not. Therefore [line AC] is not less than [line AB].[step][clear]
+And it was proved that it is not equal either. Therefore [line AC] is greater than [line AB].
+Therefore in any triangle the side opposite the greater angle is greater.
+
+[loc A x=-0.7 y=-0.7]
+[loc B x=-0.3 y=-0.7]
+[loc C x=0.3 y=0.4]

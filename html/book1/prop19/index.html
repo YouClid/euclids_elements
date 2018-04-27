@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Book 1 - Proposition 19</b></center>\n<center>In any triangle the side opposite the greater angle is greater.</center>\n\nLet  <span name=text_polygon_polygon_ABC class='GeoElement'>ABC</span> be a triangle having the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> greater than the  <span name=text_angle_angle_BCA class='GeoElement'>angle BCA</span>.</div><div id='step_1'>\nI say that the  <span name=text_line_line_AC class='GeoElement'>side AC</span> is greater than the  <span name=text_line_line_AB class='GeoElement'>side AB</span>.</div><div id='step_2'>\nIf not, either  <span name=text_line_line_AC class='GeoElement'>line AC</span> equals  <span name=text_line_line_AB class='GeoElement'>line AB</span> or it is less than it.</div><div id='step_3'>\nNow  <span name=text_line_line_AC class='GeoElement'>line AC</span> does not equal  <span name=text_line_line_AB class='GeoElement'>line AB</span>, for then the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> would equal the  <span name=text_angle_angle_ACB class='GeoElement'>angle ACB</span>, but it does not. Therefore  <span name=text_line_line_AC class='GeoElement'>line AC</span> does not equal  <span name=text_line_line_AB class='GeoElement'>line AB</span>.</div><div id='step_4'>\nNeither is  <span name=text_line_line_AC class='GeoElement'>line AC</span> less than  <span name=text_line_line_AB class='GeoElement'>line AB</span>, for then the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> would be less than the  <span name=text_angle_angle_ACB class='GeoElement'>angle ACB</span>, but it is not. Therefore  <span name=text_line_line_AC class='GeoElement'>line AC</span> is not less than  <span name=text_line_line_AB class='GeoElement'>line AB</span>.</div><div id='step_5'>\nAnd it was proved that it is not equal either. Therefore  <span name=text_line_line_AC class='GeoElement'>line AC</span> is greater than  <span name=text_line_line_AB class='GeoElement'>line AB</span>.\nTherefore in any triangle the side opposite the greater angle is greater.\n </div>",
+    "geometry": {
+        "polygon_ABC": {
+            "type": "Polygon",
+            "id": "polygon_ABC",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ]
+            },
+            "label": "ABC"
+        },
+        "line_AC": {
+            "type": "Line",
+            "id": "line_AC",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_C"
+            },
+            "label": "AC"
+        },
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": -0.7,
+                "y": -0.7
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.3,
+                "y": -0.7
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "x": 0.3,
+                "y": 0.4
+            },
+            "label": "C"
+        },
+        "angle_ABC": {
+            "type": "Angle",
+            "id": "angle_ABC",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ],
+                "degree": 118.61045966596521
+            },
+            "label": "ABC"
+        },
+        "angle_BCA": {
+            "type": "Angle",
+            "id": "angle_BCA",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_C",
+                    "point_A"
+                ],
+                "degree": 13.663229340128527
+            },
+            "label": "BCA"
+        },
+        "angle_ACB": {
+            "type": "Angle",
+            "id": "angle_ACB",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_C",
+                    "point_A"
+                ],
+                "degree": 13.663229340128527
+            },
+            "label": "ACB"
+        }
+    },
+    "animations": [
+        [
+            "point_C",
+            "angle_ABC",
+            "point_B",
+            "point_A",
+            "angle_BCA",
+            "polygon_ABC"
+        ],
+        [
+            "point_C",
+            "angle_ABC",
+            "line_AB",
+            "point_B",
+            "point_A",
+            "line_AC",
+            "angle_BCA",
+            "polygon_ABC"
+        ],
+        [
+            "point_C",
+            "angle_ABC",
+            "line_AB",
+            "point_B",
+            "point_A",
+            "line_AC",
+            "angle_BCA",
+            "polygon_ABC"
+        ],
+        [
+            "point_C",
+            "angle_ABC",
+            "line_AB",
+            "point_B",
+            "point_A",
+            "angle_ACB",
+            "line_AC"
+        ],
+        [
+            "point_C",
+            "angle_ABC",
+            "line_AB",
+            "point_B",
+            "point_A",
+            "angle_ACB",
+            "line_AC"
+        ],
+        [
+            "point_C",
+            "line_AB",
+            "point_B",
+            "point_A",
+            "line_AC"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Book 1 - Proposition 19</b></center><br>
+        <center>In any triangle the side opposite the greater angle is greater.</center><br>
+        <br>
+        Let  <span name=text_polygon_polygon_ABC class='GeoElement'>ABC</span> be a triangle having the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> greater than the  <span name=text_angle_angle_BCA class='GeoElement'>angle BCA</span>.</div><div id='step_1'><br>
+        I say that the  <span name=text_line_line_AC class='GeoElement'>side AC</span> is greater than the  <span name=text_line_line_AB class='GeoElement'>side AB</span>.</div><div id='step_2'><br>
+        If not, either  <span name=text_line_line_AC class='GeoElement'>line AC</span> equals  <span name=text_line_line_AB class='GeoElement'>line AB</span> or it is less than it.</div><div id='step_3'><br>
+        Now  <span name=text_line_line_AC class='GeoElement'>line AC</span> does not equal  <span name=text_line_line_AB class='GeoElement'>line AB</span>, for then the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> would equal the  <span name=text_angle_angle_ACB class='GeoElement'>angle ACB</span>, but it does not. Therefore  <span name=text_line_line_AC class='GeoElement'>line AC</span> does not equal  <span name=text_line_line_AB class='GeoElement'>line AB</span>.</div><div id='step_4'><br>
+        Neither is  <span name=text_line_line_AC class='GeoElement'>line AC</span> less than  <span name=text_line_line_AB class='GeoElement'>line AB</span>, for then the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> would be less than the  <span name=text_angle_angle_ACB class='GeoElement'>angle ACB</span>, but it is not. Therefore  <span name=text_line_line_AC class='GeoElement'>line AC</span> is not less than  <span name=text_line_line_AB class='GeoElement'>line AB</span>.</div><div id='step_5'><br>
+        And it was proved that it is not equal either. Therefore  <span name=text_line_line_AC class='GeoElement'>line AC</span> is greater than  <span name=text_line_line_AB class='GeoElement'>line AB</span>.<br>
+        Therefore in any triangle the side opposite the greater angle is greater.<br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>
