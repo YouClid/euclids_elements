@@ -1,0 +1,27 @@
+<center><b>Proposition 47</b></center>
+<center>In right-angled triangles the square on the side opposite the right angle equals the sum of the squares on the sides containing the right angle.</center>
+
+Let [triangle ABC] be a right-angled triangle having the [angle BAC] right.[step]
+I say that the [polygon BCED text="square on BC"] equals the sum of the [polygon ABFG text="square on AB"]  and [polygon ACKH text="square on AC"].[step]
+Describe the [polygon BCED text="square BDEC"] on [line BC], and the [polygon ABFG text="square GB"] and [polygon ACKH text=HC] on [line BA] and [line AC]. Draw [line AL] through [point A] parallel to either [line BD] or [line CE], and join [line AD text=AD] and [line FC text=FC].[step]
+Since each of the angles [angle BAC text=BAC] and [angle BAG text=BAG] is right, it follows that with a straight [line BA], and at the [point A] on it, the two straight lines [line AC text=AC] and [line AG text=AG] not lying on the same side make the adjacent angles equal to two right angles, therefore [line AC] is in a straight line with [line AG].[step]
+For the same reason [line AB] is also in a straight line with [line AH].[step]
+Since the [angle DBC] equals the [angle FBA], for each is right, add the [angle ABC] to each, therefore the whole [angle DBA] equals the whole [angle FBC].[step]
+Since [line BD] equals [line BC], and [line BF] equals [line AB], the two sides [line AB text=AB] and [line BD text=BD] equal the two sides [line BF] and [line BC] respectively, and the [angle ABD] equals the [angle FBC], therefore the [line AD text="base AD"] equals the [line FC text="base FC"], and the [triangle ABD] equals the [triangle BCF].[step][clear]
+Now the [polygon ABDL text="parallelogram BL"] is double the [triangle ABD], for they have the same base [line BD] and are in the same parallels [line BD] and [line AL]. And the [polygon ABFG text="square GB"] is double the [triangle BCF], for they again have the same [line BF text="base FB"] and are in the same parallels [line BF] and [line CG].[step][clear]
+Therefore the [polygon ABDL text="parallelogram BL"] also equals the [polygon ABFG text="square GB"].[step][clear]
+Similarly, if [line AE] and [line BK] are joined, the [polygon ACEL text="parallelogram CL"] can also be proved equal to the [polygon ACKH text="square HC"]. Therefore the whole [polygon BDCE text="square BDEC"] equals the sum of the two squares [polygon ABFG text=GB] and [polygon ACKH text="HC"].[step][clear]
+And the [polygon BCED text="square BDEC"] is described on [line BC], and the squares [polygon ABFG text=GB] and [polygon ACKH text=HC] on [line BA] and [line AC].[step][clear]
+Therefore the square on [line BC] equals the sum of the squares on [line BA] and [line AC].
+Therefore in right-angled triangles the square on the side opposite the right angle equals the sum of the squares on the sides containing the right angle.
+
+[loc A x=0 y=0.2]
+[loc B x=-0.2 y=0]
+[loc C x=0.2 y=0]
+[loc K x=0.4 y=0.2]
+[loc H x=0.2 y=0.4]
+[loc G x=-0.2 y=0.4]
+[loc F x=-0.4 y=0.2]
+[loc D x=-0.2 y=-0.4]
+[loc L x=0 y=-0.4]
+[loc E x=0.2 y=-0.4]
