@@ -13,7 +13,6 @@ And [line FG] also equals [line BY], therefore the three straight lines [line FK
 [clear]
 Therefore out of the three straight lines [line FK], [line FG], and [line GK], which equal the three given straight lines [line AX], [line BY], and [line CZ], the [triangle FKG] has been constructed.
 
-
 [loc A x=0.5 y=0.8]
 [loc X x=0.9 y=0.8]
 [loc B x=0.5 y=0.7]
