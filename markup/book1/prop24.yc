@@ -1,0 +1,29 @@
+<center><b>Proposition 24</b></center>
+<center>If two triangles have two sides equal to two sides respectively, but have one of the angles contained by the equal straight lines greater than the other, then they also have the base greater than the base.</center>
+
+Let [triangle ABC] and [triangle DEF] be two triangles having the two sides [line AB] and [line AC] equal to the two sides [line DE] and [line DF] respectively, so that [line AB] equals [line DE], and [line AC] equals [line DF], and let the [angle BAC text="angle at A"] be greater than the [angle EDF text="angle at D"].
+[step]
+I say that the [line BC text="base BC"] is greater than the [line EF text="base EF"].
+
+Since the [angle BAC] is greater than the [angle EDF], construct the [angle EDG] equal to the [angle BAC] at the [point D] on the straight [line DE]. Make [line DG] equal to either of the two straight lines [line AC text="AC"] or [line DF text="DF"]. Join [line EG] and [line FG].
+[step]
+Since [line AB] equals [line DE], and [line AC] equals [line DG], the two sides [line BA] and [line AC] equal the two sides [line ED] and [line DG], respectively, and the [angle BAC] equals the [angle EDG], therefore the base [line BC] equals the base [line EG].
+
+Again, since [line DF] equals [line DG], therefore the [angle DGF] equals the [angle DFG]. Therefore the [angle DFG] is greater than the [angle EGF].
+[step][clear]
+Therefore the [angle EFG] is much greater than the [angle EGF].
+
+Since [polygon EFG text="EFG"] is a triangle having the [angle EFG] greater than the [angle EGF], and side opposite the greater angle is greater, therefore the side [line EG text="EG"] is also greater than [line EF].
+
+But [line EG] equals [line BC], therefore [line BC] is also greater than [line EF].
+
+Therefore if two triangles have two sides equal to two sides respectively, but have one of the angles contained by the equal straight lines greater than the other, then they also have the base greater than the base.
+
+
+[loc A x=-.3 y=.5]
+[loc B x=-.3 y=0]
+[loc C x=-.6 y=.3]
+[loc D x=.3 y=.5]
+[loc E x=.3 y=0]
+[loc F x=.1143 y=.191]
+[loc G x=0 y=.3]
