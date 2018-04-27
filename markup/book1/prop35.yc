@@ -1,0 +1,28 @@
+<center><b>Book 1 - Proposition 35</b></center>
+<center>Parallelograms which are on the same base and in the same parallels equal one another.</center>
+
+Let [polygon ABCD text="parallelogram ABCD"] and [polygon EBCF text="parallelogram EBCF"] be parallelograms on the same base [line BC text="BC"] and in the same parallels [line AF text="AF"] and [line BC text="BC"]. 
+
+I say that [polygon ABCD text="ABCD"] equals the [polygon EBCF text="parallelogram EBCF"].[step]
+
+Since [polygon ABCD text="ABCD"] is a parallelogram, therefore [line AD text="AD"] equals [line BC text="BC"].[step]
+
+For the same reason [line EF text="EF"] equals [line BC text="BC"], so that [line AD text="AD"] also equals [line EF text="EF"]. And [line DE text="DE"] is common, therefore the whole [line AE text="AE"] equals the whole [line DF text="DF"]. [step]
+
+But [line AB text="AB"] also equals [line DC text="DC"]. Therefore the two sides [line EA text="EA"] and [line AB text="AB"] equal the two sides [line FD text="FD"] and [line DC text="DC"] respectively, and the [angle FDC] equals the [angle EAB], the exterior equals the interior. Therefore the base [line EB text="EB"] equals the base [line FC text="FC"], and the [triangle EAB] equals the [triangle FDC].[step]
+
+[point G lieson=DC hidden]
+[point G lieson=EB hidden]
+
+Subtract [polygon DGE text="DGE"] from each. Then the [polygon ABGD text="trapezium ABGD"] which remains equals the [polygon EGCF text="trapezium EGCF"] which remains.[step]
+
+Add the [triangle GBC] to each. Then the whole [polygon ABCD text="parallelogram ABCD"] equals the whole [polygon EBCF text="parallelogram EBCF"].
+
+Therefore parallelograms which are on the same base and in the same parallels equal one another.
+
+[loc A x=-.5 y=0]
+[loc B x=-.3 y=-.5]
+[loc C x=0 y=-.5]
+[loc D x=-.15 y=0]
+[loc E x=0 y=0]
+[loc F x=.15 y=0]
