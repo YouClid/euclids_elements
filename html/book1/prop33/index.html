@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Book 1 - Proposition 33</b></center>\n<center>Straight lines which join the ends of equal and parallel straight lines in the same directions are themselves equal and parallel.</center>\n\nLet  <span name=text_line_line_AB class='GeoElement'>AB</span> and  <span name=text_line_line_CD class='GeoElement'>CD</span> be equal and parallel, and let the straight lines  <span name=text_line_line_AC class='GeoElement'>AC</span> and  <span name=text_line_line_BD class='GeoElement'>BD</span> join them at their ends in the same directions.\n\nI say that  <span name=text_line_line_AC class='GeoElement'>AC</span> and  <span name=text_line_line_BD class='GeoElement'>BD</span> are also equal and parallel.\n</div><div id='step_1'>\nJoin  <span name=text_line_line_BC class='GeoElement'>BC</span>.\n\nSince  <span name=text_line_line_AB class='GeoElement'>AB</span> is parallel to  <span name=text_line_line_CD class='GeoElement'>CD</span>, and  <span name=text_line_line_BC class='GeoElement'>BC</span> falls upon them, therefore the alternate angles  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> and  <span name=text_angle_angle_BCD class='GeoElement'>angle BCD</span> equal one another.\n</div><div id='step_2'>\nSince  <span name=text_line_line_AB class='GeoElement'>AB</span> equals  <span name=text_line_line_CD class='GeoElement'>CD</span>, and  <span name=text_line_line_BC class='GeoElement'>BC</span> is common, the two sides  <span name=text_line_line_AB class='GeoElement'>AB</span> and  <span name=text_line_line_BC class='GeoElement'>BC</span> equal the two sides  <span name=text_line_line_DC class='GeoElement'>DC</span> and  <span name=text_line_line_CB class='GeoElement'>CB</span>, and the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> equals the  <span name=text_angle_angle_BCD class='GeoElement'>angle BCD</span>, therefore the base  <span name=text_line_line_AC class='GeoElement'>AC</span> equals the base  <span name=text_line_line_BD class='GeoElement'>BD</span>, the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> equals the  <span name=text_polygon_polygon_DCB class='GeoElement'>triangle DCB</span>, and the remaining angles equals the remaining angles respectively, namely those opposite the equal sides. Therefore the  <span name=text_angle_angle_ACB class='GeoElement'>angle ACB</span> equals the  <span name=text_angle_angle_CBD class='GeoElement'>angle CBD</span>.\n</div><div id='step_3'>\nSince the straight  <span name=text_line_line_BC class='GeoElement'>BC</span> falling on the two straight lines  <span name=text_line_line_AC class='GeoElement'>AC</span> and  <span name=text_line_line_BD class='GeoElement'>BD</span> makes the alternate angles equal to one another, therefore  <span name=text_line_line_AC class='GeoElement'>AC</span> is parallel to  <span name=text_line_line_BD class='GeoElement'>BD</span>.\n\nAnd it was also proved equal to it.\n\nTherefore straight lines which join the ends of equal and parallel straight lines in the same directions are themselves equal and parallel.\n </div>",
+    "geometry": {
+        "polygon_ABC": {
+            "type": "Polygon",
+            "id": "polygon_ABC",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ]
+            },
+            "label": "ABC"
+        },
+        "polygon_DCB": {
+            "type": "Polygon",
+            "id": "polygon_DCB",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_C",
+                    "point_B"
+                ]
+            },
+            "label": "DCB"
+        },
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "line_CD": {
+            "type": "Line",
+            "id": "line_CD",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_D"
+            },
+            "label": "CD"
+        },
+        "line_AC": {
+            "type": "Line",
+            "id": "line_AC",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_C"
+            },
+            "label": "AC"
+        },
+        "line_BD": {
+            "type": "Line",
+            "id": "line_BD",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_D"
+            },
+            "label": "BD"
+        },
+        "line_BC": {
+            "type": "Line",
+            "id": "line_BC",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_C"
+            },
+            "label": "BC"
+        },
+        "line_DC": {
+            "type": "Line",
+            "id": "line_DC",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_C"
+            },
+            "label": "DC"
+        },
+        "line_CB": {
+            "type": "Line",
+            "id": "line_CB",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_B"
+            },
+            "label": "CB"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "x": -0.6,
+                "y": 0.3
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "x": 0.4,
+                "y": 0.3
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "x": -0.4,
+                "y": -0.3
+            },
+            "label": "C"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "x": 0.6,
+                "y": -0.3
+            },
+            "label": "D"
+        },
+        "angle_ABC": {
+            "type": "Angle",
+            "id": "angle_ABC",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_B",
+                    "point_A"
+                ],
+                "degree": 36.86989764584399
+            },
+            "label": "ABC"
+        },
+        "angle_BCD": {
+            "type": "Angle",
+            "id": "angle_BCD",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_C",
+                    "point_D"
+                ],
+                "degree": 36.86989764584402
+            },
+            "label": "BCD"
+        },
+        "angle_ACB": {
+            "type": "Angle",
+            "id": "angle_ACB",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_C",
+                    "point_B"
+                ],
+                "degree": 71.56505117707799
+            },
+            "label": "ACB"
+        },
+        "angle_CBD": {
+            "type": "Angle",
+            "id": "angle_CBD",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_B",
+                    "point_C"
+                ],
+                "degree": 71.56505117707799
+            },
+            "label": "CBD"
+        }
+    },
+    "animations": [
+        [
+            "point_C",
+            "line_CD",
+            "line_AC",
+            "point_B",
+            "point_D",
+            "point_A",
+            "line_AB",
+            "line_BD"
+        ],
+        [
+            "point_C",
+            "angle_BCD",
+            "line_CD",
+            "line_AC",
+            "point_B",
+            "angle_ABC",
+            "point_D",
+            "point_A",
+            "line_AB",
+            "line_BD",
+            "line_BC"
+        ],
+        [
+            "point_C",
+            "angle_BCD",
+            "line_CD",
+            "polygon_DCB",
+            "line_AC",
+            "point_B",
+            "angle_ABC",
+            "line_CB",
+            "point_D",
+            "polygon_ABC",
+            "angle_ACB",
+            "angle_CBD",
+            "point_A",
+            "line_AB",
+            "line_BD",
+            "line_DC",
+            "line_BC"
+        ],
+        [
+            "point_C",
+            "angle_BCD",
+            "line_CD",
+            "polygon_DCB",
+            "line_AC",
+            "point_B",
+            "angle_ABC",
+            "line_CB",
+            "point_D",
+            "polygon_ABC",
+            "angle_ACB",
+            "angle_CBD",
+            "point_A",
+            "line_AB",
+            "line_BD",
+            "line_DC",
+            "line_BC"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Book 1 - Proposition 33</b></center><br>
+        <center>Straight lines which join the ends of equal and parallel straight lines in the same directions are themselves equal and parallel.</center><br>
+        <br>
+        Let  <span name=text_line_line_AB class='GeoElement'>AB</span> and  <span name=text_line_line_CD class='GeoElement'>CD</span> be equal and parallel, and let the straight lines  <span name=text_line_line_AC class='GeoElement'>AC</span> and  <span name=text_line_line_BD class='GeoElement'>BD</span> join them at their ends in the same directions.<br>
+        <br>
+        I say that  <span name=text_line_line_AC class='GeoElement'>AC</span> and  <span name=text_line_line_BD class='GeoElement'>BD</span> are also equal and parallel.<br>
+        </div><div id='step_1'><br>
+        Join  <span name=text_line_line_BC class='GeoElement'>BC</span>.<br>
+        <br>
+        Since  <span name=text_line_line_AB class='GeoElement'>AB</span> is parallel to  <span name=text_line_line_CD class='GeoElement'>CD</span>, and  <span name=text_line_line_BC class='GeoElement'>BC</span> falls upon them, therefore the alternate angles  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> and  <span name=text_angle_angle_BCD class='GeoElement'>angle BCD</span> equal one another.<br>
+        </div><div id='step_2'><br>
+        Since  <span name=text_line_line_AB class='GeoElement'>AB</span> equals  <span name=text_line_line_CD class='GeoElement'>CD</span>, and  <span name=text_line_line_BC class='GeoElement'>BC</span> is common, the two sides  <span name=text_line_line_AB class='GeoElement'>AB</span> and  <span name=text_line_line_BC class='GeoElement'>BC</span> equal the two sides  <span name=text_line_line_DC class='GeoElement'>DC</span> and  <span name=text_line_line_CB class='GeoElement'>CB</span>, and the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> equals the  <span name=text_angle_angle_BCD class='GeoElement'>angle BCD</span>, therefore the base  <span name=text_line_line_AC class='GeoElement'>AC</span> equals the base  <span name=text_line_line_BD class='GeoElement'>BD</span>, the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> equals the  <span name=text_polygon_polygon_DCB class='GeoElement'>triangle DCB</span>, and the remaining angles equals the remaining angles respectively, namely those opposite the equal sides. Therefore the  <span name=text_angle_angle_ACB class='GeoElement'>angle ACB</span> equals the  <span name=text_angle_angle_CBD class='GeoElement'>angle CBD</span>.<br>
+        </div><div id='step_3'><br>
+        Since the straight  <span name=text_line_line_BC class='GeoElement'>BC</span> falling on the two straight lines  <span name=text_line_line_AC class='GeoElement'>AC</span> and  <span name=text_line_line_BD class='GeoElement'>BD</span> makes the alternate angles equal to one another, therefore  <span name=text_line_line_AC class='GeoElement'>AC</span> is parallel to  <span name=text_line_line_BD class='GeoElement'>BD</span>.<br>
+        <br>
+        And it was also proved equal to it.<br>
+        <br>
+        Therefore straight lines which join the ends of equal and parallel straight lines in the same directions are themselves equal and parallel.<br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>

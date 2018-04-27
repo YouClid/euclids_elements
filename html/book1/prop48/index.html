@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Book 1 - Proposition 48</b></center>\n<center>If in a triangle the square on one of the sides equals the sum of the squares on the remaining two sides of the triangle, then the angle contained by the remaining two sides of the triangle is right.</center>\n\nIn the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> let the square on one side  <span name=text_line_line_BC class='GeoElement'>BC</span> equal the sum of the squares on the sides  <span name=text_line_line_BA class='GeoElement'>BA</span> and  <span name=text_line_line_AC class='GeoElement'>AC</span>\n\nI say that the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> is right.\n</div><div id='step_1'>\nDraw  <span name=text_line_line_AD class='GeoElement'>AD</span> from the  <span name=text_point_point_A class='GeoElement'>point A</span> at right angles to the straight  <span name=text_line_line_AC class='GeoElement'>line AC</span>. Make  <span name=text_line_line_AD class='GeoElement'>AD</span> equal to  <span name=text_line_line_BA class='GeoElement'>BA</span>, and join  <span name=text_line_line_DC class='GeoElement'>DC</span>.\n\nSince  <span name=text_line_line_DA class='GeoElement'>DA</span> equals  <span name=text_line_line_AB class='GeoElement'>AB</span>, therefore the square on  <span name=text_line_line_DA class='GeoElement'>DA</span> also equals the square on  <span name=text_line_line_AB class='GeoElement'>AB</span>.\n</div><div id='step_2'>\nAdd the square on  <span name=text_line_line_AC class='GeoElement'>AC</span> to each. Then the sum of the squares on  <span name=text_line_line_DA class='GeoElement'>DA</span> and  <span name=text_line_line_AC class='GeoElement'>AC</span> equals the sum of the squares on  <span name=text_line_line_BA class='GeoElement'>BA</span> and  <span name=text_line_line_AC class='GeoElement'>AC</span>.\n\nBut the square on  <span name=text_line_line_DC class='GeoElement'>DC</span> equals the sum of the squares on  <span name=text_line_line_DA class='GeoElement'>DA</span> and  <span name=text_line_line_AC class='GeoElement'>AC</span>, for the  <span name=text_angle_angle_DAC class='GeoElement'>angle DAC</span> is right, and the square on  <span name=text_line_line_BC class='GeoElement'>BC</span> equals the sum of the squares on  <span name=text_line_line_BA class='GeoElement'>BA</span> and  <span name=text_line_line_AC class='GeoElement'>AC</span>, for this is the hypothesis, therefore the square on  <span name=text_line_line_DC class='GeoElement'>DC</span> equals the square on  <span name=text_line_line_BC class='GeoElement'>BC</span>, so that the side  <span name=text_line_line_DC class='GeoElement'>DC</span> also equals  <span name=text_line_line_BC class='GeoElement'>BC</span>.\n</div><div id='step_3'>\nSince  <span name=text_line_line_DA class='GeoElement'>DA</span> equals  <span name=text_line_line_AB class='GeoElement'>AB</span>, and  <span name=text_line_line_AC class='GeoElement'>AC</span> is common, the two sides  <span name=text_line_line_DA class='GeoElement'>DA</span> and  <span name=text_line_line_AC class='GeoElement'>AC</span> equal the two sides  <span name=text_line_line_BA class='GeoElement'>BA</span> and  <span name=text_line_line_AC class='GeoElement'>AC</span>, and the base  <span name=text_line_line_DC class='GeoElement'>DC</span> equals the base  <span name=text_line_line_BC class='GeoElement'>BC</span>, therefore the  <span name=text_angle_angle_DAC class='GeoElement'>angle DAC</span> equals the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span>. But the  <span name=text_angle_angle_DAC class='GeoElement'>angle DAC</span> is right, therefore the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> is also right.\n\nTherefore if in a triangle the square on one of the sides equals the sum of the squares on the remaining two sides of the triangle, then the angle contained by the remaining two sides of the triangle is right.\n </div>",
+    "geometry": {
+        "polygon_ABC": {
+            "type": "Polygon",
+            "id": "polygon_ABC",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ]
+            },
+            "label": "ABC"
+        },
+        "line_BC": {
+            "type": "Line",
+            "id": "line_BC",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_C"
+            },
+            "label": "BC"
+        },
+        "line_BA": {
+            "type": "Line",
+            "id": "line_BA",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_A"
+            },
+            "label": "BA"
+        },
+        "line_AC": {
+            "type": "Line",
+            "id": "line_AC",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_C"
+            },
+            "label": "AC"
+        },
+        "line_AD": {
+            "type": "Line",
+            "id": "line_AD",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_D"
+            },
+            "label": "AD"
+        },
+        "line_DC": {
+            "type": "Line",
+            "id": "line_DC",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_C"
+            },
+            "label": "DC"
+        },
+        "line_DA": {
+            "type": "Line",
+            "id": "line_DA",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_A"
+            },
+            "label": "DA"
+        },
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": -0.5
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "x": 0.5,
+                "y": -0.5
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": 0.5
+            },
+            "label": "C"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "x": -0.5,
+                "y": -0.5
+            },
+            "label": "D"
+        },
+        "angle_BAC": {
+            "type": "Angle",
+            "id": "angle_BAC",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_A",
+                    "point_B"
+                ],
+                "degree": 90.0
+            },
+            "label": "BAC"
+        },
+        "angle_DAC": {
+            "type": "Angle",
+            "id": "angle_DAC",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_A",
+                    "point_C"
+                ],
+                "degree": 90.0
+            },
+            "label": "DAC"
+        }
+    },
+    "animations": [
+        [
+            "line_AC",
+            "line_BA",
+            "angle_BAC",
+            "point_C",
+            "polygon_ABC",
+            "line_BC",
+            "point_A",
+            "point_B"
+        ],
+        [
+            "line_AC",
+            "line_BA",
+            "angle_BAC",
+            "line_AD",
+            "point_D",
+            "line_DC",
+            "point_C",
+            "polygon_ABC",
+            "line_AB",
+            "line_BC",
+            "point_A",
+            "point_B",
+            "line_DA"
+        ],
+        [
+            "line_AC",
+            "line_BA",
+            "angle_BAC",
+            "angle_DAC",
+            "line_AD",
+            "point_D",
+            "line_DC",
+            "point_C",
+            "polygon_ABC",
+            "line_AB",
+            "line_BC",
+            "point_A",
+            "point_B",
+            "line_DA"
+        ],
+        [
+            "line_AC",
+            "line_BA",
+            "angle_BAC",
+            "angle_DAC",
+            "line_AD",
+            "point_D",
+            "line_DC",
+            "point_C",
+            "polygon_ABC",
+            "line_AB",
+            "line_BC",
+            "point_A",
+            "point_B",
+            "line_DA"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Book 1 - Proposition 48</b></center><br>
+        <center>If in a triangle the square on one of the sides equals the sum of the squares on the remaining two sides of the triangle, then the angle contained by the remaining two sides of the triangle is right.</center><br>
+        <br>
+        In the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> let the square on one side  <span name=text_line_line_BC class='GeoElement'>BC</span> equal the sum of the squares on the sides  <span name=text_line_line_BA class='GeoElement'>BA</span> and  <span name=text_line_line_AC class='GeoElement'>AC</span><br>
+        <br>
+        I say that the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> is right.<br>
+        </div><div id='step_1'><br>
+        Draw  <span name=text_line_line_AD class='GeoElement'>AD</span> from the  <span name=text_point_point_A class='GeoElement'>point A</span> at right angles to the straight  <span name=text_line_line_AC class='GeoElement'>line AC</span>. Make  <span name=text_line_line_AD class='GeoElement'>AD</span> equal to  <span name=text_line_line_BA class='GeoElement'>BA</span>, and join  <span name=text_line_line_DC class='GeoElement'>DC</span>.<br>
+        <br>
+        Since  <span name=text_line_line_DA class='GeoElement'>DA</span> equals  <span name=text_line_line_AB class='GeoElement'>AB</span>, therefore the square on  <span name=text_line_line_DA class='GeoElement'>DA</span> also equals the square on  <span name=text_line_line_AB class='GeoElement'>AB</span>.<br>
+        </div><div id='step_2'><br>
+        Add the square on  <span name=text_line_line_AC class='GeoElement'>AC</span> to each. Then the sum of the squares on  <span name=text_line_line_DA class='GeoElement'>DA</span> and  <span name=text_line_line_AC class='GeoElement'>AC</span> equals the sum of the squares on  <span name=text_line_line_BA class='GeoElement'>BA</span> and  <span name=text_line_line_AC class='GeoElement'>AC</span>.<br>
+        <br>
+        But the square on  <span name=text_line_line_DC class='GeoElement'>DC</span> equals the sum of the squares on  <span name=text_line_line_DA class='GeoElement'>DA</span> and  <span name=text_line_line_AC class='GeoElement'>AC</span>, for the  <span name=text_angle_angle_DAC class='GeoElement'>angle DAC</span> is right, and the square on  <span name=text_line_line_BC class='GeoElement'>BC</span> equals the sum of the squares on  <span name=text_line_line_BA class='GeoElement'>BA</span> and  <span name=text_line_line_AC class='GeoElement'>AC</span>, for this is the hypothesis, therefore the square on  <span name=text_line_line_DC class='GeoElement'>DC</span> equals the square on  <span name=text_line_line_BC class='GeoElement'>BC</span>, so that the side  <span name=text_line_line_DC class='GeoElement'>DC</span> also equals  <span name=text_line_line_BC class='GeoElement'>BC</span>.<br>
+        </div><div id='step_3'><br>
+        Since  <span name=text_line_line_DA class='GeoElement'>DA</span> equals  <span name=text_line_line_AB class='GeoElement'>AB</span>, and  <span name=text_line_line_AC class='GeoElement'>AC</span> is common, the two sides  <span name=text_line_line_DA class='GeoElement'>DA</span> and  <span name=text_line_line_AC class='GeoElement'>AC</span> equal the two sides  <span name=text_line_line_BA class='GeoElement'>BA</span> and  <span name=text_line_line_AC class='GeoElement'>AC</span>, and the base  <span name=text_line_line_DC class='GeoElement'>DC</span> equals the base  <span name=text_line_line_BC class='GeoElement'>BC</span>, therefore the  <span name=text_angle_angle_DAC class='GeoElement'>angle DAC</span> equals the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span>. But the  <span name=text_angle_angle_DAC class='GeoElement'>angle DAC</span> is right, therefore the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> is also right.<br>
+        <br>
+        Therefore if in a triangle the square on one of the sides equals the sum of the squares on the remaining two sides of the triangle, then the angle contained by the remaining two sides of the triangle is right.<br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>

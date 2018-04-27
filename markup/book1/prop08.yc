@@ -1,0 +1,25 @@
+<center><b>Book 1 - Proposition 8</b></center>
+<center>If two triangles have the two sides equal to two sides respectively, and also have the base equal to the base, then they also have the angles equal which are contained by the equal straight lines.</center>
+
+Let [polygon ABC text=ABC] and [polygon DEF text=DEF] be two triangles having the two sides [line AB text=AB] and [line AC text=AC] equal to the two sides [line DE text=DE] and [line DF text=DF] respectively, namely [line AB text=AB] equal to [line DE text=DE] and [line AC text=AC] equal to [line DF text=DF], and let them have the base [line BC text=BC] equal to the base [line EF text=EF].
+
+I say that the [angle name=BAC p1=B p2=A p3=C] also equals the [angle name=EDF p1=E p2=D p3=F].
+
+If the [polygon ABC text='triangle ABC'] is applied to the [polygon DEF text='triangle DEF'], and if the [point B] is placed on the [point E] and the straight [line BC] on [line EF text=EF], then the [point C] also coincides with [point F text=F], because [line BC text=BC] equals [line EF text=EF].
+[step]
+Then, [line BC text=BC] coinciding with [line EF text=EF], therefore [line BA text=BA] and [line AC text=AC] also coincide with [line ED text=ED] and [line DF text=DF], for, if the base [line BC text=BC] coincides with the base [line EF text=EF], and the sides [line BA text=BA] and [line AC text=AC] do not coincide with [line ED text=ED] and [line DF text=DF] but fall beside them as [line EG text=EG] and [line GF text=GF], then given two straight lines constructed on a straight line and meeting in a point, there will have been constructed on the same straight line and on the same side of it, two other straight lines meeting in another point and equal to the former two respectively, namely each to that which has the same end with it.
+
+But they cannot be so constructed.
+[step]
+[clear]
+Therefore it is not possible that, if the base [line BC text=BC] is applied to the base [line EF text=EF], the sides [line BA text=BA] and [line AC text=AC] do not coincide with [line ED text=ED] and [line DF text=DF]. Therefore they coincide, so that the [angle name=BAC p1=B p2=A p3=C] coincides with the [angle name=EDF p1=E p2=D p3=F], and equals it.
+
+Therefore if [polygon ABC text=two] [polygon DEF text=triangles] have the two sides equal to two sides respectively, and also have the base equal to the base, then they also have the angles equal which are contained by the equal straight lines.
+
+[loc A x=-0.5 y=0.5]
+[loc B x=-0.6 y=0]
+[loc C x=-0.2 y=0.2]
+[loc D x=0.3 y=0.5]
+[loc E x=0.2 y=0]
+[loc F x=0.6 y=0.2]
+[loc G x=0.5 y=0.5]

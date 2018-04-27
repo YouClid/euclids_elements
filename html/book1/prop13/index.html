@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Book 1 - Proposition 13</b></center>\n<center>If a straight line stands on a straight line, then it makes either two right angles or angles whose sum equals two right angles.</center>\n\nLet any straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> standing on the straight  <span name=text_line_line_CD class='GeoElement'>line CD</span> make the angles  <span name=text_angle_angle_CBA class='GeoElement'>angle CBA</span> and  <span name=text_angle_angle_ABD class='GeoElement'>angle ABD</span>.\n\nI say that either the angles  <span name=text_angle_angle_CBA class='GeoElement'>angle CBA</span> and  <span name=text_angle_angle_ABD class='GeoElement'>angle ABD</span> are two right angles or their sum equals two right angles.\n\nNow, if the  <span name=text_angle_angle_CBA class='GeoElement'>angle CBA</span> equals the  <span name=text_angle_angle_ABD class='GeoElement'>angle ABD</span>, then they are two right angles.\n</div><div id='step_1'>\nBut, if not, draw  <span name=text_line_line_BE class='GeoElement'>BE</span> from the  <span name=text_point_point_B class='GeoElement'>point B</span> at right angles to  <span name=text_line_line_CD class='GeoElement'>CD</span>. Therefore the angles  <span name=text_angle_angle_CBE class='GeoElement'>angle CBE</span> and  <span name=text_angle_angle_EBD class='GeoElement'>angle EBD</span> are two right angles.\n\nSince the angle  <span name=text_angle_angle_CBE class='GeoElement'>angle CBE</span> equals the sum of the two angles  <span name=text_angle_angle_CBA class='GeoElement'>angle CBA</span> and  <span name=text_angle_angle_ABE class='GeoElement'>angle ABE</span>, add the  <span name=text_angle_angle_EBD class='GeoElement'>angle EBD</span> to each, therefore the sum of the angles  <span name=text_angle_angle_CBE class='GeoElement'>angle CBE</span> and  <span name=text_angle_angle_EBD class='GeoElement'>angle EBD</span> equals the sum of the three angles  <span name=text_angle_angle_CBA class='GeoElement'>angle CBA</span>,  <span name=text_angle_angle_ABE class='GeoElement'>angle ABE</span>, and  <span name=text_angle_angle_EBD class='GeoElement'>angle EBD</span>.\n\nAgain, since the  <span name=text_angle_angle_DBA class='GeoElement'>angle DBA</span> equals the sum of the two angles  <span name=text_angle_angle_DBE class='GeoElement'>angle DBE</span> and  <span name=text_angle_angle_EBA class='GeoElement'>angle EBA</span>, add the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> to each, therefore the sum of the angles  <span name=text_angle_angle_DBA class='GeoElement'>angle DBA</span> and  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> equals the sum of the three angles  <span name=text_angle_angle_DBE class='GeoElement'>angle DBE</span>,  <span name=text_angle_angle_EBA class='GeoElement'>angle EBA</span>, and  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span>.\n\nBut the sum of the angles  <span name=text_angle_angle_CBE class='GeoElement'>angle CBE</span> and  <span name=text_angle_angle_EBD class='GeoElement'>angle EBD</span> was also proved equal to the sum of the same three angles, and things which equal the same thing also equal one another, therefore the sum of the angles  <span name=text_angle_angle_CBE class='GeoElement'>angle CBE</span> and  <span name=text_angle_angle_EBD class='GeoElement'>angle EBD</span> also equals the sum of the angles  <span name=text_angle_angle_DBA class='GeoElement'>angle DBA</span> and  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span>. But the angles  <span name=text_angle_angle_CBE class='GeoElement'>angle CBE</span> and  <span name=text_angle_angle_EBD class='GeoElement'>angle EBD</span> are two right angles, therefore the sum of the angles  <span name=text_angle_angle_DBA class='GeoElement'>angle DBA</span> and  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> also equals two right angles.\n\nTherefore if a straight line stands on a straight line, then it makes either two right angles or angles whose sum equals two right angles.\n </div>",
+    "geometry": {
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "line_CD": {
+            "type": "Line",
+            "id": "line_CD",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_D"
+            },
+            "label": "CD"
+        },
+        "line_BE": {
+            "type": "Line",
+            "id": "line_BE",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_E"
+            },
+            "label": "BE"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "x": 0.25,
+                "y": 0.4
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": -0.25
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "x": 0.6,
+                "y": -0.25
+            },
+            "label": "C"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "x": -0.5,
+                "y": -0.25
+            },
+            "label": "D"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": 0.25
+            },
+            "label": "E"
+        },
+        "angle_CBA": {
+            "type": "Angle",
+            "id": "angle_CBA",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ],
+                "degree": 68.96248897457819
+            },
+            "label": "CBA"
+        },
+        "angle_ABD": {
+            "type": "Angle",
+            "id": "angle_ABD",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_B",
+                    "point_A"
+                ],
+                "degree": 111.03751102542181
+            },
+            "label": "ABD"
+        },
+        "angle_CBE": {
+            "type": "Angle",
+            "id": "angle_CBE",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_B",
+                    "point_C"
+                ],
+                "degree": 90.0
+            },
+            "label": "CBE"
+        },
+        "angle_EBD": {
+            "type": "Angle",
+            "id": "angle_EBD",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_B",
+                    "point_E"
+                ],
+                "degree": 90.0
+            },
+            "label": "EBD"
+        },
+        "angle_ABE": {
+            "type": "Angle",
+            "id": "angle_ABE",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_B",
+                    "point_A"
+                ],
+                "degree": 21.03751102542181
+            },
+            "label": "ABE"
+        },
+        "angle_DBA": {
+            "type": "Angle",
+            "id": "angle_DBA",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_B",
+                    "point_A"
+                ],
+                "degree": 111.03751102542181
+            },
+            "label": "DBA"
+        },
+        "angle_DBE": {
+            "type": "Angle",
+            "id": "angle_DBE",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_D",
+                    "point_B",
+                    "point_E"
+                ],
+                "degree": 90.0
+            },
+            "label": "DBE"
+        },
+        "angle_EBA": {
+            "type": "Angle",
+            "id": "angle_EBA",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_B",
+                    "point_A"
+                ],
+                "degree": 21.03751102542181
+            },
+            "label": "EBA"
+        },
+        "angle_ABC": {
+            "type": "Angle",
+            "id": "angle_ABC",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ],
+                "degree": 68.96248897457819
+            },
+            "label": "ABC"
+        }
+    },
+    "animations": [
+        [
+            "point_D",
+            "line_AB",
+            "angle_ABD",
+            "point_C",
+            "point_B",
+            "angle_CBA",
+            "line_CD",
+            "point_A"
+        ],
+        [
+            "point_E",
+            "angle_DBA",
+            "point_D",
+            "line_AB",
+            "angle_ABD",
+            "angle_EBD",
+            "angle_DBE",
+            "angle_CBE",
+            "line_BE",
+            "angle_EBA",
+            "point_C",
+            "point_B",
+            "angle_CBA",
+            "angle_ABC",
+            "line_CD",
+            "angle_ABE",
+            "point_A"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Book 1 - Proposition 13</b></center><br>
+        <center>If a straight line stands on a straight line, then it makes either two right angles or angles whose sum equals two right angles.</center><br>
+        <br>
+        Let any straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> standing on the straight  <span name=text_line_line_CD class='GeoElement'>line CD</span> make the angles  <span name=text_angle_angle_CBA class='GeoElement'>angle CBA</span> and  <span name=text_angle_angle_ABD class='GeoElement'>angle ABD</span>.<br>
+        <br>
+        I say that either the angles  <span name=text_angle_angle_CBA class='GeoElement'>angle CBA</span> and  <span name=text_angle_angle_ABD class='GeoElement'>angle ABD</span> are two right angles or their sum equals two right angles.<br>
+        <br>
+        Now, if the  <span name=text_angle_angle_CBA class='GeoElement'>angle CBA</span> equals the  <span name=text_angle_angle_ABD class='GeoElement'>angle ABD</span>, then they are two right angles.<br>
+        </div><div id='step_1'><br>
+        But, if not, draw  <span name=text_line_line_BE class='GeoElement'>BE</span> from the  <span name=text_point_point_B class='GeoElement'>point B</span> at right angles to  <span name=text_line_line_CD class='GeoElement'>CD</span>. Therefore the angles  <span name=text_angle_angle_CBE class='GeoElement'>angle CBE</span> and  <span name=text_angle_angle_EBD class='GeoElement'>angle EBD</span> are two right angles.<br>
+        <br>
+        Since the angle  <span name=text_angle_angle_CBE class='GeoElement'>angle CBE</span> equals the sum of the two angles  <span name=text_angle_angle_CBA class='GeoElement'>angle CBA</span> and  <span name=text_angle_angle_ABE class='GeoElement'>angle ABE</span>, add the  <span name=text_angle_angle_EBD class='GeoElement'>angle EBD</span> to each, therefore the sum of the angles  <span name=text_angle_angle_CBE class='GeoElement'>angle CBE</span> and  <span name=text_angle_angle_EBD class='GeoElement'>angle EBD</span> equals the sum of the three angles  <span name=text_angle_angle_CBA class='GeoElement'>angle CBA</span>,  <span name=text_angle_angle_ABE class='GeoElement'>angle ABE</span>, and  <span name=text_angle_angle_EBD class='GeoElement'>angle EBD</span>.<br>
+        <br>
+        Again, since the  <span name=text_angle_angle_DBA class='GeoElement'>angle DBA</span> equals the sum of the two angles  <span name=text_angle_angle_DBE class='GeoElement'>angle DBE</span> and  <span name=text_angle_angle_EBA class='GeoElement'>angle EBA</span>, add the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> to each, therefore the sum of the angles  <span name=text_angle_angle_DBA class='GeoElement'>angle DBA</span> and  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> equals the sum of the three angles  <span name=text_angle_angle_DBE class='GeoElement'>angle DBE</span>,  <span name=text_angle_angle_EBA class='GeoElement'>angle EBA</span>, and  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span>.<br>
+        <br>
+        But the sum of the angles  <span name=text_angle_angle_CBE class='GeoElement'>angle CBE</span> and  <span name=text_angle_angle_EBD class='GeoElement'>angle EBD</span> was also proved equal to the sum of the same three angles, and things which equal the same thing also equal one another, therefore the sum of the angles  <span name=text_angle_angle_CBE class='GeoElement'>angle CBE</span> and  <span name=text_angle_angle_EBD class='GeoElement'>angle EBD</span> also equals the sum of the angles  <span name=text_angle_angle_DBA class='GeoElement'>angle DBA</span> and  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span>. But the angles  <span name=text_angle_angle_CBE class='GeoElement'>angle CBE</span> and  <span name=text_angle_angle_EBD class='GeoElement'>angle EBD</span> are two right angles, therefore the sum of the angles  <span name=text_angle_angle_DBA class='GeoElement'>angle DBA</span> and  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> also equals two right angles.<br>
+        <br>
+        Therefore if a straight line stands on a straight line, then it makes either two right angles or angles whose sum equals two right angles.<br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>

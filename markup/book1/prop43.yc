@@ -1,0 +1,26 @@
+<center><b>Book 1 - Proposition 43</b></center>
+<center>In any parallelogram the complements of the parallelograms about the diameter equal one another.</center>
+
+Let [polygon ABCD text=ABCD] be a parallelogram, and [line AC text=AC] its diameter, and about [line AC text=AC] let [polygon EAHK text=EH] and [polygon FCGK text=FG] be parallelograms, and [polygon BEKG text=BK] and [polygon KHDF text=KD] the so-called complements.
+
+I say that the complement [polygon BEKG text=BK] equals the complement [polygon KHDF text=KD].
+[step]
+Since [polygon ABCD text=ABCD] is a parallelogram, and [line AC text=AC] its diameter, therefore the [polygon ABC text='triangle ABC'] equals the [polygon ACD text='triangle ACD'].
+
+Again, since [polygon EAHK text=EH] is a parallelogram, and [line AK text=AK] is its diameter, therefore the [polygon AEK text='triangle AEK'] equals the [polygon AHK text='triangle AHK']. For the same reason the [polygon KFC text='triangle KFC'] also equals [polygon KGC text=KGC].
+[step]
+Now, since the [polygon AEK text='triangle AEK'] equals the [polygon AHK text='triangle AHK'], and [polygon KFC text=KFC] equals [polygon KGC text=KGC], therefore the [polygon AEK text='triangle AEK'] together with [polygon KGC text=KGC] equals the [polygon AHK text='triangle AHK'] together with [polygon KFC text=KFC].
+
+And the whole [polygon ABC text='triangle ABC'] also equals the whole [polygon ADC text=ADC], therefore the remaining complement [polygon BEKG text=BK] equals the remaining complement [polygon KHDF text=KD].
+
+Therefore in any parallelogram the complements of the parallelograms about the diameter equal one another.
+
+[loc A x=-0.4 y=0.5]
+[loc B x=-0.6 y=-0.5]
+[loc C x=0.4 y=-0.5]
+[loc D x=0.6 y=0.5]
+[loc E x=-0.438 y=0.3]
+[loc F x=0.562 y=0.3]
+[loc G x=-0.4 y=-0.5]
+[loc H x=-0.2 y=0.5]
+[loc K x=-0.238 y=0.3]

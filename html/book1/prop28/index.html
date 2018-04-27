@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Book 1 - Proposition 28</b></center>\n<center>If a straight line falling on two straight lines makes the exterior angle equal to the interior and opposite angle on the same side, or the sum of the interior angles on the same side equal to two right angles, then the straight lines are parallel to one another.</center>\n\nLet the straight  <span name=text_line_line_EF class='GeoElement'>line EF</span> falling on the two straight lines  <span name=text_line_line_AB class='GeoElement'>AB</span> and  <span name=text_line_line_CD class='GeoElement'>CD</span> make the exterior   <span name=text_angle_angle_EGB class='GeoElement'>angle EGB</span> equal to the interior and opposite   <span name=text_angle_angle_GHD class='GeoElement'>angle GHD</span>, or the sum of the interior angles on the same side, namely  <span name=text_angle_angle_BGH class='GeoElement'>angle BGH</span> and  <span name=text_angle_angle_GHD class='GeoElement'>angle GHD</span>, equal to two right angles.\n\nI say that  <span name=text_line_line_AB class='GeoElement'>AB</span> is parallel to  <span name=text_line_line_CD class='GeoElement'>CD</span>.\n</div><div id='step_1'>\nSince the   <span name=text_angle_angle_EGB class='GeoElement'>angle EGB</span> equals the   <span name=text_angle_angle_GHD class='GeoElement'>angle GHD</span>, and the   <span name=text_angle_angle_EGB class='GeoElement'>angle EGB</span> equals the   <span name=text_angle_angle_AGH class='GeoElement'>angle AGH</span>, therefore the   <span name=text_angle_angle_AGH class='GeoElement'>angle AGH</span> equals the   <span name=text_angle_angle_GHD class='GeoElement'>angle GHD</span>. And they are alternate, therefore  <span name=text_line_line_AB class='GeoElement'>AB</span> is parallel to  <span name=text_line_line_CD class='GeoElement'>CD</span>.\n\nNext, since the sum of the angles  <span name=text_angle_angle_BGH class='GeoElement'>angle BGH</span> and  <span name=text_angle_angle_GHD class='GeoElement'>angle GHD</span> equals two right angles, and the sum of the angles   <span name=text_angle_angle_AGH class='GeoElement'>angle AGH</span> and  <span name=text_angle_angle_BGH class='GeoElement'>angle BGH</span> also equals two right angles, therefore the sum of the angles   <span name=text_angle_angle_AGH class='GeoElement'>angle AGH</span> and  <span name=text_angle_angle_BGH class='GeoElement'>angle BGH</span> equals the sum of the angles  <span name=text_angle_angle_BGH class='GeoElement'>angle BGH</span> and  <span name=text_angle_angle_GHD class='GeoElement'>angle GHD</span>.\n\nSubtract the  <span name=text_angle_angle_BGH class='GeoElement'>angle BGH</span> from each. Therefore the remaining   <span name=text_angle_angle_AGH class='GeoElement'>angle AGH</span> equals the remaining   <span name=text_angle_angle_GHD class='GeoElement'>angle GHD</span>. And they are alternate, therefore  <span name=text_line_line_AB class='GeoElement'>AB</span> is parallel to  <span name=text_line_line_CD class='GeoElement'>CD</span>.\n\nTherefore if a straight line falling on two straight lines makes the exterior angle equal to the interior and opposite angle on the same side, or the sum of the interior angles on the same side equal to two right angles, then the straight lines are parallel to one another.\n </div>",
+    "geometry": {
+        "line_EF": {
+            "type": "Line",
+            "id": "line_EF",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_F"
+            },
+            "label": "EF"
+        },
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "line_CD": {
+            "type": "Line",
+            "id": "line_CD",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_D"
+            },
+            "label": "CD"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.8627450980392157,
+                0.19607843137254902,
+                0.1843137254901961,
+                1.0
+            ],
+            "data": {
+                "x": -0.4,
+                "y": 0.6
+            },
+            "label": "E"
+        },
+        "point_F": {
+            "type": "Point",
+            "id": "point_F",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "x": 0.2,
+                "y": -0.6
+            },
+            "label": "F"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "x": -0.6,
+                "y": 0.2
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "x": 0.6,
+                "y": 0.2
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.6,
+                "y": -0.2
+            },
+            "label": "C"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.0,
+                0.16862745098039217,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "x": 0.6,
+                "y": -0.2
+            },
+            "label": "D"
+        },
+        "point_G": {
+            "type": "Point",
+            "id": "point_G",
+            "color": [
+                0.396078431372549,
+                0.4823529411764706,
+                0.5137254901960784,
+                1.0
+            ],
+            "data": {
+                "x": -0.2,
+                "y": 0.2
+            },
+            "label": "G"
+        },
+        "point_H": {
+            "type": "Point",
+            "id": "point_H",
+            "color": [
+                0.4235294117647059,
+                0.44313725490196076,
+                0.7686274509803922,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": -0.2
+            },
+            "label": "H"
+        },
+        "angle_EGB": {
+            "type": "Angle",
+            "id": "angle_EGB",
+            "color": [
+                0.5215686274509804,
+                0.6,
+                0.0,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_G",
+                    "point_B"
+                ],
+                "degree": 116.56505117707799
+            },
+            "label": "EGB"
+        },
+        "angle_GHD": {
+            "type": "Angle",
+            "id": "angle_GHD",
+            "color": [
+                0.14901960784313725,
+                0.5450980392156862,
+                0.8235294117647058,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_G",
+                    "point_H",
+                    "point_D"
+                ],
+                "degree": 116.56505117707799
+            },
+            "label": "GHD"
+        },
+        "angle_BGH": {
+            "type": "Angle",
+            "id": "angle_BGH",
+            "color": [
+                0.16470588235294117,
+                0.6313725490196078,
+                0.596078431372549,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_G",
+                    "point_H"
+                ],
+                "degree": 63.43494882292201
+            },
+            "label": "BGH"
+        },
+        "angle_AGH": {
+            "type": "Angle",
+            "id": "angle_AGH",
+            "color": [
+                0.8274509803921568,
+                0.21176470588235294,
+                0.5098039215686274,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_H",
+                    "point_G",
+                    "point_A"
+                ],
+                "degree": 116.565051177078
+            },
+            "label": "AGH"
+        }
+    },
+    "animations": [
+        [
+            "point_A",
+            "line_EF",
+            "point_C",
+            "point_E",
+            "line_CD",
+            "point_H",
+            "point_F",
+            "angle_BGH",
+            "line_AB",
+            "point_B",
+            "angle_EGB",
+            "point_D",
+            "angle_GHD",
+            "point_G"
+        ],
+        [
+            "point_A",
+            "line_EF",
+            "point_C",
+            "point_E",
+            "line_CD",
+            "point_H",
+            "point_F",
+            "angle_BGH",
+            "line_AB",
+            "point_B",
+            "angle_EGB",
+            "point_D",
+            "angle_GHD",
+            "angle_AGH",
+            "point_G"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Book 1 - Proposition 28</b></center><br>
+        <center>If a straight line falling on two straight lines makes the exterior angle equal to the interior and opposite angle on the same side, or the sum of the interior angles on the same side equal to two right angles, then the straight lines are parallel to one another.</center><br>
+        <br>
+        Let the straight  <span name=text_line_line_EF class='GeoElement'>line EF</span> falling on the two straight lines  <span name=text_line_line_AB class='GeoElement'>AB</span> and  <span name=text_line_line_CD class='GeoElement'>CD</span> make the exterior   <span name=text_angle_angle_EGB class='GeoElement'>angle EGB</span> equal to the interior and opposite   <span name=text_angle_angle_GHD class='GeoElement'>angle GHD</span>, or the sum of the interior angles on the same side, namely  <span name=text_angle_angle_BGH class='GeoElement'>angle BGH</span> and  <span name=text_angle_angle_GHD class='GeoElement'>angle GHD</span>, equal to two right angles.<br>
+        <br>
+        I say that  <span name=text_line_line_AB class='GeoElement'>AB</span> is parallel to  <span name=text_line_line_CD class='GeoElement'>CD</span>.<br>
+        </div><div id='step_1'><br>
+        Since the   <span name=text_angle_angle_EGB class='GeoElement'>angle EGB</span> equals the   <span name=text_angle_angle_GHD class='GeoElement'>angle GHD</span>, and the   <span name=text_angle_angle_EGB class='GeoElement'>angle EGB</span> equals the   <span name=text_angle_angle_AGH class='GeoElement'>angle AGH</span>, therefore the   <span name=text_angle_angle_AGH class='GeoElement'>angle AGH</span> equals the   <span name=text_angle_angle_GHD class='GeoElement'>angle GHD</span>. And they are alternate, therefore  <span name=text_line_line_AB class='GeoElement'>AB</span> is parallel to  <span name=text_line_line_CD class='GeoElement'>CD</span>.<br>
+        <br>
+        Next, since the sum of the angles  <span name=text_angle_angle_BGH class='GeoElement'>angle BGH</span> and  <span name=text_angle_angle_GHD class='GeoElement'>angle GHD</span> equals two right angles, and the sum of the angles   <span name=text_angle_angle_AGH class='GeoElement'>angle AGH</span> and  <span name=text_angle_angle_BGH class='GeoElement'>angle BGH</span> also equals two right angles, therefore the sum of the angles   <span name=text_angle_angle_AGH class='GeoElement'>angle AGH</span> and  <span name=text_angle_angle_BGH class='GeoElement'>angle BGH</span> equals the sum of the angles  <span name=text_angle_angle_BGH class='GeoElement'>angle BGH</span> and  <span name=text_angle_angle_GHD class='GeoElement'>angle GHD</span>.<br>
+        <br>
+        Subtract the  <span name=text_angle_angle_BGH class='GeoElement'>angle BGH</span> from each. Therefore the remaining   <span name=text_angle_angle_AGH class='GeoElement'>angle AGH</span> equals the remaining   <span name=text_angle_angle_GHD class='GeoElement'>angle GHD</span>. And they are alternate, therefore  <span name=text_line_line_AB class='GeoElement'>AB</span> is parallel to  <span name=text_line_line_CD class='GeoElement'>CD</span>.<br>
+        <br>
+        Therefore if a straight line falling on two straight lines makes the exterior angle equal to the interior and opposite angle on the same side, or the sum of the interior angles on the same side equal to two right angles, then the straight lines are parallel to one another.<br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>

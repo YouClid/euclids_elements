@@ -1,0 +1,23 @@
+<center><b>Book 1 - Proposition 3</b></center>
+<center>To cut off from the greater of two given unequal straight lines a straight line equal to the less.</center>
+
+
+Let [line AB] and [line CZ] be the two given unequal straight lines, and let [line AB] be the greater of them.
+It is required to cut off from [line AB] the greater a straight line equal to [line CZ] the less.
+[step]
+Place [line AD] at the [point A] equal to the straight [line CZ],[step] and describe the [circle DEF] with [center A circle=DEF] and [line AD text='radius AD'].
+
+Now, since the [point A] is the center of the [circle DEF], therefore [line AE text=AE] equals [line AD text=AD].
+[step]
+But [line CZ text=CZ] also equals [line AD text=AD], therefore each of the straight lines [line AE text=AE] and [line CZ text=CZ] equals [line AD text=AD], so that [line AE text=AE] also equals [line CZ text=CZ].
+[step]
+[clear]
+Therefore, given the two straight lines [line AB text=AB] and [line CZ text=CZ], [line AE text=AE] has been cut off from [line AB text=AB] the greater equal to [line CZ text=CZ] the less.
+
+[loc A x=-0.25 y=0]
+[loc B x=0.5 y=0]
+[loc C x=0.25 y=0.5]
+[loc D x=-0.25 y=0.25]
+[loc E x=0 y=0]
+[loc F x=-0.25 y=-0.25]
+[loc Z x=0.5 y=0.5]

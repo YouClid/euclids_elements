@@ -1,0 +1,23 @@
+<center><b>Book 1 - Proposition 48</b></center>
+<center>If in a triangle the square on one of the sides equals the sum of the squares on the remaining two sides of the triangle, then the angle contained by the remaining two sides of the triangle is right.</center>
+
+In the [polygon ABC text='triangle ABC'] let the square on one side [line BC text=BC] equal the sum of the squares on the sides [line BA text=BA] and [line AC text=AC]
+
+I say that the [angle name=BAC p1=B p2=A p3=C] is right.
+[step]
+Draw [line AD text=AD] from the [point A] at right angles to the straight [line AC]. Make [line AD text=AD] equal to [line BA text=BA], and join [line DC text=DC].
+
+Since [line DA text=DA] equals [line AB text=AB], therefore the square on [line DA text=DA] also equals the square on [line AB text=AB].
+[step]
+Add the square on [line AC text=AC] to each. Then the sum of the squares on [line DA text=DA] and [line AC text=AC] equals the sum of the squares on [line BA text=BA] and [line AC text=AC].
+
+But the square on [line DC text=DC] equals the sum of the squares on [line DA text=DA] and [line AC text=AC], for the [angle name=DAC p1=D p2=A p3=C] is right, and the square on [line BC text=BC] equals the sum of the squares on [line BA text=BA] and [line AC text=AC], for this is the hypothesis, therefore the square on [line DC text=DC] equals the square on [line BC text=BC], so that the side [line DC text=DC] also equals [line BC text=BC].
+[step]
+Since [line DA text=DA] equals [line AB text=AB], and [line AC text=AC] is common, the two sides [line DA text=DA] and [line AC text=AC] equal the two sides [line BA text=BA] and [line AC text=AC], and the base [line DC text=DC] equals the base [line BC text=BC], therefore the [angle name=DAC p1=D p2=A p3=C] equals the [angle name=BAC p1=B p2=A p3=C]. But the [angle name=DAC p1=D p2=A p3=C] is right, therefore the [angle name=BAC p1=B p2=A p3=C] is also right.
+
+Therefore if in a triangle the square on one of the sides equals the sum of the squares on the remaining two sides of the triangle, then the angle contained by the remaining two sides of the triangle is right.
+
+[loc A x=0 y=-0.5]
+[loc B x=0.5 y=-0.5]
+[loc C x=0 y=0.5]
+[loc D x=-0.5 y=-0.5]

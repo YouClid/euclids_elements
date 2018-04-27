@@ -1,0 +1,20 @@
+<center><b>Book 1 - Proposition 23</b></center>
+<center>To construct a rectilinear angle equal to a given rectilinear angle on a given straight line and at a point on it.</center>
+
+Let the [angle name=DCE p1=D p2=C p3=E] be the given rectilinear angle, [line AB text=AB] the given straight line, and [point A text=A] the point on it.
+
+It is required to construct a rectilinear angle equal to the given rectilinear [angle name=DCE p1=D p2=C p3=E] on the given straight [line AB] and at the [point A] on it.
+[step]
+Take the points [point D text=D] and [point E text=E] at random on the straight lines [line CD text=CD] and [line CE text=CE] respectively, and join [line DE text=DE]. Out of three straight lines which equal the three straight lines [line CD text=CD], [line DE text=DE], and [line CE text=CE] construct the [polygon AFG text='triangle AFG'] in such a way that [line CD text=CD] equals [line AF text=AF], [line CE text=CE] equals [line AG text=AG], and [line DE text=DE] equals [line FG text=FG].
+[step]
+Since the two sides [line DC text=DC] and [line CE text=CE] equal the two sides [line FA text=FA] and [line AG text=AG] respectively, and the base [line DE text=DE] equals the base [line FG text=FG], therefore the [angle name=DCE p1=D p2=C p3=E] equals the [angle name=FAG p1=F p2=A p3=G].
+[step]
+Therefore on the given straight [line AB], and at the [point A] on it, the rectilinear [angle name=FAG p1=F p2=A p3=G] has been constructed equal to the given rectilinear [angle name=DCE p1=D p2=C p3=E].
+
+[loc A x=-0.8 y=-0.2]
+[loc B x=0 y=-0.2]
+[loc C x=-0.17 y=0.3]
+[loc D x=0.2 y=0.44]
+[loc E x=0.2 y=-0.2]
+[loc F x=-0.7 y=0.2]
+[loc G x=-0.2 y=-0.2]

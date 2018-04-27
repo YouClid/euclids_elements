@@ -1,0 +1,19 @@
+<center><b>Book 1 - Proposition 18</b></center>
+<center>In any triangle the angle opposite the greater side is greater.</center>
+
+Let [polygon ABC text=ABC] be a triangle having the [line AC text='side AC'] greater than [line AB text=AB].
+
+I say that the [angle name=ABC p1=A p2=B p3=C] is also greater than the [angle name=BCA p1=B p2=C p3=A].
+[step]
+Since [line AC text=AC] is greater than [line AB text=AB], make [line AD text=AD] equal to [line AB text=AB], and join [line BD text=BD].
+
+Since the [angle name=ADB p1=A p2=D p3=B] is an exterior angle of the [polygon BCD text='triangle BCD'], therefore it is greater than the interior and opposite [angle name=DCB p1=D p2=C p3=B].
+[step]
+But the [angle name=ADB p1=A p2=D p3=B] equals the [angle name=ABD p1=A p2=B p3=D], since the side [line AB text=AB] equals [line AD text=AD], therefore the [angle name=ABD p1=A p2=B p3=D] is also greater than the [angle name=ACB p1=A p2=C p3=B]. Therefore the [angle name=ABC p1=A p2=B p3=C] is much greater than the [angle name=ACB p1=A p2=C p3=B].
+
+Therefore in any triangle the angle opposite the greater side is greater.
+
+[loc A x=-0.3 y=0.5]
+[loc B x=-0.2 y=-0.2]
+[loc C x=0.4 y=-0.2]
+[loc D x=0.2 y=0]
