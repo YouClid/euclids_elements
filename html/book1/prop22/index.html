@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Proposition 22</b></center>\n<center>To construct a triangle out of three straight lines which equal three given straight lines: thus it is necessary that the sum of any two of the straight lines should be greater than the remaining one.</center>\n\nLet the three given straight lines be  <span name=text_line_line_AX class='GeoElement'>line AX</span>,  <span name=text_line_line_BY class='GeoElement'>line BY</span>, and  <span name=text_line_line_CZ class='GeoElement'>line CZ</span>, and let the sum of any two of these be greater than the remaining one, namely,  <span name=text_line_line_AX class='GeoElement'>line AX</span> plus  <span name=text_line_line_BY class='GeoElement'>line BY</span> greater than  <span name=text_line_line_CZ class='GeoElement'>line CZ</span>,  <span name=text_line_line_AX class='GeoElement'>line AX</span> plus  <span name=text_line_line_CZ class='GeoElement'>line CZ</span> greater than  <span name=text_line_line_BY class='GeoElement'>line BY</span>, and  <span name=text_line_line_BY class='GeoElement'>line BY</span> plus  <span name=text_line_line_CZ class='GeoElement'>line CZ</span> greater than  <span name=text_line_line_AX class='GeoElement'>line AX</span>.\n\nIt is required to construct  <span name=text_polygon_polygon_FKG class='GeoElement'>triangle FKG</span> out of straight lines equal to  <span name=text_line_line_AX class='GeoElement'>line AX</span>,  <span name=text_line_line_BY class='GeoElement'>line BY</span>, and  <span name=text_line_line_CZ class='GeoElement'>line CZ</span>.</div><div id='step_1'>\nSet out a straight  <span name=text_line_line_DE class='GeoElement'>line DE</span>, terminated at  <span name=text_point_point_D class='GeoElement'>point D</span> but of infinite length in the direction of  <span name=text_point_point_E class='GeoElement'>point E</span>. Make  <span name=text_line_line_DF class='GeoElement'>line DF</span> equal to  <span name=text_line_line_AX class='GeoElement'>line AX</span>,  <span name=text_line_line_FG class='GeoElement'>line FG</span> equal to  <span name=text_line_line_BY class='GeoElement'>line BY</span>, and  <span name=text_line_line_GH class='GeoElement'>line GH</span> equal to  <span name=text_line_line_CZ class='GeoElement'>line CZ</span>.</div><div id='step_2'>\nDescribe the  <span name=text_circle_circle_DKL class='GeoElement'>circle DKL</span> with  <span name=text_point_point_F class='GeoElement'>center F</span> and  <span name=text_line_line_DF class='GeoElement'>radius DF</span>. Again, describe the  <span name=text_circle_circle_KLH class='GeoElement'>circle KLH</span> with  <span name=text_point_point_G class='GeoElement'>center G</span> and  <span name=text_line_line_GH class='GeoElement'>radius GH</span>. Join  <span name=text_line_line_KF class='GeoElement'>line KF</span> and  <span name=text_line_line_KG class='GeoElement'>line KG</span>.</div><div id='step_3'>\nI say that the  <span name=text_polygon_polygon_KFG class='GeoElement'>triangle KFG</span> has been constructed out of three straight lines equal to  <span name=text_line_line_AX class='GeoElement'>line AX</span>,  <span name=text_line_line_BY class='GeoElement'>line BY</span>, and  <span name=text_line_line_CZ class='GeoElement'>line CZ</span>.</div><div id='step_4'>\nSince the  <span name=text_point_point_F class='GeoElement'>point F</span> is the center of the  <span name=text_circle_circle_DKL class='GeoElement'>circle DKL</span>, therefore  <span name=text_line_line_DF class='GeoElement'>line DF</span> equals  <span name=text_line_line_FK class='GeoElement'>line FK</span>. But  <span name=text_line_line_DF class='GeoElement'>line DF</span> equals  <span name=text_line_line_AX class='GeoElement'>line AX</span>, therefore  <span name=text_line_line_FK class='GeoElement'>line FK</span> also equals  <span name=text_line_line_AX class='GeoElement'>line AX</span>.\nAgain, since the  <span name=text_point_point_G class='GeoElement'>point G</span> is the center of the  <span name=text_circle_circle_KLH class='GeoElement'>circle KLH</span>, therefore  <span name=text_line_line_GH class='GeoElement'>line GH</span> equals  <span name=text_line_line_GK class='GeoElement'>line GK</span>. But  <span name=text_line_line_GH class='GeoElement'>line GH</span> equals  <span name=text_line_line_CZ class='GeoElement'>line CZ</span>, therefore  <span name=text_line_line_GK class='GeoElement'>line GK</span> also equals  <span name=text_line_line_CZ class='GeoElement'>line CZ</span>.\nAnd  <span name=text_line_line_FG class='GeoElement'>line FG</span> also equals  <span name=text_line_line_BY class='GeoElement'>line BY</span>, therefore the three straight lines  <span name=text_line_line_FK class='GeoElement'>line FK</span>,  <span name=text_line_line_FG class='GeoElement'>line FG</span>, and  <span name=text_line_line_GK class='GeoElement'>line GK</span> equal the three straight lines  <span name=text_line_line_AX class='GeoElement'>line AX</span>,  <span name=text_line_line_BY class='GeoElement'>line BY</span>, and  <span name=text_line_line_CZ class='GeoElement'>line CZ</span>.</div><div id='step_5'>\n\nTherefore out of the three straight lines  <span name=text_line_line_FK class='GeoElement'>line FK</span>,  <span name=text_line_line_FG class='GeoElement'>line FG</span>, and  <span name=text_line_line_GK class='GeoElement'>line GK</span>, which equal the three given straight lines  <span name=text_line_line_AX class='GeoElement'>line AX</span>,  <span name=text_line_line_BY class='GeoElement'>line BY</span>, and  <span name=text_line_line_CZ class='GeoElement'>line CZ</span>, the  <span name=text_polygon_polygon_FKG class='GeoElement'>triangle FKG</span> has been constructed.\n\n </div>",
+    "geometry": {
+        "polygon_FKG": {
+            "type": "Polygon",
+            "id": "polygon_FKG",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_F",
+                    "point_K",
+                    "point_G"
+                ]
+            },
+            "label": "FKG"
+        },
+        "polygon_KFG": {
+            "type": "Polygon",
+            "id": "polygon_KFG",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_K",
+                    "point_F",
+                    "point_G"
+                ]
+            },
+            "label": "KFG"
+        },
+        "line_AX": {
+            "type": "Line",
+            "id": "line_AX",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_X"
+            },
+            "label": "AX"
+        },
+        "line_BY": {
+            "type": "Line",
+            "id": "line_BY",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_Y"
+            },
+            "label": "BY"
+        },
+        "line_CZ": {
+            "type": "Line",
+            "id": "line_CZ",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_Z"
+            },
+            "label": "CZ"
+        },
+        "line_DE": {
+            "type": "Line",
+            "id": "line_DE",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_E"
+            },
+            "label": "DE"
+        },
+        "line_DF": {
+            "type": "Line",
+            "id": "line_DF",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_F"
+            },
+            "label": "DF"
+        },
+        "line_FG": {
+            "type": "Line",
+            "id": "line_FG",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_F",
+                "p2": "point_G"
+            },
+            "label": "FG"
+        },
+        "line_GH": {
+            "type": "Line",
+            "id": "line_GH",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "p1": "point_G",
+                "p2": "point_H"
+            },
+            "label": "GH"
+        },
+        "line_KF": {
+            "type": "Line",
+            "id": "line_KF",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "p1": "point_K",
+                "p2": "point_F"
+            },
+            "label": "KF"
+        },
+        "line_KG": {
+            "type": "Line",
+            "id": "line_KG",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "p1": "point_K",
+                "p2": "point_G"
+            },
+            "label": "KG"
+        },
+        "line_FK": {
+            "type": "Line",
+            "id": "line_FK",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "p1": "point_F",
+                "p2": "point_K"
+            },
+            "label": "FK"
+        },
+        "line_GK": {
+            "type": "Line",
+            "id": "line_GK",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "p1": "point_G",
+                "p2": "point_K"
+            },
+            "label": "GK"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": 0.5,
+                "y": 0.8
+            },
+            "label": "A"
+        },
+        "point_X": {
+            "type": "Point",
+            "id": "point_X",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": 0.9,
+                "y": 0.8
+            },
+            "label": "X"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "x": 0.5,
+                "y": 0.7
+            },
+            "label": "B"
+        },
+        "point_Y": {
+            "type": "Point",
+            "id": "point_Y",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "x": 0.8,
+                "y": 0.7
+            },
+            "label": "Y"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "x": 0.5,
+                "y": 0.6
+            },
+            "label": "C"
+        },
+        "point_Z": {
+            "type": "Point",
+            "id": "point_Z",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "x": 0.75,
+                "y": 0.6
+            },
+            "label": "Z"
+        },
+        "point_F": {
+            "type": "Point",
+            "id": "point_F",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "x": -0.3,
+                "y": 0.0
+            },
+            "label": "F"
+        },
+        "point_K": {
+            "type": "Point",
+            "id": "point_K",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "x": 0.0125,
+                "y": -0.249687304442977
+            },
+            "label": "K"
+        },
+        "point_G": {
+            "type": "Point",
+            "id": "point_G",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "label": "G"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.7,
+                "y": 0.0
+            },
+            "label": "D"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "x": 0.9,
+                "y": 0.0
+            },
+            "label": "E"
+        },
+        "point_H": {
+            "type": "Point",
+            "id": "point_H",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "x": 0.25,
+                "y": 0.0
+            },
+            "label": "H"
+        },
+        "point_L": {
+            "type": "Point",
+            "id": "point_L",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "x": 0.0125,
+                "y": 0.249687304442977
+            },
+            "label": "L"
+        },
+        "circle_DKL": {
+            "type": "Circle",
+            "id": "circle_DKL",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "p1": "point_D",
+                "p2": "point_K",
+                "p3": "point_L",
+                "radius": 0.39999999999999997,
+                "center": "point_F"
+            },
+            "label": "DKL"
+        },
+        "circle_KLH": {
+            "type": "Circle",
+            "id": "circle_KLH",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_K",
+                "p2": "point_L",
+                "p3": "point_H",
+                "radius": 0.25,
+                "center": "point_G"
+            },
+            "label": "KLH"
+        }
+    },
+    "animations": [
+        [
+            "point_F",
+            "line_BY",
+            "line_AX",
+            "point_C",
+            "polygon_FKG",
+            "point_X",
+            "point_Y",
+            "point_B",
+            "point_A",
+            "point_G",
+            "point_K",
+            "line_CZ",
+            "point_Z"
+        ],
+        [
+            "point_F",
+            "line_BY",
+            "line_AX",
+            "line_GH",
+            "point_E",
+            "point_C",
+            "line_FG",
+            "line_DF",
+            "point_H",
+            "polygon_FKG",
+            "point_X",
+            "point_Y",
+            "line_DE",
+            "point_B",
+            "point_D",
+            "point_A",
+            "point_G",
+            "point_K",
+            "line_CZ",
+            "point_Z"
+        ],
+        [
+            "point_E",
+            "line_FG",
+            "circle_KLH",
+            "point_B",
+            "line_KF",
+            "line_BY",
+            "line_KG",
+            "point_L",
+            "point_C",
+            "point_H",
+            "line_DF",
+            "point_X",
+            "point_D",
+            "point_A",
+            "point_K",
+            "line_CZ",
+            "point_Z",
+            "circle_DKL",
+            "line_GH",
+            "point_F",
+            "line_AX",
+            "polygon_FKG",
+            "point_Y",
+            "point_G",
+            "line_DE"
+        ],
+        [
+            "point_E",
+            "polygon_KFG",
+            "line_FG",
+            "circle_KLH",
+            "point_B",
+            "line_KF",
+            "line_BY",
+            "line_KG",
+            "point_L",
+            "point_C",
+            "point_H",
+            "line_DF",
+            "point_X",
+            "point_D",
+            "point_A",
+            "point_K",
+            "line_CZ",
+            "point_Z",
+            "circle_DKL",
+            "line_GH",
+            "point_F",
+            "line_AX",
+            "polygon_FKG",
+            "point_Y",
+            "point_G",
+            "line_DE"
+        ],
+        [
+            "point_E",
+            "polygon_KFG",
+            "line_FG",
+            "circle_KLH",
+            "point_B",
+            "line_KF",
+            "line_BY",
+            "line_KG",
+            "point_L",
+            "point_C",
+            "point_H",
+            "line_DF",
+            "point_X",
+            "point_D",
+            "point_A",
+            "point_K",
+            "line_CZ",
+            "point_Z",
+            "line_FK",
+            "line_GK",
+            "circle_DKL",
+            "line_GH",
+            "point_F",
+            "line_AX",
+            "polygon_FKG",
+            "point_Y",
+            "point_G",
+            "line_DE"
+        ],
+        [
+            "point_F",
+            "point_Z",
+            "line_BY",
+            "line_AX",
+            "point_C",
+            "line_FG",
+            "polygon_FKG",
+            "point_X",
+            "line_GK",
+            "point_Y",
+            "point_B",
+            "point_A",
+            "point_G",
+            "point_K",
+            "line_CZ",
+            "line_FK"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Proposition 22</b></center><br>
+        <center>To construct a triangle out of three straight lines which equal three given straight lines: thus it is necessary that the sum of any two of the straight lines should be greater than the remaining one.</center><br>
+        <br>
+        Let the three given straight lines be  <span name=text_line_line_AX class='GeoElement'>line AX</span>,  <span name=text_line_line_BY class='GeoElement'>line BY</span>, and  <span name=text_line_line_CZ class='GeoElement'>line CZ</span>, and let the sum of any two of these be greater than the remaining one, namely,  <span name=text_line_line_AX class='GeoElement'>line AX</span> plus  <span name=text_line_line_BY class='GeoElement'>line BY</span> greater than  <span name=text_line_line_CZ class='GeoElement'>line CZ</span>,  <span name=text_line_line_AX class='GeoElement'>line AX</span> plus  <span name=text_line_line_CZ class='GeoElement'>line CZ</span> greater than  <span name=text_line_line_BY class='GeoElement'>line BY</span>, and  <span name=text_line_line_BY class='GeoElement'>line BY</span> plus  <span name=text_line_line_CZ class='GeoElement'>line CZ</span> greater than  <span name=text_line_line_AX class='GeoElement'>line AX</span>.<br>
+        <br>
+        It is required to construct  <span name=text_polygon_polygon_FKG class='GeoElement'>triangle FKG</span> out of straight lines equal to  <span name=text_line_line_AX class='GeoElement'>line AX</span>,  <span name=text_line_line_BY class='GeoElement'>line BY</span>, and  <span name=text_line_line_CZ class='GeoElement'>line CZ</span>.</div><div id='step_1'><br>
+        Set out a straight  <span name=text_line_line_DE class='GeoElement'>line DE</span>, terminated at  <span name=text_point_point_D class='GeoElement'>point D</span> but of infinite length in the direction of  <span name=text_point_point_E class='GeoElement'>point E</span>. Make  <span name=text_line_line_DF class='GeoElement'>line DF</span> equal to  <span name=text_line_line_AX class='GeoElement'>line AX</span>,  <span name=text_line_line_FG class='GeoElement'>line FG</span> equal to  <span name=text_line_line_BY class='GeoElement'>line BY</span>, and  <span name=text_line_line_GH class='GeoElement'>line GH</span> equal to  <span name=text_line_line_CZ class='GeoElement'>line CZ</span>.</div><div id='step_2'><br>
+        Describe the  <span name=text_circle_circle_DKL class='GeoElement'>circle DKL</span> with  <span name=text_point_point_F class='GeoElement'>center F</span> and  <span name=text_line_line_DF class='GeoElement'>radius DF</span>. Again, describe the  <span name=text_circle_circle_KLH class='GeoElement'>circle KLH</span> with  <span name=text_point_point_G class='GeoElement'>center G</span> and  <span name=text_line_line_GH class='GeoElement'>radius GH</span>. Join  <span name=text_line_line_KF class='GeoElement'>line KF</span> and  <span name=text_line_line_KG class='GeoElement'>line KG</span>.</div><div id='step_3'><br>
+        I say that the  <span name=text_polygon_polygon_KFG class='GeoElement'>triangle KFG</span> has been constructed out of three straight lines equal to  <span name=text_line_line_AX class='GeoElement'>line AX</span>,  <span name=text_line_line_BY class='GeoElement'>line BY</span>, and  <span name=text_line_line_CZ class='GeoElement'>line CZ</span>.</div><div id='step_4'><br>
+        Since the  <span name=text_point_point_F class='GeoElement'>point F</span> is the center of the  <span name=text_circle_circle_DKL class='GeoElement'>circle DKL</span>, therefore  <span name=text_line_line_DF class='GeoElement'>line DF</span> equals  <span name=text_line_line_FK class='GeoElement'>line FK</span>. But  <span name=text_line_line_DF class='GeoElement'>line DF</span> equals  <span name=text_line_line_AX class='GeoElement'>line AX</span>, therefore  <span name=text_line_line_FK class='GeoElement'>line FK</span> also equals  <span name=text_line_line_AX class='GeoElement'>line AX</span>.<br>
+        Again, since the  <span name=text_point_point_G class='GeoElement'>point G</span> is the center of the  <span name=text_circle_circle_KLH class='GeoElement'>circle KLH</span>, therefore  <span name=text_line_line_GH class='GeoElement'>line GH</span> equals  <span name=text_line_line_GK class='GeoElement'>line GK</span>. But  <span name=text_line_line_GH class='GeoElement'>line GH</span> equals  <span name=text_line_line_CZ class='GeoElement'>line CZ</span>, therefore  <span name=text_line_line_GK class='GeoElement'>line GK</span> also equals  <span name=text_line_line_CZ class='GeoElement'>line CZ</span>.<br>
+        And  <span name=text_line_line_FG class='GeoElement'>line FG</span> also equals  <span name=text_line_line_BY class='GeoElement'>line BY</span>, therefore the three straight lines  <span name=text_line_line_FK class='GeoElement'>line FK</span>,  <span name=text_line_line_FG class='GeoElement'>line FG</span>, and  <span name=text_line_line_GK class='GeoElement'>line GK</span> equal the three straight lines  <span name=text_line_line_AX class='GeoElement'>line AX</span>,  <span name=text_line_line_BY class='GeoElement'>line BY</span>, and  <span name=text_line_line_CZ class='GeoElement'>line CZ</span>.</div><div id='step_5'><br>
+        <br>
+        Therefore out of the three straight lines  <span name=text_line_line_FK class='GeoElement'>line FK</span>,  <span name=text_line_line_FG class='GeoElement'>line FG</span>, and  <span name=text_line_line_GK class='GeoElement'>line GK</span>, which equal the three given straight lines  <span name=text_line_line_AX class='GeoElement'>line AX</span>,  <span name=text_line_line_BY class='GeoElement'>line BY</span>, and  <span name=text_line_line_CZ class='GeoElement'>line CZ</span>, the  <span name=text_polygon_polygon_FKG class='GeoElement'>triangle FKG</span> has been constructed.<br>
+        <br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>

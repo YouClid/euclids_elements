@@ -1,0 +1,27 @@
+<center><b>Proposition 22</b></center>
+<center>To construct a triangle out of three straight lines which equal three given straight lines: thus it is necessary that the sum of any two of the straight lines should be greater than the remaining one.</center>
+
+Let the three given straight lines be [line AX], [line BY], and [line CZ], and let the sum of any two of these be greater than the remaining one, namely, [line AX] plus [line BY] greater than [line CZ], [line AX] plus [line CZ] greater than [line BY], and [line BY] plus [line CZ] greater than [line AX].
+
+It is required to construct [triangle FKG] out of straight lines equal to [line AX], [line BY], and [line CZ].[step]
+Set out a straight [line DE], terminated at [point D] but of infinite length in the direction of [point E]. Make [line DF] equal to [line AX], [line FG] equal to [line BY], and [line GH] equal to [line CZ].[step]
+Describe the [circle DKL radius=DF] with [center F circle=DKL] and [line DF text="radius DF"]. Again, describe the [circle KLH radius=GH] with [center G circle=KLH] and [line GH text="radius GH"]. Join [line KF] and [line KG].[step]
+I say that the [triangle KFG] has been constructed out of three straight lines equal to [line AX], [line BY], and [line CZ].[step]
+Since the [point F] is the center of the [circle DKL], therefore [line DF] equals [line FK]. But [line DF] equals [line AX], therefore [line FK] also equals [line AX].
+Again, since the [point G] is the center of the [circle KLH], therefore [line GH] equals [line GK]. But [line GH] equals [line CZ], therefore [line GK] also equals [line CZ].
+And [line FG] also equals [line BY], therefore the three straight lines [line FK], [line FG], and [line GK] equal the three straight lines [line AX], [line BY], and [line CZ].[step]
+[clear]
+Therefore out of the three straight lines [line FK], [line FG], and [line GK], which equal the three given straight lines [line AX], [line BY], and [line CZ], the [triangle FKG] has been constructed.
+
+
+[loc A x=0.5 y=0.8]
+[loc X x=0.9 y=0.8]
+[loc B x=0.5 y=0.7]
+[loc Y x=0.8 y=0.7]
+[loc C x=0.5 y=0.6]
+[loc Z x=0.75 y=0.6]
+[loc D x=-0.7 y=0]
+[loc E x=0.9 y=0]
+[loc F x=-0.3 y=0]
+[loc G x=0 y=0]
+[loc H x=0.25 y=0]
