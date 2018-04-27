@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Book 1 - Proposition 44</b></center>\n<center>To a given straight line in a given rectilinear angle, to apply a parallelogram equal to a given triangle.</center>\n\nLet  <span name=text_line_line_AB class='GeoElement'>line AB</span> be the given straight line,  <span name=text_angle_angle_XDZ class='GeoElement'>angle XDZ</span> the given rectilinear angle, and  <span name=text_polygon_polygon_STU class='GeoElement'>triangle STU</span> the given triangle.</div><div id='step_1'>\nIt is required to apply a parallelogram equal to the given  <span name=text_polygon_polygon_STU class='GeoElement'>triangle STU</span> to the given straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> in an angle equal to  <span name=text_angle_angle_XDZ class='GeoElement'>angle XDZ</span>.</div><div id='step_2'>\nConstruct the  <span name=text_polygon_polygon_BEFG class='GeoElement'>parallelogram BEFG</span> equal to the  <span name=text_polygon_polygon_STU class='GeoElement'>triangle STU</span> in the  <span name=text_angle_angle_EBG class='GeoElement'>angle EBG</span> which equals  <span name=text_angle_angle_XDZ class='GeoElement'>angle XDZ</span>, and let it be placed so that  <span name=text_line_line_BE class='GeoElement'>line BE</span> is in a straight line with  <span name=text_line_line_AB class='GeoElement'>line AB</span>.</div><div id='step_3'>\nDraw  <span name=text_line_line_FG class='GeoElement'>line FG</span> through to  <span name=text_point_point_H class='GeoElement'>point H</span>, and draw  <span name=text_line_line_AH class='GeoElement'>line AH</span> through  <span name=text_point_point_A class='GeoElement'>point A</span> parallel to either  <span name=text_line_line_BG class='GeoElement'>line BG</span> or  <span name=text_line_line_EF class='GeoElement'>line EF</span>. Join  <span name=text_line_line_HB class='GeoElement'>line HB</span>.</div><div id='step_4'>\nSince the straight  <span name=text_line_line_HF class='GeoElement'>line HF</span> falls upon the parallels  <span name=text_line_line_AH class='GeoElement'>line AH</span> and  <span name=text_line_line_EF class='GeoElement'>line EF</span>, therefore the sum of the angles  <span name=text_angle_angle_AHF class='GeoElement'>angle AHF</span> and  <span name=text_angle_angle_HFE class='GeoElement'>angle HFE</span> equals two right angles. Therefore the sum of the angles  <span name=text_angle_angle_BHG class='GeoElement'>BGH</span> and  <span name=text_angle_angle_GFE class='GeoElement'>angle GFE</span> is less than two right angles. And straight lines produced indefinitely from angles less than two right angles meet, therefore  <span name=text_line_line_HB class='GeoElement'>line HB</span> and  <span name=text_line_line_FE class='GeoElement'>line FE</span>, when produced, will meet.</div><div id='step_5'>\nLet them be produced and meet at  <span name=text_point_point_K class='GeoElement'>point K</span>. Draw  <span name=text_line_line_KL class='GeoElement'>line KL</span> through the  <span name=text_point_point_K class='GeoElement'>point K</span> parallel to either  <span name=text_line_line_EA class='GeoElement'>line EA</span> or  <span name=text_line_line_FH class='GeoElement'>line FH</span>. Produce  <span name=text_line_line_HA class='GeoElement'>line HA</span> and  <span name=text_line_line_GB class='GeoElement'>line GB</span> to the points  <span name=text_point_point_L class='GeoElement'>L</span> and  <span name=text_point_point_M class='GeoElement'>M</span>.</div><div id='step_6'>\nThen  <span name=text_polygon_polygon_HLKF class='GeoElement'>polygon HLKF</span> is a parallelogram,  <span name=text_line_line_HK class='GeoElement'>line HK</span> is its diameter, and  <span name=text_polygon_polygon_ABGH class='GeoElement'>polygon ABGH</span> and  <span name=text_polygon_polygon_MBEK class='GeoElement'>polygon MBEK</span> are parallelograms, and  <span name=text_line_line_LB class='GeoElement'>line LB</span> and  <span name=text_line_line_BF class='GeoElement'>line BF</span> are the so-called complements about  <span name=text_line_line_HK class='GeoElement'>line HK</span>. Therefore  <span name=text_line_line_LB class='GeoElement'>line LB</span> equals  <span name=text_line_line_BF class='GeoElement'>line BF</span>.</div><div id='step_7'>\nBut  <span name=text_polygon_polygon_BEFG class='GeoElement'>polygon BEFG</span> equals the  <span name=text_polygon_polygon_STU class='GeoElement'>triangle STU</span>, therefore  <span name=text_polygon_polygon_LMBA class='GeoElement'>polygon LMBA</span> also equals  <span name=text_polygon_polygon_STU class='GeoElement'>triangle STU</span>.</div><div id='step_8'>\nSince the  <span name=text_angle_angle_GBE class='GeoElement'>angle GBE</span> equals the  <span name=text_angle_angle_ABM class='GeoElement'>angle ABM</span>, while the  <span name=text_angle_angle_GBE class='GeoElement'>angle GBE</span> equals  <span name=text_angle_angle_XDZ class='GeoElement'>angle XDZ</span>, therefore the  <span name=text_angle_angle_ABM class='GeoElement'>angle ABM</span> also equals the angle  <span name=text_angle_angle_XDZ class='GeoElement'>angle XDZ</span>.</div><div id='step_9'>\nTherefore the  <span name=text_polygon_polygon_LMBA class='GeoElement'>parallelogram LB</span> equal to the given  <span name=text_polygon_polygon_STU class='GeoElement'>triangle STU</span> has been applied to the given straight  <span name=text_line_line_AB class='GeoElement'>line AB</span>, in the  <span name=text_angle_angle_ABM class='GeoElement'>angle ABM</span> which equals  <span name=text_angle_angle_XDZ class='GeoElement'>angle XDZ</span>.\n\n\n\n\n\n </div>",
+    "geometry": {
+        "polygon_STU": {
+            "type": "Polygon",
+            "id": "polygon_STU",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_S",
+                    "point_T",
+                    "point_U"
+                ]
+            },
+            "label": "STU"
+        },
+        "polygon_BEFG": {
+            "type": "Polygon",
+            "id": "polygon_BEFG",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_E",
+                    "point_F",
+                    "point_G"
+                ]
+            },
+            "label": "BEFG"
+        },
+        "polygon_HLKF": {
+            "type": "Polygon",
+            "id": "polygon_HLKF",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_H",
+                    "point_L",
+                    "point_K",
+                    "point_F"
+                ]
+            },
+            "label": "HLKF"
+        },
+        "polygon_ABGH": {
+            "type": "Polygon",
+            "id": "polygon_ABGH",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_G",
+                    "point_H"
+                ]
+            },
+            "label": "ABGH"
+        },
+        "polygon_MBEK": {
+            "type": "Polygon",
+            "id": "polygon_MBEK",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_M",
+                    "point_B",
+                    "point_E",
+                    "point_K"
+                ]
+            },
+            "label": "MBEK"
+        },
+        "polygon_LMBA": {
+            "type": "Polygon",
+            "id": "polygon_LMBA",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_L",
+                    "point_M",
+                    "point_B",
+                    "point_A"
+                ]
+            },
+            "label": "LMBA"
+        },
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "line_BE": {
+            "type": "Line",
+            "id": "line_BE",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_E"
+            },
+            "label": "BE"
+        },
+        "line_FG": {
+            "type": "Line",
+            "id": "line_FG",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_F",
+                "p2": "point_G"
+            },
+            "label": "FG"
+        },
+        "line_AH": {
+            "type": "Line",
+            "id": "line_AH",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_H"
+            },
+            "label": "AH"
+        },
+        "line_BG": {
+            "type": "Line",
+            "id": "line_BG",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_G"
+            },
+            "label": "BG"
+        },
+        "line_EF": {
+            "type": "Line",
+            "id": "line_EF",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_F"
+            },
+            "label": "EF"
+        },
+        "line_HB": {
+            "type": "Line",
+            "id": "line_HB",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_H",
+                "p2": "point_B"
+            },
+            "label": "HB"
+        },
+        "line_HF": {
+            "type": "Line",
+            "id": "line_HF",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "p1": "point_H",
+                "p2": "point_F"
+            },
+            "label": "HF"
+        },
+        "line_FE": {
+            "type": "Line",
+            "id": "line_FE",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_F",
+                "p2": "point_E"
+            },
+            "label": "FE"
+        },
+        "line_KL": {
+            "type": "Line",
+            "id": "line_KL",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "p1": "point_K",
+                "p2": "point_L"
+            },
+            "label": "KL"
+        },
+        "line_EA": {
+            "type": "Line",
+            "id": "line_EA",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_A"
+            },
+            "label": "EA"
+        },
+        "line_FH": {
+            "type": "Line",
+            "id": "line_FH",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "p1": "point_F",
+                "p2": "point_H"
+            },
+            "label": "FH"
+        },
+        "line_HA": {
+            "type": "Line",
+            "id": "line_HA",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_H",
+                "p2": "point_A"
+            },
+            "label": "HA"
+        },
+        "line_GB": {
+            "type": "Line",
+            "id": "line_GB",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "p1": "point_G",
+                "p2": "point_B"
+            },
+            "label": "GB"
+        },
+        "line_HK": {
+            "type": "Line",
+            "id": "line_HK",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "p1": "point_H",
+                "p2": "point_K"
+            },
+            "label": "HK"
+        },
+        "line_LB": {
+            "type": "Line",
+            "id": "line_LB",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_L",
+                "p2": "point_B"
+            },
+            "label": "LB"
+        },
+        "line_BF": {
+            "type": "Line",
+            "id": "line_BF",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_F"
+            },
+            "label": "BF"
+        },
+        "line_AE": {
+            "type": "Line",
+            "id": "line_AE",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_E"
+            },
+            "label": "AE"
+        },
+        "line_MG": {
+            "type": "Line",
+            "id": "line_MG",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "p1": "point_M",
+                "p2": "point_G"
+            },
+            "label": "MG"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": -0.6,
+                "y": -0.0
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.1,
+                "y": 0.0
+            },
+            "label": "B"
+        },
+        "point_X": {
+            "type": "Point",
+            "id": "point_X",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "x": 0.4,
+                "y": -0.5
+            },
+            "label": "X"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "x": 0.8,
+                "y": -0.5
+            },
+            "label": "D"
+        },
+        "point_Z": {
+            "type": "Point",
+            "id": "point_Z",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "x": 0.9,
+                "y": -0.0
+            },
+            "label": "Z"
+        },
+        "point_S": {
+            "type": "Point",
+            "id": "point_S",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "x": 0.9,
+                "y": 0.85
+            },
+            "label": "S"
+        },
+        "point_T": {
+            "type": "Point",
+            "id": "point_T",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "x": 0.58377223398,
+                "y": 0.85
+            },
+            "label": "T"
+        },
+        "point_U": {
+            "type": "Point",
+            "id": "point_U",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "x": 0.9,
+                "y": 0.53377223398
+            },
+            "label": "U"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "x": 0.4,
+                "y": -0.0
+            },
+            "label": "E"
+        },
+        "point_F": {
+            "type": "Point",
+            "id": "point_F",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": 0.3,
+                "y": -0.5
+            },
+            "label": "F"
+        },
+        "point_G": {
+            "type": "Point",
+            "id": "point_G",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.2,
+                "y": -0.5
+            },
+            "label": "G"
+        },
+        "point_H": {
+            "type": "Point",
+            "id": "point_H",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "x": -0.7,
+                "y": -0.5
+            },
+            "label": "H"
+        },
+        "point_K": {
+            "type": "Point",
+            "id": "point_K",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "label": "K"
+        },
+        "point_L": {
+            "type": "Point",
+            "id": "point_L",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "x": -0.5,
+                "y": 0.5
+            },
+            "label": "L"
+        },
+        "point_M": {
+            "type": "Point",
+            "id": "point_M",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": 0.5
+            },
+            "label": "M"
+        },
+        "angle_XDZ": {
+            "type": "Angle",
+            "id": "angle_XDZ",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_X",
+                    "point_D",
+                    "point_Z"
+                ],
+                "degree": 101.3099324740202
+            },
+            "label": "XDZ"
+        },
+        "angle_EBG": {
+            "type": "Angle",
+            "id": "angle_EBG",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_B",
+                    "point_G"
+                ],
+                "degree": 101.30993247402021
+            },
+            "label": "EBG"
+        },
+        "angle_AHF": {
+            "type": "Angle",
+            "id": "angle_AHF",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_H",
+                    "point_F"
+                ],
+                "degree": 78.69006752597979
+            },
+            "label": "AHF"
+        },
+        "angle_HFE": {
+            "type": "Angle",
+            "id": "angle_HFE",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_H",
+                    "point_F",
+                    "point_E"
+                ],
+                "degree": 101.3099324740202
+            },
+            "label": "HFE"
+        },
+        "angle_BHG": {
+            "type": "Angle",
+            "id": "angle_BHG",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_H",
+                    "point_G"
+                ],
+                "degree": 39.8055710922652
+            },
+            "label": "BHG"
+        },
+        "angle_GFE": {
+            "type": "Angle",
+            "id": "angle_GFE",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_G",
+                    "point_F",
+                    "point_E"
+                ],
+                "degree": 101.3099324740202
+            },
+            "label": "GFE"
+        },
+        "angle_GBE": {
+            "type": "Angle",
+            "id": "angle_GBE",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_B",
+                    "point_G"
+                ],
+                "degree": 101.30993247402021
+            },
+            "label": "GBE"
+        },
+        "angle_ABM": {
+            "type": "Angle",
+            "id": "angle_ABM",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_M"
+                ],
+                "degree": 101.30993247402017
+            },
+            "label": "ABM"
+        }
+    },
+    "animations": [
+        [
+            "point_D",
+            "point_X",
+            "point_Z",
+            "polygon_STU",
+            "point_T",
+            "point_S",
+            "line_AB",
+            "point_A",
+            "point_B",
+            "angle_XDZ",
+            "point_U"
+        ],
+        [
+            "point_D",
+            "point_X",
+            "point_Z",
+            "polygon_STU",
+            "point_T",
+            "point_S",
+            "line_AB",
+            "point_A",
+            "point_B",
+            "angle_XDZ",
+            "point_U"
+        ],
+        [
+            "point_D",
+            "line_BE",
+            "point_X",
+            "point_Z",
+            "polygon_STU",
+            "point_E",
+            "point_G",
+            "point_T",
+            "angle_EBG",
+            "point_S",
+            "polygon_BEFG",
+            "line_AB",
+            "point_A",
+            "point_B",
+            "angle_XDZ",
+            "point_U",
+            "point_F"
+        ],
+        [
+            "point_Z",
+            "line_FG",
+            "angle_EBG",
+            "point_T",
+            "line_AH",
+            "polygon_BEFG",
+            "line_AB",
+            "polygon_STU",
+            "point_G",
+            "line_BG",
+            "point_S",
+            "line_HB",
+            "angle_XDZ",
+            "point_U",
+            "point_F",
+            "point_H",
+            "line_EF",
+            "point_A",
+            "point_E",
+            "point_D",
+            "line_BE",
+            "point_X",
+            "point_B"
+        ],
+        [
+            "point_Z",
+            "line_FG",
+            "angle_EBG",
+            "point_T",
+            "line_AH",
+            "polygon_BEFG",
+            "line_AB",
+            "polygon_STU",
+            "angle_GFE",
+            "point_G",
+            "line_BG",
+            "point_S",
+            "line_HB",
+            "angle_XDZ",
+            "point_U",
+            "point_F",
+            "point_H",
+            "line_HF",
+            "line_EF",
+            "line_FE",
+            "point_A",
+            "point_E",
+            "point_D",
+            "line_BE",
+            "angle_HFE",
+            "point_X",
+            "angle_BHG",
+            "angle_AHF",
+            "point_B"
+        ],
+        [
+            "point_Z",
+            "line_FG",
+            "angle_EBG",
+            "point_T",
+            "line_AH",
+            "polygon_BEFG",
+            "line_AB",
+            "point_M",
+            "line_EA",
+            "polygon_STU",
+            "angle_GFE",
+            "point_G",
+            "line_BG",
+            "point_S",
+            "line_HB",
+            "angle_XDZ",
+            "point_U",
+            "point_F",
+            "point_H",
+            "line_GB",
+            "line_HF",
+            "line_HA",
+            "line_EF",
+            "line_FE",
+            "point_L",
+            "point_A",
+            "point_E",
+            "line_KL",
+            "point_D",
+            "line_BE",
+            "angle_HFE",
+            "point_X",
+            "line_FH",
+            "angle_BHG",
+            "angle_AHF",
+            "point_B",
+            "point_K"
+        ],
+        [
+            "point_Z",
+            "line_FG",
+            "angle_EBG",
+            "point_T",
+            "line_AH",
+            "polygon_BEFG",
+            "line_AB",
+            "point_M",
+            "line_EA",
+            "polygon_STU",
+            "angle_GFE",
+            "point_G",
+            "line_HK",
+            "polygon_ABGH",
+            "line_BG",
+            "point_S",
+            "line_HB",
+            "polygon_MBEK",
+            "angle_XDZ",
+            "point_U",
+            "point_F",
+            "point_H",
+            "polygon_HLKF",
+            "line_GB",
+            "line_HF",
+            "line_HA",
+            "line_EF",
+            "line_LB",
+            "line_FE",
+            "point_L",
+            "point_A",
+            "point_E",
+            "line_KL",
+            "point_D",
+            "line_BE",
+            "angle_HFE",
+            "point_X",
+            "line_FH",
+            "angle_BHG",
+            "line_BF",
+            "angle_AHF",
+            "point_B",
+            "point_K"
+        ],
+        [
+            "point_Z",
+            "line_FG",
+            "angle_EBG",
+            "point_T",
+            "line_AH",
+            "polygon_BEFG",
+            "line_AB",
+            "point_M",
+            "line_EA",
+            "polygon_STU",
+            "angle_GFE",
+            "point_G",
+            "line_HK",
+            "polygon_ABGH",
+            "line_BG",
+            "point_S",
+            "line_HB",
+            "polygon_MBEK",
+            "angle_XDZ",
+            "point_U",
+            "point_F",
+            "point_H",
+            "polygon_HLKF",
+            "line_GB",
+            "line_HF",
+            "line_HA",
+            "line_EF",
+            "line_LB",
+            "line_FE",
+            "polygon_LMBA",
+            "point_L",
+            "point_A",
+            "point_E",
+            "line_KL",
+            "point_D",
+            "line_BE",
+            "angle_HFE",
+            "point_X",
+            "line_FH",
+            "angle_BHG",
+            "line_BF",
+            "angle_AHF",
+            "point_B",
+            "point_K"
+        ],
+        [
+            "point_Z",
+            "line_FG",
+            "angle_EBG",
+            "point_T",
+            "line_AH",
+            "polygon_BEFG",
+            "line_AB",
+            "point_M",
+            "line_EA",
+            "polygon_STU",
+            "angle_GFE",
+            "point_G",
+            "line_HK",
+            "polygon_ABGH",
+            "angle_GBE",
+            "line_BG",
+            "angle_ABM",
+            "point_S",
+            "line_HB",
+            "polygon_MBEK",
+            "angle_XDZ",
+            "point_U",
+            "point_F",
+            "point_H",
+            "polygon_HLKF",
+            "line_GB",
+            "line_HF",
+            "line_HA",
+            "line_EF",
+            "line_LB",
+            "line_FE",
+            "polygon_LMBA",
+            "point_L",
+            "point_A",
+            "point_E",
+            "line_KL",
+            "point_D",
+            "line_BE",
+            "angle_HFE",
+            "point_X",
+            "line_FH",
+            "angle_BHG",
+            "line_BF",
+            "angle_AHF",
+            "point_B",
+            "point_K"
+        ],
+        [
+            "point_Z",
+            "line_FG",
+            "angle_EBG",
+            "point_T",
+            "line_AH",
+            "polygon_BEFG",
+            "line_AB",
+            "point_M",
+            "line_EA",
+            "polygon_STU",
+            "angle_GFE",
+            "point_G",
+            "line_HK",
+            "polygon_ABGH",
+            "angle_GBE",
+            "line_BG",
+            "angle_ABM",
+            "point_S",
+            "line_HB",
+            "polygon_MBEK",
+            "line_MG",
+            "angle_XDZ",
+            "point_U",
+            "point_F",
+            "point_H",
+            "polygon_HLKF",
+            "line_GB",
+            "line_HF",
+            "line_HA",
+            "line_EF",
+            "line_LB",
+            "line_FE",
+            "polygon_LMBA",
+            "point_L",
+            "line_AE",
+            "point_A",
+            "point_E",
+            "line_KL",
+            "point_D",
+            "line_BE",
+            "angle_HFE",
+            "point_X",
+            "line_FH",
+            "angle_BHG",
+            "line_BF",
+            "angle_AHF",
+            "point_B",
+            "point_K"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Book 1 - Proposition 44</b></center><br>
+        <center>To a given straight line in a given rectilinear angle, to apply a parallelogram equal to a given triangle.</center><br>
+        <br>
+        Let  <span name=text_line_line_AB class='GeoElement'>line AB</span> be the given straight line,  <span name=text_angle_angle_XDZ class='GeoElement'>angle XDZ</span> the given rectilinear angle, and  <span name=text_polygon_polygon_STU class='GeoElement'>triangle STU</span> the given triangle.</div><div id='step_1'><br>
+        It is required to apply a parallelogram equal to the given  <span name=text_polygon_polygon_STU class='GeoElement'>triangle STU</span> to the given straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> in an angle equal to  <span name=text_angle_angle_XDZ class='GeoElement'>angle XDZ</span>.</div><div id='step_2'><br>
+        Construct the  <span name=text_polygon_polygon_BEFG class='GeoElement'>parallelogram BEFG</span> equal to the  <span name=text_polygon_polygon_STU class='GeoElement'>triangle STU</span> in the  <span name=text_angle_angle_EBG class='GeoElement'>angle EBG</span> which equals  <span name=text_angle_angle_XDZ class='GeoElement'>angle XDZ</span>, and let it be placed so that  <span name=text_line_line_BE class='GeoElement'>line BE</span> is in a straight line with  <span name=text_line_line_AB class='GeoElement'>line AB</span>.</div><div id='step_3'><br>
+        Draw  <span name=text_line_line_FG class='GeoElement'>line FG</span> through to  <span name=text_point_point_H class='GeoElement'>point H</span>, and draw  <span name=text_line_line_AH class='GeoElement'>line AH</span> through  <span name=text_point_point_A class='GeoElement'>point A</span> parallel to either  <span name=text_line_line_BG class='GeoElement'>line BG</span> or  <span name=text_line_line_EF class='GeoElement'>line EF</span>. Join  <span name=text_line_line_HB class='GeoElement'>line HB</span>.</div><div id='step_4'><br>
+        Since the straight  <span name=text_line_line_HF class='GeoElement'>line HF</span> falls upon the parallels  <span name=text_line_line_AH class='GeoElement'>line AH</span> and  <span name=text_line_line_EF class='GeoElement'>line EF</span>, therefore the sum of the angles  <span name=text_angle_angle_AHF class='GeoElement'>angle AHF</span> and  <span name=text_angle_angle_HFE class='GeoElement'>angle HFE</span> equals two right angles. Therefore the sum of the angles  <span name=text_angle_angle_BHG class='GeoElement'>BGH</span> and  <span name=text_angle_angle_GFE class='GeoElement'>angle GFE</span> is less than two right angles. And straight lines produced indefinitely from angles less than two right angles meet, therefore  <span name=text_line_line_HB class='GeoElement'>line HB</span> and  <span name=text_line_line_FE class='GeoElement'>line FE</span>, when produced, will meet.</div><div id='step_5'><br>
+        Let them be produced and meet at  <span name=text_point_point_K class='GeoElement'>point K</span>. Draw  <span name=text_line_line_KL class='GeoElement'>line KL</span> through the  <span name=text_point_point_K class='GeoElement'>point K</span> parallel to either  <span name=text_line_line_EA class='GeoElement'>line EA</span> or  <span name=text_line_line_FH class='GeoElement'>line FH</span>. Produce  <span name=text_line_line_HA class='GeoElement'>line HA</span> and  <span name=text_line_line_GB class='GeoElement'>line GB</span> to the points  <span name=text_point_point_L class='GeoElement'>L</span> and  <span name=text_point_point_M class='GeoElement'>M</span>.</div><div id='step_6'><br>
+        Then  <span name=text_polygon_polygon_HLKF class='GeoElement'>polygon HLKF</span> is a parallelogram,  <span name=text_line_line_HK class='GeoElement'>line HK</span> is its diameter, and  <span name=text_polygon_polygon_ABGH class='GeoElement'>polygon ABGH</span> and  <span name=text_polygon_polygon_MBEK class='GeoElement'>polygon MBEK</span> are parallelograms, and  <span name=text_line_line_LB class='GeoElement'>line LB</span> and  <span name=text_line_line_BF class='GeoElement'>line BF</span> are the so-called complements about  <span name=text_line_line_HK class='GeoElement'>line HK</span>. Therefore  <span name=text_line_line_LB class='GeoElement'>line LB</span> equals  <span name=text_line_line_BF class='GeoElement'>line BF</span>.</div><div id='step_7'><br>
+        But  <span name=text_polygon_polygon_BEFG class='GeoElement'>polygon BEFG</span> equals the  <span name=text_polygon_polygon_STU class='GeoElement'>triangle STU</span>, therefore  <span name=text_polygon_polygon_LMBA class='GeoElement'>polygon LMBA</span> also equals  <span name=text_polygon_polygon_STU class='GeoElement'>triangle STU</span>.</div><div id='step_8'><br>
+        Since the  <span name=text_angle_angle_GBE class='GeoElement'>angle GBE</span> equals the  <span name=text_angle_angle_ABM class='GeoElement'>angle ABM</span>, while the  <span name=text_angle_angle_GBE class='GeoElement'>angle GBE</span> equals  <span name=text_angle_angle_XDZ class='GeoElement'>angle XDZ</span>, therefore the  <span name=text_angle_angle_ABM class='GeoElement'>angle ABM</span> also equals the angle  <span name=text_angle_angle_XDZ class='GeoElement'>angle XDZ</span>.</div><div id='step_9'><br>
+        Therefore the  <span name=text_polygon_polygon_LMBA class='GeoElement'>parallelogram LB</span> equal to the given  <span name=text_polygon_polygon_STU class='GeoElement'>triangle STU</span> has been applied to the given straight  <span name=text_line_line_AB class='GeoElement'>line AB</span>, in the  <span name=text_angle_angle_ABM class='GeoElement'>angle ABM</span> which equals  <span name=text_angle_angle_XDZ class='GeoElement'>angle XDZ</span>.<br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>

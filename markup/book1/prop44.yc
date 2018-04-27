@@ -1,0 +1,33 @@
+<center><b>Book 1 - Proposition 44</b></center>
+<center>To a given straight line in a given rectilinear angle, to apply a parallelogram equal to a given triangle.</center>
+
+Let [line AB] be the given straight line, [angle XDZ] the given rectilinear angle, and [triangle STU] the given triangle.[step]
+It is required to apply a parallelogram equal to the given [triangle STU] to the given straight [line AB] in an angle equal to [angle XDZ].[step]
+Construct the [polygon BEFG text="parallelogram BEFG"] equal to the [triangle STU] in the [angle EBG] which equals [angle XDZ], and let it be placed so that [line BE] is in a straight line with [line AB].[step]
+Draw [line FG] through to [point H], and draw [line AH] through [point A] parallel to either [line BG] or [line EF]. Join [line HB].[step]
+Since the straight [line HF] falls upon the parallels [line AH] and [line EF], therefore the sum of the angles [angle AHF] and [angle HFE] equals two right angles. Therefore the sum of the angles [angle BHG text=BGH] and [angle GFE] is less than two right angles. And straight lines produced indefinitely from angles less than two right angles meet, therefore [line HB] and [line FE], when produced, will meet.[step]
+Let them be produced and meet at [point K]. Draw [line KL] through the [point K] parallel to either [line EA] or [line FH]. Produce [line HA] and [line GB] to the points [point L text=L] and [point M text=M].[step]
+Then [polygon HLKF] is a parallelogram, [line HK] is its diameter, and [polygon ABGH] and [polygon MBEK] are parallelograms, and [line LB] and [line BF] are the so-called complements about [line HK]. Therefore [line LB] equals [line BF].[step]
+But [polygon BEFG] equals the [triangle STU], therefore [polygon LMBA] also equals [triangle STU].[step]
+Since the [angle GBE] equals the [angle ABM], while the [angle GBE] equals [angle XDZ], therefore the [angle ABM] also equals the angle [angle XDZ].[step]
+Therefore the [polygon LMBA text="parallelogram LB"] equal to the given [triangle STU] has been applied to the given straight [line AB], in the [angle ABM] which equals [angle XDZ].
+
+[loc K x=0.5 y=0.5]
+[loc F x=0.3 y=-0.5]
+[loc L x=-0.5 y=0.5]
+[loc H x=-0.7 y=-0.5]
+[loc A x=-0.6 y=-0]
+[loc E x=0.4 y=-0]
+[line AE hidden]
+[line MG hidden]
+[point B lieson=AE hidden]
+[point B lieson=MG hidden]
+[point B lieson=HK hidden]
+[loc M x=0 y=0.5]
+[loc G x=-0.2 y=-0.5]
+[loc S x=0.9 y=0.85]
+[loc T x=0.58377223398 y=0.85]
+[loc U x=0.9 y=0.53377223398]
+[loc X x=0.4 y=-0.5]
+[loc D x=0.8 y=-0.5]
+[loc Z x=0.9 y=-0]
