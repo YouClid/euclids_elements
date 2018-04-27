@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Proposition 17</b></center>\n<center>In any triangle the sum of any two angles is less than two right angles.</center>\n\nLet  <span name=text_polygon_polygon_ABC class='GeoElement'>ABC</span> be a triangle.\nI say that the sum of any two angles of the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> is less than two right angles.</div><div id='step_1'>\nProduce  <span name=text_line_line_BC class='GeoElement'>line BC</span> to  <span name=text_point_point_D class='GeoElement'>point D</span>.</div><div id='step_2'>\nSince the  <span name=text_angle_angle_ACD class='GeoElement'>angle ACD</span> is an exterior angle of the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span>, therefore it is greater than the interior and opposite  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span>. Add the  <span name=text_angle_angle_ACB class='GeoElement'>angle ACB</span> to each. Then the sum of the angles  <span name=text_angle_angle_ACD class='GeoElement'>ACD</span> and  <span name=text_angle_angle_ACB class='GeoElement'>ACB</span> is greater than the sum of the angles  <span name=text_angle_angle_ABC class='GeoElement'>ABC</span> and  <span name=text_angle_angle_BCA class='GeoElement'>BCA</span>.</div><div id='step_3'>\nBut the sum of the angles  <span name=text_angle_angle_ACD class='GeoElement'>ACD</span> and  <span name=text_angle_angle_ACB class='GeoElement'>ACB</span> is equal to two right angles. Therefore the sum of the angles  <span name=text_angle_angle_ABC class='GeoElement'>ABC</span> and  <span name=text_angle_angle_BCA class='GeoElement'>BCA</span> is less than two right angles.</div><div id='step_4'>\nSimilarly we can prove that the sum of the angles  <span name=text_angle_angle_BAC class='GeoElement'>BAC</span> and  <span name=text_angle_angle_ACB class='GeoElement'>ACB</span> is also less than two right angles, and so the sum of the angles  <span name=text_angle_angle_CAB class='GeoElement'>CAB</span> and  <span name=text_angle_angle_ABC class='GeoElement'>ABC</span> as well.\nTherefore in any triangle the sum of any two angles is less than two right angles.\n </div>",
+    "geometry": {
+        "polygon_ABC": {
+            "type": "Polygon",
+            "id": "polygon_ABC",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ]
+            },
+            "label": "ABC"
+        },
+        "line_BC": {
+            "type": "Line",
+            "id": "line_BC",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_C"
+            },
+            "label": "BC"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": 0.2,
+                "y": 0.4
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.25,
+                "y": -0.25
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "x": 0.5,
+                "y": -0.25
+            },
+            "label": "C"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "x": 0.75,
+                "y": -0.25
+            },
+            "label": "D"
+        },
+        "angle_ACD": {
+            "type": "Angle",
+            "id": "angle_ACD",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_C",
+                    "point_D"
+                ],
+                "degree": 114.77514056883193
+            },
+            "label": "ACD"
+        },
+        "angle_ABC": {
+            "type": "Angle",
+            "id": "angle_ABC",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ],
+                "degree": 55.30484646876604
+            },
+            "label": "ABC"
+        },
+        "angle_ACB": {
+            "type": "Angle",
+            "id": "angle_ACB",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_C",
+                    "point_A"
+                ],
+                "degree": 65.22485943116807
+            },
+            "label": "ACB"
+        },
+        "angle_BCA": {
+            "type": "Angle",
+            "id": "angle_BCA",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_C",
+                    "point_A"
+                ],
+                "degree": 65.22485943116807
+            },
+            "label": "BCA"
+        },
+        "angle_BAC": {
+            "type": "Angle",
+            "id": "angle_BAC",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_A",
+                    "point_B"
+                ],
+                "degree": 59.47029410006589
+            },
+            "label": "BAC"
+        },
+        "angle_CAB": {
+            "type": "Angle",
+            "id": "angle_CAB",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_A",
+                    "point_B"
+                ],
+                "degree": 59.47029410006589
+            },
+            "label": "CAB"
+        }
+    },
+    "animations": [
+        [
+            "polygon_ABC",
+            "point_B",
+            "point_C",
+            "point_A"
+        ],
+        [
+            "point_D",
+            "point_C",
+            "point_A",
+            "polygon_ABC",
+            "point_B",
+            "line_BC"
+        ],
+        [
+            "point_D",
+            "angle_ACD",
+            "point_C",
+            "point_A",
+            "angle_ACB",
+            "polygon_ABC",
+            "point_B",
+            "angle_ABC",
+            "angle_BCA",
+            "line_BC"
+        ],
+        [
+            "point_D",
+            "angle_ACD",
+            "point_C",
+            "point_A",
+            "angle_ACB",
+            "polygon_ABC",
+            "point_B",
+            "angle_ABC",
+            "angle_BCA",
+            "line_BC"
+        ],
+        [
+            "point_D",
+            "angle_ACD",
+            "angle_BAC",
+            "point_C",
+            "point_A",
+            "angle_ACB",
+            "angle_CAB",
+            "polygon_ABC",
+            "point_B",
+            "angle_ABC",
+            "angle_BCA",
+            "line_BC"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Proposition 17</b></center><br>
+        <center>In any triangle the sum of any two angles is less than two right angles.</center><br>
+        <br>
+        Let  <span name=text_polygon_polygon_ABC class='GeoElement'>ABC</span> be a triangle.<br>
+        I say that the sum of any two angles of the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> is less than two right angles.</div><div id='step_1'><br>
+        Produce  <span name=text_line_line_BC class='GeoElement'>line BC</span> to  <span name=text_point_point_D class='GeoElement'>point D</span>.</div><div id='step_2'><br>
+        Since the  <span name=text_angle_angle_ACD class='GeoElement'>angle ACD</span> is an exterior angle of the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span>, therefore it is greater than the interior and opposite  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span>. Add the  <span name=text_angle_angle_ACB class='GeoElement'>angle ACB</span> to each. Then the sum of the angles  <span name=text_angle_angle_ACD class='GeoElement'>ACD</span> and  <span name=text_angle_angle_ACB class='GeoElement'>ACB</span> is greater than the sum of the angles  <span name=text_angle_angle_ABC class='GeoElement'>ABC</span> and  <span name=text_angle_angle_BCA class='GeoElement'>BCA</span>.</div><div id='step_3'><br>
+        But the sum of the angles  <span name=text_angle_angle_ACD class='GeoElement'>ACD</span> and  <span name=text_angle_angle_ACB class='GeoElement'>ACB</span> is equal to two right angles. Therefore the sum of the angles  <span name=text_angle_angle_ABC class='GeoElement'>ABC</span> and  <span name=text_angle_angle_BCA class='GeoElement'>BCA</span> is less than two right angles.</div><div id='step_4'><br>
+        Similarly we can prove that the sum of the angles  <span name=text_angle_angle_BAC class='GeoElement'>BAC</span> and  <span name=text_angle_angle_ACB class='GeoElement'>ACB</span> is also less than two right angles, and so the sum of the angles  <span name=text_angle_angle_CAB class='GeoElement'>CAB</span> and  <span name=text_angle_angle_ABC class='GeoElement'>ABC</span> as well.<br>
+        Therefore in any triangle the sum of any two angles is less than two right angles.<br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>

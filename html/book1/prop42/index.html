@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Proposition 42</b></center>\n<center>To construct a parallelogram equal to a given triangle in a given rectilinear angle.</center>\n\nLet  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> be the given triangle, and  <span name=text_angle_angle_YDZ class='GeoElement'>angle YDZ</span> the given rectilinear angle.</div><div id='step_1'>\nBisect  <span name=text_line_line_BC class='GeoElement'>line BC</span> at  <span name=text_point_point_E class='GeoElement'>point E</span>, and join  <span name=text_line_line_AE class='GeoElement'>line AE</span>. Construct the  <span name=text_angle_angle_CEF class='GeoElement'>angle CEF</span> on the straight  <span name=text_line_line_CE class='GeoElement'>line CE</span> at the  <span name=text_point_point_E class='GeoElement'>point E</span> on it equal to the  <span name=text_angle_angle_YDZ class='GeoElement'>angle YDZ</span>. Draw  <span name=text_line_line_AG class='GeoElement'>line AG</span> through  <span name=text_point_point_A class='GeoElement'>point A</span> parallel to  <span name=text_line_line_CE class='GeoElement'>line CE</span>, and draw  <span name=text_line_line_CG class='GeoElement'>line CG</span> through  <span name=text_point_point_C class='GeoElement'>point C</span> parallel to  <span name=text_line_line_EF class='GeoElement'>line EF</span>.\nThen  <span name=text_polygon_polygon_FECG class='GeoElement'>polygon FECG</span> is a parallelogram.</div><div id='step_2'>\nSince  <span name=text_line_line_BE class='GeoElement'>line BE</span> equals  <span name=text_line_line_CE class='GeoElement'>line CE</span>, therefore the  <span name=text_polygon_polygon_ABE class='GeoElement'>triangle ABE</span> also equals the  <span name=text_polygon_polygon_ACE class='GeoElement'>triangle ACE</span>, for they are on equal bases  <span name=text_line_line_BE class='GeoElement'>line BE</span> and  <span name=text_line_line_CE class='GeoElement'>line CE</span> and in the same parallels  <span name=text_line_line_BC class='GeoElement'>line BC</span> and  <span name=text_line_line_AG class='GeoElement'>line AG</span>. Therefore the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> is double the  <span name=text_polygon_polygon_ACE class='GeoElement'>triangle ACE</span>.</div><div id='step_3'>\nBut the  <span name=text_polygon_polygon_FECG class='GeoElement'>parallelogram FECG</span> is also double the  <span name=text_polygon_polygon_ACE class='GeoElement'>triangle ACE</span>, for it has the same base with it and is in the same parallels with it, therefore the  <span name=text_polygon_polygon_FECG class='GeoElement'>parallelogram FECG</span> equals the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span>.\nAnd it has the  <span name=text_angle_angle_CEF class='GeoElement'>angle CEF</span> equal to the given  <span name=text_angle_angle_YDZ class='GeoElement'>angle YDZ</span>.</div><div id='step_4'>\nTherefore the  <span name=text_polygon_polygon_FECG class='GeoElement'>parallelogram FECG</span> has been constructed equal to the given  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span>, in the  <span name=text_angle_angle_CEF class='GeoElement'>angle CEF</span> which equals  <span name=text_angle_angle_YDZ class='GeoElement'>angle YDZ</span>.\n\n </div>",
+    "geometry": {
+        "polygon_ABC": {
+            "type": "Polygon",
+            "id": "polygon_ABC",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ]
+            },
+            "label": "ABC"
+        },
+        "polygon_FECG": {
+            "type": "Polygon",
+            "id": "polygon_FECG",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_F",
+                    "point_E",
+                    "point_C",
+                    "point_G"
+                ]
+            },
+            "label": "FECG"
+        },
+        "polygon_ABE": {
+            "type": "Polygon",
+            "id": "polygon_ABE",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_E"
+                ]
+            },
+            "label": "ABE"
+        },
+        "polygon_ACE": {
+            "type": "Polygon",
+            "id": "polygon_ACE",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_C",
+                    "point_E"
+                ]
+            },
+            "label": "ACE"
+        },
+        "line_BC": {
+            "type": "Line",
+            "id": "line_BC",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_C"
+            },
+            "label": "BC"
+        },
+        "line_AE": {
+            "type": "Line",
+            "id": "line_AE",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_E"
+            },
+            "label": "AE"
+        },
+        "line_CE": {
+            "type": "Line",
+            "id": "line_CE",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_E"
+            },
+            "label": "CE"
+        },
+        "line_AG": {
+            "type": "Line",
+            "id": "line_AG",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_G"
+            },
+            "label": "AG"
+        },
+        "line_CG": {
+            "type": "Line",
+            "id": "line_CG",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_G"
+            },
+            "label": "CG"
+        },
+        "line_EF": {
+            "type": "Line",
+            "id": "line_EF",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_F"
+            },
+            "label": "EF"
+        },
+        "line_BE": {
+            "type": "Line",
+            "id": "line_BE",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_E"
+            },
+            "label": "BE"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": -0.2,
+                "y": 0.4
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.3,
+                "y": 0.0
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "x": 0.3,
+                "y": 0.0
+            },
+            "label": "C"
+        },
+        "point_Y": {
+            "type": "Point",
+            "id": "point_Y",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "x": -0.8,
+                "y": 0.9
+            },
+            "label": "Y"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "x": -0.9,
+                "y": 0.5
+            },
+            "label": "D"
+        },
+        "point_Z": {
+            "type": "Point",
+            "id": "point_Z",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "x": -0.6,
+                "y": 0.5
+            },
+            "label": "Z"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "label": "E"
+        },
+        "point_F": {
+            "type": "Point",
+            "id": "point_F",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": 0.1,
+                "y": 0.4
+            },
+            "label": "F"
+        },
+        "point_G": {
+            "type": "Point",
+            "id": "point_G",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "x": 0.4,
+                "y": 0.4
+            },
+            "label": "G"
+        },
+        "angle_YDZ": {
+            "type": "Angle",
+            "id": "angle_YDZ",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_Y",
+                    "point_D",
+                    "point_Z"
+                ],
+                "degree": 75.96375653207353
+            },
+            "label": "YDZ"
+        },
+        "angle_CEF": {
+            "type": "Angle",
+            "id": "angle_CEF",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_F",
+                    "point_E",
+                    "point_C"
+                ],
+                "degree": 75.96375653207353
+            },
+            "label": "CEF"
+        }
+    },
+    "animations": [
+        [
+            "point_A",
+            "angle_YDZ",
+            "point_B",
+            "point_Y",
+            "point_D",
+            "point_C",
+            "point_Z",
+            "polygon_ABC"
+        ],
+        [
+            "line_CE",
+            "point_A",
+            "line_BC",
+            "angle_YDZ",
+            "line_AE",
+            "point_B",
+            "point_Y",
+            "point_D",
+            "angle_CEF",
+            "point_F",
+            "line_CG",
+            "line_AG",
+            "line_EF",
+            "point_G",
+            "point_C",
+            "polygon_FECG",
+            "point_Z",
+            "point_E",
+            "polygon_ABC"
+        ],
+        [
+            "line_BC",
+            "angle_YDZ",
+            "line_AE",
+            "angle_CEF",
+            "line_AG",
+            "point_C",
+            "line_BE",
+            "point_E",
+            "line_CE",
+            "point_D",
+            "line_EF",
+            "point_G",
+            "line_CG",
+            "point_B",
+            "polygon_ACE",
+            "point_Z",
+            "polygon_ABC",
+            "point_A",
+            "point_Y",
+            "point_F",
+            "polygon_ABE",
+            "polygon_FECG"
+        ],
+        [
+            "line_BC",
+            "angle_YDZ",
+            "line_AE",
+            "angle_CEF",
+            "line_AG",
+            "point_C",
+            "line_BE",
+            "point_E",
+            "line_CE",
+            "point_D",
+            "line_EF",
+            "point_G",
+            "line_CG",
+            "point_B",
+            "polygon_ACE",
+            "point_Z",
+            "polygon_ABC",
+            "point_A",
+            "point_Y",
+            "point_F",
+            "polygon_ABE",
+            "polygon_FECG"
+        ],
+        [
+            "point_A",
+            "angle_YDZ",
+            "angle_CEF",
+            "point_B",
+            "point_Y",
+            "point_D",
+            "point_F",
+            "point_G",
+            "point_C",
+            "polygon_FECG",
+            "point_Z",
+            "point_E",
+            "polygon_ABC"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Proposition 42</b></center><br>
+        <center>To construct a parallelogram equal to a given triangle in a given rectilinear angle.</center><br>
+        <br>
+        Let  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> be the given triangle, and  <span name=text_angle_angle_YDZ class='GeoElement'>angle YDZ</span> the given rectilinear angle.</div><div id='step_1'><br>
+        Bisect  <span name=text_line_line_BC class='GeoElement'>line BC</span> at  <span name=text_point_point_E class='GeoElement'>point E</span>, and join  <span name=text_line_line_AE class='GeoElement'>line AE</span>. Construct the  <span name=text_angle_angle_CEF class='GeoElement'>angle CEF</span> on the straight  <span name=text_line_line_CE class='GeoElement'>line CE</span> at the  <span name=text_point_point_E class='GeoElement'>point E</span> on it equal to the  <span name=text_angle_angle_YDZ class='GeoElement'>angle YDZ</span>. Draw  <span name=text_line_line_AG class='GeoElement'>line AG</span> through  <span name=text_point_point_A class='GeoElement'>point A</span> parallel to  <span name=text_line_line_CE class='GeoElement'>line CE</span>, and draw  <span name=text_line_line_CG class='GeoElement'>line CG</span> through  <span name=text_point_point_C class='GeoElement'>point C</span> parallel to  <span name=text_line_line_EF class='GeoElement'>line EF</span>.<br>
+        Then  <span name=text_polygon_polygon_FECG class='GeoElement'>polygon FECG</span> is a parallelogram.</div><div id='step_2'><br>
+        Since  <span name=text_line_line_BE class='GeoElement'>line BE</span> equals  <span name=text_line_line_CE class='GeoElement'>line CE</span>, therefore the  <span name=text_polygon_polygon_ABE class='GeoElement'>triangle ABE</span> also equals the  <span name=text_polygon_polygon_ACE class='GeoElement'>triangle ACE</span>, for they are on equal bases  <span name=text_line_line_BE class='GeoElement'>line BE</span> and  <span name=text_line_line_CE class='GeoElement'>line CE</span> and in the same parallels  <span name=text_line_line_BC class='GeoElement'>line BC</span> and  <span name=text_line_line_AG class='GeoElement'>line AG</span>. Therefore the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> is double the  <span name=text_polygon_polygon_ACE class='GeoElement'>triangle ACE</span>.</div><div id='step_3'><br>
+        But the  <span name=text_polygon_polygon_FECG class='GeoElement'>parallelogram FECG</span> is also double the  <span name=text_polygon_polygon_ACE class='GeoElement'>triangle ACE</span>, for it has the same base with it and is in the same parallels with it, therefore the  <span name=text_polygon_polygon_FECG class='GeoElement'>parallelogram FECG</span> equals the  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span>.<br>
+        And it has the  <span name=text_angle_angle_CEF class='GeoElement'>angle CEF</span> equal to the given  <span name=text_angle_angle_YDZ class='GeoElement'>angle YDZ</span>.</div><div id='step_4'><br>
+        Therefore the  <span name=text_polygon_polygon_FECG class='GeoElement'>parallelogram FECG</span> has been constructed equal to the given  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span>, in the  <span name=text_angle_angle_CEF class='GeoElement'>angle CEF</span> which equals  <span name=text_angle_angle_YDZ class='GeoElement'>angle YDZ</span>.<br>
+        <br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Proposition 12</b></center>\n<center>To draw a straight line perpendicular to a given infinite straight line from a given point not on it.</center>\n\nLet  <span name=text_line_line_AB class='GeoElement'>line AB</span> be the given infinite straight line, and  <span name=text_point_point_C class='GeoElement'>point C</span> the given point which is not on it.\nIt is required to draw a straight line perpendicular to the given infinite straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> from the given  <span name=text_point_point_C class='GeoElement'>point C</span> which is not on it.</div><div id='step_1'>\nTake an arbitrary  <span name=text_point_point_D class='GeoElement'>point D</span> on the other side of the straight  <span name=text_line_line_AB class='GeoElement'>line AB</span>, and describe the  <span name=text_circle_circle_EFG class='GeoElement'>circle EFG</span> with  <span name=text_point_point_C class='GeoElement'>center C</span> and  <span name=text_line_line_CD class='GeoElement'>radius CD</span>. Bisect the straight  <span name=text_line_line_EG class='GeoElement'>line EG</span> at  <span name=text_point_point_H class='GeoElement'>point H</span>, and join the straight lines  <span name=text_line_line_CG class='GeoElement'>CG</span>,  <span name=text_line_line_CH class='GeoElement'>CH</span>, and  <span name=text_line_line_CE class='GeoElement'>CE</span>.</div><div id='step_2'>\nI say that  <span name=text_line_line_CH class='GeoElement'>line CH</span> has been drawn perpendicular to the given infinite straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> from the given  <span name=text_point_point_C class='GeoElement'>point C</span> which is not on it.</div><div id='step_3'>\nSince  <span name=text_line_line_GH class='GeoElement'>line GH</span> equals  <span name=text_line_line_EH class='GeoElement'>line EH</span>, and  <span name=text_line_line_CH class='GeoElement'>line CH</span> is common, therefore the two sides  <span name=text_line_line_GH class='GeoElement'>line GH</span> and  <span name=text_line_line_CH class='GeoElement'>line CH</span> equal the two sides  <span name=text_line_line_EH class='GeoElement'>line EH</span> and  <span name=text_line_line_CH class='GeoElement'>line CH</span> respectively, and the  <span name=text_line_line_CG class='GeoElement'>base CG</span> equals the  <span name=text_line_line_CE class='GeoElement'>base CE</span>. Therefore the  <span name=text_angle_angle_CHG class='GeoElement'>angle CHG</span> equals the  <span name=text_angle_angle_EHC class='GeoElement'>angle EHC</span>, and they are adjacent angles.\nBut, when a straight line standing on a straight line makes the adjacent angles equal to one another, each of the equal angles is right, and the straight line standing on the other is called a perpendicular to that on which it stands.</div><div id='step_4'>\nTherefore  <span name=text_line_line_CH class='GeoElement'>line CH</span> has been drawn perpendicular to the given infinite straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> from the given  <span name=text_point_point_C class='GeoElement'>point C</span> which is not on it.\n </div>",
+    "geometry": {
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "line_CD": {
+            "type": "Line",
+            "id": "line_CD",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_D"
+            },
+            "label": "CD"
+        },
+        "line_EG": {
+            "type": "Line",
+            "id": "line_EG",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_G"
+            },
+            "label": "EG"
+        },
+        "line_CG": {
+            "type": "Line",
+            "id": "line_CG",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_G"
+            },
+            "label": "CG"
+        },
+        "line_CH": {
+            "type": "Line",
+            "id": "line_CH",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_H"
+            },
+            "label": "CH"
+        },
+        "line_CE": {
+            "type": "Line",
+            "id": "line_CE",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_E"
+            },
+            "label": "CE"
+        },
+        "line_GH": {
+            "type": "Line",
+            "id": "line_GH",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "p1": "point_G",
+                "p2": "point_H"
+            },
+            "label": "GH"
+        },
+        "line_EH": {
+            "type": "Line",
+            "id": "line_EH",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_H"
+            },
+            "label": "EH"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": -0.5,
+                "y": -0.25
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": 0.5,
+                "y": -0.25
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "label": "C"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "x": 0.07,
+                "y": -0.6
+            },
+            "label": "D"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "x": -0.25,
+                "y": -0.25
+            },
+            "label": "E"
+        },
+        "point_F": {
+            "type": "Point",
+            "id": "point_F",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "x": 0.553094872895375,
+                "y": 0.242870462545055
+            },
+            "label": "F"
+        },
+        "point_G": {
+            "type": "Point",
+            "id": "point_G",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "x": 0.25,
+                "y": -0.25
+            },
+            "label": "G"
+        },
+        "point_H": {
+            "type": "Point",
+            "id": "point_H",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": -0.25
+            },
+            "label": "H"
+        },
+        "circle_EFG": {
+            "type": "Circle",
+            "id": "circle_EFG",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_F",
+                "p3": "point_G",
+                "radius": 0.6040695324215583,
+                "center": "point_C"
+            },
+            "label": "EFG"
+        },
+        "angle_CHG": {
+            "type": "Angle",
+            "id": "angle_CHG",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_H",
+                    "point_G"
+                ],
+                "degree": 90.0
+            },
+            "label": "CHG"
+        },
+        "angle_EHC": {
+            "type": "Angle",
+            "id": "angle_EHC",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_H",
+                    "point_C"
+                ],
+                "degree": 90.0
+            },
+            "label": "EHC"
+        }
+    },
+    "animations": [
+        [
+            "point_A",
+            "line_AB",
+            "point_C",
+            "point_B"
+        ],
+        [
+            "line_CE",
+            "line_AB",
+            "line_CD",
+            "point_F",
+            "point_D",
+            "line_EG",
+            "point_H",
+            "line_CG",
+            "line_CH",
+            "point_G",
+            "point_E",
+            "point_C",
+            "circle_EFG",
+            "point_A",
+            "point_B"
+        ],
+        [
+            "line_CE",
+            "line_AB",
+            "line_CD",
+            "point_F",
+            "point_D",
+            "line_EG",
+            "point_H",
+            "line_CG",
+            "line_CH",
+            "point_G",
+            "point_E",
+            "point_C",
+            "circle_EFG",
+            "point_A",
+            "point_B"
+        ],
+        [
+            "line_CE",
+            "line_AB",
+            "line_CD",
+            "point_F",
+            "point_D",
+            "line_EH",
+            "angle_CHG",
+            "line_EG",
+            "point_H",
+            "line_CG",
+            "line_CH",
+            "line_GH",
+            "point_G",
+            "angle_EHC",
+            "point_E",
+            "point_C",
+            "circle_EFG",
+            "point_A",
+            "point_B"
+        ],
+        [
+            "line_AB",
+            "point_H",
+            "line_CH",
+            "point_C",
+            "point_A",
+            "point_B"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Proposition 12</b></center><br>
+        <center>To draw a straight line perpendicular to a given infinite straight line from a given point not on it.</center><br>
+        <br>
+        Let  <span name=text_line_line_AB class='GeoElement'>line AB</span> be the given infinite straight line, and  <span name=text_point_point_C class='GeoElement'>point C</span> the given point which is not on it.<br>
+        It is required to draw a straight line perpendicular to the given infinite straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> from the given  <span name=text_point_point_C class='GeoElement'>point C</span> which is not on it.</div><div id='step_1'><br>
+        Take an arbitrary  <span name=text_point_point_D class='GeoElement'>point D</span> on the other side of the straight  <span name=text_line_line_AB class='GeoElement'>line AB</span>, and describe the  <span name=text_circle_circle_EFG class='GeoElement'>circle EFG</span> with  <span name=text_point_point_C class='GeoElement'>center C</span> and  <span name=text_line_line_CD class='GeoElement'>radius CD</span>. Bisect the straight  <span name=text_line_line_EG class='GeoElement'>line EG</span> at  <span name=text_point_point_H class='GeoElement'>point H</span>, and join the straight lines  <span name=text_line_line_CG class='GeoElement'>CG</span>,  <span name=text_line_line_CH class='GeoElement'>CH</span>, and  <span name=text_line_line_CE class='GeoElement'>CE</span>.</div><div id='step_2'><br>
+        I say that  <span name=text_line_line_CH class='GeoElement'>line CH</span> has been drawn perpendicular to the given infinite straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> from the given  <span name=text_point_point_C class='GeoElement'>point C</span> which is not on it.</div><div id='step_3'><br>
+        Since  <span name=text_line_line_GH class='GeoElement'>line GH</span> equals  <span name=text_line_line_EH class='GeoElement'>line EH</span>, and  <span name=text_line_line_CH class='GeoElement'>line CH</span> is common, therefore the two sides  <span name=text_line_line_GH class='GeoElement'>line GH</span> and  <span name=text_line_line_CH class='GeoElement'>line CH</span> equal the two sides  <span name=text_line_line_EH class='GeoElement'>line EH</span> and  <span name=text_line_line_CH class='GeoElement'>line CH</span> respectively, and the  <span name=text_line_line_CG class='GeoElement'>base CG</span> equals the  <span name=text_line_line_CE class='GeoElement'>base CE</span>. Therefore the  <span name=text_angle_angle_CHG class='GeoElement'>angle CHG</span> equals the  <span name=text_angle_angle_EHC class='GeoElement'>angle EHC</span>, and they are adjacent angles.<br>
+        But, when a straight line standing on a straight line makes the adjacent angles equal to one another, each of the equal angles is right, and the straight line standing on the other is called a perpendicular to that on which it stands.</div><div id='step_4'><br>
+        Therefore  <span name=text_line_line_CH class='GeoElement'>line CH</span> has been drawn perpendicular to the given infinite straight  <span name=text_line_line_AB class='GeoElement'>line AB</span> from the given  <span name=text_point_point_C class='GeoElement'>point C</span> which is not on it.<br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>

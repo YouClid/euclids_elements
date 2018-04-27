@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Proposition 27</b></center>\n<center>If a straight line falling on two straight lines makes the alternate angles equal to one another, then the straight lines are parallel to one another.</center>\n\nLet the straight  <span name=text_line_line_EF class='GeoElement'>line EF</span> falling on the two straight lines  <span name=text_line_line_AB class='GeoElement'>line AB</span> and  <span name=text_line_line_CD class='GeoElement'>line CD</span> make the alternate angles  <span name=text_angle_angle_AEF class='GeoElement'>angle AEF</span> and  <span name=text_angle_angle_EFD class='GeoElement'>angle EFD</span> equal to one another.\nI say that  <span name=text_line_line_AB class='GeoElement'>line AB</span> is parallel to  <span name=text_line_line_CD class='GeoElement'>line CD</span>.</div><div id='step_1'>\nIf not,  <span name=text_line_line_AB class='GeoElement'>line AB</span> and  <span name=text_line_line_CD class='GeoElement'>line CD</span> when produced meet either in the direction of  <span name=text_point_point_B class='GeoElement'>point B</span> and  <span name=text_point_point_D class='GeoElement'>point D</span> or towards  <span name=text_point_point_A class='GeoElement'>point A</span> and  <span name=text_point_point_C class='GeoElement'>point C</span>.\nLet them be produced and meet, in the direction of  <span name=text_point_point_B class='GeoElement'>point B</span> and  <span name=text_point_point_D class='GeoElement'>point D</span>, at  <span name=text_point_point_G class='GeoElement'>point G</span>.</div><div id='step_2'>\nThen, in the  <span name=text_polygon_polygon_GEF class='GeoElement'>triangle GEF</span>, the exterior  <span name=text_angle_angle_AEF class='GeoElement'>angle AEF</span> equals the interior and opposite  <span name=text_angle_angle_EFG class='GeoElement'>angle EFG</span>, which is impossible.\nTherefore  <span name=text_line_line_AB class='GeoElement'>line AB</span> and  <span name=text_line_line_CD class='GeoElement'>line CD</span> when produced do not meet in the direction of  <span name=text_point_point_B class='GeoElement'>point B</span> and  <span name=text_point_point_D class='GeoElement'>point D</span>.\nSimilarly it can be proved that neither do they meet towards  <span name=text_point_point_A class='GeoElement'>point A</span> and  <span name=text_point_point_C class='GeoElement'>point C</span>.</div><div id='step_3'>\nBut straight lines which do not meet in either direction are parallel. Therefore  <span name=text_line_line_AB class='GeoElement'>line AB</span> is parallel to  <span name=text_line_line_CD class='GeoElement'>line CD</span>.\nTherefore if a straight line falling on two straight lines makes the alternate angles equal to one another, then the straight lines are parallel to one another.\n\n\n </div>",
+    "geometry": {
+        "polygon_GEF": {
+            "type": "Polygon",
+            "id": "polygon_GEF",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_G",
+                    "point_E",
+                    "point_F"
+                ]
+            },
+            "label": "GEF"
+        },
+        "line_EF": {
+            "type": "Line",
+            "id": "line_EF",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "p1": "point_E",
+                "p2": "point_F"
+            },
+            "label": "EF"
+        },
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "line_CD": {
+            "type": "Line",
+            "id": "line_CD",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_D"
+            },
+            "label": "CD"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": -0.08159073349363405,
+                "y": 0.4
+            },
+            "label": "E"
+        },
+        "point_F": {
+            "type": "Point",
+            "id": "point_F",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.01972343291436776,
+                "y": 0.0
+            },
+            "label": "F"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "x": -0.4,
+                "y": 0.4
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "x": 0.2,
+                "y": 0.4
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "x": -0.4,
+                "y": 0.0
+            },
+            "label": "C"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "x": 0.2,
+                "y": 0.0
+            },
+            "label": "D"
+        },
+        "point_G": {
+            "type": "Point",
+            "id": "point_G",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "x": 0.7,
+                "y": 0.2
+            },
+            "label": "G"
+        },
+        "angle_AEF": {
+            "type": "Angle",
+            "id": "angle_AEF",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_F",
+                    "point_E",
+                    "point_A"
+                ],
+                "degree": 98.79217021092421
+            },
+            "label": "AEF"
+        },
+        "angle_EFD": {
+            "type": "Angle",
+            "id": "angle_EFD",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_F",
+                    "point_D"
+                ],
+                "degree": 98.79217021092417
+            },
+            "label": "EFD"
+        },
+        "angle_EFG": {
+            "type": "Angle",
+            "id": "angle_EFG",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_E",
+                    "point_F",
+                    "point_G"
+                ],
+                "degree": 83.26238164270397
+            },
+            "label": "EFG"
+        }
+    },
+    "animations": [
+        [
+            "point_E",
+            "line_AB",
+            "line_CD",
+            "point_D",
+            "line_EF",
+            "point_A",
+            "point_C",
+            "angle_EFD",
+            "point_B",
+            "point_F",
+            "angle_AEF"
+        ],
+        [
+            "point_E",
+            "line_AB",
+            "line_CD",
+            "point_D",
+            "line_EF",
+            "point_A",
+            "point_C",
+            "point_G",
+            "angle_EFD",
+            "point_B",
+            "point_F",
+            "angle_AEF"
+        ],
+        [
+            "polygon_GEF",
+            "point_E",
+            "line_AB",
+            "line_CD",
+            "point_D",
+            "line_EF",
+            "point_A",
+            "point_C",
+            "point_G",
+            "angle_EFD",
+            "point_B",
+            "angle_EFG",
+            "point_F",
+            "angle_AEF"
+        ],
+        [
+            "point_E",
+            "line_AB",
+            "point_D",
+            "point_A",
+            "point_C",
+            "point_B",
+            "line_CD",
+            "point_F"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Proposition 27</b></center><br>
+        <center>If a straight line falling on two straight lines makes the alternate angles equal to one another, then the straight lines are parallel to one another.</center><br>
+        <br>
+        Let the straight  <span name=text_line_line_EF class='GeoElement'>line EF</span> falling on the two straight lines  <span name=text_line_line_AB class='GeoElement'>line AB</span> and  <span name=text_line_line_CD class='GeoElement'>line CD</span> make the alternate angles  <span name=text_angle_angle_AEF class='GeoElement'>angle AEF</span> and  <span name=text_angle_angle_EFD class='GeoElement'>angle EFD</span> equal to one another.<br>
+        I say that  <span name=text_line_line_AB class='GeoElement'>line AB</span> is parallel to  <span name=text_line_line_CD class='GeoElement'>line CD</span>.</div><div id='step_1'><br>
+        If not,  <span name=text_line_line_AB class='GeoElement'>line AB</span> and  <span name=text_line_line_CD class='GeoElement'>line CD</span> when produced meet either in the direction of  <span name=text_point_point_B class='GeoElement'>point B</span> and  <span name=text_point_point_D class='GeoElement'>point D</span> or towards  <span name=text_point_point_A class='GeoElement'>point A</span> and  <span name=text_point_point_C class='GeoElement'>point C</span>.<br>
+        Let them be produced and meet, in the direction of  <span name=text_point_point_B class='GeoElement'>point B</span> and  <span name=text_point_point_D class='GeoElement'>point D</span>, at  <span name=text_point_point_G class='GeoElement'>point G</span>.</div><div id='step_2'><br>
+        Then, in the  <span name=text_polygon_polygon_GEF class='GeoElement'>triangle GEF</span>, the exterior  <span name=text_angle_angle_AEF class='GeoElement'>angle AEF</span> equals the interior and opposite  <span name=text_angle_angle_EFG class='GeoElement'>angle EFG</span>, which is impossible.<br>
+        Therefore  <span name=text_line_line_AB class='GeoElement'>line AB</span> and  <span name=text_line_line_CD class='GeoElement'>line CD</span> when produced do not meet in the direction of  <span name=text_point_point_B class='GeoElement'>point B</span> and  <span name=text_point_point_D class='GeoElement'>point D</span>.<br>
+        Similarly it can be proved that neither do they meet towards  <span name=text_point_point_A class='GeoElement'>point A</span> and  <span name=text_point_point_C class='GeoElement'>point C</span>.</div><div id='step_3'><br>
+        But straight lines which do not meet in either direction are parallel. Therefore  <span name=text_line_line_AB class='GeoElement'>line AB</span> is parallel to  <span name=text_line_line_CD class='GeoElement'>line CD</span>.<br>
+        Therefore if a straight line falling on two straight lines makes the alternate angles equal to one another, then the straight lines are parallel to one another.<br>
+        <br>
+        <br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>

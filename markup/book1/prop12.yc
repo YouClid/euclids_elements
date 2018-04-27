@@ -1,0 +1,18 @@
+<center><b>Proposition 12</b></center>
+<center>To draw a straight line perpendicular to a given infinite straight line from a given point not on it.</center>
+
+Let [line AB] be the given infinite straight line, and [point C] the given point which is not on it.
+It is required to draw a straight line perpendicular to the given infinite straight [line AB] from the given [point C] which is not on it.[step]
+Take an arbitrary [point D] on the other side of the straight [line AB], and describe the [circle EFG radius=CD] with [center C circle=EFG] and [line CD text="radius CD"]. Bisect the straight [line EG] at [point H], and join the straight lines [line CG text="CG"], [line CH text="CH"], and [line CE text="CE"].[step]
+I say that [line CH] has been drawn perpendicular to the given infinite straight [line AB] from the given [point C] which is not on it.[step]
+Since [line GH] equals [line EH], and [line CH] is common, therefore the two sides [line GH] and [line CH] equal the two sides [line EH] and [line CH] respectively, and the [line CG text="base CG"] equals the [line CE text="base CE"]. Therefore the [angle CHG] equals the [angle EHC], and they are adjacent angles.
+But, when a straight line standing on a straight line makes the adjacent angles equal to one another, each of the equal angles is right, and the straight line standing on the other is called a perpendicular to that on which it stands.[step][clear]
+Therefore [line CH] has been drawn perpendicular to the given infinite straight [line AB] from the given [point C] which is not on it.
+
+[loc A x=-0.5 y=-0.25]
+[loc B x=0.5 y=-0.25]
+[loc C x=0 y=0]
+[loc E x=-0.25 y=-0.25]
+[loc G x=0.25 y=-0.25]
+[loc H x=0, y=-0.25]
+[loc D x=.07 y=-0.6]

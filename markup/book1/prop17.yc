@@ -1,0 +1,15 @@
+<center><b>Proposition 17</b></center>
+<center>In any triangle the sum of any two angles is less than two right angles.</center>
+
+Let [triangle ABC text="ABC"] be a triangle.
+I say that the sum of any two angles of the [triangle ABC] is less than two right angles.[step]
+Produce [line BC] to [point D].[step]
+Since the [angle ACD] is an exterior angle of the [triangle ABC], therefore it is greater than the interior and opposite [angle ABC]. Add the [angle ACB] to each. Then the sum of the angles [angle ACD text="ACD"] and [angle ACB text="ACB"] is greater than the sum of the angles [angle ABC text="ABC"] and [angle BCA text="BCA"].[step]
+But the sum of the angles [angle ACD text="ACD"] and [angle ACB text=ACB] is equal to two right angles. Therefore the sum of the angles [angle ABC text=ABC] and [angle BCA text=BCA] is less than two right angles.[step]
+Similarly we can prove that the sum of the angles [angle BAC text=BAC] and [angle ACB text=ACB] is also less than two right angles, and so the sum of the angles [angle CAB text=CAB] and [angle ABC text=ABC] as well.
+Therefore in any triangle the sum of any two angles is less than two right angles.
+
+[loc B x=-0.25 y=-0.25]
+[loc C x=0.5 y=-0.25]
+[loc A x=0.2 y=0.4]
+[loc D x=0.75 y=-0.25]

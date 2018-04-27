@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset=utf-8>
+	  <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>YouClid</title>
+		<link id="stylesheet" rel="stylesheet" href="styles/default.css">
+		<style>
+		  #lightswitch {
+		  position: absolute;
+		  right: 10px;
+		  top: 10px;
+		  font-size: 0.8em;
+		  
+		  }
+
+		  @media only screen and (max-width: 600px) {
+		  #lightswitch {
+		  position: fixed;
+		  }
+		  }
+
+		  /* The switch - the box around the slider */
+		  .switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 30px;
+		  height: 17px;
+		  }
+
+		  /* Hide default HTML checkbox */
+		  .switch input {display:none;}
+
+		  /* The slider */
+		  .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #888;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  .slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 13px;
+		  width: 13px;
+		  left: 2px;
+		  bottom: 2px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		  }
+
+		  input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		  }
+
+		  input:checked + .slider:before {
+		  -webkit-transform: translateX(13px);
+		  -ms-transform: translateX(13px);
+		  transform: translateX(13px);
+		  }
+
+		  /* Rounded sliders */
+		  .slider.round {
+		  border-radius: 17px;
+		  }
+
+		  .slider.round:before {
+		  border-radius: 50%;
+		  }
+
+		</style>
+		<script src="draw.js"></script>
+		<script src="index.js"></script>
+		<script>
+		  
+		  window.onload = init
+
+		  geometry = {
+    "text": "<div id='step_0'> <center><b>Proposition 47</b></center>\n<center>In right-angled triangles the square on the side opposite the right angle equals the sum of the squares on the sides containing the right angle.</center>\n\nLet  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> be a right-angled triangle having the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> right.</div><div id='step_1'>\nI say that the  <span name=text_polygon_polygon_BCED class='GeoElement'>square on BC</span> equals the sum of the  <span name=text_polygon_polygon_ABFG class='GeoElement'>square on AB</span>  and  <span name=text_polygon_polygon_ACKH class='GeoElement'>square on AC</span>.</div><div id='step_2'>\nDescribe the  <span name=text_polygon_polygon_BCED class='GeoElement'>square BDEC</span> on  <span name=text_line_line_BC class='GeoElement'>line BC</span>, and the  <span name=text_polygon_polygon_ABFG class='GeoElement'>square GB</span> and  <span name=text_polygon_polygon_ACKH class='GeoElement'>HC</span> on  <span name=text_line_line_BA class='GeoElement'>line BA</span> and  <span name=text_line_line_AC class='GeoElement'>line AC</span>. Draw  <span name=text_line_line_AL class='GeoElement'>line AL</span> through  <span name=text_point_point_A class='GeoElement'>point A</span> parallel to either  <span name=text_line_line_BD class='GeoElement'>line BD</span> or  <span name=text_line_line_CE class='GeoElement'>line CE</span>, and join  <span name=text_line_line_AD class='GeoElement'>AD</span> and  <span name=text_line_line_FC class='GeoElement'>FC</span>.</div><div id='step_3'>\nSince each of the angles  <span name=text_angle_angle_BAC class='GeoElement'>BAC</span> and  <span name=text_angle_angle_BAG class='GeoElement'>BAG</span> is right, it follows that with a straight  <span name=text_line_line_BA class='GeoElement'>line BA</span>, and at the  <span name=text_point_point_A class='GeoElement'>point A</span> on it, the two straight lines  <span name=text_line_line_AC class='GeoElement'>AC</span> and  <span name=text_line_line_AG class='GeoElement'>AG</span> not lying on the same side make the adjacent angles equal to two right angles, therefore  <span name=text_line_line_AC class='GeoElement'>line AC</span> is in a straight line with  <span name=text_line_line_AG class='GeoElement'>line AG</span>.</div><div id='step_4'>\nFor the same reason  <span name=text_line_line_AB class='GeoElement'>line AB</span> is also in a straight line with  <span name=text_line_line_AH class='GeoElement'>line AH</span>.</div><div id='step_5'>\nSince the  <span name=text_angle_angle_DBC class='GeoElement'>angle DBC</span> equals the  <span name=text_angle_angle_FBA class='GeoElement'>angle FBA</span>, for each is right, add the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> to each, therefore the whole  <span name=text_angle_angle_DBA class='GeoElement'>angle DBA</span> equals the whole  <span name=text_angle_angle_FBC class='GeoElement'>angle FBC</span>.</div><div id='step_6'>\nSince  <span name=text_line_line_BD class='GeoElement'>line BD</span> equals  <span name=text_line_line_BC class='GeoElement'>line BC</span>, and  <span name=text_line_line_BF class='GeoElement'>line BF</span> equals  <span name=text_line_line_AB class='GeoElement'>line AB</span>, the two sides  <span name=text_line_line_AB class='GeoElement'>AB</span> and  <span name=text_line_line_BD class='GeoElement'>BD</span> equal the two sides  <span name=text_line_line_BF class='GeoElement'>line BF</span> and  <span name=text_line_line_BC class='GeoElement'>line BC</span> respectively, and the  <span name=text_angle_angle_ABD class='GeoElement'>angle ABD</span> equals the  <span name=text_angle_angle_FBC class='GeoElement'>angle FBC</span>, therefore the  <span name=text_line_line_AD class='GeoElement'>base AD</span> equals the  <span name=text_line_line_FC class='GeoElement'>base FC</span>, and the  <span name=text_polygon_polygon_ABD class='GeoElement'>triangle ABD</span> equals the  <span name=text_polygon_polygon_BCF class='GeoElement'>triangle BCF</span>.</div><div id='step_7'>\nNow the  <span name=text_polygon_polygon_ABDL class='GeoElement'>parallelogram BL</span> is double the  <span name=text_polygon_polygon_ABD class='GeoElement'>triangle ABD</span>, for they have the same base  <span name=text_line_line_BD class='GeoElement'>line BD</span> and are in the same parallels  <span name=text_line_line_BD class='GeoElement'>line BD</span> and  <span name=text_line_line_AL class='GeoElement'>line AL</span>. And the  <span name=text_polygon_polygon_ABFG class='GeoElement'>square GB</span> is double the  <span name=text_polygon_polygon_BCF class='GeoElement'>triangle BCF</span>, for they again have the same  <span name=text_line_line_BF class='GeoElement'>base FB</span> and are in the same parallels  <span name=text_line_line_BF class='GeoElement'>line BF</span> and  <span name=text_line_line_CG class='GeoElement'>line CG</span>.</div><div id='step_8'>\nTherefore the  <span name=text_polygon_polygon_ABDL class='GeoElement'>parallelogram BL</span> also equals the  <span name=text_polygon_polygon_ABFG class='GeoElement'>square GB</span>.</div><div id='step_9'>\nSimilarly, if  <span name=text_line_line_AE class='GeoElement'>line AE</span> and  <span name=text_line_line_BK class='GeoElement'>line BK</span> are joined, the  <span name=text_polygon_polygon_ACEL class='GeoElement'>parallelogram CL</span> can also be proved equal to the  <span name=text_polygon_polygon_ACKH class='GeoElement'>square HC</span>. Therefore the whole  <span name=text_polygon_polygon_BDEC class='GeoElement'>square BDEC</span> equals the sum of the two squares  <span name=text_polygon_polygon_ABFG class='GeoElement'>GB</span> and  <span name=text_polygon_polygon_ACKH class='GeoElement'>HC</span>.</div><div id='step_10'>\nAnd the  <span name=text_polygon_polygon_BCED class='GeoElement'>square BDEC</span> is described on  <span name=text_line_line_BC class='GeoElement'>line BC</span>, and the squares  <span name=text_polygon_polygon_ABFG class='GeoElement'>GB</span> and  <span name=text_polygon_polygon_ACKH class='GeoElement'>HC</span> on  <span name=text_line_line_BA class='GeoElement'>line BA</span> and  <span name=text_line_line_AC class='GeoElement'>line AC</span>.</div><div id='step_11'>\nTherefore the square on  <span name=text_line_line_BC class='GeoElement'>line BC</span> equals the sum of the squares on  <span name=text_line_line_BA class='GeoElement'>line BA</span> and  <span name=text_line_line_AC class='GeoElement'>line AC</span>.\nTherefore in right-angled triangles the square on the side opposite the right angle equals the sum of the squares on the sides containing the right angle.\n </div>",
+    "geometry": {
+        "polygon_ABC": {
+            "type": "Polygon",
+            "id": "polygon_ABC",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ]
+            },
+            "label": "ABC"
+        },
+        "polygon_BCED": {
+            "type": "Polygon",
+            "id": "polygon_BCED",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_C",
+                    "point_E",
+                    "point_D"
+                ]
+            },
+            "label": "BCED"
+        },
+        "polygon_ABFG": {
+            "type": "Polygon",
+            "id": "polygon_ABFG",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_F",
+                    "point_G"
+                ]
+            },
+            "label": "ABFG"
+        },
+        "polygon_ACKH": {
+            "type": "Polygon",
+            "id": "polygon_ACKH",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_C",
+                    "point_K",
+                    "point_H"
+                ]
+            },
+            "label": "ACKH"
+        },
+        "polygon_ABD": {
+            "type": "Polygon",
+            "id": "polygon_ABD",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_D"
+                ]
+            },
+            "label": "ABD"
+        },
+        "polygon_BCF": {
+            "type": "Polygon",
+            "id": "polygon_BCF",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_C",
+                    "point_F"
+                ]
+            },
+            "label": "BCF"
+        },
+        "polygon_ABDL": {
+            "type": "Polygon",
+            "id": "polygon_ABDL",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_D",
+                    "point_L"
+                ]
+            },
+            "label": "ABDL"
+        },
+        "polygon_ACEL": {
+            "type": "Polygon",
+            "id": "polygon_ACEL",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_C",
+                    "point_E",
+                    "point_L"
+                ]
+            },
+            "label": "ACEL"
+        },
+        "polygon_BDEC": {
+            "type": "Polygon",
+            "id": "polygon_BDEC",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_D",
+                    "point_E",
+                    "point_C"
+                ]
+            },
+            "label": "BDEC"
+        },
+        "line_BC": {
+            "type": "Line",
+            "id": "line_BC",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_C"
+            },
+            "label": "BC"
+        },
+        "line_BA": {
+            "type": "Line",
+            "id": "line_BA",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_A"
+            },
+            "label": "BA"
+        },
+        "line_AC": {
+            "type": "Line",
+            "id": "line_AC",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_C"
+            },
+            "label": "AC"
+        },
+        "line_AL": {
+            "type": "Line",
+            "id": "line_AL",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_L"
+            },
+            "label": "AL"
+        },
+        "line_BD": {
+            "type": "Line",
+            "id": "line_BD",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_D"
+            },
+            "label": "BD"
+        },
+        "line_CE": {
+            "type": "Line",
+            "id": "line_CE",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_E"
+            },
+            "label": "CE"
+        },
+        "line_AD": {
+            "type": "Line",
+            "id": "line_AD",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_D"
+            },
+            "label": "AD"
+        },
+        "line_FC": {
+            "type": "Line",
+            "id": "line_FC",
+            "color": [
+                0.23921568627450981,
+                0.6,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "p1": "point_F",
+                "p2": "point_C"
+            },
+            "label": "FC"
+        },
+        "line_AG": {
+            "type": "Line",
+            "id": "line_AG",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_G"
+            },
+            "label": "AG"
+        },
+        "line_AB": {
+            "type": "Line",
+            "id": "line_AB",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_B"
+            },
+            "label": "AB"
+        },
+        "line_AH": {
+            "type": "Line",
+            "id": "line_AH",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_H"
+            },
+            "label": "AH"
+        },
+        "line_BF": {
+            "type": "Line",
+            "id": "line_BF",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_F"
+            },
+            "label": "BF"
+        },
+        "line_CG": {
+            "type": "Line",
+            "id": "line_CG",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "p1": "point_C",
+                "p2": "point_G"
+            },
+            "label": "CG"
+        },
+        "line_AE": {
+            "type": "Line",
+            "id": "line_AE",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "p1": "point_A",
+                "p2": "point_E"
+            },
+            "label": "AE"
+        },
+        "line_BK": {
+            "type": "Line",
+            "id": "line_BK",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "p1": "point_B",
+                "p2": "point_K"
+            },
+            "label": "BK"
+        },
+        "point_A": {
+            "type": "Point",
+            "id": "point_A",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": 0.2
+            },
+            "label": "A"
+        },
+        "point_B": {
+            "type": "Point",
+            "id": "point_B",
+            "color": [
+                0.1803921568627451,
+                0.8,
+                0.25098039215686274,
+                1.0
+            ],
+            "data": {
+                "x": -0.2,
+                "y": 0.0
+            },
+            "label": "B"
+        },
+        "point_C": {
+            "type": "Point",
+            "id": "point_C",
+            "color": [
+                0.0,
+                0.4549019607843137,
+                0.8509803921568627,
+                1.0
+            ],
+            "data": {
+                "x": 0.2,
+                "y": 0.0
+            },
+            "label": "C"
+        },
+        "point_E": {
+            "type": "Point",
+            "id": "point_E",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "x": 0.2,
+                "y": -0.4
+            },
+            "label": "E"
+        },
+        "point_D": {
+            "type": "Point",
+            "id": "point_D",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "x": -0.2,
+                "y": -0.4
+            },
+            "label": "D"
+        },
+        "point_F": {
+            "type": "Point",
+            "id": "point_F",
+            "color": [
+                0.2235294117647059,
+                0.8,
+                0.8,
+                1.0
+            ],
+            "data": {
+                "x": -0.4,
+                "y": 0.2
+            },
+            "label": "F"
+        },
+        "point_G": {
+            "type": "Point",
+            "id": "point_G",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "x": -0.2,
+                "y": 0.4
+            },
+            "label": "G"
+        },
+        "point_K": {
+            "type": "Point",
+            "id": "point_K",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "x": 0.4,
+                "y": 0.2
+            },
+            "label": "K"
+        },
+        "point_H": {
+            "type": "Point",
+            "id": "point_H",
+            "color": [
+                0.4980392156862745,
+                0.8588235294117647,
+                1.0,
+                1.0
+            ],
+            "data": {
+                "x": 0.2,
+                "y": 0.4
+            },
+            "label": "H"
+        },
+        "point_L": {
+            "type": "Point",
+            "id": "point_L",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "x": 0.0,
+                "y": -0.4
+            },
+            "label": "L"
+        },
+        "angle_BAC": {
+            "type": "Angle",
+            "id": "angle_BAC",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_A",
+                    "point_B"
+                ],
+                "degree": 90.0
+            },
+            "label": "BAC"
+        },
+        "angle_BAG": {
+            "type": "Angle",
+            "id": "angle_BAG",
+            "color": [
+                0.6666666666666666,
+                0.6666666666666666,
+                0.6666666666666666,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_B",
+                    "point_A",
+                    "point_G"
+                ],
+                "degree": 90.0
+            },
+            "label": "BAG"
+        },
+        "angle_DBC": {
+            "type": "Angle",
+            "id": "angle_DBC",
+            "color": [
+                1.0,
+                0.2549019607843137,
+                0.21176470588235294,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_C",
+                    "point_B",
+                    "point_D"
+                ],
+                "degree": 90.0
+            },
+            "label": "DBC"
+        },
+        "angle_FBA": {
+            "type": "Angle",
+            "id": "angle_FBA",
+            "color": [
+                1.0,
+                0.5215686274509804,
+                0.10588235294117647,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_F",
+                    "point_B",
+                    "point_A"
+                ],
+                "degree": 90.0
+            },
+            "label": "FBA"
+        },
+        "angle_ABC": {
+            "type": "Angle",
+            "id": "angle_ABC",
+            "color": [
+                0.6941176470588235,
+                0.050980392156862744,
+                0.788235294117647,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_C"
+                ],
+                "degree": 45.0
+            },
+            "label": "ABC"
+        },
+        "angle_DBA": {
+            "type": "Angle",
+            "id": "angle_DBA",
+            "color": [
+                0.00392156862745098,
+                1.0,
+                0.4392156862745098,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_D"
+                ],
+                "degree": 135.0
+            },
+            "label": "DBA"
+        },
+        "angle_FBC": {
+            "type": "Angle",
+            "id": "angle_FBC",
+            "color": [
+                0.5215686274509804,
+                0.0784313725490196,
+                0.29411764705882354,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_F",
+                    "point_B",
+                    "point_C"
+                ],
+                "degree": 135.0
+            },
+            "label": "FBC"
+        },
+        "angle_ABD": {
+            "type": "Angle",
+            "id": "angle_ABD",
+            "color": [
+                0.9411764705882353,
+                0.07058823529411765,
+                0.7450980392156863,
+                1.0
+            ],
+            "data": {
+                "points": [
+                    "point_A",
+                    "point_B",
+                    "point_D"
+                ],
+                "degree": 135.0
+            },
+            "label": "ABD"
+        }
+    },
+    "animations": [
+        [
+            "polygon_ABC",
+            "angle_BAC",
+            "point_C",
+            "point_A",
+            "point_B"
+        ],
+        [
+            "point_E",
+            "polygon_ABC",
+            "angle_BAC",
+            "point_C",
+            "point_A",
+            "point_D",
+            "polygon_ACKH",
+            "point_F",
+            "point_K",
+            "polygon_BCED",
+            "point_B",
+            "point_G",
+            "polygon_ABFG",
+            "point_H"
+        ],
+        [
+            "point_G",
+            "line_BC",
+            "point_H",
+            "point_C",
+            "line_BA",
+            "point_A",
+            "point_F",
+            "line_AL",
+            "line_FC",
+            "polygon_ABFG",
+            "polygon_ABC",
+            "angle_BAC",
+            "line_AC",
+            "point_L",
+            "point_B",
+            "point_E",
+            "line_CE",
+            "point_D",
+            "polygon_ACKH",
+            "point_K",
+            "polygon_BCED",
+            "line_BD",
+            "line_AD"
+        ],
+        [
+            "point_G",
+            "angle_BAG",
+            "line_BC",
+            "point_H",
+            "point_C",
+            "line_BA",
+            "point_A",
+            "point_F",
+            "line_AL",
+            "line_FC",
+            "polygon_ABFG",
+            "polygon_ABC",
+            "angle_BAC",
+            "line_AC",
+            "point_L",
+            "point_B",
+            "point_E",
+            "line_AG",
+            "line_CE",
+            "point_D",
+            "polygon_ACKH",
+            "point_K",
+            "polygon_BCED",
+            "line_BD",
+            "line_AD"
+        ],
+        [
+            "point_G",
+            "angle_BAG",
+            "line_BC",
+            "point_H",
+            "point_C",
+            "line_BA",
+            "point_A",
+            "line_AB",
+            "point_F",
+            "line_AL",
+            "line_FC",
+            "polygon_ABFG",
+            "polygon_ABC",
+            "angle_BAC",
+            "line_AC",
+            "point_L",
+            "point_B",
+            "point_E",
+            "line_AH",
+            "line_AG",
+            "line_CE",
+            "point_D",
+            "polygon_ACKH",
+            "point_K",
+            "polygon_BCED",
+            "line_BD",
+            "line_AD"
+        ],
+        [
+            "angle_DBC",
+            "point_G",
+            "angle_BAG",
+            "line_BC",
+            "point_H",
+            "angle_FBA",
+            "point_C",
+            "line_BA",
+            "point_A",
+            "line_AB",
+            "angle_ABC",
+            "point_F",
+            "line_AL",
+            "line_FC",
+            "polygon_ABFG",
+            "polygon_ABC",
+            "angle_BAC",
+            "angle_FBC",
+            "line_AC",
+            "point_L",
+            "angle_DBA",
+            "point_B",
+            "point_E",
+            "line_AH",
+            "line_AG",
+            "line_CE",
+            "point_D",
+            "polygon_ACKH",
+            "point_K",
+            "polygon_BCED",
+            "line_BD",
+            "line_AD"
+        ],
+        [
+            "angle_DBC",
+            "point_G",
+            "angle_BAG",
+            "line_BC",
+            "point_H",
+            "angle_FBA",
+            "point_C",
+            "line_BA",
+            "point_A",
+            "line_AB",
+            "angle_ABC",
+            "point_F",
+            "line_AL",
+            "line_FC",
+            "polygon_ABD",
+            "polygon_ABFG",
+            "polygon_ABC",
+            "angle_BAC",
+            "angle_FBC",
+            "line_AC",
+            "point_L",
+            "angle_DBA",
+            "point_B",
+            "line_BF",
+            "polygon_BCF",
+            "point_E",
+            "line_AH",
+            "line_AG",
+            "line_CE",
+            "point_D",
+            "polygon_ACKH",
+            "point_K",
+            "polygon_BCED",
+            "angle_ABD",
+            "line_BD",
+            "line_AD"
+        ],
+        [
+            "line_CG",
+            "polygon_ABDL",
+            "point_C",
+            "point_A",
+            "point_D",
+            "point_L",
+            "point_F",
+            "line_AL",
+            "point_B",
+            "polygon_ABD",
+            "point_G",
+            "polygon_BCF",
+            "polygon_ABFG",
+            "line_BD",
+            "line_BF"
+        ],
+        [
+            "polygon_ABDL",
+            "point_A",
+            "point_D",
+            "point_L",
+            "point_F",
+            "point_B",
+            "point_G",
+            "polygon_ABFG"
+        ],
+        [
+            "point_E",
+            "polygon_ACEL",
+            "line_AE",
+            "point_C",
+            "point_A",
+            "polygon_ACKH",
+            "point_D",
+            "line_BK",
+            "point_K",
+            "point_L",
+            "point_F",
+            "point_B",
+            "point_G",
+            "polygon_BDEC",
+            "polygon_ABFG",
+            "point_H"
+        ],
+        [
+            "point_E",
+            "point_C",
+            "line_BA",
+            "point_D",
+            "point_A",
+            "polygon_ACKH",
+            "line_AC",
+            "point_F",
+            "point_K",
+            "polygon_BCED",
+            "point_B",
+            "point_G",
+            "polygon_ABFG",
+            "line_BC",
+            "point_H"
+        ],
+        [
+            "point_C",
+            "line_BA",
+            "point_A",
+            "line_AC",
+            "point_B",
+            "line_BC"
+        ]
+    ]
+}
+
+		</script>
+	</head>
+	<body>
+	  <div id="text">
+	    <div id='step_0'> <center><b>Proposition 47</b></center><br>
+        <center>In right-angled triangles the square on the side opposite the right angle equals the sum of the squares on the sides containing the right angle.</center><br>
+        <br>
+        Let  <span name=text_polygon_polygon_ABC class='GeoElement'>triangle ABC</span> be a right-angled triangle having the  <span name=text_angle_angle_BAC class='GeoElement'>angle BAC</span> right.</div><div id='step_1'><br>
+        I say that the  <span name=text_polygon_polygon_BCED class='GeoElement'>square on BC</span> equals the sum of the  <span name=text_polygon_polygon_ABFG class='GeoElement'>square on AB</span>  and  <span name=text_polygon_polygon_ACKH class='GeoElement'>square on AC</span>.</div><div id='step_2'><br>
+        Describe the  <span name=text_polygon_polygon_BCED class='GeoElement'>square BDEC</span> on  <span name=text_line_line_BC class='GeoElement'>line BC</span>, and the  <span name=text_polygon_polygon_ABFG class='GeoElement'>square GB</span> and  <span name=text_polygon_polygon_ACKH class='GeoElement'>HC</span> on  <span name=text_line_line_BA class='GeoElement'>line BA</span> and  <span name=text_line_line_AC class='GeoElement'>line AC</span>. Draw  <span name=text_line_line_AL class='GeoElement'>line AL</span> through  <span name=text_point_point_A class='GeoElement'>point A</span> parallel to either  <span name=text_line_line_BD class='GeoElement'>line BD</span> or  <span name=text_line_line_CE class='GeoElement'>line CE</span>, and join  <span name=text_line_line_AD class='GeoElement'>AD</span> and  <span name=text_line_line_FC class='GeoElement'>FC</span>.</div><div id='step_3'><br>
+        Since each of the angles  <span name=text_angle_angle_BAC class='GeoElement'>BAC</span> and  <span name=text_angle_angle_BAG class='GeoElement'>BAG</span> is right, it follows that with a straight  <span name=text_line_line_BA class='GeoElement'>line BA</span>, and at the  <span name=text_point_point_A class='GeoElement'>point A</span> on it, the two straight lines  <span name=text_line_line_AC class='GeoElement'>AC</span> and  <span name=text_line_line_AG class='GeoElement'>AG</span> not lying on the same side make the adjacent angles equal to two right angles, therefore  <span name=text_line_line_AC class='GeoElement'>line AC</span> is in a straight line with  <span name=text_line_line_AG class='GeoElement'>line AG</span>.</div><div id='step_4'><br>
+        For the same reason  <span name=text_line_line_AB class='GeoElement'>line AB</span> is also in a straight line with  <span name=text_line_line_AH class='GeoElement'>line AH</span>.</div><div id='step_5'><br>
+        Since the  <span name=text_angle_angle_DBC class='GeoElement'>angle DBC</span> equals the  <span name=text_angle_angle_FBA class='GeoElement'>angle FBA</span>, for each is right, add the  <span name=text_angle_angle_ABC class='GeoElement'>angle ABC</span> to each, therefore the whole  <span name=text_angle_angle_DBA class='GeoElement'>angle DBA</span> equals the whole  <span name=text_angle_angle_FBC class='GeoElement'>angle FBC</span>.</div><div id='step_6'><br>
+        Since  <span name=text_line_line_BD class='GeoElement'>line BD</span> equals  <span name=text_line_line_BC class='GeoElement'>line BC</span>, and  <span name=text_line_line_BF class='GeoElement'>line BF</span> equals  <span name=text_line_line_AB class='GeoElement'>line AB</span>, the two sides  <span name=text_line_line_AB class='GeoElement'>AB</span> and  <span name=text_line_line_BD class='GeoElement'>BD</span> equal the two sides  <span name=text_line_line_BF class='GeoElement'>line BF</span> and  <span name=text_line_line_BC class='GeoElement'>line BC</span> respectively, and the  <span name=text_angle_angle_ABD class='GeoElement'>angle ABD</span> equals the  <span name=text_angle_angle_FBC class='GeoElement'>angle FBC</span>, therefore the  <span name=text_line_line_AD class='GeoElement'>base AD</span> equals the  <span name=text_line_line_FC class='GeoElement'>base FC</span>, and the  <span name=text_polygon_polygon_ABD class='GeoElement'>triangle ABD</span> equals the  <span name=text_polygon_polygon_BCF class='GeoElement'>triangle BCF</span>.</div><div id='step_7'><br>
+        Now the  <span name=text_polygon_polygon_ABDL class='GeoElement'>parallelogram BL</span> is double the  <span name=text_polygon_polygon_ABD class='GeoElement'>triangle ABD</span>, for they have the same base  <span name=text_line_line_BD class='GeoElement'>line BD</span> and are in the same parallels  <span name=text_line_line_BD class='GeoElement'>line BD</span> and  <span name=text_line_line_AL class='GeoElement'>line AL</span>. And the  <span name=text_polygon_polygon_ABFG class='GeoElement'>square GB</span> is double the  <span name=text_polygon_polygon_BCF class='GeoElement'>triangle BCF</span>, for they again have the same  <span name=text_line_line_BF class='GeoElement'>base FB</span> and are in the same parallels  <span name=text_line_line_BF class='GeoElement'>line BF</span> and  <span name=text_line_line_CG class='GeoElement'>line CG</span>.</div><div id='step_8'><br>
+        Therefore the  <span name=text_polygon_polygon_ABDL class='GeoElement'>parallelogram BL</span> also equals the  <span name=text_polygon_polygon_ABFG class='GeoElement'>square GB</span>.</div><div id='step_9'><br>
+        Similarly, if  <span name=text_line_line_AE class='GeoElement'>line AE</span> and  <span name=text_line_line_BK class='GeoElement'>line BK</span> are joined, the  <span name=text_polygon_polygon_ACEL class='GeoElement'>parallelogram CL</span> can also be proved equal to the  <span name=text_polygon_polygon_ACKH class='GeoElement'>square HC</span>. Therefore the whole  <span name=text_polygon_polygon_BDEC class='GeoElement'>square BDEC</span> equals the sum of the two squares  <span name=text_polygon_polygon_ABFG class='GeoElement'>GB</span> and  <span name=text_polygon_polygon_ACKH class='GeoElement'>HC</span>.</div><div id='step_10'><br>
+        And the  <span name=text_polygon_polygon_BCED class='GeoElement'>square BDEC</span> is described on  <span name=text_line_line_BC class='GeoElement'>line BC</span>, and the squares  <span name=text_polygon_polygon_ABFG class='GeoElement'>GB</span> and  <span name=text_polygon_polygon_ACKH class='GeoElement'>HC</span> on  <span name=text_line_line_BA class='GeoElement'>line BA</span> and  <span name=text_line_line_AC class='GeoElement'>line AC</span>.</div><div id='step_11'><br>
+        Therefore the square on  <span name=text_line_line_BC class='GeoElement'>line BC</span> equals the sum of the squares on  <span name=text_line_line_BA class='GeoElement'>line BA</span> and  <span name=text_line_line_AC class='GeoElement'>line AC</span>.<br>
+        Therefore in right-angled triangles the square on the side opposite the right angle equals the sum of the squares on the sides containing the right angle.<br>
+         </div>
+	  </div>
+	  <div id="lightswitch">
+	    Dark
+	    <label class="switch">
+	      <input id="themeswitch" type="checkbox">
+	      <span class="slider"></span>
+	    </label>
+	    Light
+	  </div>
+	</body>
+</html>

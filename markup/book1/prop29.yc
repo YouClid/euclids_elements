@@ -1,0 +1,25 @@
+<center><b>Book 1 - Proposition 29</b></center>
+<center>A straight line falling on parallel straight lines makes the alternate angles equal to one another, the exterior angle equal to the interior and opposite angle, and the sum of the interior angles on the same side equal to two right angles.</center>
+
+Let the straight [line EF] fall on the parallel straight lines [line AB text=AB] and [line CD text=CD].
+I say that it makes the alternate angles [angle AGH text=AGH] and [angle GHD text=GHD] equal, the exterior [angle EGB] equal to the interior and opposite [angle GHD], and the sum of the interior angles on the same side, namely [angle BGH] and [angle GHD], equal to two right angles.[step]
+If the [angle AGH] does not equal the [angle GHD], then one of them is greater. Let the [angle AGH] be greater.[step]
+Add the [angle BGH] to each. Therefore the sum of the angles [angle AGH] and [angle BGH] is greater than the sum of the angles [angle BGH] and [angle GHD].[step]
+But sum of the angles [angle AGH text=AGH] and [angle BGH text=BGH] equals two right angles. Therefore the sum of the angles [angle BGH text=BGH] and [angle GHD text=GHD] is less than two right angles.[step]
+But straight lines produced indefinitely from angles less than two right angles meet. Therefore [line AB] and [line CD], if produced indefinitely, will meet. But they do not meet, because they are by hypothesis parallel.[step]
+Therefore the [angle AGH] is not unequal to the [angle GHD], and therefore equals it.[step]
+Again, the [angle AGH] equals the [angle EGB]. Therefore the [angle EGB] also equals the [angle GHD].[step]
+Add the [angle BGH] to each. Therefore the sum of the angles [angle EGB text=EGB] and [angle BGH text=BGH] equals the sum of the angles [angle BGH text=BGH] and [angle GHD text=GHD].[step]
+But the sum of the angles [angle EGB text=EGB] and [angle BGH text=BGH] equals two right angles. Therefore the sum of the angles [angle BGH text=BGH] and [angle GHD text=GHD] also equals two right angles.
+Therefore a straight line falling on parallel straight lines makes the alternate angles equal to one another, the exterior angle equal to the interior and opposite angle, and the sum of the interior angles on the same side equal to two right angles.
+
+[loc A x=-0.6 y=0.7]
+[loc B x=0.7 y=0.7]
+[loc C x=-0.6 y=0]
+[loc D x=0.7 y=0]
+[loc E x=-0.2 y=0.9]
+[loc F x=0.3 y=-0.2]
+[point G lieson=EF hidden]
+[point G lieson=AB hidden]
+[point H lieson=EF hidden]
+[point H lieson=CD hidden]

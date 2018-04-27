@@ -1,0 +1,20 @@
+<center><b>Proposition 27</b></center>
+<center>If a straight line falling on two straight lines makes the alternate angles equal to one another, then the straight lines are parallel to one another.</center>
+
+Let the straight [line EF] falling on the two straight lines [line AB] and [line CD] make the alternate angles [angle AEF] and [angle EFD] equal to one another.
+I say that [line AB] is parallel to [line CD].[step]
+If not, [line AB] and [line CD] when produced meet either in the direction of [point B] and [point D] or towards [point A] and [point C].
+Let them be produced and meet, in the direction of [point B] and [point D], at [point G].[step]
+Then, in the [triangle GEF], the exterior [angle AEF] equals the interior and opposite [angle EFG], which is impossible.
+Therefore [line AB] and [line CD] when produced do not meet in the direction of [point B] and [point D].
+Similarly it can be proved that neither do they meet towards [point A] and [point C].[step][clear]
+But straight lines which do not meet in either direction are parallel. Therefore [line AB] is parallel to [line CD].
+Therefore if a straight line falling on two straight lines makes the alternate angles equal to one another, then the straight lines are parallel to one another.
+
+[loc A x=-0.4 y=0.4]
+[loc B x=0.2 y=0.4]
+[loc C x=-0.4 y=0]
+[loc D x=0.2 y=0]
+[point E lieson=AB hidden]
+[point F lieson=CD hidden]
+[loc G x=0.7 y=0.2 hidden]

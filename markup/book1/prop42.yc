@@ -1,0 +1,21 @@
+<center><b>Proposition 42</b></center>
+<center>To construct a parallelogram equal to a given triangle in a given rectilinear angle.</center>
+
+Let [triangle ABC] be the given triangle, and [angle YDZ] the given rectilinear angle.[step]
+Bisect [line BC] at [point E], and join [line AE]. Construct the [angle CEF] on the straight [line CE] at the [point E] on it equal to the [angle YDZ]. Draw [line AG] through [point A] parallel to [line CE], and draw [line CG] through [point C] parallel to [line EF].
+Then [polygon FECG] is a parallelogram.[step]
+Since [line BE] equals [line CE], therefore the [triangle ABE] also equals the [triangle ACE], for they are on equal bases [line BE] and [line CE] and in the same parallels [line BC] and [line AG]. Therefore the [triangle ABC] is double the [triangle ACE].[step]
+But the [polygon FECG text="parallelogram FECG"] is also double the [triangle ACE], for it has the same base with it and is in the same parallels with it, therefore the [polygon FECG text="parallelogram FECG"] equals the [triangle ABC].
+And it has the [angle CEF] equal to the given [angle YDZ].[step][clear]
+Therefore the [polygon FECG text="parallelogram FECG"] has been constructed equal to the given [triangle ABC], in the [angle CEF] which equals [angle YDZ].
+
+[loc A x=-0.2 y=0.4]
+[loc B x=-0.3 y=0]
+[loc C x=0.3 y=0]
+[loc G x=0.4 y=0.4]
+[loc F x=0.1 y=0.4]
+[loc E x=0 y=0]
+
+[loc Y x=-0.8 y=0.9]
+[loc D x=-0.9 y=0.5]
+[loc Z x=-0.6 y=0.5]
